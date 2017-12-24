@@ -1,0 +1,112 @@
+
+<link rel="stylesheet" type="text/css" href="__PCCSS__rebate.css" />
+</head>
+<body>
+<include file="Public:top"/>
+<div class="bg_h">
+    <div class="ededed">
+
+
+        <!-- 右边 -->
+        <div class="ededed_r">
+            <form action="" id="js-form">
+
+
+                <div class="gps1"><a href="">我的余额</a><i></i>申请提现</div>
+                <!-- 申请提现 -->
+                <div class="withdraw_top">
+                    <ul class="gps js-gps">
+                        <li class="li1">
+                            <p>1</p>
+                            <p class="p2">1.输入提现金额</p>
+                        </li>
+                        <li class="li2">
+                            <p>2</p>
+                            <p class="p2">2.输入支付密码</p>
+                        </li>
+                        <li class="li3">
+                            <p>3</p>
+                            <p class="p2">3.申请提现已提交</p>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <!-- 第一步 -->
+                <div class="withdraw_con1">
+                    <p>可提现提现金额{$user['user_money']+$user['frozen_money']|sprintf='%.2f',###}元</p>
+                    <p>请输入提现金额<input type="text" name="money" class="js-number" />元</p>
+                    <div class="but">
+                        <!--<a href="javascript:;">取消</a>-->
+                        <a href="javascript:;" class="a2 js-ok1">确认</a>
+                    </div>
+                </div>
+
+                <!-- 第二步 -->
+                <div class="withdraw_con2" style="display:none;">
+                    <div class="password">
+                        <span>请输入支付密码</span>
+                        <div class="input"><input name="payment_password" type="password" maxlength="6" /></div>
+                        <div class="but">
+                            <a href="javascript:;" class="js-back-step1">取消</a>
+                            <a href="javascript:;" class="a2  js-ok2">确认</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第三步 -->
+                <div class="withdraw_con3" style="display:none;"></div>
+                <input type="hidden" name="action" value="withdraw">
+            </form>
+        </div>
+
+
+        <script type="text/javascript">
+
+            $('.js-back-step1').on('click',function(){
+                $('.js-gps').removeClass('ul1 ul2 ul3').addClass('ul1');
+                $('.withdraw_con2,.withdraw_con3').hide();
+                $('.withdraw_con1').show();
+                $('.js-number').focus();
+            });
+            $('.js-ok1').on('click', function() {
+                var amount = $('.js-number').val();
+                var reg =/^[0-9]*(\.[0-9]{1,2})?$/;
+                if(!reg.test(amount) || parseFloat(amount)<=0){
+                    alert('请输入正确的金额');
+                    return;
+                }
+                if(parseFloat(amount)>99999999.99 ){
+                    alert('单笔交易不能大于1亿');
+                    return;
+                }
+
+                $('.js-gps').removeClass('ul1 ul2 ul3').addClass('ul2');
+                $('.withdraw_con1,.withdraw_con3').hide();
+                $('.withdraw_con2').show();
+                $('input[type=password]').focus();
+            });
+
+            $('.js-ok2').on('click', function() {
+                $('.js-gps').removeClass('ul1 ul2 ul3').addClass('ul3');
+                $('.withdraw_con1,.withdraw_con2').hide();
+                $('.withdraw_con3').show();
+                $.post('',Core.InputObj('#js-form'),function(ret){
+                    if(ret.state){
+                        $('.withdraw_con3').html('申请提现已提交！');
+                    }else{
+                        $('.withdraw_con3').html(ret.message);
+                    }
+                },'json');
+            });
+            if ((navigator.userAgent.indexOf('MSIE') >= 0) || (navigator.userAgent.indexOf("rv:11") > -1)  ){
+                document.getElementById("password").className="ie";
+            };
+        </script>
+
+
+        <!-- 左边 -->
+        <include file="User:accountLeft"/>
+
+    </div>
+</div>

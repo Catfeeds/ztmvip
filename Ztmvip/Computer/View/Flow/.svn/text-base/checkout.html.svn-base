@@ -1,0 +1,260 @@
+    <link rel="stylesheet" type="text/css" href="__PCCSS__/shopping.css" />
+    <script type="text/javascript" src="__PCJS__/shan_checkout.js"></script>
+
+  </head>
+  <body>
+  <include file="Public/top"/>
+<div class="bg_h">
+    <div class="shopping_submit_gps">
+        <ul>
+            <li class="li1">
+                 <p class="p1">1</p>
+                 <p class="p2">1.我的购物车</p>
+            </li>
+            <li class="li2">
+                 <p class="p1">2</p>
+                 <p class="p2">2.填写核对订单信息</p>
+            </li>
+            <li class="li3">
+                <p class="p1">3</p>
+                <p class="p2">3.成功提交订单</p>
+            </li>
+        </ul>
+        <p class="title">填写并核对订单信息</p>
+    </div>
+    <div class="shopping_submit">
+      <div id="shan_address_list">
+          <include file="Public/address_list" />
+      </div>
+
+<!--  
+
+        <script type="text/javascript">
+        $('.gengduo_block').on('click',function(){
+            if ($(this).hasClass('gengduo_block1')) {
+                $(this).removeClass('gengduo_block1').text('更多地址');
+                $('.address').hide();
+            }else{
+                $(this).addClass('gengduo_block1').text('收起地址');
+                $('.address').show();
+            }
+        });
+        $('.address .li3').on('click', function() {
+            $(this).parent('.address').siblings('.address').removeClass('default').show();
+            $(this).parent('.address').addClass('default');
+            return true;
+        });
+        $('.address .li1').on('click', function() {
+            $(this).parent('.address').siblings('.address').removeClass('cur').show();
+            $(this).parent('.address').addClass('cur');
+        });
+        </script> -->
+        <div class="hr"></div>
+        <p class="p_top">支付方式</p>
+        <ul class="way">
+            <li>在线支付</li>
+        </ul>
+        <div class="hr"></div>
+        <eq name="quick" value="N">
+        <p class="p_top">配送方式<a href="{:U('Cart/cart')}">返回修改购物车</a></p>
+        <else/>
+          <p class="p_top">配送方式<a href="{:U('Goods/detail',array('goods_id'=>$goods_id))}">返回重新选购</a></p>
+        </eq>
+        <div class="container">
+            <ul class="left">
+                <li>快递运输</li>
+            </ul>
+            <ul class="right">
+            <volist name="goods_list" id="value">
+             <eq name="value.selected" value="Y">
+                <li>
+                    <div class="img"><img src="__ROOT__{$value.goods_thumb}_250x250.jpg" alt="" /></div>
+                    <dl>
+                        <dd class="dd1">{$value.goods_name}</dd>
+                        <dd class="dd2">￥{$value.goods_price}</dd>
+                        <dd class="dd3">x{$value.goods_number}</dd>
+                      <volist name="value.goods_attr" id="attr">
+                        <dt>
+                             {$attr[0]}:{$attr[1]} &nbsp;&nbsp;&nbsp;
+                         </dt>
+                      </volist>
+                    </dl>
+                </li>
+              </eq>
+            </volist>
+
+            </ul>
+        </div>
+        <div class="hr"></div>
+
+    <!-- ================================================================================= -->
+        <p class="p_top">优惠方式</p>
+
+        <div class="radio" >
+            <p onclick="choose_coupon(this)">使用优惠券<span id="shan_coupon_money"><gt name="order.coupon_id" value="0">(￥{$order.coupon_money})</gt></span></p>
+            <ul class="js-bc">
+             <volist name="coupon_list" id="value">
+                <label for="youhui1">
+                    <li class='li1 <eq name="value.coupon_id" value="$order.coupon_id">click</eq>' onClick="change_coupon(this,{$value.coupon_id},'{$quick}');">
+                      <p>{$value.coupon_name}<span>（满{$value.min_order_amount|intval}元可用）</span></p>
+                    </li>
+                </label>
+             </volist>
+            </ul>
+        </div>
+
+        <script type="text/javascript">
+             function choose_coupon(This){
+
+                var coupon_exist={$coupon_exist|default=0};
+                if(coupon_exist==1) {
+                       $(This).next('ul').slideToggle();
+                }else{
+                    alert('当前额度下没有可用的优惠券');
+                }
+                     
+
+             }
+        </script>
+
+        <div class="radio">
+            <p onclick="choose_bonus(this)">使用红包<span id='shan_bonus_money'> <gt name="order.bonus_id" value="0">(￥{$order.bonus_money})</gt></span></p>
+            <ul class="js-bc">
+              <volist name="bonus_list" id="value"  >
+                <label for="hongbao1">
+                   <li class="li1 <eq name="value.bonus_id" value="$order.bonus_id">click</eq>" onClick="change_bonus(this,{$value.bonus_id},'{$quick}');"><p>{$value.bonus_name}<span>（满{$value.min_order_amount|intval}元可用）</span></p></li>
+                </label>
+              </volist>
+            </ul>
+        </div>
+    <script type="text/javascript">
+         function choose_bonus(This){
+
+            var bonus_exist={$bonus_exist|default=0};
+            if(bonus_exist==1) {
+                   $(This).next('ul').slideToggle();
+            }else{
+                alert('当前额度下没有可用的红包');
+            }
+                 
+
+         }
+    </script>
+
+        <div class="radio">
+            <p onclick="choose_integral(this)">使用积分<span id='shan_integral'><gt name="order.integral" value="0">(￥{$order.integral})</gt></span></p>
+            <ul class="jifen">
+                <li>可用积分：{$your_integral}</li>
+                <li>本订单最多可以使用积分：{$allow_integral}</li>
+                <li>请输入使用的积分：<input id="shan_integral_input" onChange="change_integral(this,'{$quick}')" type="text" <gt name="order.integral" value="0">
+                value='{$order.integral}' <else/> value=''</gt> class="js-jifen" /></li>
+                <!-- <button type="button">使用</button> -->
+            </ul>
+        </div>
+
+        <script type="text/javascript">
+             function choose_integral(This){
+
+                var integral_exist={$your_integral|default=0};
+                if(integral_exist>0) {
+                       $(This).next('ul').slideToggle();
+                }else{
+                    alert('您没有可用的商城积分');
+                }
+                     
+
+             }
+        </script>
+    </div>
+<!-- ==================================================================================================================== -->
+
+    <ul class="shopping_zong" id="shan_order_total">
+      <include file="Public/order_total"/>
+    </ul>
+
+<notempty  name="consignee">
+    <ul class="dizhi" id="shan_choose_address">
+         <include file="Public/choose_address" />
+    </ul>
+</notempty>
+    <div class="pos_r">
+        <div id="pos">
+            <div class="heji">
+                应付总额：<span >¥<span id="shan_total_amount">{$total.amount}</span></span><button onclick="go_make_order('{$quick}');" type="button">提交订单</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+
+
+
+
+
+//     $('.radio > p').on('click', function() {
+//         $(this).toggleClass('click');
+       
+//     });
+//     $('.radio ul label').on('click', function() {
+//         $(this).find('li').toggleClass('click');
+//         $(this).siblings().find('li').removeClass('click');
+//     });
+//     $('.js-jifen').on('blur',function() {
+//     var val=$(this).val();
+//     if(!/^[0-9]*$/.test(val) ||val<=0){
+//         $(this).val(0);
+//     }
+// });
+
+
+$(window).on('scroll',function(){
+ var h_top= $('.pos_r').offset().top-$(window).height()+62;
+ var win_top=$(window).scrollTop();
+ if(win_top>h_top || win_top<185){
+    $('#pos').removeClass("pos");
+ }else{
+    $('#pos').addClass('pos');
+ }
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!--===================== 弹窗 =============================-->
+
+<div class="shopping_alert js-false" id="shan_address">
+     
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

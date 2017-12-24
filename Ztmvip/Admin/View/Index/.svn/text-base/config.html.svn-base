@@ -1,0 +1,39 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">网站标题</td>
+            <td><input name="title" class="text" type="text" value="{$edit['TITLE']}" required="required" placeholder="请输入网站标题..."></td>
+        </tr>
+        <tr>
+            <td class="label">网站名称</td>
+            <td><input name="name" class="text" type="text" value="{$edit['NAME']}" required="required" placeholder="请输入网站名称..."></td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td><button type="submit" class="submit">提 交</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+    $('.js-edit').on('submit',function(event){
+        var data = Core.InputObj(this);
+
+        $.post('',data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+</script>

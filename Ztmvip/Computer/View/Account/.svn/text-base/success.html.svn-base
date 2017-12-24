@@ -1,0 +1,17 @@
+
+    <link rel="stylesheet" type="text/css" href="__PCCSS__user.css" />
+</head>
+<body>
+<include file="Public:top"/>
+
+<div class="user_bg">
+    <div class="success">
+        <h1><div class="img"><img src="__PCIMG__success_03.jpg" alt="" /></div>支付成功！</h1>
+        <ul>
+            <li>您的支付方式：{$order.payment}</li>
+            <li>您的订单号：{$order.account_sn}</li>
+            <li>您的支付金额：¥{$order.amount|default=0.00}</li>
+        </ul>
+        <p><a href="{:U('Account/dptLog')}">查看充值记录</a><a href="{:U('Account/deposit')}" class="a2">继续充值</a></p>
+    </div>
+</div>

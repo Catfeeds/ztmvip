@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/index_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="css/index_pad.css" media="(min-width:750px)">
+<link rel="stylesheet" type="text/css" href="Css/swiper.css" />
+<script type="text/javascript" src="Js/jquery.js"></script>
+<script type="text/javascript" src="Js/swiper.jquery.min.js"></script>
+</head>
+<body>
+<!-- 其他 -->
+<div class="returntop top"><img src="Images/top.png" alt="" /></div>
+<script>
+    $(window).on('scroll',function(e){
+        var winST = $(window).scrollTop()
+        if(winST>100){
+            $('.top').fadeIn(400);
+            $(".search_box").fadeIn(400)
+        }else{
+            $('.top').fadeOut(400);
+            $('.search_box').fadeOut(400)
+        }
+    })
+    $('.top').on('click',function(e) {            
+        $('html,body').animate({scrollTop:0},500)
+    });
+</script>
+<!-- 搜索框开始 -->
+<div class="search_box">
+    <input type="text" name="search" class="search" required="required" placeholder="搜索商品和品牌" />
+    <button class="search_button"><img src="Images/seach_bt.gif" alt="" /></button>
+</div>
+<!-- 搜索框结束 -->
+<!-- 焦点图开始 -->
+<div class="swiper-container" id="swiper1">
+    <div class="jiazaizhong">加载中．．．</div>
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="Images/banner.jpg" height="414" width="750" alt="" /></div>
+        <div class="swiper-slide"><img src="Images/banner.jpg" height="414" width="750" alt="" /></div>
+        <div class="swiper-slide"><img src="Images/banner.jpg" height="414" width="750" alt="" /></div>
+        <div class="swiper-slide"><img src="Images/banner.jpg" height="414" width="750" alt="" /></div>
+        <div class="swiper-slide"><img src="Images/banner.jpg" height="414" width="750" alt="" /></div>
+    </div>
+    <div class="swiper-pagination" id="swipwe_pag1"></div>
+</div>
+<script>
+var swiper = new Swiper('#swiper1', {
+    pagination: '#swipwe_pag1',
+    slidesPerView: 1,
+    paginationClickable: true,
+    spaceBetween: 0,
+    autoplay: 2500,
+    autoplayDisableOnInteraction: false,
+    loop: true
+});
+</script>
+<!-- 焦点图结束 -->
+<!-- 分类开始 -->
+<div class="classify_box">
+    <div class="classify">
+        <div class="classify_in"><img src="Images/classify01.gif" alt="" /></div>
+        <div class="classify_text">秒杀专区</div>
+    </div>
+    <div class="classify">
+        <div class="classify_in"><img src="Images/classify02.gif" alt="" /></div>
+        <div class="classify_text">新品首发</div>
+    </div>
+    <div class="classify">
+        <div class="classify_in"><img src="Images/classify03.gif" alt="" /></div>
+        <div class="classify_text">特卖专区</div>
+    </div>
+    <div class="classify">
+        <div class="classify_in"><img src="Images/classify04.gif" alt="" /></div>
+        <div class="classify_text">贵宾尊享</div>
+    </div>
+</div>
+<!-- 分类结束 -->
+<!-- 倒数计时开始 -->
+<div class="colockbox" id="demo02">
+    <span class="num hour">00</span>
+    <span class="symbol">：</span>
+    <span class="num minute">00</span>
+    <span class="symbol">：</span>
+    <span class="num second">00</span>
+</div>
+<script type="text/javascript">
+$(function(){
+    // countDown("2015/10/13 23:59:59","#demo01 .day","#demo01 .hour","#demo01 .minute","#demo01 .second");
+    countDown("2015/10/20 11:02:00",null,"#demo02 .hour","#demo02 .minute","#demo02 .second");
+});
+
+    function countDown(time,day_elem,hour_elem,minute_elem,second_elem){
+        //if(typeof end_time == "string")
+        var end_time = new Date(time).getTime(),//月份是实际月份-1
+        //current_time = new Date().getTime(),
+                sys_second = (end_time-new Date().getTime())/1000;
+        var timer = setInterval(function(){
+            if (sys_second > 1) {
+                sys_second -= 1;
+                var day = Math.floor((sys_second / 3600) / 24);
+                var hour = Math.floor((sys_second / 3600) % 24);
+                var minute = Math.floor((sys_second / 60) % 60);
+                var second = Math.floor(sys_second % 60);
+                day_elem && $(day_elem).text(day);//计算天
+                $(hour_elem).text(hour<10?"0"+hour:hour);//计算小时
+                $(minute_elem).text(minute<10?"0"+minute:minute);//计算分
+                $(second_elem).text(second<10?"0"+second:second);// 计算秒
+            } else {
+                clearInterval(timer);
+                $(hour_elem).text("00");
+                $(minute_elem).text("00");
+                $(second_elem).text("00");
+            }
+        }, 1000);
+    }
+</script>
+<!-- 倒数计时结束 -->
+<!-- 秒杀产品开始 -->
+<div class="seckill_box">
+    <div class="seckill_in">
+        <div class="seckill"><img src="Images/seckill01.gif" alt="" /></div>
+        <div class="seckill_inf">
+            <div class="price">￥<em>798</em>.00</div>
+            <div class="inf">2015夏新款休闲姜黄色亚麻半长裙</div>
+        </div>
+    </div>
+    <div class="seckill_in">
+        <div class="seckill"><img src="Images/seckill02.gif" alt="" /></div>
+        <div class="seckill_inf">
+            <div class="price">￥<em>1158</em>.00</div>
+            <div class="inf">2015夏新款休闲姜黄色亚麻半长裙</div>
+        </div>
+    </div>
+    <div class="seckill_in">
+        <div class="seckill"><img src="Images/seckill03.gif" alt="" /></div>
+        <div class="seckill_inf">
+            <div class="price">￥<em>1428</em>.00</div>
+            <div class="inf">2015夏新款休闲姜黄色亚麻半长裙</div>
+        </div>
+    </div>
+</div>
+<!-- 秒杀产品结束 -->
+<!-- 潮流趋势开始 -->
+<div class="title">
+    <em>潮流趋势</em>
+    <span class="left"><img src="Images/line.gif" alt="" /></span>
+    <span class="right"><img src="Images/line.gif" alt="" /></span>
+</div>
+<!-- <div class="article_box">
+    <div class="article_box_in">
+        <div class="article">
+            <img src="Images/article.gif" alt="" />
+            <div class="article_inf">美丽秘籍<br />共享美丽</div>
+        </div>
+        <div class="article">
+            <img src="Images/article2.gif" alt="" />
+            <div class="article_inf">约会红人，<br />这样妆！</div>
+        </div>
+        <div class="article">
+            <img src="Images/article3.gif" alt="" />
+            <div class="article_inf">就你爱“妆”</div>
+        </div>
+        <div class="article">
+            <img src="Images/article4.gif" alt="" />
+            <div class="article_inf">美丽秘籍共享美丽</div>
+        </div>       
+    </div>
+</div>
+<script type="text/javascript">
+article_box();
+    function article_box(){
+        var win_w = $("body").width();
+        var i = $(".article").length
+        $(".article").css('width', 0.28*win_w);
+        $(".article_box_in").css('width',0.28*win_w*i );
+        $(window).resize(article_box);
+    }
+</script> -->
+<div class="swiper-container" id="swiper2">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="article_box">
+                <img src="Images/article.gif" alt="" />
+                <div class="article_inf">美丽秘籍<br />共享美丽</div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="article_box">   
+                <img src="Images/article2.gif" alt="" />
+                <div class="article_inf">约会红人，<br />这样妆！</div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="article_box">
+                <img src="Images/article3.gif" alt="" />
+                <div class="article_inf">就你爱“妆”</div>     
+            </div>      
+        </div>
+        <div class="swiper-slide">
+            <div class="article_box">
+                <img src="Images/article4.gif" alt="" />
+                <div class="article_inf">美丽秘籍<br />共享美丽</div>
+            </div>            
+        </div>
+    </div>
+</div>
+<script>
+var swiper = new Swiper('#swiper2', {
+    slidesPerView: "auto",
+    freeMode : true,
+    paginationClickable: true,
+    spaceBetween: 4
+});
+</script>
+<!-- 潮流趋势结束 -->
+<!-- 女装馆开始 -->
+<div class="title2">
+    <em>女装馆</em>
+    <span class="left"><img src="Images/line.gif" alt="" /></span>
+    <span class="right"><img src="Images/line.gif" alt="" /></span>
+</div>
+<div class="comm_box">
+    <div class="comm_top">
+        <div class="comm_left"><img src="Images/comm1.jpg" alt="" /></div>
+        <div class="comm_right">
+            <div class="comm_right_top"><img src="Images/comm2.jpg" alt="" /></div>
+            <div class="comm_right_bottom"><img src="Images/comm3.jpg" alt="" /></div>
+        </div>
+    </div>
+    <div class="comm_bottom">
+        <div class="comm"><img src="Images/comm4.jpg" alt="" /></div>
+        <div class="comm"><img src="Images/comm5.jpg" alt="" /></div>
+        <div class="comm"><img src="Images/comm6.jpg" alt="" /></div>
+    </div>
+</div>
+<!-- 女装馆结束 -->
+<!-- 鞋包配饰馆开始 -->
+<div class="title3">
+    <em>鞋包配饰馆</em>
+    <span class="left"><img src="Images/line.gif" alt="" /></span>
+    <span class="right"><img src="Images/line.gif" alt="" /></span>
+</div>
+<div class="acc_banner"><img src="Images/banner2.jpg" alt="" /></div>
+<div class="acc_box">
+    <div class="acc"><img src="Images/comm7.jpg" alt="" /></div>
+    <div class="acc"><img src="Images/comm8.jpg" alt="" /></div>
+    <div class="acc"><img src="Images/comm9.jpg" alt="" /></div>
+    <div class="acc"><img src="Images/comm10.jpg" alt="" /></div>
+</div>
+<!-- 鞋包配饰馆结束 -->
+<!-- 美妆馆开始 -->
+<div class="title2">
+    <em>美妆馆</em>
+    <span class="left"><img src="Images/line.gif" alt="" /></span>
+    <span class="right"><img src="Images/line.gif" alt="" /></span>
+</div>
+<div class="acc_banner"><img src="Images/banner3.jpg" alt="" /></div>
+<div class="makeup_box">
+    <div class="makeup_left"><img src="Images/comm11.jpg" alt="" /></div>
+    <div class="makeup_right">
+        <div class="makeup" style="margin-bottom:3%"><img src="Images/comm12.jpg" alt="" /></div>
+        <div class="makeup"><img src="Images/comm13.jpg" alt="" /></div>
+    </div>
+</div>
+<!-- 美妆馆结束 -->
+<!-- 养生馆开始 -->
+<div class="title2">
+    <em>养生馆</em>
+    <span class="left"><img src="Images/line.gif" alt="" /></span>
+    <span class="right"><img src="Images/line.gif" alt="" /></span>
+</div>
+<div class="upkeep_box">
+    <div class="upkeep_top">
+        <div class="upkeep_left">
+            <div class="upkeep" style="margin-bottom:3%"><img src="Images/comm14.jpg" alt="" /></div>
+            <div class="upkeep"><img src="Images/comm15.jpg" alt="" /></div>
+        </div>
+        <div class="upkeep_right"><img src="Images/comm16.jpg" alt="" /></div>
+    </div>
+    <div class="upkeep_bottom">
+        <div class="upkeep"><img src="Images/comm17.jpg" alt="" /></div>
+        <div class="upkeep"><img src="Images/comm18.jpg" alt="" /></div>
+    </div>
+</div>
+<!-- 养生馆结束 -->
+<!-- 版权开始 -->
+<div class="copyright">
+    &copy整体美商城<br />
+    客服电话：400-777-1225<br />
+    客服微信：HRlianna
+</div>
+<div class="other"></div>
+<!-- 版权结束 -->
+<!-- 底部导航栏开始 -->
+<div class="nav_box">
+    <div class="nav_in">
+        <div class="nav"><img src="Images/nav1.gif" alt="" /></div>
+    </div>
+    <div class="nav_in">
+        <div class="nav"><img src="Images/nav2.gif" alt="" /></div>
+    </div>
+    <div class="nav_in">
+        <div class="nav"><img src="Images/nav3.gif" alt="" /></div>
+        <!-- 购物车上数字 -->
+        <div class="goods_num">2</div>
+        <!-- 购物车上数字结束 -->
+    </div>
+    <div class="nav_in">
+        <div class="nav"><img src="Images/nav4.gif" alt="" /></div>
+    </div>
+</div>
+<!-- 底部导航栏结束 -->
+</body>
+</html>

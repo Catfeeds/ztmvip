@@ -1,0 +1,184 @@
+@charset "utf-8";
+/* CSS Document */
+
+html,body{width:100%; min-height: 100%; background:#970006;}
+body{ background: url(../Images/christmas_bg.jpg) no-repeat 100% 100%/100% 100%;}
+header img.logo{width:56%; margin: auto;}
+header .title{overflow: hidden; position: relative; padding-left: 82px; padding-right: 26px; }
+
+header .title .left{  height:112px;position: absolute;left: 0; top: 0;}
+
+header .title .left .touxiang{ width:62.5px; height:62.5px; border-radius:100%; border:4px solid #df554f; margin-left: 18px; margin-top:38px;}
+header .title .left .mao{width:75px; height:69px; position: absolute;
+top: 0; left:4px;}
+
+header .title .right{ width:100%; height:95px; margin-top: 15px; float: left;  background:url(../Images/christmas_draw.png) 0 0/100% 100%;}
+header .title .right p{ font-size: 11px; color: #fff; padding-left: 11.6%; padding-right: 8%; line-height: 20px; padding-top: 10px;}
+
+.container{ width:87%; margin-left: 6.5%; position: relative;}
+.container ul{ height:100%; width:100%; position: relative;}
+.container ul li{ width:20%; position: absolute; background:#ff6262;  border-radius:7.8%;}
+
+
+@-webkit-keyframes donghua {
+    0% { background:rgba(0, 0, 0, 0.0); }
+    100% {  }
+}
+@-moz-keyframes donghua {
+    0% { background:rgba(0, 0, 0, 0.0); }
+    100% {  }
+}
+@-ms-keyframes donghua {
+    0% { background:rgba(0, 0, 0, 0.0); }
+    100% {  }
+}
+@-o-keyframes donghua {
+    0% { background:rgba(0, 0, 0, 0.0); }
+    100% {  }
+}
+@keyframes donghua {
+    0% { background:rgba(0, 0, 0, 0.0); }
+    100% {  }
+}
+.container ul li.adcls{background:rgba(255, 255, 255, 0.9);
+
+          animation: donghua 0.7s linear 0s infinite normal;
+          -webkit-animation: donghua 0.7s linear 0s infinite normal;
+          -moz-animation: donghua 0.7s linear 0s infinite normal;
+          -o-animation: donghua 0.7s linear 0s infinite normal;
+
+}
+
+.container ul li.li1{left:2.3%;   top:3.25%;}
+.container ul li.li2{left:27.34%; top:3.25%;}
+.container ul li.li3{left:52.4%;  top:3.25%;}
+.container ul li.li4{right:2.3%;  top:3.25%;}
+.container ul li.li5{right:2.3%;  top:28.5%;}
+.container ul li.li6{right:2.3%;  top:53.75%;}
+.container ul li.li7{right:2.3%; bottom: 0px;}
+.container ul li.li8{left:52.4%; right:2.3%; bottom: 0px;}
+.container ul li.li9{left:27.34%;  bottom: 0px;}
+.container ul li.li10{left:2.3%; bottom: 0px;}
+.container ul li.li11{left:2.3%;  top:53.75%;}
+.container ul li.li12{left:2.3%;  top:28.5%;}
+
+.container .mingdan{ background:rgba(0, 0, 0, 0.67); position: absolute; right:-15px; bottom:14%; line-height:1.5em; font-size: 10px; color:#fff; padding:2px 0px 2px 13px; width:47%; height:4.5em; overflow: hidden; border-radius: 4px; }
+.container .swiper-wrapper{ }
+.container .mingdan p{overflow:hidden;
+text-overflow:ellipsis;
+white-space :nowrap;
+}
+
+.container .bt{ background:none; width:44.7%; position: absolute; top: 27.85%; left:27.35%;}
+.container .bt p{ font-size: 30px; color:#fff; position: absolute; left:0px; width:100%; text-align: center; top:56.5%;}
+
+.zhufn_but{background:#ffe400; height:23px; line-height: 23px; font-size: 16px; color:#c70903; border-radius:100px; text-align: center; margin: 6px auto;width:8em; }
+
+.swiper-container{ overflow: hidden; padding-top: 11px; padding-bottom: 1px; background:rgba(255,255,255,0.2);}
+.donghua_none{ -webkit-animation:none;
+   -moz-animation:  none 0 ease 0 1 normal;
+    -ms-animation:  none 0 ease 0 1 normal;
+     -o-animation:  none 0 ease 0 1 normal;
+        animation:  none 0 ease 0 1 normal;}
+/*.swiper-container ul{overflow: hidden;}
+.swiper-container ul li{ float:left; white-space:nowrap;}
+.swiper-container ul li img{ padding-right: 1%; width:99%;}*/
+
+.jiangpin,.fenxiang{position: fixed; height:100%; width:100%; top: 0; left: 0; background: rgba(0,0,0,0.75); z-index: 10;}
+.jiangpin .hb{ width:100%; margin-top: 24%; position: relative; z-index: 11;}
+.jiangpin .linqu{z-index: 12; display:block; width:4em; position: absolute; left: 50%; margin-left: -2em; top:73%; font-size: 26px; color:#face00; text-decoration: underline;}
+
+
+.fenxiang .text{ width:74%; margin:22% auto auto; background:#ff2400; border-top-left-radius: 15px;border-bottom-right-radius: 15px; padding-bottom: 12px; position: relative;}
+.fenxiang .text h1{ font-size: 12px; color:#ffea00; font-weight: 400; line-height: 1em; padding-top: 15px; padding-left: 15px;}
+.fenxiang .text p{ color:#fff; padding: 7px 5px 5px 34px ; position: relative;}
+.fenxiang .text p img{ width:16px; position: absolute; left: 9px; top: 5px; border-radius: 50%; border:2px solid #6c0d14;}
+.fenxiang .jiantou{ width:17%; position: absolute; top: 0;right:13%;}
+.fenxiang .text  .false{ width:26px; margin: 5px; position: absolute; top:-18px; right:-18px; border-radius: 50%; background:rgba(0,0,0,.73); z-index: 20;}
+
+
+
+/*20151219修改*/
+/*header img.logo{width:100%; max-width: 750px; margin-bottom: 4px;}*/
+header .title .left{padding-left: 18px; padding-top: 38px;}
+header .title .left .touxiang{ margin-left: 0px; margin-top:0px; border-radius: 100px; background:#c70903; overflow: hidden;}
+.swiper-container{ padding-bottom: 11px;}
+
+.jiangpin .linqu{left: 35%;text-align: center;text-decoration:none; border-bottom: 1px solid #face00; line-height: 1em;}
+.jiangpin .linqu1{left: 65%; width:6em;}
+header .title .left .mao{ width:56px; height:67px; top:15px;}
+header .title .right p{ padding-top: 19px;}
+.fenxiang{ background:rgba(0, 0, 0, 0.5);}
+
+.jiangpin .hb{margin-top: 17%;}
+.jiangpin .linqu{top:52%;}
+
+
+
+
+
+/*雪花*/
+@font-face {font-family: 'xuehua';
+    src: url('font_xuehua/iconfont.eot'); /* IE9*/
+    src: url('font_xuehua/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('font_xuehua/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('font_xuehua/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('font_xuehua/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.xuehua{
+    font-family:"xuehua" !important;
+    font-size:16px;font-style:normal;
+    color:#fff;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @-webkit-keyframes xuehuadonghua {
+    /*0% { top:0;  }*/
+    100% { top:100%;transform: rotate(2000deg); -webkit-transform: rotate(2000deg); }
+  }
+  @keyframes xuehuadonghua {
+    /*0% { top:0;  }*/
+    100% { top:100%;transform: rotate(2000deg); -webkit-transform: rotate(2000deg); }
+  }
+
+ .xuehua{
+     display: inline-block;     position: absolute; left:0px; top:-4%; z-index: 9; color:rgba(255, 255, 255, 0.7);
+      
+   } 
+/*.xuehua1:before { content: "\e610"; }*/
+/*.xuehua2:before { font-size: 30px; content: "\e600"; }*/
+.xuehua1:before { content: "\e62d"; }
+.xuehua2:before { content: "\e624"; }
+
+
+
+
+
+
+
+
+@media (max-width:750px){  
+    .container .bt p{  font-size: 12px;}
+
+}
+
+@media (max-width:640px){  
+
+}
+@media (max-width:480px){
+    .jiangpin .linqu{ font-size: 16px;}
+}
+@media (max-width:414px){ /* iPhone 6 Plus */
+
+}
+@media (max-width:375px){ /* iPhone 6 */
+    
+}
+@media (max-width:360px){ /* Sansung S3 / s4 */
+    
+}
+@media (max-width:320px){ /* iPhone 5 */
+    
+}

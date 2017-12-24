@@ -1,0 +1,271 @@
+<style type="text/css">
+    .tbl em{ color:#f00; font-style:normal; font-weight:bold;}
+    .js-btn input,.js-btn .js-submit{ display:none;}
+</style>
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">订单号</td>
+            <td>{$edit['order_sn']}</td>
+            <td class="label">订单状态</td>
+            <td>{$order_state['order'][$edit['order_state']]} {$order_state['payment'][$edit['payment_state']]} {$order_state['shipping'][$edit['shipping_state']]}</td>
+        </tr>
+        <tr>
+            <td class="label">购货人</td>
+            <td>{$edit['user_name']}</td>
+            <td class="label">下单时间</td>
+            <td>{$edit['date_add']|date='Y-m-d H:i',###}</td>
+        </tr>
+        <if condition="$edit['payment_name']">
+            <tr>
+                <td class="label">支付方式</td>
+                <td>{$edit['payment_name']}（流水号：{$edit['payment_sn']}）</td>
+                <td class="label">付款时间</td>
+                <td>{$edit['date_pay']|date='Y-m-d H:i',###}</td>
+            </tr>
+            <tr>
+                <td class="label">支付备注</td>
+                <td colspan="3">{$edit['payment_note']}</td>
+            </tr>
+        </if>
+        <if condition="$edit['express_name']">
+            <tr>
+                <td class="label">配送方式</td>
+                <td>
+                    {$edit['express_name']}
+                    <button id="show-express-info" class="button" type="button" data-rel="{$edit['express_name']}|{$edit['express_no']}">显示物流信息</button>
+                </td>
+                <td class="label">发货单号</td>
+                <td>{$edit['express_no']}</td>
+            </tr>
+        </if>
+        <if condition="$edit['order_state'] eq 'confirm' && ($edit['shipping_state'] eq 'new' || $edit['shipping_state'] eq 'stock')">
+            <tr>
+                <td class="label">配送方式</td>
+                <td>
+                    <select name="express_name" class="select">
+                        <option value="中通快递">中通快递</option>
+                        <option value="顺丰快递">顺丰快递</option>
+                        <option value="申通快递">申通快递</option>
+                        <option value="圆通快递">圆通快递</option>
+                        <option value="韵达快递">韵达快递</option>
+                        <option value="德邦快递">德邦快递</option>
+                        <option value="百事汇通">百事汇通</option>
+                        <option value="邮政EMS">邮政EMS</option>
+                        <option value="天天快递">天天快递</option>
+                    </select>
+                </td>
+                <td class="label">快递单号</td>
+                <td><input name="express_no" class="text" type="text" placeholder="请输入快递单号..."></td>
+            </tr>
+        </if>
+        <tr>
+            <td colspan="4" style="background-color:#eee;font-weight:bold;text-align:center;">收货人信息</td>
+        </tr>
+        <tr>
+            <td class="label">收货人</td>
+            <td colspan="3">{$edit['consignee']}</td>
+        </tr>
+        <tr>
+            <td class="label">手机</td>
+            <td>{$edit['mobile']}</td>
+            <td class="label">座机</td>
+            <td>{$edit['phone']}</td>
+        </tr>
+        <tr>
+            <td class="label">邮编</td>
+            <td>{$edit['zipcode']}</td>
+            <td class="label">收货地址</td>
+            <td>{$edit['province']} {$edit['city']} {$edit['district']} {$edit['address']}</td>
+        </tr>
+        <tr>
+            <td class="label">收货备注</td>
+            <td colspan="3">{$edit['consignee_note']}</td>
+        </tr>
+        <tr>
+            <td class="label">售后备注</td>
+            <td colspan="3">{$edit['refund_note']}</td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="tbl" style="margin-top:5px;width:100%;">
+        <tbody>
+        <tr>
+            <td colspan="5" style="background-color:#eee;font-weight:bold;text-align:center;">商品信息</td>
+        </tr>
+        <tr>
+            <td align="center">商品名称</td>
+            <td align="center">价格</td>
+            <td align="center">数量</td>
+            <td align="center">规格</td>
+            <td align="center">小计</td>
+        </tr>
+        <volist name="order_goods" id="vo">
+            <tr>
+                <td><a href="__HOME__{:U('Goods/detail','goods_id='.$vo['goods_id'])}" target="_blank">{$vo['goods_name']}</a></td>
+                <td>{$vo['goods_price']|sprintf='%.2f',###}</td>
+                <td>{$vo['goods_number']}</td>
+                <td>
+                    <?php $vo['skus'] = json_decode($vo['skus'],true); ?>
+                    <volist name="vo['skus']" id="v">
+                        <p>{$v[0]}：{$v[1]}</p>
+                    </volist>
+                </td>
+                <td>{$vo['amount']}</td>
+            </tr>
+        </volist>
+        <tr>
+            <td colspan="5" align="right">
+                <p>
+                    商品总金额：<em>￥{$edit['goods_fee']|sprintf='%.2f',###}</em>
+                    + 配送费用：<em>￥{$edit['shipping_fee']|sprintf='%.2f',###}</em>
+                    - 已付款金额：<em>￥{$edit['payment_amount']|sprintf='%.2f',###}</em>
+                    - 使用余额： <em>￥{$edit['surplus_amount']|sprintf='%.2f',###}</em>
+                    - 使用储值卡： <em>￥{$edit['prepaid_amount']|sprintf='%.2f',###}</em>
+                    - 使用积分： <em>￥{$edit['integral_amount']|sprintf='%.2f',###}</em>
+                    - 使用红包： <em>￥{$edit['bonus_amount']|sprintf='%.2f',###}</em>
+                    - 使用优惠券： <em>￥{$edit['coupon_amount']|sprintf='%.2f',###}</em>
+                </p>
+                <p>= 应付款金额：<em>￥{$edit['goods_fee']+$edit['shipping_fee']-$edit['payment_amount']-$edit['surplus_amount']-$edit['prepaid_amount']-$edit['integral_amount']-$edit['bonus_amount']-$edit['coupon_amount']|sprintf='%.2f',###}</em></p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="tbl" style="margin-top:5px;width:100%;">
+        <tbody>
+        <tr>
+            <td class="label">备注</td>
+            <td><textarea name="action_note" placeholder="请输入操作备注..." style="width:98%;padding:10px 5px;"></textarea></td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td align="right" class="js-btn">
+                <if condition="$edit['order_state'] eq 'new' && $edit['payment_state'] eq 'new'">
+                    <label class="submit">取 消</label><input name="order_state" type="radio" value="cancel">
+                    <label class="submit">无 效</label><input name="order_state" type="radio" value="invalid">
+                </if>
+                <if condition="$edit['order_state'] eq 'new' && $edit['payment_state'] eq 'paying'">
+                    <label class="submit">取 消</label><input name="order_state" type="radio" value="cancel">
+                    <label class="submit">无 效</label><input name="order_state" type="radio" value="invalid">
+                </if>
+                <if condition="$edit['order_state'] eq 'new' && $edit['payment_state'] eq 'payed'">
+                    <label class="submit">确 认</label><input name="order_state" type="radio" value="confirm">
+                    <label class="submit">取 消</label><input name="order_state" type="radio" value="cancel">
+                </if>
+                <if condition="$edit['order_state'] eq 'confirm' && $edit['shipping_state'] eq 'new'">
+                    <label class="submit">发 货</label><input name="shipping_state" type="radio" value="send">
+                    <label class="submit">备 货</label><input name="shipping_state" type="radio" value="stock">
+                    <label class="submit">取 消</label><input name="order_state" type="radio" value="cancel">
+                </if>
+                <if condition="$edit['order_state'] eq 'confirm' && $edit['shipping_state'] eq 'stock'">
+                    <label class="submit">发 货</label><input name="shipping_state" type="radio" value="send">
+                    <label class="submit">取 消</label><input name="order_state" type="radio" value="cancel">
+                </if>
+                <if condition="$edit['order_state'] eq 'confirm' && $edit['shipping_state'] eq 'send'">
+                    <label class="submit">取 消</label><input name="order_state" type="radio" value="cancel">
+                </if>
+                <if condition="$edit['order_state'] == 'confirm' && $edit['shipping_state'] == 'receive'">
+                    <label class="submit">退 款</label><input name="order_state" type="radio" value="refunded">
+                </if>
+                <if condition="$edit['order_state'] == 'refund'">
+                    <label class="submit">退 款</label><input name="order_state" type="radio" value="refunded">
+                </if>
+                <if condition="$edit['order_state'] eq 'refunded'">
+                    <span class="submit">已退款</span>
+                </if>
+                <if condition="$edit['order_state'] eq 'cancel'">
+                    <span class="submit">已取消</span>
+                </if>
+                <if condition="$edit['order_state'] eq 'invalid'">
+                    <span class="submit">无效订单</span>
+                </if>
+                <if condition="$edit['order_state'] eq 'finish'">
+                    <span class="submit">已完成</span>
+                </if>
+                <button class="js-submit" type="submit"></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <if condition="order_action">
+        <table class="tbl" style="margin-top:5px;width:100%;">
+            <tbody>
+            <tr style="background-color:#eee;">
+                <td align="center">操作者</td>
+                <td align="center">操作时间</td>
+                <td align="center">订单状态</td>
+                <td align="center">付款状态</td>
+                <td align="center">发货状态</td>
+                <td align="center">备注</td>
+            </tr>
+            <volist name="order_action" id="vo">
+                <tr>
+                    <td>{$vo['manager_name']}</td>
+                    <td>{$vo['date_add']|date='Y-m-d H:i',###}</td>
+                    <td align="center">{$order_state['order'][$vo['order_state']]}</td>
+                    <td align="center">{$order_state['payment'][$vo['payment_state']]}</td>
+                    <td align="center">{$order_state['shipping'][$vo['shipping_state']]}</td>
+                    <td>{$vo['action_note']}</td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </if>
+</form>
+<script>
+    $('.js-btn label.submit').on('click',function(event){
+        $(this).next('input').click();
+        $('.js-submit').click();
+    });
+
+    $('#show-express-info').on('click',function(){
+        Core.Alert({ 'text':'正在请求数据，请稍候...','state':'load','timeout':99999 });
+
+        var data = $(this).attr('data-rel').split('|');
+        data = {'express_name':data[0],'express_no':data[1]};
+
+        $.post("{:U('expressInfo')}",data,function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message,'state':'suc','timeout':1 });
+
+                var tpl = '<p>物流单号：{express_no}</p><ul>{list}</ul>';
+                var list = '';
+
+                if ($.isArray(ret.data)){
+                    $.each(ret.data,function(i,e){
+                        list += '<li>'+ e.time +'：'+ e.context +'</li>';
+                    });
+                }else{
+                    list = '<li>'+ ret.data +'</li>';
+                }
+
+                Core.Confirm({ 'title':'物流信息','text':Core.FormatTpl(tpl,{ 'express_no':data['express_no'],'list':list }) });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        });
+    });
+
+    $('.js-edit').on('submit',function(event){
+        var data = Core.InputObj(this);
+
+        $.post('',data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    history.go(-1);
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+</script>

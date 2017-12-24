@@ -1,0 +1,9 @@
+{__NOLAYOUT__}
+<volist name="bonus" id="vo">
+    <li class="ajax_hongbao{$bonus_type}_display">
+        <div class="hongbao{$bonus_type}">
+            <span><i>{$vo['money']|sprintf='%d',###}</i>元</span>
+        </div>
+        <p class="date">{$vo['use_start']|date='Y-m-d',###} —— {$vo['use_end']|date='Y-m-d',###}</p>
+    </li>
+</volist>

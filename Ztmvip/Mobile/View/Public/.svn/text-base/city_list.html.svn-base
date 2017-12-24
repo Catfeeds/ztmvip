@@ -1,0 +1,9 @@
+{__NOLAYOUT__}
+<div class="bg_box">
+    <volist name="city_list" id="value" key="key1">
+        <label for="city{$key1}" onclick="change_city(this);">
+          <div class="box_in">{$value.region_name}</div>
+        </label>
+        <input type="radio" name="city" id="city{$key1}"  value="{$value.region_name}" <eq name="value.region_name" value="$address.city">checked</eq>/>
+    </volist>
+</div>

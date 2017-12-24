@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/comments_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="Css/comments_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="Js/jquery.js"></script>
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        我的订单
+        <div class="return"><img src="Images/fh.jpg" height="37" width="18" alt="" /></div>
+    </div>
+    <div class="columns_box">
+        <div class="columns_in cur">
+            <div class="columns">
+                全部<br />
+                (6547)
+            </div>
+        </div>
+        <div class="columns_in">
+            <div class="columns">
+                好评<br />
+                (6412)
+            </div>
+        </div>
+        <div class="columns_in">
+            <div class="columns">
+                中评<br />
+                (542)
+            </div>
+        </div>
+        <div class="columns_in">
+            <div class="columns">
+                差评<br />
+                (78)
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('.columns_in').on('click',function(event) {
+            $(this).addClass('cur').siblings().removeClass('cur');
+        });
+
+    </script>
+</div>
+<!-- 内容 -->
+<article>
+<!-- 全部评论 -->
+    <div class="comments_box block">
+        <div class="comments_in">
+            <div class="title">
+                <div class="left">用户：凯弟。。</div>
+                <div class="right">
+                    2015-09-28 &nbsp
+                    06:54:32
+                </div>
+            </div>
+            <div class="score">
+                <div class="float">评分：</div>
+                <div class="star_box">
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                </div>
+            </div>
+            <div class="inf"> 阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆</div>
+        </div>
+        <div class="comments_in">
+            <div class="title">
+                <div class="left">用户：凯弟。。</div>
+                <div class="right">
+                    2015-09-28 &nbsp
+                    06:54:32
+                </div>
+            </div>
+            <div class="score">
+                <div class="float">评分：</div>
+                <div class="star_box">
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                </div>
+            </div>
+            <div class="inf"> 阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆</div>
+        </div>
+        <div class="comments_in">
+            <div class="title">
+                <div class="left">用户：凯弟。。</div>
+                <div class="right">
+                    2015-09-28 &nbsp
+                    06:54:32
+                </div>
+            </div>
+            <div class="score">
+                <div class="float">评分：</div>
+                <div class="star_box">
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                </div>
+            </div>
+            <div class="inf"> 阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆</div>
+        </div>
+    </div>
+<!-- 好评 -->
+    <div class="comments_box">
+        <div class="comments_in">
+            <div class="title">
+                <div class="left">用户：凯弟。。</div>
+                <div class="right">
+                    2015-09-28 &nbsp
+                    06:54:32
+                </div>
+            </div>
+            <div class="score">
+                <div class="float">评分：</div>
+                <div class="star_box">
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                </div>
+            </div>
+            <div class="inf"> 阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆</div>
+        </div>
+        <div class="comments_in">
+            <div class="title">
+                <div class="left">用户：凯弟。。</div>
+                <div class="right">
+                    2015-09-28 &nbsp
+                    06:54:32
+                </div>
+            </div>
+            <div class="score">
+                <div class="float">评分：</div>
+                <div class="star_box">
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                </div>
+            </div>
+            <div class="inf"> 阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆</div>
+        </div>
+    </div>
+<!-- 中评 -->
+    <div class="comments_box">
+        <div class="comments_in">
+            <div class="title">
+                <div class="left">用户：凯弟。。</div>
+                <div class="right">
+                    2015-09-28 &nbsp
+                    06:54:32
+                </div>
+            </div>
+            <div class="score">
+                <div class="float">评分：</div>
+                <div class="star_box">
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                </div>
+            </div>
+            <div class="inf"> 阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆</div>
+        </div>
+        <div class="comments_in">
+            <div class="title">
+                <div class="left">用户：凯弟。。</div>
+                <div class="right">
+                    2015-09-28 &nbsp
+                    06:54:32
+                </div>
+            </div>
+            <div class="score">
+                <div class="float">评分：</div>
+                <div class="star_box">
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                </div>
+            </div>
+            <div class="inf"> 阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆</div>
+        </div>
+        <div class="comments_in">
+            <div class="title">
+                <div class="left">用户：凯弟。。</div>
+                <div class="right">
+                    2015-09-28 &nbsp
+                    06:54:32
+                </div>
+            </div>
+            <div class="score">
+                <div class="float">评分：</div>
+                <div class="star_box">
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                </div>
+            </div>
+            <div class="inf"> 阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆</div>
+        </div>
+        <div class="comments_in">
+            <div class="title">
+                <div class="left">用户：凯弟。。</div>
+                <div class="right">
+                    2015-09-28 &nbsp
+                    06:54:32
+                </div>
+            </div>
+            <div class="score">
+                <div class="float">评分：</div>
+                <div class="star_box">
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                </div>
+            </div>
+            <div class="inf"> 阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆</div>
+        </div>
+    </div>
+<!-- 差评 -->
+    <div class="comments_box">
+        <div class="comments_in">
+            <div class="title">
+                <div class="left">用户：凯弟。。</div>
+                <div class="right">
+                    2015-09-28 &nbsp
+                    06:54:32
+                </div>
+            </div>
+            <div class="score">
+                <div class="float">评分：</div>
+                <div class="star_box">
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                    <div class="star"><img src="Images/star.jpg" height="24" width="27" alt="" /></div>
+                </div>
+            </div>
+            <div class="inf"> 阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆索开发请我阿斯兰的空间阿隆</div>
+        </div>
+    </div>
+</article>
+<script type="text/javascript">
+    $('.columns_in').on('click',function(event) {
+        var index = $(this).index();
+        $('.comments_box').eq(index).css('display', 'block').siblings().css('display','none')
+    });
+</script>
+<!-- 版权 -->
+    <div class="copyright">
+        &copy整体美商城<br />
+        客服电话：400-777-1225<br />
+        客服微信：HRlianna
+    </div>
+    <div class="placeholder"></div>
+<!-- 底部导航栏开始 -->
+    <div class="nav_box">
+    <a href="#">
+        <div class="nav_in">
+            <div class="nav"><img src="Images/nav1.gif" alt="" /></div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="nav_in">
+            <div class="nav"><img src="Images/nav2.gif" alt="" /></div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="nav_in">
+            <div class="nav">
+                <img src="Images/nav3.gif" alt="" />
+                <!-- 购物车上数字 -->
+                <div class="goods_num">2</div>
+                <!-- 购物车上数字结束 -->
+            </div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="nav_in">
+            <div class="nav"><img src="Images/nav4.gif" alt="" /></div>
+        </div>
+    </a>
+    </div>
+<!-- 底部导航栏结束 -->
+</body>
+</html>

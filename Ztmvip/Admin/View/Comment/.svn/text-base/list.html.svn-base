@@ -1,0 +1,212 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <form method="get" action="{:U('')}">
+            <input name="user_name" class="text" type="text" value="{$Think.get.user_name}" placeholder="用户名搜索...">
+            <input name="content" class="text" type="text" value="{$Think.get.content}" placeholder="评论内容搜索...">
+            <button class="button" type="submit">搜 索</button>
+            <input name="goods_id" type="hidden" value="{$relation_id}">
+        </form>
+        <a class="button" href="{:U('edit','relation_id='.$relation_id.'&relation_type='.$relation_type)}">新 增</a>
+        <a class="button js-collect" href="javascript:;">抓 取</a>
+    </span>
+</div>
+<table class="tbl js-list" width="100%">
+    <thead>
+    <tr>
+        <th width="20"><input type="checkbox"></th>
+        <th>用户名</th>
+        <th>评星</th>
+        <th>评论内容</th>
+        <th width="150">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <if condition="$list">
+        <volist name="list" id="vo">
+            <tr>
+                <td align="center"><input name="id" type="checkbox" value="{$vo['id']}"></td>
+                <td>{$vo['user_name']}</td>
+                <td>{$vo['level']}</td>
+                <td>{$vo['content']}</td>
+                <td align="center">
+                    <if condition="$vo['display'] eq 'Y'">
+                        <a class="js-hidden" href="javascript:;">隐藏</a>
+                        <else/>
+                        <a class="js-show" href="javascript:;">显示</a>
+                    </if>
+                    <a class="js-delete" href="javascript:;">删除</a>
+                </td>
+            </tr>
+        </volist>
+        <else/>
+        <tr>
+            <td colspan="5" align="center">暂无数据</td>
+        </tr>
+    </if>
+    </tbody>
+</table>
+<footer class="footer">
+    <button class="button js-delete-submit">批量删除</button>
+    <button class="button js-show-submit">批量显示</button>
+    <button class="button js-hidden-submit">批量隐藏</button>
+    {$page_show}
+</footer>
+<script>
+    $('.js-list').on('click','.js-hidden,.js-show',function(event){
+        $(event.delegateTarget).find('tbody :checkbox').prop('checked',false);
+        $(this).closest('tr').find(':checkbox').click();
+        $('.'+ $(this).attr('class') +'-submit').click();
+    }).on('click','.js-delete',function(event){
+        $(event.delegateTarget).find('tbody :checkbox').prop('checked',false);
+        $(this).closest('tr').find(':checkbox').click();
+        $('.js-delete-submit').click();
+    });
+
+    $('.art-nav form input[name]').on('keypress',function(event){
+        if(event.keyCode == 13){
+            this.form.submit();
+            event.preventDefault();
+        }
+    });
+
+    $('.js-delete-submit').on('click',function(){
+    	Core.Confirm({ 'title':'操作确认','text':'确认要删除选中数据？','callback':function(confirm){
+			if (!confirm)
+				return;
+
+			var data = Core.InputObj($('.js-list'));
+	        data['action'] = 'delete';
+	
+	        $.post("{:U('prop')}",data,function(ret){
+	            if ( ret.state ){
+	                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+	                    location.reload();
+	                } });
+	            }else{
+	                Core.Alert({ 'text':ret.message,'state':'err' });
+	            }
+	        },'json');
+		} });
+    });
+
+    $('.js-show-submit,.js-hidden-submit').on('click',function() {
+        var data = Core.InputObj($('.js-list'));
+        data['action'] = $(this).attr('class').indexOf('show') != -1 ? 'show' : 'hidden';
+
+        $.post("{:U('prop')}", data, function (ret) {
+            if (ret.state) {
+                Core.Alert({
+                    'text': ret.message, 'state': 'suc', 'callback': function () {
+                        location.reload();
+                    }
+                });
+            } else {
+                Core.Alert({'text': ret.message, 'state': 'err'});
+            }
+        }, 'json');
+    });
+
+    $('.js-collect').on('click',function(){
+        var html = '<table>' +
+                '<tbody>' +
+                '<tr>' +
+                '<td width="80">抓取地址</td>' +
+                '<td><input type="text" name="uri" style="width:500px;border:1px solid #ccc;height:30px;"></td>' +
+                '</tr>' +
+                '</tbody>' +
+                '</table>';
+
+        var conf = Core.Confirm({ 'title':'评论批量抓取', 'text':html, 'callback':function(confirm){
+            if (!confirm)
+                return;
+
+            var data = Core.InputObj(conf);
+            $('.js-collect').attr('uri',data['uri']);
+            $('.js-collect').attr('page','0');
+
+            $.post("{:U($relation_type.'Collect')}",data,function(ret){},'script');
+        } });
+
+        collect_layout = null;
+    });
+
+    var collect_layout;
+
+    function collect_comment(ret){
+        var tpl_tbl = '<article class="article" style="margin:0;max-height:500px;overflow:auto;">' +
+                '<table class="tbl">' +
+                '<tbody>' +
+                '<tr>' +
+                '<td></td>' +
+                '<td>用户昵称</td>' +
+                '<td>评分</td>' +
+                '<td>内容</td>' +
+                '<td>时间</td>' +
+                '</tr>' +
+                '{tbody}' +
+                '<tr>' +
+                '<td colspan="5" align="right">' +
+                '<button class="button js-collect-more" type="button">加载更多</button>' +
+                '<button class="button js-collect-submit" type="button">批量添加</button>' +
+                '</td>' +
+                '</tr>' +
+                '</tbody>' +
+                '</table>' +
+                '</article>';
+        var tpl_tr = '<tr>' +
+                '<td><input type="checkbox" checked="checked"></td>' +
+                '<td>{nickname}</td>' +
+                '<td>{score}</td>' +
+                '<td>{content}</td>' +
+                '<td>{time}</td>' +
+                '</tr>';
+        var tbody = '';
+
+        $.each(ret.comments,function(i,e){
+            tbody += Core.FormatTpl(tpl_tr,{
+                'nickname': e.nickname,
+                'score': e.score,
+                'content': e.content,
+                'time': e.creationTime
+            });
+        });
+
+        if ( !collect_layout ){
+            collect_layout = Core.Layout({ 'title':'抓取结果','text':Core.FormatTpl(tpl_tbl,{ 'tbody': tbody }) });
+
+            $('.js-collect-more').on('click',function(){
+                var uri = $('.js-collect').attr('uri');
+                var page = parseInt($('.js-collect').attr('page')) + 1;
+                $('.js-collect').attr('page',page);
+                $.post("{:U($relation_type.'Collect')}",{ 'uri':uri,'page':page },function(ret){},'script');
+            });
+
+            $('.js-collect-submit').on('click',function(){
+                Core.Alert({ 'text':'正在提交数据，请稍候...','state':'load','timeout':99999 });
+                var n = 0,max = collect_layout.find(':checked').length - 1;
+
+                setTimeout(function(){
+                    collect_layout.find(':checked').each(function(i,e){
+                        var td = $(e).closest('tr').find('td');
+                        var data = {
+                            'level':td.eq(2).text(),
+                            'user_name':td.eq(1).text(),
+                            'content':td.eq(3).text(),
+                            'date_add':td.eq(4).text()
+                        };
+
+                        $.post("{:U('edit','relation_id='.$relation_id.'&relation_type='.$relation_type)}",data,function(ret){
+                            n++;
+
+                            if (n == max)
+                                location.reload();
+                        },'json');
+                    });
+                },500);
+            });
+        }else{
+            collect_layout.find('tbody tr:last').before(tbody);
+        }
+    }
+</script>

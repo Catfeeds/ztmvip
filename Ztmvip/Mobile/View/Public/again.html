@@ -1,0 +1,26 @@
+<style>
+.fail_bg{ position: fixed; width: 100%; height:100%; background: rgba(0,0,0,0.3);top: 0px;
+left: 0px;
+z-index: 999;
+display: none;
+}
+.fail{ width: 300px; height: 150px; position: absolute; margin: auto; background:#fff; left: 0; right: 0; top: 0; bottom: 0;  font-size: 15px; line-height: 4.5em;}
+.fail p{ padding-left: 1em;}
+.fail p.bot{ text-align: right; padding-top:20px; }
+.fail p.bot *{ display: inline-block; padding-right: 1em; color: #57657f;}
+</style>
+
+<div class="fail_bg" id="shan_fail">
+  <div class="fail">
+    <p>支付密码错误，请重试</p>
+    <p class="bot"><span class="fail_but" onClick="again();">重试</span><a href="{:U('User/payword')}">忘记密码</a></p>
+  </div>
+</div>
+<script type="text/javascript">
+     function again()
+     {  
+         $('#shan_fail').fadeOut();
+         $('.bg4').fadeIn();//密码层
+     }
+    
+</script>

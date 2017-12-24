@@ -1,0 +1,104 @@
+
+<link rel="stylesheet" type="text/css" href="__PCCSS__register.css" />
+</head>
+<body>
+
+
+<div class="register">
+    <div class="left">
+        <div class="logo"><a href="{:U('Index/index')}"><img src="__PCIMG__index_logo.png" alt="" /></a></div>
+        <div class="banner"><img src="__PCIMG__register_06.jpg" alt="" /></div>
+    </div>
+    <div class="right">
+        <form class="js-register" action="">
+            <!--             <div class="he_name">
+                            <p>用户名<span></span></p>
+                            <input type="text" class="reg_name"  />
+                        </div> -->
+            <div class="he_phone">
+                <p>手机号码<span>错误提示语</span></p>
+                <input name="mobile" type="text" class="iphone" />
+            </div>
+            <div class="he_mima1">
+                <p>密码<span>错误提示语</span></p>
+                <input name="password" type="password"  />
+            </div>
+            <div class="he_mima2">
+                <p>确认密码<span>错误提示语</span></p>
+                <input name="repassword" type="password" />
+            </div>
+            <p class="he_yanzhengma"><span>请输入验证码</span>验证码</p>
+            <input name="sms_code" class="yanzhengma" type="text"   />
+            <button type="button" class="js-sms-code" data-rel="new">点击获取验证码</button>
+            <button class="zhuche js-submit-register" type="button">立即注册</button>
+            <input name="agree" type="hidden" value="ok">
+            <p class="checkbox">
+                <span><i class="ok"></i>
+                我已阅读并同意</span><a target="_blank" href="http://www.ztmvip.com/Article/show/id/99.html">《整体美用户注册协议》</a>
+            </p>
+            <p class="denglu">已经是整体美会员？<a href="{:U('Login/index')}">立即登录</a></p>
+        </form>
+    </div>
+</div>
+
+<script src="__PCJS__register.js"></script>
+<script src="__PCJS__lhf_register.js"></script>
+<script type="text/javascript">
+    $('.checkbox').on('click','span',function () {
+        if($(':hidden[name=agree]').val()=="ok"){
+            $(':hidden[name=agree]').val("");
+            $('.register .right .checkbox i').removeClass('ok');
+        }else{
+            $(':hidden[name=agree]').val("ok");
+            $('.register .right .checkbox i').addClass('ok');
+        }
+    })
+
+    $('.js-submit-register').on('click',function(){
+        if(!checkRegister()){
+            return;
+        }
+        $.post("{:U('')}",Core.InputObj('.js-register'),function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message });
+                if(ret.uri){
+                    window.location.href=ret.uri;
+                }
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+    $('.js-sms-code').on('click',function(){
+        if(!checkPhone()){
+            return;
+        }
+        if ($(this).prop('disabled'))
+            return;
+        $(this).prop('disabled',true);
+        var timeout = 60;
+        var el = $(this);
+        $.post("{:U('Sms/userRegister')}",{ 'topic':el.attr('data-rel'),'mobile':$('input[name="mobile"]').val() },function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message });
+                sms_time(el,timeout);
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+    function sms_time(el,timeout){
+        if (timeout == 0) {
+            el.css('background-color','').prop('disabled',false).html('点击获取验证码');
+        }else{
+            el.css('background-color','#ccc').prop('disabled',true).html('重新发送('+ timeout +')');
+            timeout--;
+            setTimeout(function(){
+                sms_time(el,timeout);
+            },1000);
+        }
+    }
+
+</script>

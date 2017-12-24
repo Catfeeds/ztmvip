@@ -1,0 +1,85 @@
+
+    <link rel="stylesheet" type="text/css" href="__PCCSS__user.css" />
+    <script src="/Public/Common/Js/address.js"></script>
+</head>
+<body>
+<include file="Public:top"/>
+
+<div class="user_bg">
+    <div class="user">
+        <include file="User:publicLeft"/>
+        <div class="user_right">
+            <form action="">
+                <div class="user_data">
+                    <p class="title">
+                        <span>
+                        <!-- 个人信息 -->
+                        修改收货地址
+
+                        </span>
+                    </p>
+                    <div class="adderass">
+                        <p class="p4"><span class="js-edit_address">新增收货地址</span>您已创建<i class="js-address-count">{$addr_count}</i>个收货地址</p>
+                        <volist name="addr_sort_list" id="vo">
+                            <ul class="cur js-address-ul" data-id="{$vo.id}">
+                                <li class="li1"><span>收货人：</span>{$vo.consignee}</li>
+                                <li><span>所在地区：</span>{$vo.province} {$vo.city} {$vo.district}</li>
+                                <li><span>详细地址：</span>{$vo.address}</li>
+                                <li><span>手机号码：</span>{$vo.mobile}</li>
+                                <li class="li5">
+                                    <div class="img js-delete"><img src="__PCIMG__false_64.jpg" alt="" /></div>
+                                    <span class="span2 js-edit_address">编辑</span><if condition="$i eq 1"><span style="cursor: text;" class='span1' disabled>默认地址</span><else/><span class='span2 js-set-default'>设为默认</span></if></li>
+                            </ul>
+                        </volist>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 弹窗 -->
+
+<div class="shopping_alert js-false">
+
+</div>
+<script>
+    $('.js-edit_address').on('click',function() {
+        var id = parseInt($(this).closest('.js-address-ul').attr('data-id'));
+        $.get("{:U('Region/addressEdit')}",{id:id},function(ret){
+            $('.shopping_alert').html(ret.content);
+            $('.shopping_alert :hidden[name=id]').val(id);
+        },'json');
+        $('.shopping_alert').fadeIn();
+    });
+    $('.js-delete').on('click',function(){
+        var el = $(this);
+        Core.Confirm({ 'title':'操作确认','text':'确认要删除选中数据？','callback':function(confirm){
+            if (!confirm)
+                return;
+        
+            $.post("{:U('Region/addressDel')}",{id:el.closest('.js-address-ul').attr('data-id')},function(ret){
+                if ( ret.state ){
+                    Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                        el.closest('ul').remove();
+                        $('.js-address-count').text(parseInt($('.js-address-count').text()) - 1);
+                    } });
+                }else{
+                    Core.Alert({ 'text':ret.message,'state':'err' });
+                }
+            },'json');
+        } });
+    });
+    $('.js-set-default').on('click',function(){
+        $.post("{:U('Region/addressDefault')}",{id:$(this).closest('.js-address-ul').attr('data-id')},function(ret){
+            if(ret.state){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.reload();
+                    } });
+            }else{
+                Core.Alert({'text':ret.message,'state':'err'});
+            }
+        },'json');
+    });
+</script>

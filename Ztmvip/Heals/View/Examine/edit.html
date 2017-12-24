@@ -1,0 +1,166 @@
+<style type="text/css">
+    .tbl em {
+        color: #f00;
+        font-style: normal;
+        font-weight: bold;
+    }
+
+    .js-btn input, .js-btn .js-submit {
+        display: none;
+    }
+</style>
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+
+<table class="tbl" width="100%">
+    <tbody>
+    <tr>
+        <td colspan="4" style="background-color:#eee;font-weight:bold;text-align:center;">会员信息</td>
+    </tr>
+    <tr>
+        <td class="label">姓名</td>
+        <td>{$edit['user_name']}</td>
+        <td class="label">生日</td>
+        <td>{$edit['birthday']|date="Y-m-d",###}</td>
+    </tr>
+    <tr>
+        <td class="label">性别</td>
+        <td>{:$edit['sex']=='male'?'男':'女'}</td>
+        <td class="label">手机</td>
+        <td>{$edit['mobile']}</td>
+    </tr>
+    <tr>
+        <td class="label">国家</td>
+        <td>{$edit['country']}</td>
+        <td class="label">省份</td>
+        <td>{$edit['province']}</td>
+    </tr>
+    <tr>
+        <td class="label">城市</td>
+        <td>{$edit['city']}</td>
+        <td class="label">地区</td>
+        <td>{$edit['district']}</td>
+    </tr>
+    </tbody>
+</table>
+<table class="tbl" style="margin-top:5px;width:100%;">
+    <tbody>
+    <tr>
+        <td colspan="7" style="background-color:#eee;font-weight:bold;text-align:center;">检测信息</td>
+    </tr>
+    <tr>
+        <td align="center">身高</td>
+        <td align="center">体重</td>
+        <td align="center">脂肪率</td>
+        <td align="center">代谢率</td>
+        <td align="center">腰围</td>
+        <td align="center">臀围</td>
+        <td align="center">检测时间</td>
+    </tr>
+    <tr>
+        <td>{$edit['height']}</td>
+        <td>{$edit['weight']}</td>
+        <td>{$edit['fat']}</td>
+        <td>{$edit['metabolize']}</td>
+        <td>{$edit['waistline']}</td>
+        <td>{$edit['hipline']}</td>
+        <td>{$edit['date_add']|date='Y-m-d H:i',###}</td>
+    </tr>
+    </tbody>
+</table>
+<form class="js-edit">
+    <table class="tbl" style="margin-top:5px;width:100%;">
+        <tbody>
+        <tr>
+            <td class="label">备注</td>
+            <td><textarea name="action_note" placeholder="请输入操作备注..." style="width:98%;padding:10px 5px;"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td align="right" class="js-btn">
+                <input type="hidden" name="user_id" value="{$edit.user_id}"/>
+                <label class="submit">提交</label>
+                <button class="js-submit" type="submit"></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
+<if condition="examine_action">
+    <table class="tbl" style="margin-top:5px;width:100%;">
+        <tbody>
+        <tr style="background-color:#eee;">
+            <td align="center">操作者</td>
+            <td align="center">备注</td>
+            <td align="center">操作时间</td>
+        </tr>
+        <volist name="examine_action" id="vo">
+            <tr>
+                <td>{$vo['manager_name']}</td>
+                <td>{$vo['action_note']}</td>
+                <td>{$vo['date_add']|date='Y-m-d H:i',###}</td>
+            </tr>
+        </volist>
+        </tbody>
+    </table>
+    <footer class="footer">
+        {$page_show}
+    </footer>
+</if>
+
+<script>
+    $('.js-btn label.submit').on('click', function (event) {
+        $('.js-submit').click();
+    });
+
+    $('#show-express-info').on('click', function () {
+        Core.Alert({'text': '正在请求数据，请稍候...', 'state': 'load', 'timeout': 99999});
+
+        var data = $(this).attr('data-rel').split('|');
+        data = {'express_name': data[0], 'express_no': data[1]};
+
+        $.post("{:U('expressInfo')}", data, function (ret) {
+            if (ret.state) {
+                Core.Alert({'text': ret.message, 'state': 'suc', 'timeout': 1});
+
+                var tpl = '<p>物流单号：{express_no}</p><ul>{list}</ul>';
+                var list = '';
+
+                $.each(ret.data, function (i, e) {
+                    list += '<li>' + e.time + '：' + e.note + '</li>';
+                });
+
+                Core.Confirm({
+                    'title': '物流信息',
+                    'text': Core.FormatTpl(tpl, {'express_no': data['express_no'], 'list': list})
+                });
+            } else {
+                Core.Alert({'text': ret.message, 'state': 'err'});
+            }
+        });
+    });
+
+    $('.js-edit').on('submit', function (event) {
+        var data = Core.InputObj(this);
+
+        $.post('', data, function (ret) {
+            if (ret.state) {
+                Core.Alert({
+                    'text': ret.message, 'state': 'suc', 'callback': function () {
+                        history.go(0);
+                    }
+                });
+            } else {
+                Core.Alert({'text': ret.message, 'state': 'err'});
+            }
+        }, 'json');
+
+        return false;
+    });
+</script>

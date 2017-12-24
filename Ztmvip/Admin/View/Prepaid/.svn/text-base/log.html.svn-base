@@ -1,0 +1,36 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+</div>
+<table class="tbl js-list" width="100%">
+    <thead>
+    <tr>
+        <th width="20"><input type="checkbox"></th>
+        <th>会员名称</th>
+        <th>储值卡名称</th>
+        <th>储值卡号</th>
+        <th>余额</th>
+        <th>购买时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <if condition="$list">
+        <volist name="list" id="vo">
+            <tr>
+                <td align="center"><input name="id" type="checkbox" value="{$vo['id']}"></td>
+                <td>{$vo['user_name']}</td>
+                <td>{$vo['prepaid_name']}</td>
+                <td>{$vo['prepaid_sn']}</td>
+                <td>{$vo['money']|sprintf='%.2f',###}</td>
+                <td>{$vo['date_add']|date='Y-m-d H:i',###}</td>
+            </tr>
+        </volist>
+        <else/>
+        <tr>
+            <td colspan="6" align="center">暂无数据</td>
+        </tr>
+    </if>
+    </tbody>
+</table>
+<footer class="footer">
+    {$page_show}
+</footer>

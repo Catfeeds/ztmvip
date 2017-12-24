@@ -1,0 +1,65 @@
+html{font-size:24px;font-family: "冬青黑体简体中文";height:100%;}
+body{background:#F1F1F1;height:100%;}
+.header_box{width:100%;max-width:750px;text-align: center;position:fixed;z-index:999;}
+.return{position:absolute;left:20px;top:21.5px;}
+.header_title{height:88px;background:#fff;font-size:1.4rem;line-height: 88px;}
+.address_box{padding-top: 88px;}
+.default_inf{font-size: 1.2rem;background:#fff;margin-top:2%;height:60px;line-height:60px;overflow: hidden;padding:0 20px;}
+.default_inf .name{float:left;}
+.default_inf .telephone{float:right;}
+.place{color:#7F7F7F;background:#fff;padding:0 20px 10px;line-height: 40px;border-bottom: 1px solid #D2D2D2;}
+.list_box{font-size: 1.2rem;line-height: 60px;border-top: 1px solid #F3F3F3;position:relative;background:#fff;margin-top:2%;}
+.list_current{border:1px solid #E8C473;}
+.change{padding-left:40px;}
+.icon{width:22px;position:absolute;left:10px;top:15px;}
+.jump{width:15px;position:absolute;right:10px;top:17px;}
+.choose{padding-left:45px;height:60px;line-height:60px;position:relative;color:#555555;}
+.tick{width:26px;position:absolute;left:10px;top:15px;display:none;}
+.choose .right{float:right;margin-right:10px;}
+.choose .ring{width:26px;height:26px;border-radius: 50%;border: 1px solid #000;position:absolute;left:10px;top:15px;}
+.edit_box{position:relative;padding-left:45px;float:left;}
+.edit_box .icon{width:28px;}
+.list_current .tick{display:block;}
+.list_current .ring{display:none;}
+.choose input{display:none;}
+.remind_bg{width:100%;max-width: 750px;height:100%;background:rgba(0,0,0,0.6);position:fixed;z-index: 9999;top:0;display:none;}
+.remind_box{width:90%;background:#fff;position:absolute;left:50%;margin-left:-45%;top:50%;margin-top:-165px;}
+.remind_box .title{height:170px;line-height:170px;text-align: center;font-size: 1.2rem;}
+.bt_box{height:160px;overflow:hidden;}
+.bt_box .cancel{width:30%;color:#E8C473;font-size:1.2rem;text-align:center;line-height:70px;height:70px;border: 1px solid #E8C473;float:left;margin-left:15%;}
+.bt_box .determine{width:30%;color:#fff;font-size:1.2rem;text-align:center;line-height:70px;height:70px;background:#E8C473;float:right;margin-right:15%;}
+.list_container{min-height:100%;background-size: 50%;}
+
+
+
+.copyright{font-size:0.8rem;text-align: center;margin:2% 0;color:#6d6d6d;}
+.top{width:60px;height:60px;position:fixed;bottom:10%;right:5%;display:none;}
+.other{height:98px;background:#fff;}
+
+.columns{height:110px;line-height:110px;background:#fff;font-size: 1.2rem;border-top: 1px solid #D3D3D3;padding-left: 20px;}
+.columns .input{width:67%;display:inline-block;border-radius: 0;border:0;font-size: 1.1rem;}
+.columns .input::-webkit-inner-spin-button {
+     -webkit-appearance: none;
+}
+.footer{width:100%;max-width:750px;position:fixed;bottom:10px;}
+.footer .place_bt{width:85%;height:88px;line-height:88px;margin:0 auto;background:#E8C473;font-size: 1.5rem;color:#fff;display:block;}
+.layer_bg{width:100%;max-width: 750px;height:100%;background:rgba(0,0,0,0.6);position:fixed;z-index: 9998;top:0;}
+.layer_bg .layer_box{width:90%;background:#fff;font-size: 1.2rem;line-height:60px;position:absolute;left:50%;margin-left: -45%;top:50%;margin-top:-138px;padding:0 10px;box-sizing:border-box;}
+.layer_bg .layer_box .title{border-bottom: 1px solid #D3D3D3;box-sizing: border-box;}
+.layer_list{height:70px;padding:5px 0;box-sizing: border-box;}
+.layer_list .layer_name{width:14%;float:left;}
+.layer_list .listbox{width:85%;height:60px;border:1px solid #D3D3D3;background:#FFFAEE;float:left;position:relative;}
+.layer_list .listbox i{position:absolute;left:5px;}
+.layer_list .listbox .mark{width:40px;height:60px;background:#fff url(../Images/fhx.gif) no-repeat center center;background-size:50% ;position:absolute;right:0;box-sizing: border-box;border-left:1px solid #D3D3D3;}
+.layer_btbox{margin-top:20px;height:90px;}
+.layer_bt{width:90%;margin:0 auto;height:60px;line-height:60px;background:#E8C473;text-align: center;color:#fff;}
+/*.province{z-index: 9999;}*/
+.bg_box{height:480px;width:60%;background:#fff;top:50%;margin-top:-240px;overflow:auto;margin-left: 20%;position:absolute;padding:0 15px;box-sizing: border-box;}
+.box_in{height:60px;line-height:60px;font-size: 1.2rem;border-bottom:1px solid #ccc;box-sizing: border-box;}
+.area .bg_box{height:auto;}
+input{display:none;}
+.dif{position:relative;padding-left: 120px;}
+.dif .tick_box{height:60px;width:120px;position:absolute;left:0;top:0;}
+.dif .tick_box .rud{width:36px;height:36px;border-radius: 50%;border: 1px solid #000;position:absolute;top:34px;right:40px;}
+.dif .tick{width:36px;position:absolute;left:40px;top:34px;display:none;}
+.dif .dif{padding-left:70px;box-sizing: border-box;position:relative;}

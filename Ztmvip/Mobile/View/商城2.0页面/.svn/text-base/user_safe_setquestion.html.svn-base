@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/safe_same_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="Css/safe_same_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="Js/jquery.js"></script>
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        设置安全问题
+        <div class="return"><img src="Images/fh.jpg" height="37" width="18" alt="" /></div>
+    </div>
+</div>
+<!-- 内容 -->
+<article>
+    <div class="list2_box">
+        设置安全问题
+        <ul class="question_box">
+            <span class="title">请选择密保问题</span>
+            <li>您母亲的姓名是？</li>
+            <li>您父亲的姓名是？</li>
+            <li>您配偶的姓名是？</li>
+            <li>您的配偶生日是？</li>
+            <li>您的工号(学号)是？</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        $('.question_box').on("click",(function(event) {
+            $(this).children('li').toggle(0); 
+        }));
+        $('.question_box li').on('click',(function(event) {
+            $('.title').text($(this).text())
+        }))
+    </script>
+    <div class="list2_box">
+        输入答案
+        <input type="text" class="pass" />
+    </div>
+    <div class="bt_box">
+        <div class="bt">确定</div>
+    </div>
+</article>
+</body>
+</html>

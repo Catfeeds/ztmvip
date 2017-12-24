@@ -1,0 +1,35 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">部门名称</td>
+            <td><input name="depart_name" class="text" type="text" value="{$edit['depart_name']}" required="required" placeholder="请输入部门名称..."></td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td><button type="submit" class="submit">提 交</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+    $('.js-edit').on('submit',function(event){
+        $.post('',Core.InputObj(this),function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.href = "{:U('index')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+</script>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/details_index_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="Css/details_index_pad.css" media="(min-width:750px)">
+<link rel="stylesheet" type="text/css" href="Css/swiper.css" />
+<script type="text/javascript" src="Js/jquery.js"></script>
+<script type="text/javascript" src="Js/swiper.jquery.min.js"></script>
+<style type="text/css">
+    .miaosha{ width:100px; float:left; margin: 14px 10px; }
+    @media (max-width:750px ) {
+  .miaosha {
+    width: 47px;
+    float: left;
+    margin: 8px 7px;
+}      
+    }
+</style>
+</head>
+<body>
+<!-- 商品详情页头部开始 -->
+<header class="header">
+    <div class="left">
+        <a href="#">
+            <img src="Images/fh2.jpg" alt="" />
+        </a>
+    </div>
+    <div class="click none">
+        <a href="#">
+            <img src="Images/car.png" alt="" />
+            <div class="num">2</div>   
+        </a>     
+    </div>
+    <div class="click none"><img src="Images/xin.png" alt="" /></div>
+</header>
+<!-- 商品详情页头部结束 -->
+<div class="bgc">
+    <div class="place"></div>
+    <div class="swiper-container" id="swiper2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="Images/goods_banner.jpg" alt="" />
+            </div>
+            <div class="swiper-slide">
+                <img src="Images/goods_banner.jpg" alt="" />
+            </div>
+            <div class="swiper-slide">
+                <img src="Images/goods_banner.jpg" alt="" />
+            </div>
+            <div class="swiper-slide">
+                <img src="Images/goods_banner.jpg" alt="" />
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="inf_box">
+        <div class="inf_top">
+            <div class="click other">
+            <a href="#">
+                <img src="Images/car.png" alt="" />
+                <div class="num">2</div>
+            </a>
+            </div>
+            <div class="click"><img src="Images/xin.png" alt="" /></div>
+        </div>
+        <div class="inf_title">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+        <div class="inf_price">
+            <div class="left">￥<i>228</i></div>
+            <div class="ori">￥698</div>
+            <!-- 日期1202添加一张秒杀图片,ccs在页面头部 -->
+            <img src="Images/inf_price.png" class="miaosha" />
+            <div class="right">已售：<i>169件</i></div>
+        </div>
+        <div class="inf_other">
+            <div class="left same">运费：<i>免运费</i></div>
+            <div class="right same">点击量：<i>2367</i></div>
+        </div>
+    </div>
+    <!-- 整体美礼包开始 -->
+    <div class="inf_box">
+        <div class="bag_title">整体美礼包</div>
+        <div class="bag_box">
+            <div class="swiper-container" id="swiper3">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bag">
+                        <a href="#">
+                            <div class="bag_name">礼包一</div>
+                            <div class="bag_goods"><img src="Images/bag_1.gif" alt="" /></div>
+                            <div class="bag_goods"><img src="Images/bag_2.gif" alt="" /></div>
+                        </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bag">
+                        <a href="#">
+                            <div class="bag_name">礼包二</div>
+                            <div class="bag_goods"><img src="Images/bag_1.gif" alt="" /></div>
+                            <div class="bag_goods"><img src="Images/bag_2.gif" alt="" /></div>
+                            <div class="bag_goods"><img src="Images/bag_2.gif" alt="" /></div>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 整体美礼包结束 -->
+    <script>
+            var gd_w = $(window).width()
+        if(gd_w<750){
+            $(".bag_goods").css('width',gd_w*0.27);
+        }else{
+            $(".bag_goods").css('width',750*0.21)
+        };
+        var swiper3 = new Swiper('#swiper3', {
+            slidesPerView: "auto",
+            freeMode : true,
+            spaceBetween: 4
+        });
+</script>
+    <div class="inf_box down">
+        <div class="goods_inftitle">商品详情
+            <div class="jump"><img src="Images/fhy.gif" alt="" /></div>
+        </div>
+        <div class="article">
+            商品详情
+        </div>
+    </div>
+    <div class="inf_box">
+        <div class="service_title same">服务：</div>
+        <div class="service_box">
+            <div class="service same">
+                <span class="dec"><img src="Images/gou.png" alt="" /></span>
+                <span>7天无理由退货</span>
+            </div>
+            <div class="service same">
+                <span class="dec"><img src="Images/gou.png" alt="" /></span>
+                <span>分享赚钱</span>
+            </div>
+            <div class="service same">
+                <span class="dec"><img src="Images/gou.png" alt="" /></span>
+                <span>正品保障</span>
+            </div>
+            <div class="service same">
+                <span class="dec"><img src="Images/gou.png" alt="" /></span>
+                <span>买贵返差额</span>
+            </div>
+        </div>
+    </div>
+    <div class="inf_box">
+        <from>
+            <div class="radio_box">
+                <div class="radio_title">颜色：</div>
+                <div class="color">
+                    <input type="radio" name="color" value="酒红色" id="color1" />
+                    <label for="color1" class="rdo_cur">酒红色</label>
+                    <input type="radio" name="color" value="黑色"  id="color2" />
+                    <label for="color2">黑色</label>
+                    <input type="radio" name="color" value="杏色"  id="color3" />
+                    <label for="color3">杏色</label>
+                </div>                          
+            </div>  
+            <div class="radio_box">
+                <div class="radio_title">衣服尺码：</div>
+                <div class="size">
+                    <input type="radio" name="size" value="小" id="size1" />
+                    <label for="size1" class="rdo_cur">S</label>
+                    <input type="radio" name="size" value="中"  id="size2" />
+                    <label for="size2">M</label>
+                    <input type="radio" name="size" value="大"  id="size3" />
+                    <label for="size3">L</label>
+                    <input type="radio" name="size" value="加大"  id="size4" />
+                    <label for="size4">XL</label>
+                </div>                          
+            </div>
+            <div class="radio_box">
+                <div class="radio_title">购买数量：</div>
+                <div class="goods_num">
+                    <button class="cut">－</button>
+                    <input type="number" name="num" value="1" id="num" min="1" />
+                    <button class="add">＋</button>
+                </div>                          
+            </div>
+     
+        </from>
+        <script>
+            var sch = $('.inf_top').offset().top;
+            $(window).on('scroll',function(e){
+                var winST = $(window).scrollTop()
+                if(winST>=sch){
+                    $('.none').fadeIn(400);
+                }else{
+                    $('.none').fadeOut(400);
+                }
+            })
+            console.log(sch)
+            $("label").on('click',function(event) {
+                $(this).addClass('rdo_cur').siblings('label').removeClass('rdo_cur')
+            });
+        </script>
+    </div>
+    <div class="inf_box down">
+        <div class="goods_inftitle">商品参数
+            <div class="jump"><img src="Images/fhy.gif" alt="" /></div>
+        </div>
+        <div class="article">
+            上市时间：2015-Q3<br />
+            尺码类型：中国码<br />
+            面料：100％涤纶 ... <br />
+            领型：半高领<br />
+            袖型：灯笼袖<br />
+            衣门襟：套头<br />
+            版型：修身<br />
+            袖长范围：九分袖<br />
+            衣长范围：常规款<br />
+            风格：简约<br />
+            商品细节说明：修身 柔软 无弹<br />
+            图案：纯色<br />
+            流行元素：蕾丝<br />
+            流行元素：钉珠<br />
+            流行元素：纱网<br />
+            适用性别：女士<br />
+            销售季节：秋冬<br />
+            品牌所属国：中国<br />
+            产地：深圳<br />
+            是否中老年女装：否<br />
+            是否大码女装：否<br />
+            商品描述：立领钉珠打底衫
+        </div>
+    </div>
+    <div class="inf_box down">
+        <div class="goods_inftitle">品牌故事
+            <div class="jump"><img src="Images/fhy.gif" alt="" /></div>
+        </div>
+        <div class="article">
+            <h3>Shyslily</h3>
+            深圳市香诗丽服饰有限公司创建于2011年，多年以来一直为顾客提供优质的女士服饰。品牌坚持“优雅、自信、精致、品位”的设计风格，塑造现代女性自信、优雅的健康形象，在成熟中折射出时尚气质。香诗丽专注于时尚品牌，将国际流行时尚元素完美融入服装设计，让新时代女性从容应对现代生活中的多角色转变，彰显知性...
+        </div>
+    </div>
+    <div class="inf_box">
+        <div class="comm_title">
+            <div class="left">用户评论</div>
+            <div class="right"><i>20人</i>评论<i>100%</i>好评</div>
+        </div>
+        <div class="comm_box">
+            <div class="comm">
+            <!-- 星星 -->
+                <div class="left">
+                    <div class="star"><img src="Images/star.gif" alt="" /></div>
+                    <div class="star"><img src="Images/star.gif" alt="" /></div>
+                    <div class="star"><img src="Images/star.gif" alt="" /></div>
+                    <div class="star"><img src="Images/star.gif" alt="" /></div>
+                    <div class="star"><img src="Images/star.gif" alt="" /></div>
+                </div>
+                <div class="right">
+                    <!-- 用户名 -->
+                    凯弟、
+                    <!-- 日期 -->
+                    2015-09-18
+                    <!-- 时间 -->
+                    06:32:34
+                </div>
+            </div>
+            <div class="comm_in">商品收到了，质量非常好，下次还来！</div>            
+        </div>
+        <div class="comm_box">
+            <div class="comm">
+            <!-- 星星 -->
+                <div class="left">
+                    <div class="star"><img src="Images/star.gif" alt="" /></div>
+                    <div class="star"><img src="Images/star.gif" alt="" /></div>
+                    <div class="star"><img src="Images/star.gif" alt="" /></div>
+                    <div class="star"><img src="Images/star.gif" alt="" /></div>
+                    <div class="star"><img src="Images/star.gif" alt="" /></div>
+                </div>
+                <div class="right">
+                    <!-- 用户名 -->
+                    凯弟、
+                    <!-- 日期 -->
+                    2015-09-18
+                    <!-- 时间 -->
+                    06:32:34
+                </div>
+            </div>
+            <div class="comm_in">商品收到了，质量非常好，下次还来！</div>            
+        </div>
+        <div class="comm_box">
+            <div class="comm">
+            <!-- 星星 -->
+                <div class="left">
+                    <div class="star"><img src="Images/star.gif" alt="" /></div>
+                    <div class="star"><img src="Images/star.gif" alt="" /></div>
+                    <div class="star"><img src="Images/star.gif" alt="" /></div>
+                    <div class="star"><img src="Images/star.gif" alt="" /></div>
+                    <div class="star"><img src="Images/star.gif" alt="" /></div>
+                </div>
+                <div class="right">
+                    <!-- 用户名 -->
+                    凯弟、
+                    <!-- 日期 -->
+                    2015-09-18
+                    <!-- 时间 -->
+                    06:32:34
+                </div>
+            </div>
+            <div class="comm_in not">商品收到了，质量非常好，下次还来！</div>            
+        </div>
+    </div>
+    <div class="comm_more"><a href="#">查看全部评论&nbsp＞</a></div>
+    <!-- 相关推荐开始 -->
+    <div class="inf_box">
+        <div class="goods_inftitle">相关推荐</div>
+        <!-- <div class="seckill_box">
+            <div class="seckill_in">
+                <div class="seckill"><img src="Images/seckill01.gif" alt="" /></div>
+                <div class="seckill_inf">
+                    <div class="price">￥<em>798</em>.00</div>
+                    <div class="inf">2015夏新款休闲姜黄色亚麻半长裙</div>
+                </div>
+            </div>
+        </div> -->
+        <div class="swiper-container" id="swiper0">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="seckill"><img src="Images/seckill01.gif" alt="" /></div>
+                    <div class="seckill_inf">
+                        <div class="price">￥<em>798</em>.00</div>
+                        <div class="inf">2015夏新款休闲姜黄色亚麻...</div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="seckill"><img src="Images/seckill01.gif" alt="" /></div>
+                    <div class="seckill_inf">
+                        <div class="price">￥<em>798</em>.00</div>
+                        <div class="inf">2015夏新款休闲姜黄色亚麻...</div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="seckill"><img src="Images/seckill01.gif" alt="" /></div>
+                    <div class="seckill_inf">
+                        <div class="price">￥<em>798</em>.00</div>
+                        <div class="inf">2015夏新款休闲姜黄色亚麻...</div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="seckill"><img src="Images/seckill01.gif" alt="" /></div>
+                    <div class="seckill_inf">
+                        <div class="price">￥<em>798</em>.00</div>
+                        <div class="inf">2015夏新款休闲姜黄色亚麻...</div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        <script>
+            var swiper = new Swiper('#swiper0', {
+                slidesPerView: "auto",
+                freeMode : true,
+                paginationClickable: true,
+                spaceBetween: 4
+            });
+        </script>
+    </div>
+    <!-- 相关推荐结束 -->
+    <script>
+        $(".down").on('click',function(event){
+            $(this).children('.article').slideToggle(300)
+            $(this).siblings('.down').children('.article').slideUp(300)
+        });
+    </script>
+    <div class="inf_box">
+        <div class="copyright">
+            &copy整体美商城<br />
+            客服电话：400-777-1225<br />
+            客服微信：HRlianna
+        </div>
+        <div class="other"></div> 
+    </div>
+    <script>
+        var swiper2 = new Swiper('#swiper2', {
+            pagination: '.swiper-pagination',
+            slidesPerView: 'auto',
+            paginationClickable: true,
+            spaceBetween: 0,
+            autoplay: 2500,
+            autoplayDisableOnInteraction: false,
+            loop: true
+        });
+    </script>    
+</div>
+
+<div class="details_bt">
+    <div class="details_bt_box">
+        <div class="shopping_in">加入购物车</div>
+        <div class="shopping">立即购买</div>
+    </div>
+</div>
+</body>
+</html>

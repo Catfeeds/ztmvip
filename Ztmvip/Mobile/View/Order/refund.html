@@ -1,0 +1,108 @@
+    <link rel="stylesheet" type="text/css" href="__CSS__submit_same_mobile.css" media="(max-width:750px)" />
+    <link rel="stylesheet" type="text/css" href="__CSS__submit_same_pad.css" media="(min-width:750px)">
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        售后申请
+        <a class="return" href="{:U('User/order')}"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></a>
+    </div>
+</div>
+<!-- 内容 -->
+<article id="js-form">
+    <div class="input_bg">
+        <div class="input_box">
+            <div class="title">售后类型</div>
+            <div class="input">
+                <label for="apply1">
+                    换货
+                    <input type="radio" name="refund_type" id="apply1" value="换货" />
+                </label>
+                <div class="tick_box">
+                    <div class="rud"></div>
+                    <div class="tick"><img src="__IMG__tick.jpg" alt="" /></div>
+                </div>
+            </div>
+            <div class="input">
+                <label for="apply2">
+                    退货
+                    <input type="radio" name="refund_type" id="apply2" value="退货" />
+                </label>
+                <div class="tick_box">
+                    <div class="rud"></div>
+                    <div class="tick"><img src="__IMG__tick.jpg" alt="" /></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="inf_box">
+        <div class="title">申请理由</div>
+        <div class="text_box">
+            <span class="dian"></span>
+            <textarea name="refund_note" class="text" maxlength="200" required="required"></textarea>
+        </div>
+        <div class="text_inf">还可以输入200个字</div>
+    </div>
+</article>
+<!-- 底部按钮 -->
+<div class="bt_box">
+    <div class="bt">提交申请</div>
+</div>
+<div class="placeholder"></div>
+<!-- 底部按钮 -->
+<div class="bt_box">
+    <div class="bt">提交申请</div>
+</div>
+<script type="text/javascript">
+    $(function() {
+        $(".text").keyup(check);
+        $("body").mousedown(check);
+    });
+
+    function check() {
+        var str = $(".text").val();
+        var len = strlen(str);
+        var info = 200 - len;
+        info = info + "";
+        if (info.indexOf('.') > 0)
+            info = info.substring(0, info.indexOf('.'));
+        if (len <= 200) {
+            $(".text_inf").html("还可以输入"+info+"个字");
+        }
+    }
+
+    function strlen(str) {
+        var str = (str + '').replace(/(\s+)$/g, '').replace(/^\s+/g, '');
+        var len = 0;
+        for (var i = 0; i < str.length; i++) {
+            len += str.charCodeAt(i) > 0 && str.charCodeAt(i) < 255 ? 0.5 : 1;
+        }
+        return len;
+    }
+
+    $('label').on('click',function(event) {
+        if($(this).find('input').is(':checked')){
+            $(this).siblings().find('.tick').css('display', 'block');
+            $(this).siblings().find('.rud').css('display', 'none');
+            $(this).closest('.input').siblings().find('.tick').css('display', 'none');
+            $(this).closest('.input').siblings().find('.rud').css('display', 'block');
+        }
+    });
+
+    $('.bt').on('click',function(event) {
+        var data = Core.InputObj($('#js-form'));
+
+        $.post('',data,function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message,'callback':function(){
+                    location.href = "{:U('User/order')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+
+</head>
+<body>
+<div style="height:600px;margin:auto;width:200px;"><img style="padding-top:200px;width:200px;" src="{:U('Qrcode/index','text='.$qrcode)}"></div>
+<script>
+
+$(function(){
+    var inter = setInterval(function(){
+        $.post("{:U('Login/wechatOem','state=token')}",function(ret){
+            // console.log(ret);
+            if (ret.state){
+                clearInterval(inter);
+                Core.Alert({ 'text':ret.message });
+                window.location.href = ret.redirect_url;
+            }
+        },'json');
+    },2000);
+});
+</script>

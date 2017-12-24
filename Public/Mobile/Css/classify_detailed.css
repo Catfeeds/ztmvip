@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* CSS Document */
+body, nav, dl, dt, dd, p, h1, h2, h3, h4, ul, ol, li, input, button, textarea, footer { margin: 0; padding: 0; }
+u, em, i { font-style: normal; text-decoration: none; }
+a { text-decoration: none; color: #5F5F5F; }
+body { background: #fff; min-width: 320px; max-width: 750px; color: #252525; -webkit-tap-highlight-color: transparent; }
+html { font-family: "微软雅黑", "Lucida Sans Unicode", "Myriad Pro", "Hiragino Sans GB", "Heiti SC", Verdana, simsun; font-size: 12px; -webkit-text-size-adjust: 100%;   /*让谷歌浏览器可以设定字体大小*/ -ms-text-size-adjust: 100%; max-width: 750px; min-width: 320px; margin: auto; }
+button { border: none; } /* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, menu, nav, section { display: block; } /* 设置图片视频等自适应调整 */
+img { width: 100%; display: block; font-size: 0; border: 0; height: auto; width: auto\9; /* ie8 */ }
+.video embed, .video object, .video iframe { width: 100%; height: auto; }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+form { display: inline; }
+ul, ol { list-style: none; }
+input, button, textarea { outline: none; }
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+-webkit-appearance: none !important;
+margin: 0;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { padding: 0; margin: 0; }
+fieldset, img { border: 0; }
+table { border-collapse: collapse; border-spacing: 0; }
+ol, ul { list-style: none; }
+address, caption, cite, code, dfn, em, strong, th, var { font-weight: normal; font-style: normal; }
+caption, th { text-align: left; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100%; }
+q:before, q:after { content: ''; }
+abbr, acronym { border: 0; }
+a { text-decoration: none; }
+input:focus, button:focus, select:focus { outline: none; }
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { padding: 0; margin: 0; }
+fieldset, img { border: 0; }
+table { border-collapse: collapse; border-spacing: 0; }
+ol, ul { list-style: none; }
+address, caption, cite, code, dfn, em, strong, th, var { font-weight: normal; font-style: normal; }
+caption, th { text-align: left; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100%; }
+q:before, q:after { content: ''; }
+abbr, acronym { border: 0; }
+a { text-decoration: none; }
+input:focus, button:focus, select:focus { outline: none; }
+.clear { clear: both; }
+html { font-size: 10px; font-family: "冬青黑体简体中文"; }
+.max { width: 100%; max-width: 750px; min-width: 320px; margin: auto; overflow: hidden; }
+ul.classify_nav {width:100%; overflow: hidden; background: #fff; max-width: 750px;position:fixed;top:0;z-index: 999;}
+ul.classify_nav li { float: left; width: 17%; margin-left: 4%; margin-right: 4%; margin-top: 20px; text-align: center; color: #808080;  }
+ul.classify_nav li img { width: 100%; max-width: 128px; }
+ul.classify_nav li p { text-align: center; line-height: 64px;font-size: 22px; font-family: "微软雅黑"; }
+
+.classify_content { background: #f3f3f3; overflow: hidden; position: relative; left: 0px;}
+.padding-top26 { padding-top: 2.6rem; }
+.padding-top40 { padding-top: 40px; }
+
+.classify_content .classify_title{ height:60px; margin: auto; text-align: center; font-size: 3rem;  background: url(../Images/classify_health_bg.jpg) center center/100% 1px no-repeat; margin-bottom: 7px;}
+.classify_content .classify_title span{ display:inline-block; height:60px; line-height: 60px; background: #f3f3f3; padding-left: 10px; padding-right: 10px; }
+
+.classify_content ul li { float: left; width: 30%; margin-left: 2.6%; text-align: center; padding-bottom: 12px; }
+.classify_content ul li img { }
+.classify_content ul li p { line-height: 61px; color: #252525; font-size: 2.6rem; font-family: "冬青黑体简体中文"; overflow:hidden;text-overflow:ellipsis;white-space :nowrap;}
+
+
+@font-face {font-family: 'iconfont';
+    src: url('icon_CableNull/iconfont.eot'); /* IE9*/
+    src: url('icon_CableNull/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('icon_CableNull/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.icon_CableNull_font{
+    font-family:"iconfont" !important;
+    font-size:140px;font-style:normal; 
+     color: #A7A7A7;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+     display:inline-block; padding-top: 200px;
+}
+.icon_CableNull{ text-align: center;}
+.icon_CableNull p{ font-size: 32px; text-align: center; color:#686565;}
+/*.copyright{ font-size:12px;}*/
+
+ @media (max-width:600px) {
+html { font-size: 5px; }
+ul.classify_nav li { margin-top: 10px; }
+ul.classify_nav li p { font-size: 14px; line-height: 2em; }
+.padding-top26 { padding-top: 5px; }
+.padding-top40 { padding-top: 15px; }
+.classify_content .classify_title { height:40px; line-height: 40px;margin-top: 10px; margin-bottom: 3px; }
+.classify_content .classify_title span{ height:40px; line-height: 40px; font-size: 3rem;}
+.classify_content ul li p { line-height: 2.5em; }
+.classify_content ul li { padding-bottom: 4px; }
+
+@font-face {font-family: 'iconfont';
+    src: url('icon_CableNull/iconfont.eot'); /* IE9*/
+    src: url('icon_CableNull/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('icon_CableNull/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.icon_CableNull_font{
+    font-family:"iconfont" !important;
+    font-size:140px;font-style:normal; 
+     color: #A7A7A7;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+     display:inline-block; padding-top: 30%;
+}
+.icon_CableNull{ text-align: center;}
+.icon_CableNull p{ font-size: 4rem; text-align: center; color:#686565;}
+}
+body{background:#F3F3F3;}

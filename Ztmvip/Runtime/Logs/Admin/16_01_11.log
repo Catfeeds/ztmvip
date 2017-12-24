@@ -1,0 +1,74 @@
+[ 2016-01-11T15:52:16+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-11T15:52:16+08:00 ] 127.0.0.1 /Login/index.html?ret=Lw==
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_manager` [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.041002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.041002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-11T15:52:28+08:00 ] 127.0.0.1 /Login/index.html?ret=Lw==
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_manager` [ RunTime:0.0020s ]
+SQL: SELECT `id` FROM `ztm_manager` WHERE `user_name` = 'hrlianna' AND `password` = '49c64a05ea70c2cce1502b825b229dbf' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `id`,`nick_name`,`group_id`,`depart_id` FROM `ztm_manager` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `ztm_manager_group` [ RunTime:0.0020s ]
+SQL: SELECT `rights` FROM `ztm_manager_group` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-01-11T15:52:31+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_order` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ztm_order` WHERE `order_state` = 'confirm' AND `payment_state` = 'payed' AND `date_add` >= 1452441600 LIMIT 1   [ RunTime:0.0300s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ztm_order` WHERE `payment_state` IN ('new','paying') LIMIT 1   [ RunTime:0.0150s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ztm_order` WHERE `order_state` = 'confirm' AND `shipping_state` = 'stock' LIMIT 1   [ RunTime:0.0170s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ztm_order` WHERE `order_state` = 'confirm' AND `payment_state` = 'payed' AND `shipping_state` = 'new' LIMIT 1   [ RunTime:0.0200s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ztm_order` WHERE `order_state` = 'confirm' AND `shipping_state` = 'send' LIMIT 1   [ RunTime:0.0140s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ztm_order` WHERE `order_state` = 'confirm' AND `shipping_state` = 'receive' LIMIT 1   [ RunTime:0.0150s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ztm_order` WHERE `order_state` = 'refund' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ztm_order` WHERE `order_state` = 'refunded' LIMIT 1   [ RunTime:0.0070s ]
+SQL: select version() as ver [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: aside_id F:\homes\webonline\Ztmvip\Runtime\Cache\Admin\9c523151502097629104e7496aadcf24.php 第 190 行.
+NOTIC: [8] Undefined variable: aside_id F:\homes\webonline\Ztmvip\Runtime\Cache\Admin\9c523151502097629104e7496aadcf24.php 第 191 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.061004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.062004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+

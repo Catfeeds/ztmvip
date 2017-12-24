@@ -1,0 +1,144 @@
+    <link rel="stylesheet" type="text/css" href="__CSS__goods_same_mobile.css" media="(max-width:750px)" />
+    <link rel="stylesheet" type="text/css" href="__CSS__goods_same_pad.css" media="(min-width:750px)">
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        我的订单
+        <a class="return" href="{:U('User/order')}"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></a>
+    </div>
+</div>
+<!-- 内容 -->
+<article>
+    <div class="order_inf">
+        订单号：{$order['order_sn']}<br />
+        购买时间：{$order['date_add']|date='Y-m-d H:i',###}
+    </div>
+    <div class="order_inf">
+        <if condition="in_array($order['payment_state'],array('new','paying'))">
+            订单金额（含运费）：￥{$order['goods_fee']+$order['shipping_fee']|sprintf='%.2f',###}<br />
+            <u>运费：￥{$order['shipping_fee']}</u>
+            <else/>
+            支付方式：{$order['payment_name']}<br />
+            订单金额（含运费）：￥{$order['goods_fee']+$order['shipping_fee']|sprintf='%.2f',###}<br />
+            <if condition="$order['bonus_id']">
+                优惠方式：红包(-￥{$order['bonus_amount']})<br />
+                <else/>
+                优惠方式：优惠券(-￥{$order['coupon_amount']})<br />
+            </if>
+            <if condition="$order['integral']">
+                使用积分：{$order['integral']}<br />
+            </if>
+            <i>实付款(含运费)：￥{$order['surplus_amount']+$order['payment_amount']+$order['prepaid_amount']|sprintf='%.2f',###}</i>
+        </if>
+    </div>
+    <div class="order_inf">
+        <div class="user_inf">
+            <div class="name">收货人：{$order['consignee']}</div>
+            <div class="phone">{$order['mobile']}</div>
+        </div>
+        <u>{$order['province']} {$order['city']} {$order['district']} {$order['address']}</u>
+    </div>
+    <div class="goods_box">
+        <volist name="order['goods']" id="vo">
+            <div class="goods_in">
+                <div class="goods_photo"><img src="{$vo['goods_thumb']}_360x440.jpg" height="440" width="360" alt="" /></div>
+                <div class="goods_inf">
+                    <div class="title">{$vo['goods_name']}</div>
+                    <div class="price">
+                        ￥<i>{$vo['goods_price']}</i>
+                        <div class="left">x{$vo['goods_number']}</div>
+                    </div>
+                    <div class="inf_other"><?php
+                    if ( $vo['different'] == 'new' ){
+                        $vo['skus'] = json_decode($vo['skus'],true);
+                        foreach ( $vo['skus'] as $skus ){
+                            echo $skus[0] .'：'. $skus[1] .' ';
+                        }
+                    }else{
+                        echo $vo['skus'];
+                    }
+                    ?></div>
+                </div>
+            </div>
+        </volist>
+    </div>
+</article>
+<div class="placeholder"></div>
+<!-- 底部按钮 -->
+<div class="bt_box two js-btns">
+    <if condition="$order['order_state'] eq 'new' && in_array($order['payment_state'],array('new','paying'))">
+        <div class="bt1 js-delete">删 除</div>
+        <a class="bt2" href="{:U('Center/checkout','order_id='.$order['id'])}">付 款</a>
+    <elseif condition="$order['order_state'] eq 'confirm' && $order['payment_state'] eq 'payed' && $order['shipping_state'] eq 'new'"/>
+        <div class="bt2 js-send" data-rel="{$order['order_sn']}">提醒发货</div>
+    <elseif condition="$order['order_state'] eq 'confirm' && $order['shipping_state'] eq 'send'"/>
+        <a class="bt1" href="{:U('order/express','order_id='.$order['id'])}">查看物流</a>
+        <div class="bt2 js-receive">确认收货</div>
+    <elseif condition="$order['order_state'] eq 'confirm' && $order['shipping_state'] eq 'receive'"/>
+        <a class="bt1" href="{:U('Order/refund','order_id='.$order['id'])}">申请售后</a>
+        <a class="bt2" href="{:U('Order/comment','order_id='.$order['id'])}">评价商品</a>
+    <elseif condition="$order['order_state'] eq 'refund'"/>
+        <div class="bt2">售后中</div>
+    <elseif condition="$order['order_state'] eq 'refunded'"/>
+        <div class="bt2">已退款</div>
+    <elseif condition="$order['order_state'] eq 'finish'"/>
+        <div class="bt2">已完成</div>
+    </if>
+</div>
+</body>
+</html>
+<script>
+    $('.js-btns').on('click','.js-delete',function(event){ //删除订单
+        var el = $(this);
+
+        $.post("{:U('Order/delete')}",{ 'order_id':"{$order['id']}" },function(ret){
+            if (ret.state)
+                Core.Alert({ 'text':ret.message,'callback':function(){
+                    location.href = "{:U('User/order')}";
+                } });
+            else
+                Core.Alert({ 'text':ret.message,'state':'err' });
+        },'json');
+    }).on('click','.js-send',function(){ //提醒发货
+        $.post("{:U('Treatment/phpMail')}",{ 'order_sn':"{$order['id']}" },function(ret){
+            if(ret.error == 8)
+                Core.Alert({ 'text':'发货提醒成功','callback':function(){
+                    location.href = "{:U('User/order')}";
+                } });
+            else if(ret.error == 4)
+                Core.Alert({ 'text':'服务器繁忙...','state':'notic' });
+            else if(ret.error == 'pass')
+                Core.Alert({ 'text':'您的提醒我们已经收到了，整体美商城会尽快帮您发货','callback':function(){
+                    location.href = "{:U('User/order')}";
+                } });
+        });
+    }).on('click','.js-receive',function(){ //确认收货
+        var el = $(this);
+        if (el.attr('disabled'))
+            return;
+
+        $.post("{:U('Order/state')}",{ 'order_id':"{$order['id']}",'state':'receive' },function(ret){
+            if (ret.state)
+                Core.Alert({ 'text':ret.message,'callback':function(){
+                    location.href = "{:U('User/order')}";
+                } });
+            else
+                Core.Alert({ 'text':ret.message,'state':'err' });
+        },'json');
+    }).on('click','.js-finish',function(){
+        var el = $(this);
+        if (el.attr('disabled'))
+            return;
+
+        $.post("{:U('Order/state')}",{ 'order_id':"{$order['id']}",'state':'finish' },function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message });
+                el.css('background-color','#c9c9c9').attr('disabled','disabled').html('已完成');
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+</script>

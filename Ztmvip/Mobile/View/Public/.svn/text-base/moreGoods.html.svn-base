@@ -1,0 +1,11 @@
+{__NOLAYOUT__}
+<volist name="goods_list" id="vo">
+    <div class="sheep_box">
+        <div class="photo"><a href="{:U('Goods/detail','goods_id='.$vo['id'])}"><img class="lazy" data-original="{$vo['goods_thumb']}_360x440.jpg" src="__IMG__lastbg.jpg" height="440" width="360" alt="" /></a></div>
+        <div class="price">
+            <b>￥<i>{$vo['shop_price']}</i></b>&nbsp;
+            <u>￥{$vo['market_price']}</u>
+        </div>
+        <div class="sheep_inf">{$vo['goods_name']}</div>
+    </div>
+</volist>

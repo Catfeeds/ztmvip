@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <title>{$bargain['title']}</title>
+    <link rel="stylesheet" type="text/css" href="/Public/Common/Images/common.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__swiper.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__bargain_base.css"/>
+    <link rel="stylesheet" type="text/css" href="__CSS__bargain_bargain.css" />
+    <script type="text/javascript" src="__JS__/jquery.js"></script>
+    <script type="text/javascript" src="__JS__/swiper.jquery.min.js"></script>
+    <script type="text/javascript" src="/Public/Common/Js/common.js"></script>
+    <style type="text/css">
+        #hm_t_undefined{ display:none;}
+    </style>
+</head>
+
+<body>
+<div class="mybargain max">
+    <div class="top"><img src="__IMG__bargain_mybargain_02.png" /></div>
+    <div class="img">
+        <img src="__IMG__bargain_mybargain_04.png" />
+        <a href="{:U('Goods/detail','goods_id='.$bargain['goods_id'])}">
+            <img src="{$bargain['bargain_image']}" class="mybargain_img" />
+        </a>
+        <p>
+            <a href="{:U('Goods/detail','goods_id='.$bargain['goods_id'])}" style="color:#000;"><span>{$bargain['goods_name']}</span></a><br />
+            市场价：{$bargain['market_price']}元
+        </p>
+    </div>
+
+    <if condition="$bargain['bargain_start'] lt time() && $bargain['bargain_end'] gt time() && $bargain['on_sale'] eq 'Y'">
+        <!--砍价按钮-->
+        <img src="__IMG__bargain_friend_03.png" class="but1" />
+        <img src="__IMG__bargain_mybargain.gif" class="gif" />
+
+        <div class="pengyouxinxi">
+            <div class="button_cy"><a href="{:U('Bargain/index','id='.$bargain['id'])}"><img src="__IMG__bargain_friend_03-02.png" /></a></div>
+            <img class="img1" src="{$share_user['avatar']}" />
+            <p class="name">{$share_user['nick_name']}</p>
+            <p>您的好友邀请你帮他砍价</p>
+        </div>
+
+        <!--领取面膜-->
+        <div class="but3"><a href="{:U('Present/index','id=1')}"><img src="__IMG__bargain_mybargain_033.png" /></a></div>
+
+        <div class="jieshu">
+            <a href="javascript:;" id="js-a1">活动规则</a>
+            <a href="http://{$_SERVER['HTTP_HOST']}" class="jinru">进入商城更多精彩活动</a>
+        </div>
+
+        <div class="reduce">
+            <img src="__IMG__bargain_gif-bai.gif" class="reduce-gif" />
+            <div class="con1"><img src="__IMG__bargain_mybargain_01.png" />
+                <a href="{:U('Present/index','id=1')}"><img src="__IMG__bargain_vipgood.jpg" class="img" /></a>
+                <a href="{:U('Present/index','id=1')}" class="tishi">还不过够瘾？再去参加面膜免费送活动</a>
+                <p class="p1">您已成功砍价</p>
+                <p class="p2">￥<span>{$mine_bargain|sprintf='%.2f',###}</span></p>
+                <span class="but_span">确定</span>
+            </div>
+        </div>
+
+        <div class="rule" id="js-rule">
+            <div class="text">
+                <p>
+                    <b>活动规则：</b><br />
+                    <b>活动时间：</b>{$bargain['bargain_start']|date='Y.m.d',###}--{$bargain['bargain_end']|date='Y.m.d',###}<br />
+                    <b>参与方式：</b><br />
+                    <i>1.活动期间，用户每天可以将活动页面分享好友或朋友圈，邀请好友帮忙砍价；</i>
+                    <i>2.活动期间点击“立即抢购”，可按砍价后的结算价进行购买<if condition="$bargain['min_price'] neq $bargain['middle_price']">（注：当{$bargain['min_price']}< 砍后价< {$bargain['middle_price']},统一按{$bargain['middle_price']}元底价结算）</if>；</i>
+                    <i>3.如在活动期间内发现用户通过不正当手段，影响公平公正的活动环境，将取消用户参与资格；</i>
+                    <i>4.本活动最终解释权归整体美商城所有。</i>
+                    <br />
+                    <span class="but_span">同意</span>
+                </p>
+            </div>
+        </div>
+        <else/>
+        <div class="jieshu">
+            <p>该活动已结束，感谢你的关注</p>
+            <a href="{:U('Index/index')}">参加更多精彩活动</a>
+        </div>
+    </if>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><a href="{:U('Present/index')}"><img src="__IMG__bargain_face.jpg" alt="" /></a></div>
+            <div class="swiper-slide"><a href="{:U('Goods/newList','brand=0&cat=1126')}"><img src="__IMG__bargain_yang.jpg" alt="" /></a></div>
+            <volist name="bargain_relation" id="vo">
+                <div class="swiper-slide"><a href="{:U('Bargain/index','id='.$vo['id'])}"><img src="{$vo['bargain_thumb']}" alt="" /></a></div>
+            </volist>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="application/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?0f0b15bb49fcf471ea731895570e125c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 4,
+        spaceBetween: 6
+    });
+
+    $('.but1').on('click',function() {
+        $('#js-rule').hide();
+        $('.reduce').show();
+        $('.gif').css({'display':'none'});
+    });
+
+    $('.but_span').on('click',function(){
+        $('.reduce').hide();
+        $('#js-rule').hide();
+    });
+
+    $('#js-a1').on('click',function(){
+        $('.reduce').hide();
+        $('#js-rule').show();
+    });
+
+    wx.config({
+        debug:false,
+        appId:"{$signPackage['appid']}",
+        timestamp:"{$signPackage['timestamp']}",
+        nonceStr:"{$signPackage['noncestr']}",
+        signature:"{$signPackage['signature']}",
+        jsApiList:[
+            'onMenuShareAppMessage',
+            'onMenuShareTimeline',
+        ]
+    });
+
+    wx.ready(function(){
+        //分享活动内容
+        var _title = "{$bargain['title']}"
+                ,_desc = "{$bargain['des']}"
+                ,_link = "{:U('Bargain/friend','id='.$bargain['id'].'&u='.I('get.u'),'html',true)}"
+                ,_imgUrl = "http://{$_SERVER['HTTP_HOST']}{$bargain['bargain_thumb']}";
+
+        //分享给朋友
+        wx.onMenuShareAppMessage({
+            title:_title,
+            desc:_desc,
+            link:_link,
+            imgUrl:_imgUrl,
+            trigger:function(res){
+                console.log('用户点击发送给朋友');
+            },
+            success:function(res){
+                console.log('已分享');
+            },
+            cancel:function(res){
+                console.log('已取消');
+            },
+            fail:function(res){
+                console.log(JSON.stringify(res));
+            }
+        });
+
+        //分享到朋友圈
+        wx.onMenuShareTimeline({
+            title:_title,
+            link:_link,
+            imgUrl:_imgUrl,
+            trigger:function(res){
+                console.log('用户点击分享到朋友圈');
+            },
+            success:function(res){
+                console.log('已分享');
+            },
+            cancel:function(res){
+                console.log('已取消');
+            },
+            fail:function(res){
+                console.log(JSON.stringify(res));
+            }
+        });
+    });
+
+    wx.error(function(res){
+        console.log(res.errMsg);
+    });
+</script>

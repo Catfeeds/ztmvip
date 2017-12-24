@@ -1,0 +1,993 @@
+[ 2016-01-19T16:34:53+08:00 ] 127.0.0.1 /Health/delete_test_order/order_id/20435
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:34:53+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-01-19T16:34:53+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:35:12+08:00 ] 127.0.0.1 /Health/delete_test_order/order_id/20435
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-01-19T16:35:13+08:00 ] 127.0.0.1 /Health/delete_test_order/order_id/20435
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:35:58+08:00 ] 127.0.0.1 /Health/delete_test_order/order_id/20435
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:36:44+08:00 ] 127.0.0.1 /Health/delete_test_order/order_id/20435
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_user` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: shan_order_id F:\homes\webonline\Ztmvip\Mobile\Controller\HealthController.class.php 第 35 行.
+SQL: SHOW COLUMNS FROM `ztm_order` [ RunTime:0.0020s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : DELETE FROM `ztm_order` WHERE ( id= )
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : DELETE FROM `ztm_order` WHERE ( id= )
+
+[ 2016-01-19T16:37:05+08:00 ] 127.0.0.1 /Health/delete_test_order/order_id/20435
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `ztm_user` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_order` [ RunTime:0.0020s ]
+SQL: DELETE FROM `ztm_order` WHERE ( id=20435 ) [ RunTime:0.0580s ]
+SQL: SHOW COLUMNS FROM `ztm_order_extend` [ RunTime:0.0030s ]
+SQL: DELETE FROM `ztm_order_extend` WHERE ( order_id=20435 ) [ RunTime:0.0540s ]
+SQL: SHOW COLUMNS FROM `ztm_order_goods` [ RunTime:0.0030s ]
+SQL: DELETE FROM `ztm_order_goods` WHERE ( order_id=20435 ) [ RunTime:0.0550s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-01-19T16:49:23+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_advert` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexBanner' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,10000   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods` [ RunTime:0.0010s ]
+SQL: SELECT g.goods_name,g.market_price,g.shop_price,sg.goods_id,g.goods_thumb,sg.kill_price,sg.goods_number,sg.kill_start,sg.kill_end FROM ztm_seckill_goods AS sg LEFT JOIN ztm_goods AS g ON sg.goods_id=g.id WHERE sg.on_sale='Y' AND sg.disabled='N' AND sg.kill_start=1453132800 AND sg.kill_end=1453219200 ORDER BY sg.rank DESC LIMIT 0,3 [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexFashion' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,9   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.055003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.055003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151216/567111719f5ef.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20160105/568b3de239e6f.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e50221b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e3607c33.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151215/566fd06f1fb82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151215/566fd06f1fb82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20160105/568b3de239e6f.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e50221b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151216/567111719f5ef.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e3607c33.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:49:24+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:49:26+08:00 ] 127.0.0.1 /User/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Constant CART_KEY already defined F:\homes\webonline\Ztmvip\Mobile\Controller\BaseController.class.php 第 74 行.
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-01-19T16:49:35+08:00 ] 127.0.0.1 /Uploads/20160112/5694cde84304d.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_advert` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexBanner' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,10000   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods` [ RunTime:0.0020s ]
+SQL: SELECT g.goods_name,g.market_price,g.shop_price,sg.goods_id,g.goods_thumb,sg.kill_price,sg.goods_number,sg.kill_start,sg.kill_end FROM ztm_seckill_goods AS sg LEFT JOIN ztm_goods AS g ON sg.goods_id=g.id WHERE sg.on_sale='Y' AND sg.disabled='N' AND sg.kill_start=1453132800 AND sg.kill_end=1453219200 ORDER BY sg.rank DESC LIMIT 0,3 [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexFashion' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,9   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20151216/567111719f5ef.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20160105/568b3de239e6f.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e3607c33.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e50221b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20151215/566fd06f1fb82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20160105/568b3de239e6f.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e50221b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e3607c33.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20151216/567111719f5ef.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:09+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:12+08:00 ] 127.0.0.1 /User/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Constant CART_KEY already defined F:\homes\webonline\Ztmvip\Mobile\Controller\BaseController.class.php 第 74 行.
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_advert` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexBanner' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,10000   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods` [ RunTime:0.0030s ]
+SQL: SELECT g.goods_name,g.market_price,g.shop_price,sg.goods_id,g.goods_thumb,sg.kill_price,sg.goods_number,sg.kill_start,sg.kill_end FROM ztm_seckill_goods AS sg LEFT JOIN ztm_goods AS g ON sg.goods_id=g.id WHERE sg.on_sale='Y' AND sg.disabled='N' AND sg.kill_start=1453132800 AND sg.kill_end=1453219200 ORDER BY sg.rank DESC LIMIT 0,3 [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexFashion' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,9   [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20160105/568b3de239e6f.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fd06f1fb82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151216/567111719f5ef.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e50221b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e3607c33.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20160105/568b3de239e6f.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0010s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_advert` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexBanner' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,10000   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods` [ RunTime:0.0020s ]
+SQL: SELECT g.goods_name,g.market_price,g.shop_price,sg.goods_id,g.goods_thumb,sg.kill_price,sg.goods_number,sg.kill_start,sg.kill_end FROM ztm_seckill_goods AS sg LEFT JOIN ztm_goods AS g ON sg.goods_id=g.id WHERE sg.on_sale='Y' AND sg.disabled='N' AND sg.kill_start=1453132800 AND sg.kill_end=1453219200 ORDER BY sg.rank DESC LIMIT 0,3 [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexFashion' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,9   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151216/567111719f5ef.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20160105/568b3de239e6f.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fd06f1fb82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e50221b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e3607c33.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151216/567111719f5ef.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20160105/568b3de239e6f.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e50221b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e3607c33.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fd06f1fb82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_advert` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexBanner' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,10000   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods` [ RunTime:0.0020s ]
+SQL: SELECT g.goods_name,g.market_price,g.shop_price,sg.goods_id,g.goods_thumb,sg.kill_price,sg.goods_number,sg.kill_start,sg.kill_end FROM ztm_seckill_goods AS sg LEFT JOIN ztm_goods AS g ON sg.goods_id=g.id WHERE sg.on_sale='Y' AND sg.disabled='N' AND sg.kill_start=1453132800 AND sg.kill_end=1453219200 ORDER BY sg.rank DESC LIMIT 0,3 [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexFashion' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,9   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20160105/568b3de239e6f.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fd06f1fb82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e50221b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151216/567111719f5ef.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e3607c33.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:18+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:19+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:19+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:20+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_advert` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexBanner' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,10000   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_goods` [ RunTime:0.0020s ]
+SQL: SELECT g.goods_name,g.market_price,g.shop_price,sg.goods_id,g.goods_thumb,sg.kill_price,sg.goods_number,sg.kill_start,sg.kill_end FROM ztm_seckill_goods AS sg LEFT JOIN ztm_goods AS g ON sg.goods_id=g.id WHERE sg.on_sale='Y' AND sg.disabled='N' AND sg.kill_start=1453132800 AND sg.kill_end=1453219200 ORDER BY sg.rank DESC LIMIT 0,3 [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexFashion' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,9   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:20+08:00 ] 127.0.0.1 /Uploads/20151216/567111719f5ef.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:20+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:20+08:00 ] 127.0.0.1 /Uploads/20160105/568b3de239e6f.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:20+08:00 ] 127.0.0.1 /Uploads/20151215/566fd06f1fb82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:20+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:20+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:20+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e50221b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:20+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e3607c33.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:20+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:20+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:20+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:20+08:00 ] 127.0.0.1 /Uploads/20160105/568b3de239e6f.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:20+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:20+08:00 ] 127.0.0.1 /Uploads/20160114/56975bd173ad9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:50:22+08:00 ] 127.0.0.1 /Flow/cart/another/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' ORDER BY id desc  [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' AND `selected` = 'N' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-19T16:50:24+08:00 ] 127.0.0.1 /User/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Constant CART_KEY already defined F:\homes\webonline\Ztmvip\Mobile\Controller\BaseController.class.php 第 74 行.
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-01-19T16:51:21+08:00 ] 127.0.0.1 /Flow/cart/another/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' ORDER BY id desc  [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' AND `selected` = 'N' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:51:22+08:00 ] 127.0.0.1 /User/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0010s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_user` [ RunTime:0.0030s ]
+SQL: SELECT u.user_name,u.parent_id,u.user_money,u.frozen_money,u.integral,u.mobile, wu.nick_name,wu.avatar FROM ztm_user AS u LEFT JOIN ztm_wechat_user AS wu ON u.id=wu.user_id WHERE u.id=19023 [ RunTime:0.0020s ]
+NOTIC: [8] Use of undefined constant parent_id - assumed 'parent_id' F:\homes\webonline\Ztmvip\Mobile\Model\UserModel.class.php 第 28 行.
+SQL: SELECT u.user_name,wu.nick_name FROM ztm_user AS u LEFT JOIN ztm_wechat_user AS wu ON u.id=wu.user_id WHERE
+        u.id=94 [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_account_log` [ RunTime:0.0020s ]
+SQL: SELECT SUM(user_money)+SUM(frozen_money) AS money FROM `ztm_account_log` WHERE `user_id` = 19023 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_user_account_log` [ RunTime:0.0010s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `ztm_user_account_log` WHERE `source_type` = 'money' AND `change_type` = 'withdraw' AND `date_pay` = 0 AND `user_id` = 19023 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_order` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ztm_order` WHERE `user_id` = 19023 AND `order_state` = 'new' AND `payment_state` IN ('new','paying') AND `shipping_state` = 'new' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ztm_order` WHERE `user_id` = 19023 AND `order_state` = 'confirm' AND `payment_state` = 'payed' AND `shipping_state` = 'new' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ztm_order` WHERE `user_id` = 19023 AND `order_state` = 'confirm' AND `payment_state` = 'payed' AND `shipping_state` = 'send' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ztm_order` WHERE `user_id` = 19023 AND `order_state` = 'confirm' AND `shipping_state` = 'receive' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ztm_order` WHERE `user_id` = 19023 AND `order_state` IN ('refund','refunded','finish') LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:51:25+08:00 ] 127.0.0.1 /User/order/state/new.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_user` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_order` [ RunTime:0.0030s ]
+SQL: SELECT `id`,`order_sn`,`order_state`,`payment_state`,`shipping_state`,`date_pay` FROM `ztm_order` WHERE `user_id` = 19023 AND `order_state` = 'new' AND `payment_state` IN ('new','paying') AND `shipping_state` = 'new' ORDER BY id DESC  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_order_goods` [ RunTime:0.0010s ]
+SQL: SELECT og.goods_id,og.goods_number,og.goods_price,og.skus,og.different,g.goods_name,g.goods_thumb,g.on_sale FROM ztm_order_goods og INNER JOIN ztm_goods AS g ON g.id=og.goods_id  WHERE og.order_id = '20437'  [ RunTime:0.0010s ]
+SQL: SELECT og.goods_id,og.goods_number,og.goods_price,og.skus,og.different,g.goods_name,g.goods_thumb,g.on_sale FROM ztm_order_goods og INNER JOIN ztm_goods AS g ON g.id=og.goods_id  WHERE og.order_id = '20436'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() F:\homes\webonline\Ztmvip\Runtime\Cache\Mobile\b8c92581d1edc8572b83923f586be14c.php 第 76 行.
+NOTIC: [2] Invalid argument supplied for foreach() F:\homes\webonline\Ztmvip\Runtime\Cache\Mobile\b8c92581d1edc8572b83923f586be14c.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:51:25+08:00 ] 127.0.0.1 /Uploads/20160115/5698a33fb6aeb.jpg_250x250.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:51:25+08:00 ] 127.0.0.1 /Uploads/20160114/569755110ac96.jpg_250x250.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:51:25+08:00 ] 127.0.0.1 /Uploads/20160114/569755b021b13.jpg_250x250.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:51:25+08:00 ] 127.0.0.1 /User/order.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_user` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_order` [ RunTime:0.0020s ]
+SQL: SELECT `id`,`order_sn`,`order_state`,`payment_state`,`shipping_state`,`date_pay` FROM `ztm_order` WHERE `user_id` = 19023 AND `order_state` = 'new' AND `payment_state` IN ('new','paying') AND `shipping_state` = 'new' ORDER BY id DESC  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_order_goods` [ RunTime:0.0020s ]
+SQL: SELECT og.goods_id,og.goods_number,og.goods_price,og.skus,og.different,g.goods_name,g.goods_thumb,g.on_sale FROM ztm_order_goods og INNER JOIN ztm_goods AS g ON g.id=og.goods_id  WHERE og.order_id = '20437'  [ RunTime:0.0010s ]
+SQL: SELECT og.goods_id,og.goods_number,og.goods_price,og.skus,og.different,g.goods_name,g.goods_thumb,g.on_sale FROM ztm_order_goods og INNER JOIN ztm_goods AS g ON g.id=og.goods_id  WHERE og.order_id = '20436'  [ RunTime:0.0010s ]
+
+[ 2016-01-19T16:51:25+08:00 ] 127.0.0.1 /Uploads/20160114/569755110ac96.jpg_250x250.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:51:25+08:00 ] 127.0.0.1 /Uploads/20160115/5698a33fb6aeb.jpg_250x250.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-19T16:51:25+08:00 ] 127.0.0.1 /Uploads/20160114/569755b021b13.jpg_250x250.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+

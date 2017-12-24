@@ -1,0 +1,40 @@
+@charset "utf-8";
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { padding: 0; margin: 0; }
+fieldset, img { border: 0; }
+table { border-collapse: collapse; border-spacing: 0; }
+ol, ul { list-style: none; }
+address, caption, cite, code, dfn, em, strong, th, var { font-weight: normal; font-style: normal; }
+caption, th { text-align: left; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100%; }
+q:before, q:after { content: ''; }
+abbr, acronym { border: 0; }
+a { text-decoration: none; }
+input:focus, button:focus, select:focus { outline: none; }
+.clear { clear: both; }
+html { font-size: 10px; font-family: "冬青黑体简体中文"; }
+.max { width: 100%; max-width: 750px; min-width: 320px; margin: auto; overflow: hidden; }
+.Customer {}
+.Customer .top { height: 88px; line-height: 88px; background: url(../Images/myCustomer_03.jpg) 20px center no-repeat; color: #252525; text-align: center; font-size: 3.6rem; border-bottom: 1px solid #808080; }
+.Customer .ul1 { padding-left: 20px; padding-right: 20px; }
+.Customer .ul1 li { overflow: hidden; font-size: 2.8rem; position: relative; line-height: 107px; color: #252525; }
+.Customer .ul1 li a { display: block; height: 100%; padding-top: 20px; padding-bottom: 20px; border-bottom: 1px solid #808080; }
+
+.Customer .ul1 li .but { float: right; width: 18px; margin-top: 37px; margin-right:8px; transition:transform 0.5s; }
+.Customer .ul1 li.click>a .but{transform: rotate(90deg)}
+
+
+.Customer .ul1 li .img { float: left; width: 107px; margin-right: 20px; border-radius: 50%; }
+.Customer .ul1 li .ul2 { clear: both; display: none; }
+.Customer .ul1 li .ul2 a { padding-left: 107px; }
+.Customer .ul1 li .ul2 .ul3 { display: none;}
+.Customer .ul1 li .ul2 .ul3 a { padding-left: 214px; overflow: hidden; }
+ @media (max-width:750px) {
+.Customer .top { height: 50px; line-height: 50px; background-size: 13px; }
+html { font-size: 6px; }
+.Customer .ul1 li { line-height: 60px; }
+.Customer .ul1 li .img { width: 54px; margin-right: 10px; }
+.Customer .ul1 li .but { margin-top: 20px; width: 12px; }
+.Customer .ul1 li a { padding-top: 10px; padding-bottom: 10px; }
+.Customer .ul1 li .ul2 a { padding-left: 54px; }
+.Customer .ul1 li .ul2 .ul3 a { padding-left: 108px; }
+}

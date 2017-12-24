@@ -1,0 +1,52 @@
+
+    <link rel="stylesheet" type="text/css" href="__PCCSS__logistics.css" />
+  </head>
+  <body>
+    <include file="Public:top"/>
+    <div class="bg_h">
+        <div class="logistics">
+            <h2>物流详情</h2>
+            <div class="order">
+                <p class="p1"><span>{$order.date_add|date='Y-m-d',###}</span>订单号：{$order.order_sn}</p>
+                <volist name="order.goods" id="vo">
+                <div class="con">
+                    <div class="img"><img src="{$vo.goods_thumb}" alt="{$vo.goods_name}" /></div>
+                    <ul class="text">
+                        <li class="li1">{$vo.goods_name}</li>
+                        <li class="li2">{$vo.shop_price}</li>
+                        <li class="li3">X{$vo.goods_number|default=0}</li>
+                    </ul>
+                    <p>
+                        <php>$vo['skus'] = json_decode($vo['skus'],true);</php>
+                        <volist name="vo.skus" id="v">
+                            <span>{$v[0]}：{$v[1]}</span>
+                        </volist>
+                    </p>
+                </div>
+                </volist>
+            </div>
+            <p class="title">物流公司：{$order['express_name']}</p>
+            <p class="title">运单号码：{$order['express_no']}</p>
+            <p class="title">已发送{$express_date:d}天{$express_date:h}个小时</p>
+            <dl class="data">
+                <volist name="dateGroup" id="vo" key="key">
+                    <dt><span>{$key}</span>{$vo[0].week}</dt>
+                    <volist name="vo" id="v">
+                        <dd><span>{$v.time}</span>{$v.context}</dd>
+                    </volist>
+                </volist>
+                <!--<dt><span>2016-01-06</span>周三</dt>-->
+                <!--<dd><span>15:45:14</span>商家正通知快递公司揽件</dd>-->
+                <!--<dd><span>15:45:14</span>商家正通知快递公司揽件</dd>-->
+                <!--<dd><span>15:45:14</span>商家正通知快递公司揽件</dd>-->
+                <!--<dt><span>2016-01-06</span>周三</dt>-->
+                <!--<dd><span>15:45:14</span>商家正通知快递公司揽件</dd>-->
+                <!--<dd><span>15:45:14</span>商家正通知快递公司揽件</dd>-->
+                <!--<dd><span>15:45:14</span>商家正通知快递公司揽件</dd>-->
+                <!--<dd><span>15:45:14</span>商家正通知快递公司揽件</dd>-->
+                <!--<dd><span>15:45:14</span>商家正通知快递公司揽件</dd>-->
+                <!--<dd><span>15:45:14</span>商家正通知快递公司揽件</dd>-->
+                <!--<dd class="wei"><span>15:45:14</span>商家正通知快递公司揽件</dd>-->
+            </dl>
+        </div>
+    </div>

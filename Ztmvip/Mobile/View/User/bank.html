@@ -1,0 +1,124 @@
+    <link rel="stylesheet" type="text/css" href="__CSS__safe_same_mobile.css" media="(max-width:750px)" />
+    <link rel="stylesheet" type="text/css" href="__CSS__safe_same_pad.css" media="(min-width:750px)">
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        绑定银行卡
+        <a class="return" href="{:U('User/index')}"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></a>
+    </div>
+</div>
+<!-- 内容 -->
+<article id="js-form">
+    <if condition="$user['bank_card']">
+        <div id="old-bank">
+            <div class="list2_box">
+                开户行
+                <input type="text" class="pass" value="{$user['bank_name']}" />
+            </div>
+            <div class="list2_box">
+                卡号
+                <input type="text" class="pass" value="{$user['bank_card']|substr=###,0,4}******{$user['bank_card']|substr=###,-4}" />
+            </div>
+            <div class="list2_box">
+                开户名
+                <input type="text" class="pass" value="{$user['bank_user']|mb_substr=###,0,1,'utf-8'}**" />
+            </div>
+            <div class="bt_box">
+                <div class="bt" id="js-change">修改银行卡</div>
+            </div>
+        </div>
+    </if>
+    <div id="new-bank" style="display:none;">
+        <div class="list2_box">
+            开户行
+            <input name="bank_name" type="text" class="pass" />
+        </div>
+        <div class="list2_box">
+            卡号
+            <input name="bank_card" type="text" class="pass" />
+        </div>
+        <div class="list2_box">
+            开户名
+            <input name="bank_user" type="text" class="pass" />
+        </div>
+        <div class="list2_box">
+            短信验证码
+            <div class="list2_boxin">
+                <input name="sms_code" type="text" class="pass1" />
+                <input type="button" class="btn js-sms-code" value="获取验证码" />
+            </div>
+        </div>
+        <div class="list2_box">
+            安全问题
+            <ul class="question_box">
+                <span class="title">{$user['question']}</span>
+            </ul>
+        </div>
+        <div class="list2_box">
+            输入答案
+            <input name="answer" type="text" class="pass" />
+        </div>
+        <div class="bt_box">
+            <div class="bt" id="js-submit">确定</div>
+        </div>
+    </div>
+</article>
+</body>
+</html>
+<script type="text/javascript">
+    $('.js-sms-code').on('click',function(){
+        if ($(this).prop('disabled'))
+            return;
+
+        var timeout = 60;
+        var el = $(this);
+
+        $.post("{:U('Sms/userBank')}",{  },function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message });
+                sms_time(el,timeout);
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+    function sms_time(el,timeout){
+        if (timeout == 0) {
+            el.css('background-color','').prop('disabled',false).val('获取验证码');
+        }else{
+            el.css('background-color','#ccc').prop('disabled',true).val('重新发送('+ timeout +')');
+            timeout--;
+            setTimeout(function(){
+                sms_time(el,timeout);
+            },1000);
+        }
+    }
+
+    $('#js-submit').on('click',function(){
+        var data = Core.InputObj($('#js-form'));
+
+        $.post('',data,function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message,'callback':function(){
+                    if ("{:I('get.redirect','','base64_decode')}")
+                        location.href = "{:I('get.redirect','','base64_decode')}";
+                    else
+                        history.go(-1);
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+    $('#js-change').on('click',function(){
+        $('#old-bank').hide();
+        $('#new-bank').show();
+    });
+
+    if (!$('#old-bank').length)
+        $('#new-bank').show();
+</script>

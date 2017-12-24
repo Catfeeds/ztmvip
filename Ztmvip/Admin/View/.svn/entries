@@ -1,0 +1,177 @@
+10
+
+dir
+2641
+svn://61.145.112.66:2046/ztmvip2/Ztmvip/Admin/View
+svn://61.145.112.66:2046/ztmvip2
+
+
+
+2016-01-29T09:06:24.041238Z
+2635
+baogui
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+ceb6eee5-7280-4378-a85c-b67e4aa3744a
+
+layout.html
+file
+
+
+
+
+2016-01-29T09:09:40.884637Z
+200fe5677eb4db05655a90018f1a1411
+2016-01-29T09:06:24.041238Z
+2635
+baogui
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7711
+
+ArticleTopic
+dir
+
+GoodsBrand
+dir
+
+Article
+dir
+
+UploadFile
+dir
+
+Prepaid
+dir
+
+Affiliate
+dir
+
+Advert
+dir
+
+GoodsExpress
+dir
+
+Seckill
+dir
+
+Bonus
+dir
+
+ManagerGroup
+dir
+
+GroupGoods
+dir
+
+Account
+dir
+
+GoodsSku
+dir
+
+Comment
+dir
+
+Bargain
+dir
+
+Coupon
+dir
+
+Index
+dir
+
+Login
+dir
+
+Shop
+dir
+
+GoodsCategory
+dir
+
+ManagerDepart
+dir
+
+Manager
+dir
+
+index.html
+file
+
+
+
+
+2016-01-04T01:15:39.127739Z
+7215ee9c7d9dc229d2921a40e899ec5f
+2015-11-18T10:29:26.674358Z
+1
+baogui
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+
+Order
+dir
+
+Goods
+dir
+
+ShopType
+dir
+
+User
+dir
+

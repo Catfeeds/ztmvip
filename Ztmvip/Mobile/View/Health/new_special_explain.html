@@ -1,0 +1,235 @@
+﻿{__NOLAYOUT__}
+ <include  file="Public/health_header"/>
+  
+        <link rel="stylesheet" type="text/css" href="__HEATH__Css/swiper.min.css" />
+        <link rel="stylesheet" type="text/css" href="__HEATH__Css/special_explain.css" />
+        <script type="text/javascript" src="__HEATH__Js/swiper.jquery.min.js"></script>
+    </head>
+    <body>
+    <div class="header_position">
+    <header href="" class="special_title">
+         服务介绍
+        <i onclick="location.href='{:U('Health/special')}'" class="title_font">&#xe702;</i>
+    </header>
+    </div>
+
+    <div class="special_explain">
+        <img src="__HEATH__Images/special_explain_02.png" class="js_heigth">
+        <div id="position">
+            <div class="price">
+                <a href="{:U('Health/checkout')}"><button  type="button" class="button">立即购买</button></a>
+                <p>套餐价格：<em>￥</em><b>1.68万</b></p>
+            </div>
+        </div>
+        <div id="js_price"></div>
+
+        <script type="text/javascript">
+        var but=document.getElementsByClassName("button")[0];
+        but.onclick=function (){
+            but.style.backgroundColor="#d7b25e";
+            setTimeout( function(){
+                but.style.backgroundColor="#e9c574";
+            },200);
+        }
+        $(function(){
+            $(window).on('scroll',function(){
+                var height=$('header').height()+$(".js_heigth").height();
+                var h_top=$(window).scrollTop()+46;
+                if(height<h_top){
+                    $("#position").addClass('position');
+                    $("#js_price").addClass('price1');
+                }else{
+                    $("#position").removeClass('position');
+                    $("#js_price").removeClass('price1');
+                }
+            });
+
+
+        });
+        </script>
+
+        <h1>产品介绍</h1>
+        <p class="text">
+            该项目由整体美商城健康减重顾问王芳与广州军区总医院华侨楼“健康管理抗衰老中心”共同负责。运用10多年被美国医院极力推崇并采纳的健康减肥方法，无需吃药、无需挨饿、无需剧烈运动、保证不反弹，50-60天减到目标体重，100%减肥成功，由健康师、营养师、心理师等12人专家团队一对一跟进服务，12年的临床实战验证，现已服务高端人群3000多人。凡购买本套餐客户，整体美商城每月返150元健康基金到客户健康储值卡，连续返5年。
+        </p>
+
+        <h1>整体美健康顾问</h1>
+        <div class="consultant">
+            <img src="__HEATH__Images/special_explain_05.png">
+            <h2>王芳</h2>
+            <p>毕业于北京师范大学心理学专业曾先后赴法、意、德、韩等国家参与健康管理专业研修，并拥有法国《面部皮肤护理医师执照》曾任广州陆总华侨楼健康管理中心副主任，服务高端客户逾3000人</p>
+            <h3>研究方向：</h3>
+            <p>（1）个人及家庭健康管理</p>
+            <p>（2）企业员工健康管理</p>
+        </div>
+        <h1 class="h1">个人经历</h1>
+        <div class="text">
+            <p>广东药学院健康管理中心副主任</p>
+            <p>广州市微量元素研究所副所长</p>
+            <p>整体美独家健康减重顾问</p>
+            <p>深度成长商学院高级导师全国巡回讲座逾1000场，企业1800家，学员10万人次</p>
+            <h3>研究方向：</h3>
+            <p>（1）个人及家庭健康管理</p>
+            <p>（2）企业员工健康管理 </p>
+        </div>
+
+<!-- 20151231 -->
+        <h1>整体美健康管理团队</h1>
+        <img src="__HEATH__Images/explain_02.png" alt="" />
+        <h1 class="border_b">团队介绍</h1>
+        <div class="character swiper-container">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide">
+                    <div class="img"><img src="__HEATH__Images/explain_05.png" alt="" /></div>
+                    <p class="p1">赵海彪</p> 
+                    <p class="p2">整体美CEO</p>
+                    <div class="p3">快乐的成就别人、成就自己、自我超越、实现梦想。</div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="img"><img src="__HEATH__Images/character_03.jpg" alt="" /></div>
+                    <p class="p1">李美俊</p> 
+                    <p class="p2">容颜管理专家</p>
+                    <div class="p3">在传播美的事业中，收获容颜美、健康美、形象美、心灵美。</div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="img"><img src="__HEATH__Images/character_05.jpg" alt="" /></div>
+                    <p class="p1">王芳</p> 
+                    <p class="p2">健康管理专家</p>
+                    <div class="p3">健康美丽的使者，最可以信赖的身材管理“医生”。</div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="img"><img src="__HEATH__Images/character_07.jpg" alt="" /></div>
+                    <p class="p1">曹育燕</p> 
+                    <p class="p2">营养师</p>
+                    <div class="p3">简单有效的减肥建议，教你既满足食欲又不发胖的技能。</div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="img"><img src="__HEATH__Images/character_09.jpg" alt="" /></div>
+                    <p class="p1">单玉玲</p> 
+                    <p class="p2">健康管理师</p>
+                    <div class="p3">给您最健康的减肥方法，100%瘦身成功。</div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="img"><img src="__HEATH__Images/character_11.jpg" alt="" /></div>
+                    <p class="p1">董柏华</p> 
+                    <p class="p2">体态矫正师</p>
+                    <div class="p3">专业的形体教练，教您几招秀出好身材。</div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="img"><img src="__HEATH__Images/character_13.jpg" alt="" /></div>
+                    <p class="p1">杨智翼</p> 
+                    <p class="p2">体适能教练</p>
+                    <div class="p3">为您重塑完美S曲线，还您魔鬼身材。</div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="img"><img src="__HEATH__Images/character_15.jpg" alt="" /></div>
+                    <p class="p1">黄晓川</p> 
+                    <p class="p2">COO运营总监</p>
+                    <div class="p3">从外到内的蜕变，做到你能做到的最好！</div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="img"><img src="__HEATH__Images/character_17.jpg" alt="" /></div>
+                    <p class="p1">罗雪玲</p> 
+                    <p class="p2">CMO市场总监</p>
+                    <div class="p3">拥有健康美丽的好身体，才能更好的享受生活。</div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="img"><img src="__HEATH__Images/character_19.jpg" alt="" /></div>
+                    <p class="p1">倪四海</p> 
+                    <p class="p2">PM项目总监</p>
+                    <div class="p3">减肥，是一种态度，一种习惯。</div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="img"><img src="__HEATH__Images/character_21.jpg" alt="" /></div>
+                    <p class="p1">秦宝贵</p> 
+                    <p class="p2">平台技术总监</p>
+                    <div class="p3">连自己的体重都控制不了的人，怎样控制自己的人生。</div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="img"><img src="__HEATH__Images/character_23.jpg" alt="" /></div>
+                    <p class="p1">David</p> 
+                    <p class="p2">外籍医学专家</p>
+                    <div class="p3">健康减肥，我来帮您！我们一起见证奇迹！</div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="img"><img src="__HEATH__Images/character_25.jpg" alt="" /></div>
+                    <p class="p1">Alisa</p> 
+                    <p class="p2">外籍抗衰老专家</p>
+                    <div class="p3">让你从脸瘦到脚踝,让您的身材美好起来！</div>
+                </li>
+                <li class="swiper-slide">
+                </li>
+            </ul>
+        </div>
+        <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            slidesPerView:1.65,
+            freeMode:true
+        })
+        </script>
+
+
+<!-- 20151231修改结束 -->
+
+
+
+
+
+
+
+
+
+
+
+        <h1>服务内容</h1>
+        <img src="__HEATH__Images/special_explain_08.jpg">
+        <div class="shaer_20151218">
+            <h3>相关案例</h3>
+            <ul>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_05.jpg" alt="" />
+                <p>使用前</p>
+                </li>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_07.jpg" alt="" />
+                <p>使用后</p>
+                </li>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_11.jpg" alt="" />
+                <p>使用前</p>
+                </li>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_12.jpg" alt="" />
+                <p>使用后</p>
+                </li>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_15.jpg" alt="" />
+                <p>使用前</p>
+                </li>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_16.jpg" alt="" />
+                <p>使用后</p>
+                </li>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_19.jpg" alt="" />
+                <p>使用前</p>
+                </li>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_20.jpg" alt="" />
+                <p>使用后</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="weixin">
+        <a href="{:U('Health/special_register')}">马上去填写检测数据<img src="__HEATH__Images/special_explain_04.jpg"></a>
+        <h2>或者关注整体美官方微信填写</h2>
+        <img src="__HEATH__Images/special_explain_03.jpg" class="img" alt="" />
+    </div>
+
+    <include   file="Public/health_footer" />
+
+
+    </body>
+</html>

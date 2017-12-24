@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{ background:url(year_bg.jpg);}
+.clear{clear: both;}
+header,header a,header.header .title{ color:#e20115;  border-bottom: none;}
+.year{}
+.year .top_banner{ position: relative;}
+.year .top_banner a{ display: inline-block; width:9%; height:9%; position: absolute;top: 75%;}
+.year .top_banner a.gift{left: 9.7%;}
+.year .top_banner a.food{left: 27.7%;}
+.year .top_banner a.specialty{left: 45.4%;}
+.year .top_banner a.decorate{left: 63.3%;}
+.year .top_banner a.mutton{left:81.1%;}
+.year .hongbao{ padding: 25px 14px 0px; }
+.year .hongbao a{ display:block; height:55px;margin:0px 0px 15px ; box-shadow: 0px 2px 5px #a3a1a2;}
+.year .hongbao a.hb_20{ background:#c60c0c url(year_03.jpg) 0px 0px/265px 55px no-repeat ;}
+.year .hongbao a.hb_50{ background:#c60c0c url(year_06.jpg) 0px 0px/265px 55px no-repeat ;}
+.year .hongbao a.hb_100{ background:#c60c0c url(year_08.jpg) 0px 0px/265px 55px no-repeat ;}
+
+
+
+.year .hongbao a span{ display:block; float: right; width:75px; height:55px;}
+.year .hongbao a span.span1{ background:#c60c0c url(year_07.jpg) 100% 0px/75px  55px no-repeat;}
+.year .hongbao a span.span2{ background:#c60c0c url(year_05.jpg) 100% 0px/75px  55px no-repeat;}
+.year .time{}
+.year .time h1{ display:block; text-align: center; font-size: 15px; color: #c60c0c; font-weight: 400; line-height: 15px; padding:35px 0px 15px;}
+.year .time h1 span{ display:inline-block; height:1px; width:21px; background:#c60c0c; position: relative; top: -5px;}
+.year .time h1 p{ display:inline-block; padding:0px 6px;}
+.year .time .timing{ text-align: center;}
+.year .time .timing  span{ width:52px; height:30px; line-height: 30px; display: inline-block; background:url(year_035.jpg) 0px 0px /52px 30px no-repeat; font-size: 20px; color:#fff; text-indent: 7px; letter-spacing:17px; margin-right: 5px;}
+.year .time .timing i{ color:#c60c0c; font-size: 15px; display: inline-block; position: relative; top: 4px;}
+.year .gift_con{ padding-right:  5px; overflow: hidden;}
+.year .gift_con li{ width:50%; float: left; margin-top: 6px;}
+.year .gift_con li .img{ margin:0px 0px 0px 5px;}
+.year .gift_con li .text{ margin:0px 0px 0px 5px; padding:0px 10px; overflow: hidden; background:#fff;}
+.year .gift_con li .text h2{ display:block; height:23px; position: relative; bottom: 0px;}
+.year .gift_con li .text h2 span{ display:inline-block; position: absolute; bottom:0px;}
+.year .gift_con li .text h2 .span1{ color:#e2c896; font-size:15px; left:0px; bottom:-4px; }
+.year .gift_con li .text h2 .span1 i{ font-size: 12px;}
+.year .gift_con li .text h2 .span2{ font-size: 10px; color:#afafaf; left:60px; bottom:-3px;}
+.year .gift_con li .text h2 .span3{ width:38px; height:13px; line-height: 13px; right:0px; border:1px solid #ffa7c9; background:#fff; text-align: center; font-size: 11px; color:#ff4c91;}
+.year .gift_con li .text p{ font-size: 11px; line-height: 15px; height:30px; overflow: hidden; margin: 10px 0px;    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+} 
+.year .gift_con li:hover .text h2 .span3{ background:#d1b58d; border-color: #d1b58d; color:#fff;}
+.year  .gengduo { clear: both; padding-top: 22px;}
+.year  .gengduo a{ display:block; width:161px; border:1px solid #c60c0c; color:#c60c0c; height:35px; line-height: 35px; text-align: center; font-size: 15px; margin:auto; clear: both; background:url(year_01.png) 130px center/6px 12px no-repeat;}
+
+
+
+
+@font-face {font-family:"icon_ding";
+  src: url('icon_ding/iconfont.eot'); /* IE9*/
+  src: url('icon_ding/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('icon_ding/iconfont.woff') format('woff'), /* chrome, firefox */
+  url('icon_ding/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('icon_ding/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.icon_ding {
+  font-family:"icon_ding" !important;
+  font-size:47px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  position: fixed; bottom:35px; right:20px; z-index: 10;
+  color:#e20115;
+}
+.icon-sh:before { content: "\e603"; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:750px){  
+
+}
+
+@media (max-width:640px){  
+
+}
+@media (max-width:480px){
+    
+}
+@media (max-width:414px){ /* iPhone 6 Plus */
+
+}
+@media (max-width:379px){ /* iPhone 6 */
+.year .hongbao a{ display:block; height:45px;margin:0px 0px 15px ; box-shadow: 0px 2px 5px #a3a1a2;}
+.year .hongbao a.hb_20{ background:#c60c0c url(year_03.jpg) 0px 0px/216px 45px no-repeat ;}
+.year .hongbao a.hb_50{ background:#c60c0c url(year_06.jpg) 0px 0px/216px 45px no-repeat ;}
+.year .hongbao a.hb_100{ background:#c60c0c url(year_08.jpg) 0px 0px/216px 45px no-repeat ;}
+.year .hongbao a span{ display:block; float: right; width:61px; height:45px;}
+.year .hongbao a span.span1{ background:#c60c0c url(year_07.jpg) 100% 0px/61px  45px no-repeat;}
+.year .hongbao a span.span2{ background:#c60c0c url(year_05.jpg) 100% 0px/61px  45px no-repeat;}
+}
+@media (max-width:360px){ /* Sansung S3 / s4 */
+}
+@media (max-width:320px){ /* iPhone 5 */
+    
+}

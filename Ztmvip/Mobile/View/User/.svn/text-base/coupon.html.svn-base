@@ -1,0 +1,96 @@
+    <link rel="stylesheet" type="text/css" href="__CSS__privilege_same_mobile.css" media="(max-width:750px)" />
+    <link rel="stylesheet" type="text/css" href="__CSS__privilege_same_pad.css" media="(min-width:750px)">
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        我的优惠券
+        <a class="return" href="{:U('User/index')}"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></a>
+        <div class="prompt"><img src="__IMG__qicon.jpg" height="40" width="40" alt="" /></div>
+    </div>
+    <div class="columns_box">
+        <div class="columns_in cur" data-rel="new">
+            <div class="columns">未使用({$coupon_count['new']})</div>
+        </div>
+        <div class="columns_in" data-rel="used">
+            <div class="columns">已使用({$coupon_count['used']})</div>
+        </div>
+        <div class="columns_in" data-rel="expired">
+            <div class="columns">已过期({$coupon_count['expired']})</div>
+        </div>
+    </div>
+</div>
+<!-- 内容 -->
+<article class="js-coupon-list">
+    <div class="bg_color">
+        <!-- 未使用 -->
+        <div class="cou_box acc">
+            <volist name="coupon" id="vo">
+                <div class="cou_in">
+                    <img src="__IMG__cou_wy.jpg" height="301" width="711" alt="" />
+                    <div class="money"><i>{$vo['coupon_money']|sprintf='%d',###}</i>元<u>&nbsp[满{$vo['min_order_amount']|sprintf='%.2f',###}元可用]</u></div>
+                    <div class="time">{$vo['use_start']|date='Y-m-d',###} —— {$vo['use_end']|date='Y-m-d',###}</div>
+                </div>
+            </volist>
+        </div>
+        <!-- 已使用 -->
+        <div class="cou_box two"></div>
+        <!-- 已过期 -->
+        <div class="cou_box two"></div>
+    </div>
+</article>
+<!-- 红包说明弹层 -->
+<div class="bg">
+    <div class="ts_in"><img src="__IMG__yhqtx.png" height="386" width="531" alt="" /></div>
+</div>
+<script type="text/javascript">
+    $('.columns_in').on('click',function(event) {
+        var index = $(this).index();
+        var state = $(this).attr('data-rel');
+        $(this).addClass('cur').siblings().removeClass('cur');
+
+        $.post('',{ 'state':state },function(ret){
+            var tpl = {
+                'new':'<div class="cou_in">' +
+                '<img src="__IMG__cou_wy.jpg" height="301" width="711" alt="" />' +
+                '<div class="money"><i>{coupon_money}</i>元<u>&nbsp[满{min_order_amount}元可用]</u></div>' +
+                '<div class="time">{use_start} —— {use_end}</div>' +
+                '</div>',
+                'used':'<div class="cou_in">' +
+                '<img src="__IMG__cou_yy.jpg" height="301" width="711" alt="" />' +
+                '<div class="money"><i>{coupon_money}</i>元<u>&nbsp[满{min_order_amount}元可用]</u></div>' +
+                '<div class="time">{use_start} —— {use_end}</div>' +
+                '<div class="inf">已使用</div>' +
+                '</div>',
+                'expired':'<div class="cou_in">' +
+                '<img src="__IMG__cou_yy.jpg" height="301" width="711" alt="" />' +
+                '<div class="money"><i>{coupon_money}</i>元<u>&nbsp[满{min_order_amount}元可用]</u></div>' +
+                '<div class="time">{use_start} —— {use_end}</div>' +
+                '<div class="inf">已过期</div>' +
+                '</div>'
+            };
+            var content = '';
+
+            $.each(ret,function(i,e){
+                content += Core.FormatTpl(tpl[state],{
+                    'coupon_money':parseInt(e.coupon_money),
+                    'min_order_amount':e.min_order_amount,
+                    'use_start':Core.FormatDate('Y-m-d',e.use_start*1000),
+                    'use_end':Core.FormatDate('Y-m-d',e.use_end*1000),
+                });
+            });
+
+            $('.js-coupon-list .cou_box').eq(index).addClass('acc').html(content).siblings().removeClass('acc');
+        },'json');
+    });
+
+    $('.prompt').on('click',function(event) {
+        $(".bg").stop().fadeIn()
+    });
+    $('.bg').on('click',function(event) {
+        $(".bg").stop().fadeOut()
+    });
+</script>
+</body>
+</html>

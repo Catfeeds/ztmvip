@@ -1,0 +1,39 @@
+
+    <link rel="stylesheet" type="text/css" href="__PCCSS__goods_list.css" />
+  </head>
+  <body>
+<include file="Public:top"/>
+<!-- banner -->
+<div class="index_banner"><img  src="__PCIMG__index_02.jpg" alt="" /></div>
+<!-- banner -->
+
+
+
+
+
+
+<div class="release">
+    <div class="con_left">
+        <h3>新品首发</h3>
+        <ul>
+            <volist name="new_starts" id="vo">
+            <li><a href="{$vo.link}/id/{$vo.id}.html"><img src="{$vo.hd_image}" alt="{$vo.title}" /></a></li>
+            </volist>
+        </ul>
+    </div>
+    <div class="con_rigth">
+         <h3>正在热卖</h3>
+         <ul class="">
+             <volist name="hot_goods" id="vo">
+             <li>
+                 <a href="{:U('Goods/detail',array('goods_id'=>$vo['id']))}">
+                     <img src="{$vo.goods_thumb}" alt="{$vo.goods_name}" />
+                     <p class="p1">{$vo.goods_name}</p>
+                     <p class="p2"><span>￥{$vo.market_price}</span>￥<i>{$vo.shop_price}</i></p>
+                 </a>
+             </li>
+             </volist>
+         </ul>   
+    </div>
+
+</div>

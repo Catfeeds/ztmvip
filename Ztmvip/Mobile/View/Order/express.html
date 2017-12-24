@@ -1,0 +1,82 @@
+    <link rel="stylesheet" type="text/css" href="__CSS__privilege_same_mobile.css" media="(max-width:750px)" />
+    <link rel="stylesheet" type="text/css" href="__CSS__privilege_same_pad.css" media="(min-width:750px)">
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        物流中心
+        <a class="return" href="{:U('User/order','state=new')}"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></a>
+    </div>
+</div>
+<!-- 内容 -->
+<div class="logistics">
+    <volist name="order['goods']" id="vo">
+        <div class="good_box">
+            <div class="good_photo"><img src="{$vo['goods_thumb']}_360x440.jpg" height="440" width="360" alt="" /></div>
+            <div class="goods_inf">
+                <div class="title">{$vo['goods_name']}</div>
+                <div class="price">
+                    ￥<i>{$vo['goods_price']}</i>
+                    <div class="left">x{$vo['goods_number']}</div>
+                </div>
+                <div class="inf_other"><?php
+                if ( $vo['different'] == 'new' ){
+                    $vo['skus'] = json_decode($vo['skus'],true);
+                    foreach ( $vo['skus'] as $skus ){
+                        echo $skus[0] .'：'. $skus[1] .' ';
+                    }
+                }else{
+                    echo $vo['skus'];
+                }
+                ?></div>
+                <div class="other_box">
+                    订单号：{$order['order_sn']}
+                </div>
+            </div>
+        </div>
+    </volist>
+    <div class="logistics_list">
+        <i>物流公司:</i>&nbsp;{$order['express_name']}<br />
+        <i>运单号码:</i>&nbsp;{$order['express_no']}
+    </div>
+    <div class="logistics_box">
+        <ul class="logistics_boxline">
+            <if condition="$express">
+                <li class="inf" style="text-align:center">
+                    <?php $express_date = date_diff(strtotime($express[0]),strtotime($express[count($express)])); ?>
+                    已发送{$express_date|date='j',###}天{$express_date|date='G',###}个小时
+                    <div class="first"><img src="__IMG__wlicon.jpg" height="60" width="60" alt="" /></div>
+                    <div class="after"><img src="Images/sanjiao2.png" alt="" /></div>
+                </li>
+                <div class="now">今天</div>
+                <volist name="express" id="vo">
+                    <li class="inf">
+                        {$vo['time']|strtotime=###|date='m-d H:i',###}
+                        {$vo['context']}
+                        <div class="two"><img src="__IMG__cur_c2.jpg" height="38" width="38" alt="" /></div>
+                        <div class="after"><img src="Images/sanjiao2.png" alt="" /></div>
+                    </li>
+                </volist>
+                <else/>
+            </if>
+        </ul>
+    </div>
+</div>
+<!-- 版权 -->
+<include file="Public/copy_right"/>
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+    $('.inf').eq(1).css('background', '#E8C473');
+    $('.inf').eq(1).children('.two').find('img').attr('src','images/cur_c1.jpg');
+    $('.inf').eq(1).children('.after').find('img').attr('src','images/sanjiao1.png');
+    var h1 = $('.inf:last-child').height();
+    var h2 = $('.logistics_boxline').height();
+    $('.inf:last-child').css('top', h2+15);
+    var h3 = $('.logistics').height();
+    console.log(h3+h1+30)
+    $('.logistics').css('height',h3+h1+50);
+}) 
+</script>

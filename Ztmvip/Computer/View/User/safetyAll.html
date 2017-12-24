@@ -1,0 +1,184 @@
+
+    <link rel="stylesheet" type="text/css" href="__PCCSS__user.css" />
+</head>
+<body>
+
+
+<include file="Public:top"/>
+
+
+
+<div class="user_bg">
+    <div class="user">
+        <include file="User:publicLeft"/>
+        <div class="user_right">
+            <form action="" id="js-form">
+                <div class="user_data">
+                    <p class="title">
+                        <span>
+                        <!-- 个人信息 -->
+                        {$page_title}
+
+                        </span>
+                    </p>
+                    <div class="security">
+                        <ul class="">
+                            <li class="li0"></li>
+                            <if condition="!$user['mobile']">
+                                <li class="li1"><span>手机号码</span><input name="mobile" type="text" /></li>
+                                <li class="li2"><span>短信验证码</span><input name="sms_code" type="text" /><button class="js-sms-code click" data-rel="new" type="button">获取验证码</button></li>
+                                <else/>
+                                <li class="li2"><span>短信验证码</span><input name="sms_code" type="text" /><button class="js-sms-code click" type="button">获取验证码</button></li>
+                            </if>
+
+                            <if condition="!$user['answer']">
+                                <li class="li3">
+                                    <span>安全问题</span>
+                                    <input name="question" type="hidden" class="js-wenti" />
+                                    <div class="select">
+                                        <i>请选择密保问题？</i>
+                                        <dl>
+                                            <dd>您母亲的姓名是？</dd>
+                                            <dd>您母亲的生日是？</dd>
+                                            <dd>您父亲的姓名是？</dd>
+                                            <dd>您父亲的生日是？</dd>
+                                            <dd>您配偶的姓名是？</dd>
+                                            <dd>您配偶的生日是？</dd>
+                                            <dd>您的学号（或工号）是？</dd>
+                                            <dd>您小学班主任的名字是？</dd>
+                                            <dd>您初中班主任的名字是？</dd>
+                                            <dd>您高中班主任的名字是？</dd>
+                                            <dd>您最熟悉的童年好友名字是？</dd>
+                                            <dd>您最熟悉的学校宿舍室友名字是？</dd>
+                                            <dd>对您影响最大的人名字是？</dd>
+                                        </dl>
+                                    </div>
+                                    <script type="text/javascript">
+                                        $('.select').on('click', function() {
+                                            $('.select dl').css({"display":"block"});
+                                        });
+                                        $('.select dd').on('click', function() {
+                                            var val=$(this).text();
+                                            $('.select i').text(val);
+                                            $('.select dl').css({"display":"none"});
+                                            $('.js-wenti').val(val);
+                                            return false;
+                                        });
+                                    </script>
+                                </li>
+                                <li class="">
+                                    <span>输入答案</span>
+                                    <input name="answer" type="text" />
+                                </li>
+                                <else/>
+                                <li class="li3">
+                                    <span>安全问题</span>
+
+                                    <input type="hidden" class="js-wenti" />
+                                    <div class="select fixed">
+                                        <i>{$user['question']}</i>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <span>输入答案</span>
+                                    <input name="answer" type="text" />
+                                </li>
+                            </if>
+                            <if condition="!$user['bank_card']">
+                                <li class=""><span>开户银行</span><input name="bank_name" type="text" /></li>
+                                <li class=""><span>银行卡号</span><input name="bank_card" type="text" /></li>
+                                <li class=""><span>开户名</span><input name="bank_user" type="text" /></li>
+                            </if>
+                            <if condition="!$user['payment_password']">
+                                <li class=""><span>支付密码</span><input name="payment_password" type="password" /></li>
+                                <li class=""><span>确认密码</span><input name="repayment_password" type="password" /></li>
+                            </if>
+                            <li class="li4"><button id="js-submit" type="button">确定</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var checkMobile = false;
+    $("input[name=mobile]").on('keyup blur',function(){
+        var tel = $.trim($(this).val());
+        var reg = /^0?1[3|4|5|8][0-9]\d{8}$/;
+        if(!reg.test(tel)){
+            $(this).addClass('false');
+            $('.js-sms-code').addClass('click');
+            checkMobile = false;
+        }else{
+            $(this).removeClass('false');
+            $('.js-sms-code').removeClass('click');
+            checkMobile = true;
+        }
+    });
+    $('.js-sms-code').on('click',function(){
+        $("input[name=mobile]").blur();
+        if(checkMobile==false){
+            $(this).addClass('click');
+            return;
+        }
+        if ($(this).prop('disabled'))
+            return;
+        $(this).prop('disabled',true);
+        var timeout = 60;
+        var el = $(this);
+        $.post("{:U('Sms/'.($user['mobile']?'userSafety':'userMobile'))}",{ 'topic':el.attr('data-rel'),'mobile':$('input[name="mobile"]').val() },function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message });
+                sms_time(el,timeout);
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+    function sms_time(el,timeout){
+        if (timeout == 0) {
+            el.removeClass('click').prop('disabled',false).html('获取验证码');
+        }else{
+            el.addClass('click').prop('disabled',true).html('重新发送('+ timeout +')');
+            timeout--;
+            setTimeout(function(){
+                sms_time(el,timeout);
+            },1000);
+        }
+    }
+
+    $('#js-submit').on('click',function(){
+        var data = Core.InputObj($('#js-form'));
+
+        $.post('',data,function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message,'callback':function(){
+                    if ("{:I('get.redirect','','base64_decode')}")
+                        location.href = "{:I('get.redirect','','base64_decode')}";
+                    else
+                        location.href = "{:U('User/order')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

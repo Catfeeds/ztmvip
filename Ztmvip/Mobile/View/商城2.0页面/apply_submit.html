@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/submit_same_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="Css/submit_same_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="Js/jquery.js"></script>
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        售后申请
+        <div class="return"><img src="Images/fh.jpg" height="37" width="18" alt="" /></div>
+    </div>
+</div>
+<!-- 内容 -->
+<article>
+    <div class="input_bg">
+        <div class="input_box">
+            <div class="title">售后类型</div>
+            <div class="input">
+                <label for="apply1">
+                    换货
+                    <input type="radio" name="apply" id="apply1" />
+                </label>
+                <div class="tick_box">
+                    <div class="rud"></div>
+                    <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+                </div>
+            </div>
+        
+            <div class="input">
+                <label for="apply2">
+                    退货
+                    <input type="radio" name="apply" id="apply2" />
+                </label>
+                <div class="tick_box">
+                    <div class="rud"></div>
+                    <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+                </div>
+            </div>         
+        </div>
+    </div>
+    <div class="inf_box">
+        <div class="title">售后说明</div>
+        <div class="text_box">
+            <span class="dian"></span>
+            <textarea name="text" class="text" maxlength="200" id=""></textarea>
+        </div>
+        <div class="text_inf">还可以输入200个字</div>
+    </div>
+    <script type="text/javascript">
+    $('.score').on('click',function(e) {
+        var selfIndex = $(this).index();
+        $('.score:lt('+(selfIndex+1)+')').addClass('cur')
+        $('.score:not(:lt('+(selfIndex+1)+'))').removeClass('cur')      
+    }); 
+    $(function() {
+            $(".text").keyup(check);
+        $("body").mousedown(check);
+        });
+ 
+        function check() {
+            var str = $(".text").val();
+            var len = strlen(str);
+            var info = 200 - len;
+            info = info + "";
+            if (info.indexOf('.') > 0)
+                info = info.substring(0, info.indexOf('.'));
+            if (len <= 200) {
+                $(".text_inf").html("还可以输入"+info+"个字");
+            }
+        }
+ 
+        function trim(str) {
+            return (str + '').replace(/(\s+)$/g, '').replace(/^\s+/g, '');
+        }
+ 
+        function strlen(str) {
+            var str = trim(str);
+            var len = 0;
+            for (var i = 0; i < str.length; i++) {
+                len += str.charCodeAt(i) > 0 && str.charCodeAt(i) < 255 ? 0.5 : 1;
+            }
+            return len;
+        }
+
+
+    </script>
+</article>
+<!-- 提醒层 -->
+<div class="bg">
+    <div class="remind">提交成功!</div>
+</div>
+<!-- 底部按钮 -->
+<div class="bt_box">
+    <div class="bt">提交申请</div>
+</div>
+<script type="text/javascript">
+    $('.bt').on('click',function(event) {
+        $('.bg').stop().fadeIn();
+        setTimeout(function(){
+            $('.bg').stop().fadeOut();
+        },2000)
+    });
+    $('.bg').on('click',function(event) {
+        $('.bg').stop().fadeOut();
+    });
+    $('label').on('click',function(event) {
+        if($(this).find('input').is(':checked')){
+            $(this).siblings().find('.tick').css('display', 'block');
+            $(this).siblings().find('.rud').css('display', 'none');
+            $(this).closest('.input').siblings().find('.tick').css('display', 'none');
+            $(this).closest('.input').siblings().find('.rud').css('display', 'block');
+        }
+    });
+</script><div class="placeholder"></div>
+<!-- 提醒层 -->
+<div class="bg">
+    <div class="remind">提交成功!</div>
+</div>
+<!-- 底部按钮 -->
+<div class="bt_box">
+    <div class="bt">提交申请</div>
+</div>
+<script type="text/javascript">
+    $('.bt').on('click',function(event) {
+        $('.bg').stop().fadeIn();
+        setTimeout(function(){
+            $('.bg').stop().fadeOut();
+        },2000)
+    });
+    $('.bg').on('click',function(event) {
+        $('.bg').stop().fadeOut();
+    });
+</script>
+</body>
+</html>

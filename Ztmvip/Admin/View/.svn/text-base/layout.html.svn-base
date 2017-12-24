@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{$page_title}-{$sitename}</title>
+    <link rel="sgortcut icon" href="__ROOT__/Public/Admin/Images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Public/Admin/Images/common.css" />
+    <script src="__ROOT__/Public/Common/Js/jquery.js"></script>
+    <script src="__ROOT__/Public/Common/Js/common.js"></script>
+    <script src="__ROOT__/Public/Admin/Js/common.js"></script>
+</head>
+<body>
+<!-- 网站头部 -->
+<header class="nav">
+    <div class="logo"><img src="__ROOT__/Public/Admin/Images/logo.png" height="50"/></div>
+    <div class="nav_in">
+        <ul class="left">
+            <li class="cur1"><span class="iconfont cur2">&#xe607;</span><a href="{:U('Index/index')}">起始</a></li>
+            <li><span class="iconfont">&#xe7c2;</span><a href="{:U('Goods/index')}">商品管理</a></li>
+            <li><span class="iconfont">&#xe63d;</span><a href="{:U('Order/index')}">订单管理</a></li>
+        </ul>
+        <ul class="right">
+            <li class="user"><span class="iconfont">&#xe7a4;</span>&nbsp;{$manager_nick}</li>
+            <li><a href="http://www{:strstr($_SERVER['HTTP_HOST'],'.')}" target="_blank">查看网店</a></li>
+            <li><a class="js-ajax" href="{:U('Index/clean')}">清除缓存</a></li>
+            <li><a href="{:U('Login/out')}">退出</a></li>
+        </ul>
+    </div>
+</header>
+<!-- 左侧列表 -->
+<aside class="aside">
+    <dl class="list">
+        <dd index="0"><span class="iconfont2">&#xe7c2;</span>&nbsp;&nbsp;商品管理</dd>
+        <if condition="check_admin_rights('goods',false)">
+        <dt><a href="{:U('Goods/index')}">商品列表</a></dt>
+        <dt><a href="{:U('Goods/index','new=Y')}">新品首发</a></dt>
+        <dt><a href="{:U('Goods/index','hot=Y')}">特卖专区</a></dt>
+        </if>
+        <if condition="check_admin_rights('goods_sku',false)"><dt><a href="{:U('GoodsSku/index')}">商品类型</a></dt></if>
+        <if condition="check_admin_rights('goods_category',false)"><dt><a href="{:U('GoodsCategory/index')}">商品分类</a></dt></if>
+        <if condition="check_admin_rights('goods_brand',false)"><dt><a href="{:U('GoodsBrand/index')}">商品品牌</a></dt></if>
+        <if condition="check_admin_rights('goods_express',false)"><dt><a href="{:U('GoodsExpress/index')}">商品运费</a></dt></if>
+    </dl>
+
+    <dl class="list">
+        <dd index="7"><span class="iconfont2">&#xe61f;</span>&nbsp;&nbsp;优惠管理</dd>
+        <if condition="check_admin_rights('seckill',false)"><dt><a href="{:U('Seckill/index')}">秒杀专区</a></dt></if>
+        <if condition="check_admin_rights('bargain',false)"><dt><a href="{:U('Bargain/index')}">砍价专区</a></dt></if>
+    </dl>
+
+    <dl class="list">
+        <dd index="1"><span class="iconfont2">&#xe63d;</span>&nbsp;&nbsp;订单管理</dd>
+        <if condition="check_admin_rights('order',false)">
+            <dt><a href="{:U('Order/index')}">订单记录</a></dt>
+            <dt><a href="{:U('Order/index','shop=ztm')}">商城订单</a></dt>
+            <dt><a href="{:U('Order/index','shop=shop')}">店铺订单</a></dt>
+        </if>
+    </dl>
+
+    <dl class="list">
+        <dd index="4"><span class="iconfont2">&#xe628;</span>&nbsp;&nbsp;会员管理</dd>
+        <if condition="check_admin_rights('user',false)"><dt><a href="{:U('User/index')}">会员列表</a></dt></if>
+        <!--<dt><a href="{:U('UserLevel/index')}">会员等级</a></dt>-->
+        <if condition="check_admin_rights('affiliate',false)"><dt><a href="{:U('Affiliate/index')}">分佣记录</a></dt></if>
+    </dl>
+
+    <dl class="list">
+        <dd index="10"><span class="iconfont2">&#xe7c2;</span>&nbsp;&nbsp;店铺管理</dd>
+        <if condition="check_admin_rights('shop',false)">
+            <dt><a href="{:U('Shop/index')}">店铺列表</a></dt>
+            <dt><a href="{:U('Goods/shop')}">店铺商品</a></dt>
+            <dt><a href="{:U('ShopType/index')}">店铺类型</a></dt>
+        </if>
+    </dl>
+
+    <dl class="list">
+        <dd index="9"><span class="iconfont2">&#xe628;</span>&nbsp;&nbsp;卡券管理</dd>
+        <if condition="check_admin_rights('bonus',false)"><dt><a href="{:U('Bonus/index')}">红包</a></dt></if>
+        <if condition="check_admin_rights('coupon',false)"><dt><a href="{:U('Coupon/index')}">优惠券</a></dt></if>
+        <if condition="check_admin_rights('prepaid',false)"><dt><a href="{:U('Prepaid/index')}">储值卡</a></dt></if>
+    </dl>
+
+    <if condition="check_admin_rights('account',false)">
+    <dl class="list">
+        <dd index="8"><span class="iconfont2">&#xe61f;</span>&nbsp;&nbsp;财务管理</dd>
+        <dt><a href="{:U('Account/withdrawLog')}">提现记录</a></dt>
+        <dt><a href="{:U('Account/depositLog')}">充值记录</a></dt>
+        <dt><a href="{:U('Account/index')}">资金明细</a></dt>
+    </dl>
+    </if>
+
+    <if condition="check_admin_rights('advert',false)">
+    <dl class="list">
+        <dd index="2"><span class="iconfont2">&#xe664;</span>&nbsp;&nbsp;广告管理</dd>
+        <dt><a href="{:U('Advert/indexBanner')}">首页Banner</a></dt>
+        <dt><a href="{:U('Advert/indexFashion')}">首页潮流趋势</a></dt>
+        <dt><a href="{:U('Advert/indexShare')}">首页热点分享</a></dt>
+        <dt><a href="{:U('Advert/newStarting')}">新品首发</a></dt>
+        <dt><a href="{:U('Advert/specialBuy')}">特卖专区</a></dt>
+        <dt><a href="{:U('Advert/brandPavilion')}">品牌馆</a></dt>
+    </dl>
+    </if>
+
+    <dl class="list">
+        <dd index="3"><span class="iconfont2">&#xe61e;</span>&nbsp;&nbsp;文章管理</dd>
+        <if condition="check_admin_rights('article',false)"><dt><a href="{:U('Article/index')}">文章列表</a></dt></if>
+        <if condition="check_admin_rights('article_topic',false)"><dt><a href="{:U('ArticleTopic/index')}">文章分类</a></dt></if>
+    </dl>
+
+    <if condition="check_admin_rights('admin',false)">
+    <dl class="list">
+        <dd index="5"><span class="iconfont2">&#xe642;</span>&nbsp;&nbsp;系统管理</dd>
+        <dt><a href="{:U('Index/config')}">基础配置</a></dt>
+    </dl>
+    <dl class="list">
+        <dd index="6"><span class="iconfont2">&#xe64e;</span>&nbsp;&nbsp;权限管理</dd>
+        <dt><a href="{:U('ManagerDepart/index')}">管理部门</a></dt>
+        <dt><a href="{:U('ManagerGroup/index')}">管理组</a></dt>
+        <dt><a href="{:U('Manager/index')}">管理员</a></dt>
+    </dl>
+    </if>
+</aside>
+<article class="article">
+{__CONTENT__}
+</article>
+</body>
+</html>
+<script>
+    $(function(){
+        $('.nav_in .left li').on('click',function() {
+            $(this).addClass('cur1').siblings().removeClass('cur1');
+            $(this).children().addClass('cur2').parent().siblings().children().removeClass('cur2');
+        });
+
+        $('.aside .list dd').on('click',function() {
+            $(this).siblings().slideToggle(300).parent().siblings().children('dt').slideUp(300);
+            $(this).children().addClass('cur2').parent().parent().siblings().children().children().removeClass('cur2');
+            $(this).siblings().removeClass("cur3");
+        });
+
+        $('.aside .list dt').on('click',function() {
+            $(this).addClass('cur3').siblings().removeClass('cur3')
+        });
+
+        if ('{$aside_id}'){
+            $('.aside .list dd[index="{$aside_id}"]').click();
+        }
+
+        $('.list').each(function(i,e){
+            if (!$(e).find('dt').length)
+                $(e).remove();
+        });
+    })
+</script>

@@ -1,0 +1,168 @@
+
+<link rel="stylesheet" type="text/css" href="__CSS__/package_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="__CSS__/package_pad.css" media="(min-width:750px)">
+<link rel="stylesheet" type="text/css" href="__CSS__/swiper.css" />
+<script type="text/javascript" src="__JS__/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="__PJS__/shanbumin.js"></script>
+</head>
+<body>
+<!-- 其他 -->
+<div class="returntop top"><img src="__IMG__top.png" alt="" /></div>
+<script>
+    $(window).scroll(function(e){
+        var winST = $(window).scrollTop()
+        if(winST>100){
+            $('.returntop').fadeIn(400);
+            $(".search_box").fadeIn(400)
+        }else{
+            $('.returntop').fadeOut(400);
+            $('.search_box').fadeOut(400)
+        }
+    })
+    $('.returntop').on('click',function(e) {           
+        $('html,body').animate({scrollTop:0},500)
+    });
+</script>
+<!-- 大礼包头部开始 -->
+<div class="header_box">
+    <div class="header_title">整体美礼包</div>
+    <span class="return" onClick="javascript:location.replace(document.referrer);"><img src="__IMG__fh.jpg" alt="" /></span>
+    <span class="rt_home">
+        <a href="#">
+            <img src="__IMG__car.png" alt="" />
+            <div class="num" id="cnumber">
+                <php>
+                 if(session('cnumber'))
+                   {
+                        echo session('cnumber');
+                   }else{
+                        echo 0;
+                   }
+                </php>
+            </div>
+        </a>
+    </span>
+</div>
+<!-- 大礼包头部结束 -->
+<!-- 大礼包内容开始 -->
+
+<div class="address_box">
+
+
+
+<volist  name="package_list"  id="value" key="key1">
+    <div class="bag_box">
+        <div class="bag_title">
+            {$value.group_name}
+            <i>￥{$value.price|intval}</i>
+            <div class="tick"></div>
+        </div>
+        <div class="show swiper-container">
+            <div class="swiper-wrapper">
+                <volist name="value.relation_goods" id="value22" key="key22"> 
+                <div class="swiper-slide">
+                    <img src="__ROOT__{$value22.goods_thumb}" alt="" />
+                </div>
+                </volist>
+                
+            </div>
+        </div>
+
+        <!-- ================================ -->
+        <div class="bag_in">
+
+
+           <volist name="value.relation_goods" id="value2" key="key2">
+ 
+                <div class="bag" index="1-{$key2}">
+                    <div class="photo">
+                        <img src="__ROOT__{$value2.goods_thumb}" alt="" />
+                    </div>
+                    <div class="bag_inf">
+                        <div>{$value2.goods_name}</div>
+                        <div class="choose" onclick="chooseAttr({$value2.goods_id})">
+                            请选择规格
+                            <div class="span"><img src="__IMG__fhy2.jpg" alt="" /></div>
+                        </div>
+                        <div class="value">
+                            <div class="name">商品规格</div>
+                            <div class="value_box">
+                                <div class="value1"></div>
+                                <div class="value2"></div>                           
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          </volist>
+
+
+            <div class="place_box">
+                <div class="bag_title">
+                    {$value.group_name}:
+                    <i>￥{$value.price|intval}</i>&nbsp&nbsp&nbsp&nbsp
+                    <em>原价<u>￥{$value.orgin_price}</u></em>
+                </div>
+                <div class="province">
+                    <div class="pane">立省:￥{$value.discount}</div>
+                    <div class="goods_num">
+                        <button type="button" class="cut">－</button>
+                        <input type="text" name="number" value="1" id="num"  />
+                        <button type="button" class="add">＋</button>
+                    </div>
+                </div>
+                <div class="add_in">
+                    <a href="#">
+                        <div class="add_bt" onclick="package_to_cart({$value.package_id})">加入购物车</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+     <!-- ============================================= -->
+    </div>
+</volist>
+    <!-- ######################################################### -->
+   
+</div>
+<div class="other"></div>
+<div class="copyright">
+    &copy整体美商城<br />
+    客服电话：400-777-1225<br />
+    客服微信：HRlianna
+</div>
+<div class="bg" id="choos_attr">
+    <include file="Public/choos_attr"/>
+</div>
+<script>
+    var swiper3 = new Swiper('.show', {
+        slidesPerView: "auto",
+        freeMode : true,
+        spaceBetween: 10
+    });
+    $(".bag_title").on('click',function(event) {
+        $(this).parent().siblings().children(".show").css('display', 'block');
+        $(this).parent().siblings().children('.bag_in').slideUp(0);
+        $(this).siblings('.show').toggle(0)
+        $(this).siblings('.bag_in').slideToggle(0)
+    });
+    $("label").on('click',function(event) {
+        $(this).addClass('rdo_cur').siblings('label').removeClass('rdo_cur')
+    });
+    $('.choose').on('click',function(event) {
+        var index = $(this).closest('.bag').attr('index');
+        $('.bg').attr('index',index).fadeIn();
+        $('.cancel').on('click',function(event) {
+            $('.bg').fadeOut();
+        });
+        var index = $(this).parent().parent().index()
+        
+        $('.determine').on('click',function(event){
+            $('.bg').fadeOut();
+
+            $('.bag[index="'+$(this).closest('.bg').attr('index')+'"]').children('.bag_inf').children('.value').css('display', 'block');
+            $('.bag[index="'+$(this).closest('.bg').attr('index')+'"]').children('.bag_inf').children('.value').children('.value_box').children('.value1').text($('.color_box .rdo_cur').text())
+            $('.bag[index="'+$(this).closest('.bg').attr('index')+'"]').children('.bag_inf').children('.value').children('.value_box').children('.value2').text($('.size .rdo_cur').text())
+        });
+    });
+</script>
+</body>
+</html>

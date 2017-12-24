@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/swiper.css" /> 
+<link rel="stylesheet" type="text/css" href="Css/new_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="Css/new_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="Js/jquery.js"></script>
+<script type="text/javascript" src="Js/swiper.jquery.min.js"></script>
+</head>
+<body style="background:#fff;">
+<!-- 头部开始 -->
+<div class="header_box">
+    <div class="header_title">贵宾尊享</div>
+    <span class="return"><img src="Images/fh.jpg" alt="" /></span>
+</div>
+<!-- 内容开始 -->
+<div class="vip_box">
+    <div class="vip_banner">
+        <img src="Images/vipbanner.jpg" height="476" width="750" alt="" />
+    </div>
+    <div class="vip_good">
+        <div class="good_in">
+            <div class="good_photo">
+                <img src="Images/vipgood.jpg" height="250" width="250" alt="" />
+            </div>
+            <div class="good_inf">
+                <div class="title">医美级1+1修护双膜组</div>
+                <div class="subtitle">每月前<b>1000</b>名报名申请免费体验</div>
+                <div class="price"><b>￥<i>198</i></b></div>
+                <div class="bt_box">
+                    <a href="商品详情页">
+                        <div class="bt_left">查看详情</div>
+                    </a>
+                    <a href="面膜推广页">
+                        <div class="bt_right">立即申请</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="copyright">
+    &copy整体美商城<br />
+    客服电话：400-777-1225<br />
+    客服微信：HRlianna
+</div>
+</body>
+</html>

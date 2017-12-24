@@ -1,0 +1,652 @@
+<link rel="stylesheet" type="text/css" href="__CSS__seckill_index_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="__CSS__seckill_index_pad.css" media="(min-width:750px)">
+<link rel="stylesheet" type="text/css" href="__CSS__swiper.css" />
+<script type="text/javascript" src="__JS__/swiper.jquery.min.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+  var d = new Date()
+  var h = d.getHours(); 
+  if(h<15){
+      $('.seckill').eq(0).css('display', 'block');
+      $(".seckill_table").eq(0).addClass('current').siblings().removeClass('current')
+  }else if(h<20&&h>=15){
+      $('.seckill').eq(1).css('display', 'block');
+      $(".seckill_table").eq(1).addClass('current').siblings().removeClass('current')
+  }else if(h<22&&h>=20){
+      $('.seckill').eq(2).css('display', 'block');
+      $(".seckill_table").eq(2).addClass('current').siblings().removeClass('current')
+  }else if(h<24&&h>=22){
+      $('.seckill').eq(3).css('display', 'block');
+      $(".seckill_table").eq(3).addClass('current').siblings().removeClass('current')
+  }
+}
+</script>
+</head>
+<body>
+<!-- 秒杀头部开始 -->
+<div class="header_box">
+    <div class="header_title">秒杀专区</div>
+    <a class="return" href="javascript:history.go(-1)"><img src="__IMG__fg.png" alt="" /></a>
+    <div class="seckill_table_box">
+        <div class="seckill_table current">
+            <div class="table_top">11:00</div>
+            <div class="table_bottom">
+                <!-- #################### -->
+                <switch name="eleven[0]['flag']">
+      
+                   <case value="no">
+                         尚未开始
+                   </case>
+                   <case value="on">
+                       正在进行中
+                   </case>
+                   <case value="off">
+                       已结束
+                   </case>
+                  
+                </switch>
+                <!-- ######################## -->
+
+            </div>
+        </div>
+        <div class="seckill_table">
+            <div class="table_top">15:00</div>
+            <div class="table_bottom">
+
+               <!-- #################### -->
+               <switch name="fifteen[0]['flag']">
+               
+                  <case value="no">
+                        尚未开始
+                  </case>
+                  <case value="on">
+                      正在进行中
+                  </case>
+                  <case value="off">
+                      已结束
+                  </case>
+                 
+               </switch>
+               <!-- ######################## -->
+
+
+
+            </div>
+        </div>
+        <div class="seckill_table">
+            <div class="table_top">20:00</div>
+            <div class="table_bottom">
+
+                   <!-- #################### -->
+                   <switch name="twenty[0]['flag']">
+                   
+                      <case value="no">
+                            尚未开始
+                      </case>
+                      <case value="on">
+                          正在进行中
+                      </case>
+                      <case value="off">
+                          已结束
+                      </case>
+                     
+                   </switch>
+                   <!-- ######################## -->
+
+            </div>
+        </div>
+        <div class="seckill_table">
+            <div class="table_top">22:00</div>
+            <div class="table_bottom">
+
+                 <!-- #################### -->
+                 <switch name="twenty_two[0]['flag']">
+                 
+                    <case value="no">
+                          尚未开始
+                    </case>
+                    <case value="on">
+                        正在进行中
+                    </case>
+                    <case value="off">
+                        已结束
+                    </case>
+                   
+                 </switch>
+                 <!-- ######################## -->
+
+
+             </div>
+        </div>
+    </div>
+</div>
+<!-- 秒杀头部结束 -->
+<!-- ########################################################################################################################## -->
+<!-- 秒杀商品目录开始 -->
+        <!-- 秒杀11点产品 -->
+<div class="seckill_box">
+            <div class="seckill">
+                <div class="seckill_prompt">
+
+                    <div class="left">
+                        <switch name="eleven[0]['flag']">
+                        
+                           <case value="no">
+                                 尚未开始
+                           </case>
+                           <case value="on">
+                               正在进行中
+                           </case>
+                           <case value="off">
+                               本场已结束
+                           </case>
+                          
+                        </switch>
+                    </div>
+                    <!-- 倒计时是显示 -->
+                    <div class="right">
+                        <!-- 倒数计时开始 -->
+                     <eq name="eleven[0]['flag']" value="on">
+                        <div class="colockbox" id="demo02">
+                            <span class="symbol">距离本场结束：</span>
+                            <span class="num hour">-</span>
+                            <span class="symbol">:</span>
+                            <span class="num minute">-</span>
+                            <span class="symbol">:</span>
+                            <span class="num second">-</span>
+                        </div>
+
+                        <script type="text/javascript">
+
+
+                        $(function(){
+                            // countDown("2015/10/13 23:59:59","#demo01 .day","#demo01 .hour","#demo01 .minute","#demo01 .second");
+                            countDown("{$eleven[0]['kill_end']}",null,"#demo02 .hour","#demo02 .minute","#demo02 .second");
+                        });
+
+                          function countDown(time,day_elem,hour_elem,minute_elem,second_elem){
+                              //if(typeof end_time == "string")
+                              var end_time = new Date(time).getTime(),//月份是实际月份-1
+                              //current_time = new Date().getTime(),
+                                      sys_second = (end_time-new Date().getTime())/1000;
+                              var timer = setInterval(function(){
+                                  if (sys_second > 1) {
+                                      sys_second -= 1;
+                                      var day = Math.floor((sys_second / 3600) / 24);
+                                      var hour = Math.floor((sys_second / 3600) % 24);
+                                      var minute = Math.floor((sys_second / 60) % 60);
+                                      var second = Math.floor(sys_second % 60);
+                                      day_elem && $(day_elem).text(day);//计算天
+                                      $(hour_elem).text(hour<10?"0"+hour:hour);//计算小时
+                                      $(minute_elem).text(minute<10?"0"+minute:minute);//计算分
+                                      $(second_elem).text(second<10?"0"+second:second);// 计算秒
+                                  }else if (sys_second < 1){
+                                      clearInterval(timer);
+                                      $(hour_elem).text("00");
+                                      $(minute_elem).text("00");
+                                      $(second_elem).text("00");
+
+
+                                      Core.Alert({'text':'11点的秒杀已经结束，即将为您更新数据...','state':'notic','timeout':2000,'callback':function(){
+                                           window.location.href="/Index/secondSkillGoods.html";
+                                            
+                                      }});
+                                    
+                                  }
+                              }, 1000);
+                          }
+                        </script>
+                    </eq>
+                        <!-- 倒数计时结束 -->
+                    </div>   
+                </div>  
+
+           <volist name="eleven" id="value">
+                <div class="goods_box">
+                    <div class="goods_pho"><img src="__ROOT__{$value.goods_thumb}" height="250" width="206" alt="" onclick="javascript:location='{:U('Goods/detail',array('goods_id'=>$value['goods_id']))}';" /></div>
+                    <div class="goods_inf_box">
+                        <div class="goods_inf">{$value.goods_name}</div>
+                    </div>
+                    <div class="ori_price">原价：<i>￥{$value.shop_price|intval}</i></div>
+                    <div class="price">￥<i>{$value.kill_price}</i></div>
+                    <!-- 显示商品状态 -->
+                  <!-- ##################调试############################### -->
+                  
+                   <switch name="value.flag">
+                      <case value="out">
+                          <div class="ori_price">已抢光</div>
+                          <div class="seckill_bt">已抢光</div>
+                      </case>
+                      <case value="no">
+                           <div class="ori_price">11:00准时开抢</div>
+                           <div class="seckill_bt can">未开始</div>
+                      </case>
+                      <case value="on">
+                         <div class="ori_price">仅剩{$value.goods_number}件</div>
+                         <div class="seckill_bt can" onclick="javascript:location='{:U('Goods/detail',array('goods_id'=>$value['goods_id']))}';">
+                             立即抢购
+                         </div>
+                      </case>
+                      <case value="off">
+                          <div class="ori_price">仅剩{$value.goods_number}件</div>
+                          <div class="seckill_bt">已结束</div>
+
+                      </case>
+                     
+                   </switch>
+                  <!-- ######################################################### -->
+                </div>
+          </volist>
+       
+       
+            </div>
+<!-- ############################################################################### -->
+
+
+
+
+
+
+
+
+
+        <!-- 秒杀15点产品 -->
+            <div class="seckill">
+                <div class="seckill_prompt">
+                    <div class="left">
+                        <switch name="fifteen[0]['flag']">
+                        
+                           <case value="no">
+                                 尚未开始
+                           </case>
+                           <case value="on">
+                               正在进行中
+                           </case>
+                           <case value="off">
+                               本场已结束
+                           </case>
+                          
+                        </switch>
+                    </div>
+                    <!-- 倒计时是显示 -->
+                    <div class="right">
+                        <!-- 倒数计时开始 -->
+                 <eq name="fifteen[0]['flag']" value="on">
+                        <div class="colockbox" id="demo02">
+                            <span class="symbol">距离本场结束：</span>
+                            <span class="num hour">-</span>
+                            <span class="symbol">:</span>
+                            <span class="num minute">-</span>
+                            <span class="symbol">:</span>
+                            <span class="num second">-</span>
+                        </div>
+             
+     
+                        <script type="text/javascript">
+                        $(function(){
+                      
+                            countDown("{$fifteen[0]['kill_end']}",null,"#demo02 .hour","#demo02 .minute","#demo02 .second");
+                            // countDown("2015/11/30 17:35:00",null,"#demo02 .hour","#demo02 .minute","#demo02 .second");
+                        });
+
+                        function countDown(time,day_elem,hour_elem,minute_elem,second_elem){
+                            //if(typeof end_time == "string")
+                            var end_time = new Date(time).getTime(),//月份是实际月份-1
+                            //current_time = new Date().getTime(),
+                            sys_second = (end_time-new Date().getTime())/1000;
+                            var timer = setInterval(function(){
+                                if (sys_second > 1) {
+                                    sys_second -= 1;
+                                    var day = Math.floor((sys_second / 3600) / 24);
+                                    var hour = Math.floor((sys_second / 3600) % 24);
+                                    var minute = Math.floor((sys_second / 60) % 60);
+                                    var second = Math.floor(sys_second % 60);
+                                    day_elem && $(day_elem).text(day);//计算天
+                                    $(hour_elem).text(hour<10?"0"+hour:hour);//计算小时
+                                    $(minute_elem).text(minute<10?"0"+minute:minute);//计算分
+                                    $(second_elem).text(second<10?"0"+second:second);// 计算秒
+                                } else if (sys_second < 1){
+                                    clearInterval(timer);
+                                    $(hour_elem).text("00");
+                                      $(minute_elem).text("00");
+                                      $(second_elem).text("00");
+
+                                      Core.Alert({'text':'15点的秒杀已经结束，即将为您更新数据...','state':'notic','timeout':2000,'callback':function(){
+                                           window.location.href="/Index/secondSkillGoods.html";
+                                            
+                                      }});
+                                     
+                                }
+                            }, 1000);
+                        }
+                        </script>
+                    </eq>
+                        <!-- 倒数计时结束 -->
+                    </div>   
+                </div>  
+
+    
+                   <volist name="fifteen" id="value">
+                        <div class="goods_box">
+                            <div class="goods_pho"><img src="__ROOT__{$value.goods_thumb}" height="250" width="206" alt="" onclick="javascript:location='{:U('Goods/detail',array('goods_id'=>$value['goods_id']))}';" /></div>
+                            <div class="goods_inf_box">
+                                <div class="goods_inf">{$value.goods_name}</div>
+                            </div>
+                            <div class="ori_price">原价：<i>￥{$value.shop_price|intval}</i></div>
+                            <div class="price">￥<i>{$value.kill_price}</i></div>
+                            <!-- 显示商品状态 -->
+                         <switch name="value.flag">
+                            <case value="out">
+                                <div class="ori_price">已抢光</div>
+                                <div class="seckill_bt">已抢光</div>
+                            </case>
+                            <case value="no">
+                                 <div class="ori_price">15:00准时开抢</div>
+                                 <div class="seckill_bt can">尚未开始</div>
+                            </case>
+                            <case value="on">
+                                <div class="ori_price">仅剩{$value.goods_number}件</div>
+                                <div class="seckill_bt can" onclick="javascript:location='{:U('Goods/detail',array('goods_id'=>$value['goods_id']))}';">立即抢购</div>
+                            </case>
+                            <case value="off">
+                                <div class="ori_price">仅剩{$value.goods_number}件</div>
+                                <div class="seckill_bt">已结束</div>
+
+                            </case>
+                           
+                         </switch>
+                        </div>
+                  </volist>
+        
+       
+                
+            </div>
+
+<!-- ######################################################################################## -->
+        <!-- 秒杀20点产品 -->
+            <div class="seckill">
+                <div class="seckill_prompt">
+                    <div class="left">
+                        <switch name="twenty[0]['flag']">
+                        
+                           <case value="no">
+                                 尚未开始
+                           </case>
+                           <case value="on">
+                               正在进行中
+                           </case>
+                           <case value="off">
+                               本场已结束
+                           </case>
+                          
+                        </switch>
+                    </div>
+                    <!-- 倒计时是显示 -->
+                    <div class="right">
+                        <!-- 倒数计时开始 -->
+                  <eq name="twenty[0]['flag']" value="on">
+                        <div class="colockbox" id="demo02">
+                            <span class="symbol">距离本场结束：</span>
+                            <span class="num hour">-</span>
+                            <span class="symbol">:</span>
+                            <span class="num minute">-</span>
+                            <span class="symbol">:</span>
+                            <span class="num second">-</span>
+                        </div>
+          
+                        <script type="text/javascript">
+                        $(function(){
+                            // countDown("2015/10/13 23:59:59","#demo01 .day","#demo01 .hour","#demo01 .minute","#demo01 .second");
+                            countDown("{$twenty[0]['kill_end']}",null,"#demo02 .hour","#demo02 .minute","#demo02 .second");
+                        });
+
+                        function countDown(time,day_elem,hour_elem,minute_elem,second_elem){
+                            //if(typeof end_time == "string")
+                            var end_time = new Date(time).getTime(),//月份是实际月份-1
+                            //current_time = new Date().getTime(),
+                            sys_second = (end_time-new Date().getTime())/1000;
+                            var timer = setInterval(function(){
+                                if (sys_second > 1) {
+                                    sys_second -= 1;
+                                    var day = Math.floor((sys_second / 3600) / 24);
+                                    var hour = Math.floor((sys_second / 3600) % 24);
+                                    var minute = Math.floor((sys_second / 60) % 60);
+                                    var second = Math.floor(sys_second % 60);
+                                    day_elem && $(day_elem).text(day);//计算天
+                                    $(hour_elem).text(hour<10?"0"+hour:hour);//计算小时
+                                    $(minute_elem).text(minute<10?"0"+minute:minute);//计算分
+                                    $(second_elem).text(second<10?"0"+second:second);// 计算秒
+                                } else if (sys_second < 1){
+                                    clearInterval(timer);
+                                    $(hour_elem).text("00");
+                                      $(minute_elem).text("00");
+                                      $(second_elem).text("00");
+
+                                      Core.Alert({'text':'20点的秒杀已经结束，即将为您更新数据...','state':'notic','timeout':2000,'callback':function(){
+                                           window.location.href="/Index/secondSkillGoods.html";
+                                            
+                                      }});
+                                      
+                                }
+                            }, 1000);
+                        }
+                        </script>
+                    </eq>
+                        <!-- 倒数计时结束 -->
+                    </div>   
+                </div>
+            <volist name="twenty" id="value">  
+                <div class="goods_box">
+                   <div class="goods_pho"><img src="__ROOT__{$value.goods_thumb}" height="250" width="206" alt="" onclick="javascript:location='{:U('Goods/detail',array('goods_id'=>$value['goods_id']))}';" /></div>
+                   <div class="goods_inf_box">
+                       <div class="goods_inf">{$value.goods_name}</div>
+                   </div>
+                   <div class="ori_price">原价：<i>￥{$value.shop_price}</i></div>
+                   <div class="price">￥<i>{$value.kill_price|intval}</i></div>
+                    <!-- 显示商品状态 -->
+                    <switch name="value.flag">
+                       <case value="out">
+                           <div class="ori_price">已抢光</div>
+                           <div class="seckill_bt">已抢光</div>
+                       </case>
+                       <case value="no">
+                            <div class="ori_price">20:00准时开抢</div>
+                            <div class="seckill_bt can">未开始</div>
+                       </case>
+                       <case value="on">
+                           <div class="ori_price">仅剩{$value.goods_number}件</div>
+                           <div class="seckill_bt can" onclick="javascript:location='{:U('Goods/detail',array('goods_id'=>$value['goods_id']))}';">立即抢购</div>
+                       </case>
+                       <case value="off">
+                           <div class="ori_price">仅剩{$value.goods_number}件</div>
+                           <div class="seckill_bt">已结束</div>
+
+                       </case>
+                      
+                    </switch>
+                </div>
+           </volist>
+ 
+       
+            </div>
+<!-- ######################################################################################### -->
+        <!-- 秒杀22点产品 -->
+            <div class="seckill">
+                <div class="seckill_prompt">
+                    <div class="left">
+                    <switch name="twenty_two[0]['flag']">
+                        
+                           <case value="no">
+                                 尚未开始
+                           </case>
+                           <case value="on">
+                               正在进行中
+                           </case>
+                           <case value="off">
+                               本场已结束
+                           </case>
+                          
+                        </switch>
+                        
+                    </div>
+                    <!-- 倒计时是显示 -->
+                    <div class="right">
+                        <!-- 倒数计时开始 -->
+                <eq name="twenty_two[0]['flag']" value="on">
+                        <div class="colockbox" id="demo02">
+                            <span class="symbol">距离本场结束：</span>
+                            <span class="num hour">-</span>
+                            <span class="symbol">:</span>
+                            <span class="num minute">-</span>
+                            <span class="symbol">:</span>
+                            <span class="num second">-</span>
+                        </div>
+            
+                        <script type="text/javascript">
+                        $(function(){
+                            // countDown("2015/10/13 23:59:59","#demo01 .day","#demo01 .hour","#demo01 .minute","#demo01 .second");
+                            countDown("{$twenty_two.[0]['kill_end']}",null,"#demo02 .hour","#demo02 .minute","#demo02 .second");
+                        });
+
+                        function countDown(time,day_elem,hour_elem,minute_elem,second_elem){
+                            //if(typeof end_time == "string")
+                            var end_time = new Date(time).getTime(),//月份是实际月份-1
+                            //current_time = new Date().getTime(),
+                            sys_second = (end_time-new Date().getTime())/1000;
+                            var timer = setInterval(function(){
+                                if (sys_second > 1) {
+                                    sys_second -= 1;
+                                    var day = Math.floor((sys_second / 3600) / 24);
+                                    var hour = Math.floor((sys_second / 3600) % 24);
+                                    var minute = Math.floor((sys_second / 60) % 60);
+                                    var second = Math.floor(sys_second % 60);
+                                    day_elem && $(day_elem).text(day);//计算天
+                                    $(hour_elem).text(hour<10?"0"+hour:hour);//计算小时
+                                    $(minute_elem).text(minute<10?"0"+minute:minute);//计算分
+                                    $(second_elem).text(second<10?"0"+second:second);// 计算秒
+                                } else if (sys_second < 1){ 
+                                    clearInterval(timer);
+                                    $(hour_elem).text("00");
+                                      $(minute_elem).text("00");
+                                      $(second_elem).text("00");
+
+                                      Core.Alert({'text':'22点的秒杀已经结束，即将为您更新数据...','state':'notic','timeout':2000,'callback':function(){
+                                           window.location.href="/Index/secondSkillGoods.html";
+                                            
+                                      }});
+                                    
+                                }
+                            }, 1000);
+                        }
+                        </script>
+            </eq>
+                        <!-- 倒数计时结束 -->
+                    </div>   
+                </div>  
+         
+     <volist name="twenty_two" id="value">
+           <div class="goods_box">
+               <div class="goods_pho"><img src="__ROOT__{$value.goods_thumb}" height="250" width="206" alt="" onclick="javascript:location='{:U('Goods/detail',array('goods_id'=>$value['goods_id']))}';" /></div>
+               <div class="goods_inf_box">
+                   <div class="goods_inf">{$value.goods_name}</div>
+               </div>
+              <div class="ori_price">原价：<i>￥{$value.shop_price|intval}</i></div>
+              <div class="price">￥<i>{$value.kill_price}</i></div>
+               <!-- 显示商品状态 -->
+              
+              <switch name="value.flag">
+                 <case value="out">
+                     <div class="ori_price">已抢光</div>
+                     <div class="seckill_bt">已抢光</div>
+                 </case>
+                 <case value="no">
+                      <div class="ori_price">22:00准时开抢</div>
+                      <div class="seckill_bt can">未开始</div>
+                 </case>
+                 <case value="on">
+                     <div class="ori_price">仅剩{$value.goods_number}件</div>
+                     <div class="seckill_bt can" onclick="javascript:location='{:U('Goods/detail',array('goods_id'=>$value['goods_id']))}';">立即抢购</div>
+                 </case>
+                 <case value="off">
+                     <div class="ori_price">仅剩{$value.goods_number}件</div>
+                     <div class="seckill_bt">已结束</div>
+
+                 </case>
+                
+              </switch>
+           </div>
+    </volist>
+
+
+
+      
+
+
+            </div>
+</div>   
+<!-- 秒杀商品目录结束 -->
+<script>
+$(function(){
+    var win_w = $("body").width()
+    $(".seckill_table").on('click',function(event){
+        var index = $(this).index();
+        $(this).addClass('current').siblings().removeClass('current')
+        $('html,body').animate({scrollTop:0},0);
+        $('.seckill').eq(index).css('display', 'block').siblings().css('display', 'none');
+    });
+})
+    
+</script>
+<!-- 设置提醒提示弹出层开始 -->
+<div class="prompt_box prompt_box1">
+    <div class="prompt_in">
+        <div class="prompt_top">
+            <h3>温馨提示</h3>
+            您已设置提醒，将于开抢前3分钟提醒您！
+        </div>
+        <div class="prompt_bt">确定</div>
+    </div>
+</div>
+<!-- 设置提醒提示弹出层结束 -->
+<!-- 设置提醒提示弹出层开始 -->
+<div class="prompt_box prompt_box2">
+    <div class="prompt_in">
+        <div class="prompt_top">
+            <h3>温馨提示</h3>
+            您已取消提醒！
+        </div>
+        <div class="prompt_bt">确定</div>
+    </div>
+</div>
+<!-- 设置提醒提示弹出层结束 -->
+<script>
+    $(".seckill_bt").on('click',function(event) {
+        var a = $(this).text()
+
+        if(a=="提醒我"){
+            $('.prompt_box1').fadeIn();
+            $(this).text("取消提醒");
+            $(this).css('background', '#F4E3BB');
+            swiper.lockSwipes();
+        }else if(a=="取消提醒"){
+            $('.prompt_box2').fadeIn();
+            $(this).text("提醒我");
+            $(this).css('background', "#ECC35D");
+            swiper.lockSwipes();
+        }
+        $(".prompt_bt").on('click',function(event){
+           $('.prompt_box').fadeOut();
+           swiper.unlockSwipes();
+        });
+
+        $(".prompt_box").bind("touchmove",function(event){
+                event.preventDefault();
+         })
+    });
+</script>
+
+<include file="Public/scroll"/>
+<include file="Public/copy_right"/>
+<include file="Public/nav"/>
+</body>
+</html>

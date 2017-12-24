@@ -1,0 +1,322 @@
+<link rel="stylesheet" type="text/css" href="__PCCSS__/goods_list.css" />
+<script type="text/javascript" src="__PCJS__/shan_detail.js"></script>
+<script type="text/javascript" src="__PCJS__/jquery.jqzoom.js"></script>
+<style type="text/css">
+.index_top .nav li.li1 ul{ background:#bfbfbf;}
+</style>
+</head>
+
+<body>
+
+<!-- 头部横条 -->
+<include file="Public/top"/>
+
+<div class="goods_deta_bg">
+    <p class="gps">
+        <span>商品ID：{$special_goods_id}</span>
+        <a href="{:U('Index/index')}">首页</a> >
+        <a href="{:U('Index/catGoodsList',array('cat_id'=>$nav['id']))}">{$nav.category_name}</a> > {$detail.goods_name}
+    </p>
+
+    <div class="top">
+        <div class="left">
+            <div class="goods_img">
+                <div class="min_img">
+                    <ul>
+                        <volist name="pictures" id="value" key="key">
+                            <li <eq  value='1' name='key'> class="this"</eq>>
+                            <a href="javascript:;">
+                                <img src="__ROOT__{$value.thumb}" alt="" /></a>
+                            <div class="this"></div>
+                            </li>
+                        </volist>
+
+                    </ul>
+                    <script type="text/javascript">
+                        $(".goods_deta_bg .top .left .goods_img .min_img li").on('click', function() {
+                            $(".goods_deta_bg .top .left .goods_img .min_img li").removeClass('this');
+                            $(this).addClass('this');
+
+                            $('#js-shan_change img').attr('src',$(this).find('img').attr('src'));
+                        });
+                    </script>
+                </div>
+
+                <div class="img">
+                    <a href="__ROOT__{$pictures[0]['thumb']}" id="jqzoom" title="放大图">
+                        <img src="__ROOT__{$pictures[0]['thumb']}" alt="" title="放大图" />
+                    </a>
+                </div>
+                <script type="text/javascript">
+                    // 图片放大特效
+                    function max_img(){
+                        $("#jqzoom").jqzoom({
+                            zoomWidth: 400, //小图片所选区域的宽
+                            zoomHeight: 400, //小图片所选区域的高
+                            zoomType: 'reverse' //设置放大镜的类型
+                        });
+                    };
+                    max_img();
+                    // 略缩图动画
+                    function this_img(this_li){
+                        var lis=$('.goods_deta_bg .top .left .goods_img .min_img li').length;
+                        var ul_min_top=320-lis*80;
+                        if(lis>5){
+                            var ul_top=160-this_li*80;
+                            // alert("共有li个数为"+lis+"当前值为:"+ul_top+"最小值为:"+ul_min_top);
+                            if(ul_top<ul_min_top || ul_top>80){
+                                return
+                            }else if(ul_top==80){
+                                $('.goods_deta_bg .top .left .goods_img .min_img ul').animate({"top":"0px"});
+                            }else if(ul_top==ul_min_top){
+                                var ul_top_wei=ul_min_top+80;
+                                $('.goods_deta_bg .top .left .goods_img .min_img ul').animate({"top":ul_top_wei});
+                            }else{
+                                $('.goods_deta_bg .top .left .goods_img .min_img ul').animate({"top":ul_top});
+                            }
+
+                        };
+                    };
+                    //小图片受到点击改变小图片位置   更换显示图的   更换放大的图
+                    $(".goods_deta_bg .top .left .goods_img .min_img li").on('click', function() {
+                        var this_li=$(this).index();
+                        $(".goods_deta_bg .top .left .goods_img .min_img li").removeClass('this');
+                        $(this).addClass('this');
+                        var src=$(this).find('img').attr("src");
+                        $('.goods_deta_bg .top .left .goods_img .img img').attr("src",src);//替换当前可见的图片
+                        var max_href=src;//更换放大图的href(大小为1278*1260)
+                        $('.goods_deta_bg .top .left .goods_img .img a').attr("href",max_href);
+                        this_img(this_li);
+                        max_img();
+                    });
+                </script>
+
+                <ul class="baozheng">
+                    <li class="li1">100%正品</li>
+                    <li class="li2">7天放心退</li>
+                    <li class="li3">分享就赚钱</li>
+                    <li class="li4">买贵返差额</li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+
+            <form action="{:U('Flow/checkout')}"  method="post" id="shan_form">
+                <p class="title">{$detail.goods_name}</p>
+                <dl class="dl1">
+                    <dt>原价:</dt>
+                    <dd><span>￥{$detail.market_price}</span></dd>
+                </dl>
+                <dl class="dl2">
+                    <dt>现价:</dt>
+                    <dd><span id="shan_final">{$detail.final_price}</span></dd>
+                </dl>
+                <div class="hr"></div>
+ 
+ 
+                <volist name='skus' id='value' key='key1'>
+                    <dl class="dl4">
+                        <dt>{$value.name}:</dt>
+                        <volist name="value.values" id="value2" key='key2'>
+                            <dd onclick="make_check(this)" <eq name="key2" value="1">class='this'</eq>>{$value2.label}
+                            <input  type="radio" style="display:none"  <eq name="key2" value="1">checked="checked"</eq> name="spec_{$key1}" value="{$value.sku_id}_{$key2-1}_{$value.name}_{$value2.label}" />
+                            <img class="gou" src="__PCIMG__goods_details_03.png" alt="" />
+                            </dd>
+                        </volist>
+
+                    </dl>
+                </volist>
+
+        
+
+
+                <dl class="dl5">
+                    <dt>购买数量:</dt>
+                    <dd >
+                        <ul class="add">
+                            <li class="li1" onclick="changeNumber(1)"></li>
+                            <li class="li2">
+                                <input type="text" onchange="changeNumber(2)" name="number" id="goods_number" value="1" />
+                            </li>
+                            <li class="li3" onclick="changeNumber(3)"></li>
+                        </ul>
+                    </dd>
+                    <notempty  name="detail['goods_number']">
+                        <dd>仅剩 <span>{$detail.goods_number}</span> 件，抓紧时间购买哦！</dd>
+                    </notempty>
+                </dl>
+
+                <ul class="ok">
+                    <li>
+                        <button type="button" onclick="add_cart('yes')">立即购买</button>
+                    </li>
+    
+                    <input type="hidden" name="goods_id" value="{$goods_id}"/>
+                    <li class="li2">
+                        <button type="button"  onclick="add_cart('no')">加入购物车</button>
+                    </li>
+                </ul>
+                <ul class="collection">
+                    <li class="li1" id="shan_collect" onclick="collect({$goods_id})">收藏</li>
+                    <li class="li2">分享
+                       <include file="Public/share"/>
+                    </li>
+
+                </ul>
+
+
+                <eq name="flag" value="1">
+                    <script type="text/javascript">
+                        $('#shan_collect').addClass('hover');
+                    </script>
+                </eq>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="goods_container">
+        <div class="goods_left">
+
+            <notempty name='linked_goods'>
+                <dl>
+                    <dt>相关商品</dt>
+                    <volist name="linked_goods" id="value">
+                        <a href="{:U('Goods/detail',array('goods_id'=>$value['id']),'')}">
+                            <dd>
+                                <div class="img"><img src="__ROOT__{$value.goods_thumb}_250x250.jpg" alt="" /></div>
+                                <p class="p1">{$value.goods_name|subtext=20}</p>
+                                <p class="p2">￥{$value.shop_price}</p>
+                            </dd>
+                        </a>
+                    </volist>
+                </dl>
+            </notempty>
+
+            <notempty  name='history_goods'>
+                <dl>
+                    <dt>浏览过的商品</dt>
+                    <volist name="history_goods" id="value">
+                        <a href="{:U('Goods/detail',array('goods_id'=>$value['id']),'')}">
+                            <dd>
+                                <div class="img"><img src="__ROOT__{$value.goods_thumb}_250x250.jpg" alt="" /></div>
+                                <p class="p1">{$value.goods_name|subtext=20}</p>
+                                <p class="p2">￥{$value.shop_price}</p>
+                            </dd>
+                        </a>
+                    </volist>
+                </dl>
+            </notempty>
+
+
+
+        </div>
+        <div class="goods_tight">
+            <ul class="nav4">
+                <li class="li1 hover">商品详情</li>
+                <li class="li2">累计评价</li>
+                <li class="li3">售后服务</li>
+                <li class="li4">加入购物车</li>
+            </ul>
+            <eq name="pagehover" value="1">
+                 <script type="text/javascript">
+                 $(function(){
+                    $('.nav4 li').removeClass('hover');
+                    $('.nav4 li.li2').addClass('hover');
+                    $('.goods_tight .con1,.goods_tight .con2,.goods_tight .con3').css({"display":"none"});
+                    $('.goods_tight .con2').css({"display":"block"});  
+                 })
+                 
+                 </script>
+            </eq>
+            <script type="text/javascript">
+                $('.goods_tight .nav4').on('click', '.li1', function() {
+                    $('.goods_tight .nav4 li').removeClass("hover");
+                    $(this).addClass('hover');
+                    $('.goods_tight .con1,.goods_tight .con2,.goods_tight .con3').css({"display":"none"});
+                    $('.goods_tight .con1').css({"display":"block"});
+                });
+                $('.goods_tight .nav4').on('click', '.li2', function() {
+                    $('.goods_tight .nav4 li').removeClass("hover");
+                    $(this).addClass('hover');
+                    $('.goods_tight .con1,.goods_tight .con2,.goods_tight .con3').css({"display":"none"});
+                    $('.goods_tight .con2').css({"display":"block"});
+                });
+                $('.goods_tight .nav4').on('click', '.li3', function() {
+                    $('.goods_tight .nav4 li').removeClass("hover");
+                    $(this).addClass('hover');
+                    $('.goods_tight .con1,.goods_tight .con2,.goods_tight .con3').css({"display":"none"});
+                    $('.goods_tight .con3').css({"display":"block"});
+                });
+            </script>
+
+
+            <div class="con1" >
+                {$detail.goods_desc}
+                <div class="weixin_fenxiang">
+                    <img src="__PCIMG__weixin.jpg" alt="" />
+                    <p>关注注册送红包，分享购买返佣金！</p>
+                </div>
+            </div>
+            <div class="con2" style="display:none">
+
+                <notempty name="comment_list">
+                    <div class="title"><span>用户评价</span></div>
+                    <div class="pingjun">
+                        <a href="#" class="fabiao">发表评价</a>
+                        <span>综合评分</span>
+                        <ul class="xingxing">
+                            <li><i class="iconfont">&#xe632;</i></li>
+                            <li><i class="iconfont">&#xe632;</i></li>
+                            <li><i class="iconfont">&#xe632;</i></li>
+                            <li><i class="iconfont">&#xe632;</i></li>
+                            <li><i class="iconfont">&#xe632;</i></li>
+                        </ul>
+                        <p>5.0<em>/5.0</em></p>
+                    </div>
+                </notempty>
+                <div class="user">
+
+                    <volist name="comment_list" id="value">
+                        <div class="user">
+                            <div class="user_l">
+                                <div class="img"><img src="" alt="" /></div>
+                                <p>{$value.user_name}</p>
+                            </div>
+                            <div class="user_r">
+                                <div class="user_t">
+                                    <ul class="use_xing">
+                                        <for start="0" end="$value.level">
+                                            <li><i class="iconfont">&#xe632;</i></li>
+                                        </for>
+
+                                    </ul>
+                                    <span>{$value.level}.0</span>
+                                    <p>{$value.rq}&nbsp;&nbsp;&nbsp;{$value.ms}</p>
+                                </div>
+                                <p class="text">{$value.content}</p>
+                            </div>
+                        </div>
+
+
+                    </volist>
+
+                    <div class="yeshu">
+                        {$page_show}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="con3" style="display:none;">
+                {$promise}
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">店铺名称</td>
+            <td>{$edit['shop_name']}</td>
+        </tr>
+        <tr>
+            <td class="label">店铺等级</td>
+            <td>{$shop_lvel[$edit['shop_name']]}</td>
+        </tr>
+        <tr>
+            <td class="label">联系电话</td>
+            <td>{$edit['tel']}</td>
+        </tr>
+        <tr>
+            <td class="label">客服QQ</td>
+            <td>{$edit['qq']}</td>
+        </tr>
+        <tr>
+            <td class="label">营业执照</td>
+            <td>{$edit['licence']}</td>
+        </tr>
+        <tr>
+            <td class="label">营业执照副本</td>
+            <td><img src="{$edit['licence_copy']}" height="250" width="250"></td>
+        </tr>
+        <tr>
+            <td class="label">企业名称</td>
+            <td>{$edit['corp']}</td>
+        </tr>
+        <tr>
+            <td class="label">法人代表</td>
+            <td>{$edit['corporate']}</td>
+        </tr>
+        <tr>
+            <td class="label">店铺地址</td>
+            <td>{$edit['province']} {$edit['city']} {$edit['district']} {$edit['address']}</td>
+        </tr>
+        <tr>
+            <td class="label">百度地图</td>
+            <td><div id="map" style="height:300px;width:100%;"></div></td>
+        </tr>
+        <if condition="$edit['verify'] eq 'N'">
+            <tr>
+                <td class="label"></td>
+                <td>
+                    <button type="submit" class="submit">通过审核</button>
+                    <input type="hidden" name="verify" value="Y">
+                </td>
+            </tr>
+        </if>
+        </tbody>
+    </table>
+</form>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$map['ak']}"></script>
+<script>
+    $('.js-edit').on('submit',function(event){
+        var data = Core.InputObj(this);
+
+        $.post('',data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.href = "{:U('index')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+
+    // 百度地图API功能
+    var map = new BMap.Map('map');
+    map.centerAndZoom(new BMap.Point({$edit['map_y']},{$edit['map_x']}),16);
+    map.enableScrollWheelZoom(true);
+
+    map.clearOverlays();
+    var new_point = new BMap.Point({$edit['map_y']},{$edit['map_x']});
+    var marker = new BMap.Marker(new_point);    //创建标注
+    map.addOverlay(marker); //将标注添加到地图中
+    map.panTo(new_point);
+
+    var label = new BMap.Label("{$edit['shop_name']}",{offset:new BMap.Size(20,-10)});  //将标签添加到地图中
+    marker.setLabel(label);
+
+    /*
+     // 创建地址解析器实例
+     var myGeo = new BMap.Geocoder();
+     // 将地址解析结果显示在地图上,并调整地图视野
+     myGeo.getPoint('天河区花城大道18号建滔广场1903b', function(point){
+     if (point) {
+     map.centerAndZoom(point, 16);
+     map.addOverlay(new BMap.Marker(point));
+     }else{
+     alert('您选择地址没有解析到结果!');
+     }
+     },'广州市');
+
+     var point = new BMap.Point(116.400244,39.92556);
+     var marker = new BMap.Marker(point);   // 创建标注
+     map.addOverlay(marker);    // 将标注添加到地图中
+     marker.enableDragging();   // 可拖拽
+
+     //获取拖动点的坐标
+     marker.addEventListener('dragend', function(event){
+     console.log(event.point);
+     });
+     */
+</script>

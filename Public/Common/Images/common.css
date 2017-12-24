@@ -1,0 +1,31 @@
+body,p,ul,li,ol,dl,dt,dd,h1,h2,h3,h4,h5,h6,form,fieldset,legend,input,button,textarea,th,td{ padding:0; margin:0;}
+h1,h2,h3,h4,h5,h6{ font-weight:400;}
+img,fieldset{ border:0 none;}
+img,a{ vertical-align:middle;}
+ol,ul{ list-style:none;}
+table{ border-collapse:collapse; border-spacing:0;}
+input,button,select{ font-family:Tahoma,Verdana,Arial,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53"; outline:0; vertical-align:middle; box-sizing:border-box; padding:0 5px;}
+a,button{ cursor:pointer;}
+a{ text-decoration:none;}
+a:hover{ }
+button{ padding:0 10px;}
+
+.core-background{ background-color:#000; filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50); background-color:rgba(0,0,0,0.5); position:fixed; left:0; top:0; height:100%; width:100%; z-index:9998;}
+.core-alert{ background-color:#000; filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50); background-color:rgba(0,0,0,.5); font-size:1rem; position:absolute; padding:5px 20px 5px 40px; color:#fff; border-radius:1rem; z-index:9999;}
+.core-alert .load,.core-alert .info,.core-alert .notic,.core-alert .suc,.core-alert .err{ background-color:#59e; border-radius:1rem; color:#fff; font-family:'Consolas'; font-size:1rem; font-weight:bold; line-height:0.9rem; text-align:center; overflow:hidden; position:absolute; height:1rem; width:1rem; left:0.3rem; top:0.3rem; }
+.core-alert .load{ background:url(bg-loading.gif) 2px 2px no-repeat; }
+.core-alert .notic{ background-color:#f93; }
+.core-alert .suc{ background-color:#2a3; }
+.core-alert .err{ background-color:#c42; }
+.core-layer{ background-color:#fff; border:1px solid #ccc; border-radius:3px; box-shadow:1px 1px 3px #ccc; position:absolute; z-index:9999;}
+.core-layer .close{ background-color:#fff; border:1px solid #ddd; cursor:pointer; font-size:16px; color:#999; height:16px; width:16px; position:absolute; right:15px; top:15px; text-align:center; line-height:14px;}
+.core-layer .close:hover{ background-color:#d3441a; color:#fff; border-color:#eee}
+.core-layer h1{ background-color:#eee; font-size:18px; line-height:46px; padding:0 20px;}
+.core-layer .content{ font-size:14px; padding:10px 20px 0 20px;}
+.core-layer .ctrl{ padding:10px 20px 20px 20px; text-align:right;}
+.core-layer .ctrl .button,.core-layer .ctrl .submit{ border:0 none; background:#1aaa31; color:#fff; border-radius:3px; padding:0 15px; height:26px; line-height:26px; margin-left:10px;}
+.core-layer .ctrl .button:hover{ background-color:#11b82b;}
+.core-layer .ctrl .submit{ background:#d3441a;}
+.core-layer .ctrl .submit:hover{ background:#e33f0e;}
+.core-layout .content{ padding:0;}
+.core-layer .frame{ border:0;}

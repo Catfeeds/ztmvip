@@ -1,0 +1,71 @@
+ {__NOLAYOUT__}
+ <div class="pay_box">
+     <div class="pay_title">付款详情
+         <div class="cancel cantwo">取 消</div>
+     </div>
+     <div class="pay_in">
+         <div class="left">支付方式</div>
+         <div class="right">{$pay_name}</div>
+     </div>
+     <div class="pay_in">
+         <div class="left">商品金额</div>
+         <div class="right">￥{$total.goods_price}</div>
+     </div>
+ <!-- 邮费 -->
+ <gt name="total.shipping_fee" value="0">
+     <div class="pay_in">
+         <div class="left">邮费</div>
+         <div class="right">+￥{$total.shipping_fee}</div>
+     </div>
+ </gt>
+ <!-- 积分 -->
+ <gt name="total.integral_amount" value="0">
+     <div class="pay_in">
+         <div class="left">积分</div>
+         <div class="right">-￥<span id="integral_amount">{$total.integral_amount|default=0}</span></div>
+     </div>
+    <else/>
+       <span style="display:none;" id="integral_amount">0</span>
+ </gt>
+ <!-- 红包 -->
+ <gt name="total.bonus_amount" value="0">
+     <div class="pay_in">
+         <div class="left">红包</div>
+         <div class="right">-￥{$total.bonus_amount|default=0}</div>
+     </div>
+ </gt>
+     <!-- 优惠券 -->
+ <gt name="total.coupon_amount" value="0">
+     <div class="pay_in">
+         <div class="left">优惠券</div>
+         <div class="right">-￥{$total.coupon_amount|default=0}</div>
+     </div>
+</gt>
+     <div class="pay_in not">
+         <div class="left">需付款</div>
+         <div class="right">{$total.amount}元</div>
+     </div>
+
+     <switch name="flag_buy">
+         <case value="cart">
+             <div class="confirm_box">
+                 <div class="confirm" onclick="location.href='{:U('Flow/wxDone')}'"
+              style="background:#4DBA49">微信安全支付</div>
+             </div>
+         </case>
+         <case value="quick">
+             <div class="confirm_box">
+                 <div class="confirm" onclick="location.href='{:U('Flow/quick_wxDone')}'"
+              style="background:#4DBA49">微信安全支付</div>
+             </div>
+         </case>
+         <case value="center">
+             <div class="confirm_box">
+                 <div class="confirm" onclick="location.href='{:U('Flow/center_wxDone','order_id='.$order_id)}'"
+              style="background:#4DBA49">微信安全支付</div>
+             </div>
+         </case>
+     </switch>
+ 
+     
+ </div>

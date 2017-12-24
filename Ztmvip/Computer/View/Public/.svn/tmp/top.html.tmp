@@ -1,0 +1,271 @@
+<div class="index_header">
+    <ul>
+        <li class="li1"><i></i><a href="">购物车<span>(<if condition="$Think.session.cnumber">{$Think.session.cnumber}<else/>0</if>)</span></a></li>
+        <if condition="$user_info">
+            <li class="li2"><i></i><a href="{:U('User/order')}">我的订单</a></li>
+            <li class="li3"><i></i><a href="{:U('Login/logout')}">退出</a></li>
+            <li class="li4"><i></i><a href="">{$user_info.mobile}</a></li>
+            <else/>
+            <li class="li3"><i></i><a href="{:U('Login/index')}">登录</a></li>
+            <li class="li4"><i></i><a href="{:U('Register/index')}">注册</a></li>
+        </if>
+        <li class="li5">欢迎光临整体美</li>
+    </ul>
+</div>
+<div class="index_top">
+    <div class="logo"><a href="{:U('Index/index')}"><img src="__PCIMG__index_logo.png" alt="" /></a></div>
+    <div class="search">
+        <div id="add">
+            <form action="{:U('Search/indexSearch')}">
+                <input type="text" name="word" value="{$choose.word}" />
+                <button type="submit"></button>
+            </form>
+        </div>
+     
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">李小龙</a>
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">刘德华</a>
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">秦宝贵</a>
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">死亡公子</a>
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">八王爷</a>
+  
+    </div>
+    <!-- <div class="weixin"><img src="__PCIMG__index_02_10.jpg" /></div> -->
+    <div class="weixin">
+        <p>整体美微信</p>
+        <img src="__PCIMG__gif128_03.gif" />
+    </div>
+    <ul class="nav">
+        <li class="li1"><a href="">全部商品</a>
+        <ul>
+
+        <!-- #################### 壹 ############################# -->
+            <li>
+                <dl class="nav1">
+                    <dt>形象美</dt>
+                    <dd>
+                        <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">李小龙</a>
+                        <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">刘德华</a>
+                        <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">秦宝贵</a>
+                        <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">死亡公子</a>
+                        <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">八王爷</a>
+                    </dd>
+
+                    <dl class="nav2">
+                        <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">包包1</a></dt>
+                        <dd>
+                             <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">休闲包</a>
+                             <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">时尚包</a>
+                        </dd>
+                        <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a></dt>
+                        <dd>
+                          <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+                          <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+                          <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+                          <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+                          <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+                          <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+                        </dd>
+
+                        <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">围巾</a></dt>
+                        <dd>
+                            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">丝巾</a>
+                            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">羊毛围巾</a>
+                        </dd>
+                        <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大衣/外套</a></dt>
+                        <dd>
+                           <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">羽绒</a>
+                           <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大衣</a>
+                        </dd>
+                        <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童</a></dt>
+                        <dd>
+                           <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童下装</a>
+                           <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童鞋子</a>
+                           <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童围巾/配饰</a>
+                           <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童外套</a>
+                           <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童上衣</a>
+                        </dd>
+                        <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">裙装</a></dt>
+                        <dd>
+                          <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">连衣裙</a>
+                          <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">半身裙</a>
+                        </dd>
+                    </dl>
+                </dl>
+            </li>
+<!-- ################# 贰 ######################################### -->
+<li>
+    <dl class="nav1">
+        <dt>形象美</dt>
+        <dd>
+            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">李小龙</a>
+            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">刘德华</a>
+            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">秦宝贵</a>
+            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">死亡公子</a>
+            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">八王爷</a>
+        </dd>
+
+        <dl class="nav2">
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">包包1</a></dt>
+            <dd>
+                 <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">休闲包</a>
+                 <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">时尚包</a>
+            </dd>
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a></dt>
+            <dd>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+            </dd>
+
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">围巾</a></dt>
+            <dd>
+                <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">丝巾</a>
+                <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">羊毛围巾</a>
+            </dd>
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大衣/外套</a></dt>
+            <dd>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">羽绒</a>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大衣</a>
+            </dd>
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童</a></dt>
+            <dd>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童下装</a>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童鞋子</a>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童围巾/配饰</a>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童外套</a>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童上衣</a>
+            </dd>
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">裙装</a></dt>
+            <dd>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">连衣裙</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">半身裙</a>
+            </dd>
+        </dl>
+    </dl>
+</li>
+
+<!-- ################## 叁 ####################### -->
+<li>
+    <dl class="nav1">
+        <dt>形象美</dt>
+        <dd>
+            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">李小龙</a>
+            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">刘德华</a>
+            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">秦宝贵</a>
+            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">死亡公子</a>
+            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">八王爷</a>
+        </dd>
+
+        <dl class="nav2">
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">包包1</a></dt>
+            <dd>
+                 <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">休闲包</a>
+                 <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">时尚包</a>
+            </dd>
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a></dt>
+            <dd>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+            </dd>
+
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">围巾</a></dt>
+            <dd>
+                <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">丝巾</a>
+                <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">羊毛围巾</a>
+            </dd>
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大衣/外套</a></dt>
+            <dd>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">羽绒</a>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大衣</a>
+            </dd>
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童</a></dt>
+            <dd>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童下装</a>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童鞋子</a>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童围巾/配饰</a>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童外套</a>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童上衣</a>
+            </dd>
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">裙装</a></dt>
+            <dd>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">连衣裙</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">半身裙</a>
+            </dd>
+        </dl>
+    </dl>
+</li>
+
+<!-- #################### 肆  #################################     -->
+<li>
+    <dl class="nav1">
+        <dt>形象美</dt>
+        <dd>
+            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">李小龙</a>
+            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">刘德华</a>
+            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">秦宝贵</a>
+            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">死亡公子</a>
+            <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">八王爷</a>
+        </dd>
+
+        <dl class="nav2">
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">包包1</a></dt>
+            <dd>
+                 <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">休闲包</a>
+                 <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">时尚包</a>
+            </dd>
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a></dt>
+            <dd>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大牌原创</a>
+            </dd>
+
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">围巾</a></dt>
+            <dd>
+                <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">丝巾</a>
+                <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">羊毛围巾</a>
+            </dd>
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大衣/外套</a></dt>
+            <dd>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">羽绒</a>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">大衣</a>
+            </dd>
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童</a></dt>
+            <dd>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童下装</a>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童鞋子</a>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童围巾/配饰</a>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童外套</a>
+               <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">儿童上衣</a>
+            </dd>
+            <dt><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">裙装</a></dt>
+            <dd>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">连衣裙</a>
+              <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">半身裙</a>
+            </dd>
+        </dl>
+    </dl>
+</li>
+
+<!-- ################################################# -->
+         
+        </ul>
+        </li>
+        <li ><a href="{:U('Index/index')}">首页</a></li>
+        <li ><a href="{:U('Index/newGoodsList')}">新品首发</a></li>
+        <li ><a href="{:U('Index/specialBuy')}">特卖专场</a></li>
+        <li ><a href="{:U('Health/special')}">贵宾尊享</a></li>
+    </ul>
+</div>
+
+

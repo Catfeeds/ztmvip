@@ -1,0 +1,32 @@
+    <link rel="stylesheet" type="text/css" href="__CSS__submit_same_mobile.css" media="(max-width:750px)" />
+    <link rel="stylesheet" type="text/css" href="__CSS__submit_same_pad.css" media="(min-width:750px)">
+    <style type="text/css">
+        article .page-show{ position:relative;text-align:right;padding:0.5rem 1rem;line-height:1.2rem;}
+        article .page-show span,article .page-show a{ display:inline-block;margin:0 0.3rem;color:#333;padding:0.1rem 0.4rem;vertical-align:middle;}
+        article .page-show .current{ border:1px solid #E9C574;background-color:#E9C574;color:#fff;}
+        article .page-show a{ border:1px solid #E9C574;background-color:#fff; color:#E9C574;}
+    </style>
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        分佣明细
+        <a class="return" href="{:('index')}"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></a>
+    </div>
+</div>
+<!-- 内容 -->
+<article>
+    <volist name="log" id="vo">
+        <div class="cent_box">
+            <div class="top">
+                <div class="left">订单号：{$vo['order_sn']}</div>
+                <div class="right">{$vo['date_add']|date='Y.m.d',###}</div>
+            </div>
+            <div class="price">获得佣金：￥{$vo['money']|sprintf='%.2f',###}</div>
+        </div>
+    </volist>
+    {$page_show}
+</article>
+</body>
+</html>

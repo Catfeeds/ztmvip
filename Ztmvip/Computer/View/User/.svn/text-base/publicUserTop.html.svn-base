@@ -1,0 +1,18 @@
+<div class="user_top">
+    <div class="img"><img src="{$this_user.avatar}" alt="" /></div>
+    <dl class="dl1">
+        <dd class="dd1">{$this_user.user_name}</dd>
+        <dd class="dd2">{$this_user.parent_name|default='官网'}推荐会员</dd>
+        <dd class="dd3"><a href="{:U('User/password',array('redirect'=>base64_encode($_SERVER['REQUEST_URI'])))}">修改登录密码</a><a href="{:U('User/payword',array('redirect'=>base64_encode($_SERVER['REQUEST_URI'])))}">修改支付密码</a></dd>
+    </dl>
+    <dl class="dl2">
+        <dt>我的余额：</dt>
+        <dd>余额：<span>￥{$this_user.real_money|default=0}</span></dd>
+        <dd><a href="{:U('Account/deposit')}" class="a1">充值</a><a href="{:U('Account/withdraw')}" class="a2">申请提现</a></dd>
+    </dl>
+    <dl class="dl3">
+        <dt>其他信息：</dt>
+        <dd>我的红包:<span>（{$card_coupons.bonus}）</span>我的优惠券:<span>（{$card_coupons.coupon}）</span></dd>
+        <dd>我的积分:<span>{$this_user.integral|default=0}</span>我的储值卡:<span>（{$card_coupons.prepaid}）</span></dd>
+    </dl>
+</div>

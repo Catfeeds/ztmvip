@@ -1,0 +1,50 @@
+html{font-size:24px;font-family: "冬青黑体简体中文";height:100%;background:#F1F1F1;}
+body{min-height:100%;background:#fff;}
+.head_box{width:100%;max-width: 750px;position:fixed;top:0;background:#fff;z-index: 999;border-bottom: 1px solid #ccc;}
+.head{width:100%;height:88px;text-align: center;font-size: 1.4rem;line-height:88px;position:relative;}
+.head .return{width:18px;position:absolute;left:20px;top:26px;}
+article{padding-top:88px;}
+.goods_box{width:100%;overflow:hidden;overflow:hidden;background:#fff;margin-top:2%;padding:0 20px;box-sizing: border-box;border-bottom: 1px solid #ccc;}
+.goods_in{width:100%;padding:40px 0;box-sizing: border-box;overflow: hidden;}
+.goods_photo{width:33%;float:left;}
+.goods_inf{width:65%;float:right;}
+.goods_inf .title{font-size: 1.1rem;}
+.goods_inf .price{color:#E8C473;line-height:60px;margin-top:20px;}
+.goods_inf .price i{font-size: 1.4rem;font-weight: bold;}
+.goods_inf .price .left{float:right;color:#7F7F7F;}
+.goods_inf .inf_other{color:#7F7F7F;}
+.goods_inf .other_box{color:#7F7F7F;line-height: 80px;}
+.inf_box{padding:0 20px;box-sizing: border-box;}
+.score_box{overflow:hidden;height:60px;line-height:60px;margin-top:20px;font-size: 1.3rem;color:#B5B5B5;}
+.score_box .name,.score_in{float:left;}
+.score{float:left;width:48px;height:48px;margin:6px 20px 0 0;background:url(../Images/star2.jpg) no-repeat;background-size: cover;}
+.cur{background:url(../Images/star.jpg) no-repeat;background-size: cover;}
+.inf_box .title{height:60px;line-height:60px;font-size: 1.3rem;color:#B5B5B5;}
+.text_box{margin-top:10px;}
+.text{width:100%;height:300px;font-size:1.0rem;}
+.text_inf{text-align: right;color:#B5B5B5;}
+.bt_box{width:100%;max-width:750px;position:fixed;bottom:0;padding:20px 0;text-align: center;}
+.bt{width:90%;height:88px;background:#E9C574;line-height:88px;font-size: 1.3rem;margin:0 auto;color:#fff;}
+.placeholder{height:136px;}
+
+.bg{width:100%;height:100%;background:rgba(0,0,0,0.6);position:fixed;top:0;z-index: 999;display:none;}
+.remind{width:388px;height:116px;background:#fff;position:absolute;top:50%;margin-top:-58px;left:50%;margin-left:-194px;text-align: center;line-height: 116px;font-size: 1.3rem;}
+.tick_box{width:80px;height:90px;position:absolute;left:0;top:0;}
+.tick_box .rud{width:30px;height:30px;border: 1px solid #000;border-radius: 50%;position:absolute;top:20px;left:14px;}
+.tick_box .tick{width:32px;height:32px;position:absolute;top:20px;left:14px;display:none;}
+
+.input_bg{padding:2% 0;width:100%;background:#F1F1F1;}
+.input_box{background:#fff;}
+.input_box .title{padding:0 20px;box-sizing: border-box;font-size: 1.2rem;line-height:70px;}
+.input_box .input{padding:0 80px;box-sizing: border-box;border-top: 1px solid #D3D3D3;line-height:90px;height:90px;font-size: 1.2rem;position:relative;}
+.input input{display:none;}
+.bgg{width:35%;margin:144px auto 60px;}
+.bgg_inf{text-align: center;}
+.bgg_inf .big{font-size: 1.4rem;}
+.cent_box{height:150px;font-size: 1.1rem;padding:0 20px;border-bottom: 1px solid #7F7F7F;overflow:hidden;background:#fff;}
+.cent_box .top{overflow:hidden;line-height: 50px;margin-top:30px;}
+.cent_box .top .left{float:left;}
+.cent_box .top .right{float:right;color:#7F7F7F;}
+
+.saleafter_box{background:#fff;padding:0 20px;text-align:justify;line-height: 40px;font-size: 1.1rem;}
+.saleafter_box h3{line-height: 70px;margin-top:16px;font-size: 1.2rem;font-weight: bold;}

@@ -1,0 +1,101 @@
+<?php
+/**
+ * 首页控制器
+ * author: Tom
+ */
+namespace Computer\Controller;
+class IndexController extends BaseController
+{
+    //首页
+    public function index()
+    {
+        session('user_id',19023);
+        $this->assign('page_title', '女性整体美解决方案领导者');
+        $this->display();
+    }
+
+
+  /**
+   * 某个类(含扩展类)下的商品
+   * @param  [type] $cat_id [description]
+   * @return [type]         [description]
+   */
+  public function catGoodsList()
+  {
+     $get = I('get.');
+    $category_name=D('GoodsCategory')->getCategoryName($get['cat_id']);
+    $this->assign('category_name',$category_name);
+    $count=D('Goods')->getCatGoodsCount($get['cat_id']);
+
+     $page=$this->page($count,50);
+  
+    //  $memcache=new \Think\Cache\Driver\Memcache(C('MEMCACHED'));
+    //  $pagenum=$get['p']?$get['p']:1;
+    //  $key=md5('catgoods'.$get['cat_id'].$pagenum);
+    // if($back=$memcache->get($key))
+    // {     
+    //     $goods_list=unserialize($back);
+    // }else{
+    //   $goods_list=D('Goods')->categoryGetGoods($get['cat_id'],$page->firstRow,$page->listRows);
+    //   $memcache->set($key,serialize($goods_list));    
+    // }
+  
+    $goods_list=D('Goods')->categoryGetGoods($get['cat_id'],$page->firstRow,$page->listRows);
+  
+
+     $this->assign('goods_list',$goods_list);
+     $this->display('goods_list');
+
+ 
+  }
+
+
+
+  /**
+   * 新品首发
+   * @return [type] [description]
+   */
+      public function newGoodsList()
+      {
+
+         echo '能不能快点啊!新品首发';
+      }
+
+
+
+
+
+  /**
+   * 特卖专场
+   * @return [type] [description]
+   */
+    public function specialBuy()
+    {
+       echo '能不能快点啊!特卖专场';
+    }
+
+
+
+    //购物车
+    public function cart()
+    {
+        #取得购物车商品列表，计算合计(
+        $cart_goods = D('Cart')->getCartList();
+        $this->assign('cart_list', $cart_goods ['cart_list']);
+        $this->assign('total', $cart_goods ['total']);
+
+        #判断是否是全选
+        $count = D('Cart')->existUnSelected();
+        if (!$count) {
+            $this->assign('all_flag', 1);
+        }
+        $this->assign('page_title', '女性整体美解决方案领导者');
+        $cart = $this->fetch('Index:cart');
+        $this->ajaxReturn(array('cart' => $cart));
+    }
+
+
+
+
+
+}

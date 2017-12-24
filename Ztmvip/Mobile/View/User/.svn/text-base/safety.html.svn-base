@@ -1,0 +1,50 @@
+<link rel="stylesheet" type="text/css" href="__CSS__safe_same_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="__CSS__safe_same_pad.css" media="(min-width:750px)">
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        安全中心
+        <a class="return" href="{:U('User/index')}"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></a>
+    </div>
+</div>
+<!-- 内容 -->
+<article>
+<a href="{:U('mobile')}">
+<div class="list_box">
+    绑定手机
+    <i>{:($user['mobile']?'修改':'未绑定')}</i>
+    <div class="jump"><img src="__IMG__fhy2.jpg" height="24" width="13" alt="" /></div>
+</div>
+</a>
+<a href="{:U('bank')}">
+<div class="list_box">
+    绑定银行卡
+    <i>{:($user['bank_card']?'修改':'未绑定')}</i>
+    <div class="jump"><img src="__IMG__fhy2.jpg" height="24" width="13" alt="" /></div>
+</div>
+</a>
+<a href="{:U('payword')}">
+<div class="list_box">
+    设置支付密码
+    <i>{:($user['payment_password']?'修改':'未设置')}</i>
+    <div class="jump"><img src="__IMG__fhy2.jpg" height="24" width="13" alt="" /></div>
+</div>
+</a>
+<a href="{:U('question')}">
+<div class="list_box">
+    设置安全问题
+    <i>{:($user['question']?'修改':'未设置')}</i>
+    <div class="jump"><img src="__IMG__fhy2.jpg" height="24" width="13" alt="" /></div>
+</div>
+</a>
+<a href="{:U('password')}">
+<div class="list_box">
+    修改/忘记密码
+    <div class="jump"><img src="__IMG__fhy2.jpg" height="24" width="13" alt="" /></div>
+</div>
+</a>
+</article>
+</body>
+</html>

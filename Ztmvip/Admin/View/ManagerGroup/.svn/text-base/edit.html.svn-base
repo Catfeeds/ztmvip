@@ -1,0 +1,50 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">组名称</td>
+            <td><input name="group_name" class="text" type="text" value="{$edit['group_name']}" required="required" placeholder="请输入组名称..."></td>
+        </tr>
+        <tr>
+            <td class="label">权限</td>
+            <td>
+                <input class="js-select-all" type="checkbox">全选&nbsp;&nbsp;&nbsp;&nbsp;
+                <tagLib name="html"/>
+                <html:checkbox name="rights" checkboxes="rights" separator="&nbsp;&nbsp;&nbsp;&nbsp;" checked="group_rights" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td><button type="submit" class="submit">提 交</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+    $('.js-edit').on('submit',function(event){
+        $.post('',Core.InputObj(this),function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.href = "{:U('index')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    }).on('click','.js-select-all',function(event){
+        $(this).siblings(':checkbox').prop('checked',this.checked);
+    }).on('click',':checkbox[name="rights[]"]',function(event){
+        var length = $(event.delegateTarget).find(':checkbox[name="rights[]"]').length;
+        var checked = $(event.delegateTarget).find(':checked[name="rights[]"]').length;
+        $('.js-select-all').prop('checked',checked == length)
+                .prop('indeterminate',checked && checked != length);
+    });
+</script>

@@ -1,0 +1,35 @@
+
+    <link rel="stylesheet" type="text/css" href="__PCCSS__logistics.css" />
+  </head>
+  <body>
+  <include file="Public/top"/>
+    <div class="bg_h">
+        <div class="logistics">
+            <form action="" class="after" id="js-form">
+                <p class="p1">请选择你要申请的服务类型</p>
+                <p class="p2"><label for="radio1"></label><input type="radio" name="refund_type" id="radio1" value="换货"/>申请换货</p>
+                <p class="p3"><label for="radio2"></label><input type="radio" name="refund_type" id="radio2" value="退货"/>申请退货</p>
+                <div class="text"><span>售后说明：</span><textarea  maxlength="200" name="refund_note" id="" ></textarea>
+                </div>
+                <div  class="button"><button class="js-submit" type="button">提交申请</button></div>
+            </form>
+            <script type="text/javascript">
+                $('label').on('click', function() {
+                    $('label').removeClass('cur');
+                    $(this).addClass('cur');
+                });
+                $('.js-submit').on('click',function(event) {
+                    var data = Core.InputObj($('#js-form'));
+                    $.post('',data,function(ret){
+                        if (ret.state){
+                            Core.Alert({ 'text':ret.message,'callback':function(){
+                                location.href = "{:U('User/order')}";
+                            } });
+                        }else{
+                            Core.Alert({ 'text':ret.message,'state':'err' });
+                        }
+                    },'json');
+                });
+            </script>
+        </div>
+    </div>

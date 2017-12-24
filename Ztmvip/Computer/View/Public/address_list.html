@@ -1,0 +1,30 @@
+{__NOLAYOUT__}
+    <p class="p_top">收货人信息
+    <notempty name="consignee_list">
+       <a href="javascript:;" onclick="add_address('N');">新增收货地址</a>
+    </notempty>
+    </p>
+  <empty name="consignee_list">  
+    <ul class="address cur">
+        <li class="li1">未设置</li>
+        <li class="li5"><a href="javascript:;" class="js-add_address" onclick="add_address('Y');">设置</a></li>
+    </ul>
+ <else/>
+             <volist  name="consignee_list" id="value">
+             <ul class="address <eq name='value.id' value='$consignee.address_id'>cur</eq> <eq name='value.is_default' value='Y'> default</eq>">
+                   <li class="li1" onClick="choose_address({$value.id})">{$value.consignee}&nbsp;&nbsp;&nbsp;{$value.province}</li>
+                   <li class="li2">{$value.consignee}&nbsp;&nbsp;{$value.province}  {$value.city} {$value.district}  {$value.address}&nbsp;&nbsp;&nbsp;{$value.mobiel}</li>
+                   <li class="li3" onclick="make_default_address({$value.id})"><eq name="value.is_default" value="Y">默认地址</eq>设置默认</li>
+                   <li class="li4"><a href="javascript:;" onClick="editor_address({$value.id})">编辑</a></li>
+                   <li class="li6" onclick="delete_address({$value.id})">删除</li>
+               </ul>
+            </volist>
+           <notempty name="consignee_list[1]">
+              <eq name="less" value="1">
+               <p class="gengduo_block gengduo_block1" onclick="more_or_less(this)">收起地址</p>
+              <else/>
+               <p class="gengduo_block" onclick="more_or_less(this)">更多地址</p>
+              </eq>
+             
+           </notempty>
+</empty>

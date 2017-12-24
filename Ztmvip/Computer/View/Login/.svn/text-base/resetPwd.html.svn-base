@@ -1,0 +1,49 @@
+
+<link rel="stylesheet" type="text/css" href="__PCCSS__register.css" />
+</head>
+<body>
+
+
+<div class="register">
+    <div class="left">
+        <div class="logo"><a href="{:U('Index/index')}"><img src="__PCIMG__index_logo.png" alt="" /></a></div>
+        <div class="banner"><img src="__PCIMG__register_06.jpg" alt="" /></div>
+    </div>
+    <div class="right">
+        <form class="js-resetpwd" action="">
+            <div class="he_mima1">
+                <p>密码<span>错误提示语</span></p>
+                <input name="password" type="password"  />
+            </div>
+            <div class="he_mima2">
+                <p>确认密码<span>错误提示语</span></p>
+                <input name="repassword" type="password" />
+            </div>
+            <button class="zhuche js-submit-resetpwd" type="button">修改密码</button>
+            <input type="hidden" name="k" value="{$k}">
+            <input type="hidden" name="v" value="{$v}">
+            <div style="padding-top: 50px;"></div>
+        </form>
+    </div>
+</div>
+
+<script src="__PCJS__lhf_findPwd.js"></script>
+<script type="text/javascript">
+
+    $('.js-submit-resetpwd').on('click',function(){
+        if(!checkResetPwd()){
+            return;
+        }
+        $.post("{:U('')}",Core.InputObj('.js-resetpwd'),function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message });
+                if(ret.uri){
+                    window.location.href=ret.uri;
+                }
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+</script>

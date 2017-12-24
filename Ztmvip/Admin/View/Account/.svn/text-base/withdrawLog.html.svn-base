@@ -1,0 +1,138 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <form method="get" action="{:U('')}">
+            <input name="user_name" class="text" type="text" value="{$Think.get.user_name}" placeholder="ID/用户名搜索...">
+            <tagLib name="html"/>
+            <html:select name="paid" options="paid" selected="_GET['paid']" first="—请选择—" style="select"/>
+            <button class="button" type="submit">搜 索</button>
+        </form>
+    </span>
+</div>
+<table class="tbl js-list" width="100%">
+    <thead>
+    <tr>
+        <th width="20"><input type="checkbox"></th>
+        <th>用户ID</th>
+        <th>用户名</th>
+        <th>提现金额</th>
+        <th>提现方式</th>
+        <th>流水号</th>
+        <th>操作员</th>
+        <th width="300">操作备注</th>
+        <th>转账时间</th>
+        <th>申请时间</th>
+        <th width="80">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <if condition="$list">
+        <volist name="list" id="vo">
+            <tr>
+                <td align="center"><input name="id" type="checkbox" value="{$vo['id']}"></td>
+                <td>{$vo['user_id']}</td>
+                <td>{$vo['user_name']}</td>
+                <td>{$vo['amount']*-1|sprintf='%.2f',###}</td>
+                <td>{$vo['payment']}</td>
+                <td>{$vo['payment_no']}</td>
+                <td>{$vo['manager_name']}</td>
+                <td>{$vo['manager_note']}</td>
+                <td>{:($vo['date_pay']?date('Y-m-d H:i',$vo['date_pay']):'')}</td>
+                <td>{$vo['date_add']|date='Y-m-d H:i',###}</td>
+                <td align="center">
+                    <if condition="!$vo['date_pay']">
+                        <a class="js-withdraw" href="javascript:;" data-rel="agree">确认转账</a>
+                        <a class="js-withdraw" href="javascript:;" data-rel="refuse">拒绝转账</a>
+                    </if>
+                    <input name="bank_name" type="hidden" value="{$vo['bank_name']}">
+                    <input name="bank_card" type="hidden" value="{$vo['bank_card']}">
+                    <input name="bank_user" type="hidden" value="{$vo['bank_user']}">
+                </td>
+            </tr>
+        </volist>
+        <else/>
+        <tr>
+            <td colspan="11" align="center">暂无数据</td>
+        </tr>
+    </if>
+    </tbody>
+</table>
+<footer class="footer">
+    {$page_show}
+</footer>
+<script>
+    $('.js-list').on('click','.js-withdraw[data-rel="agree"]',function(event){
+        var el = $(this).closest('tr');
+
+        Core.Confirm({ 'title':'确认转账','text':'<p>已经转账 <span style="color:#f00;">￥'+el.find('td:eq(3)').text()+' </span>到会员账户，是否确认？</p>' +
+        '<p style="padding:5px 0;">开户银行：'+ el.find(':hidden[name="bank_card"]').val() +'</p>' +
+        '<p style="padding:5px 0;">开户卡号：'+ el.find(':hidden[name="bank_name"]').val() +'</p>' +
+        '<p style="padding:5px 0;">开&nbsp;&nbsp;户&nbsp;&nbsp;名：'+ el.find(':hidden[name="bank_user"]').val() +'</p>' +
+        '<p style="padding:5px 0;">转账流水：<input name="payment_no" required="required" placeholder="请输入支付流水号..." style="height:30px; min-width:250px; border:1px solid #ccc;"></p>' +
+        '<p style="padding:5px 0;">操作备注：<input name="manager_note" placeholder="请输入操作备注..." style="height:30px; min-width:250px; border:1px solid #ccc;"></p>' +
+        '<p style="padding:5px 0;">登录密码：<input name="password" type="password" value="" required="required" placeholder="请输入您的登录密码..." style="height:30px; min-width:160px; border:1px solid #ccc;"></p>' +
+        '<input type="hidden" name="do" value="agree">','callback':function(confirm,content){
+            if (!confirm)
+                return;
+
+            var data = Core.InputObj(content);
+            data['id'] = el.find(':checkbox').val();
+
+            var state = false;
+
+            $.ajaxSetup({'async':false});
+            $.post("{:U('withdraw')}",data,function(ret){
+                if ( ret.state ){
+                    Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                        location.reload();
+                    } });
+                }else{
+                    Core.Alert({ 'text':ret.message,'state':'err' });
+                }
+
+                state = !ret.state;
+            },'json');
+            $.ajaxSetup({'async':true});
+
+            return state;
+        } });
+    }).on('click','.js-withdraw[data-rel="refuse"]',function(event){
+        var el = $(this).closest('tr');
+
+        Core.Confirm({ 'title':'拒绝转账','text':'<p>拒绝转账 <span style="color:#f00;">￥'+el.find('td:eq(3)').text()+' </span>到会员账户，是否确认？</p>' +
+        '<p style="padding:5px 0;">拒绝原因：<input name="manager_note" placeholder="请输入操作备注..." style="height:30px; min-width:250px; border:1px solid #ccc;"></p>' +
+        '<p style="padding:5px 0;">登录密码：<input name="password" type="password" value="" required="required" placeholder="请输入您的登录密码..." style="height:30px; min-width:160px; border:1px solid #ccc;"></p>' +
+        '<input type="hidden" name="do" value="refuse">','callback':function(confirm,content){
+            if (!confirm)
+                return;
+
+            var data = Core.InputObj(content);
+            data['id'] = el.find(':checkbox').val();
+
+            var state = false;
+
+            $.ajaxSetup({'async':false});
+            $.post("{:U('withdraw')}",data,function(ret){
+                if ( ret.state ){
+                    Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                        location.reload();
+                    } });
+                }else{
+                    Core.Alert({ 'text':ret.message,'state':'err' });
+                }
+
+                state = !ret.state;
+            },'json');
+            $.ajaxSetup({'async':true});
+
+            return state;
+        } });
+    });
+
+    $('.art-nav form input[name]').on('keypress',function(event){
+        if(event.keyCode == 13){
+            this.form.submit();
+            event.preventDefault();
+        }
+    });
+</script>

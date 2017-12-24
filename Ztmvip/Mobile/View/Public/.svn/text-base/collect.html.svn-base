@@ -1,0 +1,3 @@
+{__NOLAYOUT__}
+<!-- 加载中 -->
+<div class="load" id="shan_collect" style="display:none;font-size:14px;">加载中．．．</div>

@@ -1,0 +1,236 @@
+    <link rel="stylesheet" type="text/css" href="__CSS__order_mobile.css" media="(max-width:750px)" />
+    <link rel="stylesheet" type="text/css" href="__CSS__order_pad.css" media="(min-width:750px)">
+    <style type="text/css">
+          a{
+
+          }
+    </style>
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        我的订单
+        <a class="return" href="{:U('User/index')}"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></a>
+    </div>
+    <div class="columns_box" id="js-columns" data-rel="{$Think.get.state}">
+        <div class="columns_in cur" data-rel="new">
+            <div class="columns">待付款</div>
+        </div>
+        <div class="columns_in" data-rel="payed">
+            <div class="columns">待发货</div>
+        </div>
+        <div class="columns_in" data-rel="send">
+            <div class="columns">待收货</div>
+        </div>
+        <div class="columns_in" data-rel="receive">
+            <div class="columns">待评价</div>
+        </div>
+        <div class="columns_in" data-rel="refund">
+            <div class="columns">退款/售后</div>
+        </div>
+    </div>
+</div>
+<!-- 内容 -->
+<div class="content js-content">
+    <!-- 待付款 -->
+    <div class="goods_bbox goods_one acc">
+        <!-- 订单 -->
+        <volist name="order" id="vo">
+            <div class="goods_box" data-rel="{$vo['id']}">
+                <volist name="vo['goods']" id="v">
+                    <div class="goods_in">
+                        <div class="goods_photo">
+                            <a href="{:U('Goods/detail','goods_id='.$v['goods_id'])}">
+                                <img src="{$v['goods_thumb']}_250x250.jpg" alt="" />
+                            </a>
+                        </div>
+                        <div class="goods_inf">
+                            <a class="title" href="{:U('Order/detail','order_id='.$vo['id'])}">{$v['goods_name']}</a>
+                            <div class="price">
+                                ￥<i>{$v['goods_price']}</i>
+                                <div class="left">x{$v['goods_number']}</div>
+                            </div>
+                            <div class="inf_other"><?php
+                            if ( $v['different'] == 'new' ){
+                                $v['skus'] = json_decode($v['skus'],true);
+                                foreach ( $v['skus'] as $skus ){
+                                    echo $skus[0] .'：'. $skus[1] .' ';
+                                }
+                            }else{
+                                echo $v['skus'];
+                            }
+                            ?></div>
+                        </div>
+                    </div>
+                </volist>
+                <div class="bt_box">
+                    <!--<div class="bt one js-delete">删 除</div>-->
+                    <a class="bt two" href="{:U('Center/checkout','order_id='.$vo['id'])}">去付款</a>
+                </div>
+            </div>
+        </volist>
+    </div>
+    <!-- 待发货 -->
+    <div class="goods_bbox goods_two"></div>
+    <!-- 代收货 -->
+    <div class="goods_bbox goods_three"></div>
+    <!-- 待评价 -->
+    <div class="goods_bbox goods_four"></div>
+    <!-- 退货售后 -->
+    <div class="goods_bbox goods_five"></div>
+</div>
+<script>
+    // 切换类型
+    $('#js-columns .columns_in').on('click',function(event) {
+        var tpl_box = '<div class="goods_box" data-rel="{order_id}">{goods}{btn}</div>';
+        var tpl_goods = '<div class="goods_in">' +
+                '<div class="goods_photo">' +
+                '<a href="{:U("Goods/detail")}?goods_id={goods_id}">' +
+                '<img src="{goods_thumb}_250x250.jpg" alt="" />' +
+                '</a>' +
+                '</div>' +
+                '<div class="goods_inf">' +
+                '<a class="title" href="{:U("Order/detail")}?order_id={order_id}">{goods_name}</a>' +
+                '<div class="price">' +
+                '￥<i>{goods_price}</i>' +
+                '<div class="left">x{goods_number}</div>' +
+                '</div>' +
+                '<div class="inf_other">{skus}</div>' +
+                '</div>' +
+                '</div>';
+        var tpl_btn = {
+            'new':'<div class="bt_box">' +
+            '<div class="bt one js-delete">删 除</div>' +
+            '<a class="bt two" href="{:U("Center/checkout")}?order_id={order_id}">去付款</a>' +
+            '</div>',
+            'payed':'<div class="bt_box">' +
+            '<div class="three js-send" data-rel="{order_sn}">提醒发货</div>' +
+            '</div>' +
+            '<div class="order_inf">订单号：{order_sn} <br />成交时间：{date_pay}</div>',
+            'send':'<div class="bt_box">' +
+            '<a class="bt one" href="{:U("order/express")}?order_id={order_id}">查看物流</a>' +
+            '<div class="bt two js-receive">确认收货</div>' +
+            '</div>',
+            'receive':'<div class="bt_box">' +
+            '<a class="bt one" href="{:U("Order/refund")}?order_id={order_id}">申请售后</a>' +
+            '<a class="bt two" href="{:U("Order/comment")}?order_id={order_id}">评价商品</a>' +
+            '</div>',
+            'refund':'<div class="bt_box">' +
+            '<div class="bt three">售后中</div>' +
+            '</div>',
+            'refunded':'<div class="bt_box">' +
+            '<div class="bt three">已退款</div>' +
+            '</div>',
+            'finish':'<div class="bt_box">' +
+            '<div class="bt three">已完成</div>' +
+            '</div>'
+        };
+        var index = $(this).index();
+        var state = $(this).attr('data-rel');
+        $(this).addClass('cur').siblings().removeClass('cur');
+
+        $.post("{:U('User/order')}",{ 'state':state },function(ret){
+            var box = $('.goods_bbox').eq(index);
+            var content = '';
+            box.addClass('acc').siblings().removeClass('acc');
+
+            if (ret && ret.length){
+                $.each(ret,function(i,e){
+                    var goods = '';
+                    $.each(e.goods,function(j,k){
+                        try{
+                            if (k.different == 'new' && k.skus){
+                                k.skus = $.parseJSON(k.skus);
+                                var skus = '';
+                                $.each(k.skus,function(l,m){
+                                    skus += m[0] +'：'+ m[1] +' ';
+                                });
+                                k.skus = skus;
+                            }
+                        }catch(e){};
+                        goods += Core.FormatTpl(tpl_goods,{
+                            'order_id':e.id,
+                            'goods_id':k.goods_id,
+                            'goods_thumb':k.goods_thumb,
+                            'goods_name':k.goods_name,
+                            'goods_price':k.goods_price,
+                            'goods_number':k.goods_number,
+                            'skus':k.skus
+                        });
+                    });
+
+                    var tpl_btn_type = state;
+                    if (state == 'refund'){
+                        if (e.order_state == 'refunded')
+                            tpl_btn_type = 'refunded';
+                        else if (e.order_state == 'finish')
+                            tpl_btn_type = 'finish';
+                    }
+
+                    content += Core.FormatTpl(tpl_box,{
+                        'order_id':e.id,
+                        'goods':goods,
+                        'btn':Core.FormatTpl(tpl_btn[tpl_btn_type],{ 'order_id':e.id,'order_sn':e.order_sn,'date_pay':Core.FormatDate('Y-m-d H:i',e.date_pay*1000) })
+                    });
+                });
+            }
+
+            $('.js-content .goods_bbox').hide().eq(index).html(content).show();
+        },'json');
+    });
+
+    $('.js-content').on('click','.js-delete',function(event){ //删除订单
+        var el = $(this);
+
+        $.post("{:U('Order/delete')}",{ 'order_id':el.closest('.goods_box').attr('data-rel') },function(ret){
+            if (ret.state)
+                el.closest('.goods_box').remove();
+            else
+                Core.Alert({ 'text':ret.message,'state':'err' });
+        },'json');
+    }).on('click','.js-send',function(){ //提醒发货
+        $.post("{:U('Treatment/phpMail')}",{ 'order_sn':$(this).attr('data-rel') },function(ret){
+            if(ret.error == 8)
+                Core.Alert({ 'text':'发货提醒成功' });
+            else if(ret.error == 4)
+                Core.Alert({ 'text':'服务器繁忙...','state':'notic' });
+            else if(ret.error == 'pass')
+                Core.Alert({ 'text':'您的提醒我们已经收到了，整体美商城会尽快帮您发货' });
+        });
+    }).on('click','.js-receive',function(){ //确认收货
+        var el = $(this);
+        if (el.attr('disabled'))
+            return;
+
+        $.post("{:U('Order/state')}",{ 'order_id':el.closest('.goods_box').attr('data-rel'),'state':'receive' },function(ret){
+            if (ret.state)
+                el.css('background-color','#c9c9c9').attr('disabled','disabled').html('已收货');
+            else
+                Core.Alert({ 'text':ret.message,'state':'err' });
+        },'json');
+    }).on('click','.js-finish',function(){
+        var el = $(this);
+        if (el.attr('disabled'))
+            return;
+
+        $.post("{:U('Order/state')}",{ 'order_id':el.closest('.goods_box').attr('data-rel'),'state':'finish' },function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message });
+                el.css('background-color','#c9c9c9').attr('disabled','disabled').html('已完成');
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+    if ($('#js-columns').attr('data-rel'))
+        $('#js-columns [data-rel="'+$('#js-columns').attr('data-rel')+'"]').click();
+    $('.columns_in').on('click',function(e) {            
+        $('html,body').animate({scrollTop:0},0)
+    });
+</script>
+<!-- 版权 -->
+<include file="Public/copy_right"/>
+</body>
+</html>

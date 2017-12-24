@@ -1,0 +1,77 @@
+<link rel="stylesheet" type="text/css" href="__CSS__collect_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="__CSS__collect_pad.css" media="(min-width:750px)">
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        我的收藏
+        <a class="return" href="{:U('User/index')}"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></a>
+        <div class="prompt"><a href="{:U('history')}"><img src="__IMG__foot.jpg" height="40" width="40" alt="" /></a></div>
+    </div>
+    <div class="columns_box">
+        <div class="columns_in <if condition='!$favor_type'>cur</if>">
+            <div class="columns"><a href="{:U('index')}">商品收藏</a></div>
+        </div>
+        <div class="columns_in <if condition='$favor_type'>cur</if>">
+            <div class="columns"><a href="{:U('index','favor_type=article')}">文章收藏</a></div>
+        </div>
+    </div>
+</div>
+<!-- 内容 -->
+<article>
+    <div class="collect_box acc">
+        <if condition="!$favor_type">
+            <volist name="favor" id="vo">
+                <div class="goods_in">
+                    <a class="goods_photo" href="{:U('Goods/detail','goods_id='.$vo['goods_id'])}"><img src="{$vo['goods_thumb']}_360x440.jpg" height="440" width="360" alt="" /></a>
+                    <div class="goods_inf">
+                        <a class="title" href="{:U('Goods/detail','goods_id='.$vo['goods_id'])}">{$vo['goods_name']}</a>
+                        <div class="price">
+                            ￥<i>{:($vo['shop_price']==intval($vo['shop_price'])?intval($vo['shop_price']):$vo['shop_price'])}</i>
+                        </div>
+                        <div class="delate_bt js-delete" data-rel="{$vo['id']}">删 除</div>
+                    </div>
+                </div>
+            </volist>
+        <else/>
+            <volist name="favor" id="vo">
+                <div class="text_box">
+                    <div class="text_photo">
+                        <img src="{$vo['article_thumb']}" height="320" width="206" alt="" />
+                    </div>
+                    <div class="text_inf">
+                        <div class="title">{$vo['title']}</div>
+                        <div class="title_inf" style="text-indent: 2em">{$vo['content']|strip_tags=###|ltrim=###,"&nbsp; "|mb_substr=###,0,120,"utf-8"}...</div>
+                        <div class="delate_bt js-delete" data-rel="{$vo['id']}">删 除</div>
+                    </div>
+                </div>
+            </volist>
+        </if>
+    </div>
+</article>
+<!-- 版权 -->
+<include file="Public/copy_right"/>
+</body>
+</html>
+<script type="text/javascript">
+    // 点击切换商品文章
+    $('.columns_in').on('click',function(event) {
+        var index = $(this).index();
+        $(this).addClass('cur').siblings().removeClass('cur');
+        $('.collect_box').eq(index).addClass('acc').siblings().removeClass("acc");
+    });
+
+    // 点击删除
+    $('.js-delete').on('click',function(){
+        var el = $(this);
+
+        $.post("{:U('delete')}",{ 'favor_id':el.attr('data-rel') },function(ret){
+            if (ret.state){
+                el.closest('.goods_in').remove();
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    })
+</script>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/user_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="Css/user_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="Js/jquery.js"></script>
+</head>
+<body>
+<!-- 收藏按钮 -->
+    <div class="collection"><a href="#"><img src="Images/xin.png" height="58" width="58" alt="" /></a></div>
+<!-- 网站头部 -->
+    <div class="user_head">
+        <div class="use_banner"><img src="Images/user_banner.jpg" alt="" /></div>
+        <div class="user_photo">
+            <img src="Images/touxiang.png"   alt="" />
+            <div class="user_photo_box"></div>
+        </div>
+    </div>
+<!-- 个人信息 -->
+    <div class="user_inf">
+        <div class="user_name">
+            <i>凯弟</i><br />
+            黄晓川推荐会员
+        </div>
+        <div class="user_other">
+        <a href="#">
+            <div class="left">
+                积分<br />
+                8888888
+            </div>
+        </a>
+        <a href="#">
+            <div class="right"><img src="Images/erweima.jpg" height="46" width="46" alt="" /></div>
+        </a>
+        </div>
+    </div>
+<!-- 功能列表 -->
+    <div class="user_list">
+        <div class="list">
+        <a href="#">
+            <div class="icon dif">
+                <img src="Images/user_icon1.jpg" height="45" width="58" alt="" />
+                <div class="goods_num">2</div>
+            </div>
+            <div class="icon_inf">待付款</div>
+        </a>
+        </div>
+        <div class="list">
+        <a href="#">
+            <div class="icon dif">
+                <img src="Images/user_icon2.jpg" height="45" width="58" alt="" />
+                <div class="goods_num">2</div>
+            </div>
+            <div class="icon_inf">待发货</div>
+        </a>
+        </div>
+        <div class="list">
+        <a href="#">
+            <div class="icon">
+                <img src="Images/user_icon3.jpg" height="45" width="58" alt="" />
+                <div class="goods_num">2</div>
+            </div>
+            <div class="icon_inf">待收货</div>
+        </a>
+        </div>
+        <div class="list">
+        <a href="#">
+            <div class="icon">
+                <img src="Images/user_icon4.jpg" height="45" width="58" alt="" />
+                <div class="goods_num">2</div>
+            </div>
+            <div class="icon_inf">待评价</div>
+        </a>
+        </div>
+        <div class="list">
+        <a href="#">
+            <div class="icon dif">
+                <img src="Images/user_icon5.jpg" height="45" width="58" alt="" />
+                <div class="goods_num">2</div>
+            </div>
+            <div class="icon_inf">退款/售后</div>
+        </a>
+        </div>
+    </div>
+    <div class="list_box">
+    <a href="#">
+        <div class="list_in">
+            返利中心
+            <div class="jump"><img src="Images/fhy2.jpg" height="24" width="13" alt="" /></div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="list_in">
+            我的余额
+            <div class="jump"><img src="Images/fhy2.jpg" height="24" width="13" alt="" /></div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="list_in">
+            我的红包
+            <div class="jump"><img src="Images/fhy2.jpg" height="24" width="13" alt="" /></div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="list_in">
+            我的优惠券
+            <div class="jump"><img src="Images/fhy2.jpg" height="24" width="13" alt="" /></div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="list_in">
+            我的储值卡
+            <div class="jump"><img src="Images/fhy2.jpg" height="24" width="13" alt="" /></div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="list_in">
+            安全中心
+            <div class="jump"><img src="Images/fhy2.jpg" height="24" width="13" alt="" /></div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="list_in">
+            售后说明
+            <div class="jump"><img src="Images/fhy2.jpg" height="24" width="13" alt="" /></div>
+        </div>
+    </a>
+    </div>
+<!-- 版权 -->
+    <div class="copyright">
+        &copy整体美商城<br />
+        客服电话：400-777-1225<br />
+        客服微信：HRlianna
+    </div>
+    <div class="placeholder"></div>
+<!-- 底部导航栏开始 -->
+    <div class="nav_box">
+    <a href="#">
+        <div class="nav_in">
+            <div class="nav"><img src="Images/nav1.gif" alt="" /></div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="nav_in">
+            <div class="nav"><img src="Images/nav2.gif" alt="" /></div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="nav_in">
+            <div class="nav">
+                <img src="Images/nav3.gif" alt="" />
+                <!-- 购物车上数字 -->
+                <div class="goods_num">2</div>
+                <!-- 购物车上数字结束 -->
+            </div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="nav_in">
+            <div class="nav"><img src="Images/nav4.gif" alt="" /></div>
+        </div>
+    </a>
+    </div>
+<!-- 底部导航栏结束 -->
+</body>
+</html>

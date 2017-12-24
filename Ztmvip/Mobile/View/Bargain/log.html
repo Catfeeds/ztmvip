@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>{$bargain['title']}</title>
+    <link rel="stylesheet" type="text/css" href="/Public/Common/Images/common.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__bargain_bargain.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__bargain_money.css"/>
+    <script type="text/javascript" src="__JS__/jquery.js"></script>
+    <script type="text/javascript" src="/Public/Common/Js/common.js"></script>
+    <style type="text/css">
+        #hm_t_undefined{ display:none;}
+    </style>
+</head>
+<body>
+<div class="mymoney max mybargain">
+    <p class="p1">我的结算价</p>
+    <ul class="bargain">
+        <li class="li1">
+            <p class="rmb">{$mine_bargain|sprintf='%.2f',###}元</p>
+            <p class="cut">我已砍价</p>
+        </li>
+        <li class="li2">
+            <p class="rmb">{$friend_bargain|sprintf='%.2f',###}元</p>
+            <p class="cut">朋友帮砍价</p>
+        </li>
+        <li class="li3">
+            <p class="rmb">{$final_price|sprintf='%.2f',###}元</p>
+            <p class="cut">我的结算价</p>
+        </li>
+    </ul>
+    <a class="but3">{:(intval($bargain['min_price'])==$bargain['min_price']?intval($bargain['min_price']):$bargain['min_price'])}元兑换</a>
+    <a class="but3">立即抢购</a>
+    <p class="bottom-p">亲~~您离{:(intval($bargain['min_price'])==$bargain['min_price']?intval($bargain['min_price']):$bargain['min_price'])}元抢购还差{$final_price-$bargain['min_price']|sprintf='%.2f',###}元哦~</p>
+
+    <div class="bottom-bg"></div>
+
+    <if condition="!$order">
+        <!--下单页面-->
+        <div class="rule" id="js-register">
+            <div class="text">
+                <form id="js-form" onsubmit="return false;">
+                    <dl>
+                        <dt></dt><dd class="top-text">收货信息：</dd>
+                        <dt id="consignee-dt">姓名：</dt>
+                        <dd><input type="text" name="consignee" required="required" placeholder="请输入收件人..." /></dd>
+                        <dt>手机：</dt>
+                        <dd><input type="text" name="mobile" required="required" placeholder="请输入手机号码" /></dd>
+                        <dt>联系地址：</dt>
+                        <dd>
+                            <select name="province" required="required">
+                                <option value="">请选择</option>
+                            </select>
+                            <select name="city" required="required" style="display:none">
+                                <option value="0">请选择城市</option>
+                            </select>
+                            <select name="district" required="required" style="display:none">
+                                <option value="0">请选择区域</option>
+                            </select>
+                        </dd>
+                        <dt></dt>
+                        <dd><input type="text" name="address" required="required" placeholder="请填写详细地址" /></dd>
+                        <dd><button type="submit">提&nbsp;交</button></dd>
+                    </dl>
+                </form>
+            </div>
+        </div>
+    </if>
+</div>
+</body>
+</html>
+<script type="application/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/Public/Common/Js/address.js"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?0f0b15bb49fcf471ea731895570e125c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+    $('.but3').on('click',function() {
+        /*<if condition="!$order">*/
+        $('#js-register').show();
+        /*<else/>*/
+        $.post("{:U('Bargain/buy','id='.$bargain['id'])}",function(ret){
+            //console.log(ret);
+            if (ret.state){
+                Core.Alert({ 'text':ret.message,'callback':function(){
+                    location.href = "{:U('Order/detail')}?order_id="+ ret.order_id;
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err','callback':function(){
+                    location.href = "{:U('Index/index')}";
+                } });
+            }
+        },'json');
+        /*</if>*/
+    });
+
+    /*<if condition="!$order">*/
+    var option = '<option value="">请选择</option>';
+    $(allProvince).each(function(i,e){
+        option += '<option value="'+ e.name +'" pid="'+ e.ProID +'">'+ e.name +'</option>';
+    });
+    $('#js-register select[name="province"]').html(option);
+
+    $('#js-register').on('click','.skus',function(){
+        $(this).siblings().removeClass('checked');
+        $(this).parent().find(':radio').prop('checked',false);
+        $(this).addClass('checked').find(':radio').prop('checked',true);
+    }).on('change','select[name="province"]',function(){
+        var ProID = $(this).find('option:selected').attr('pid');
+        var option = '<option value="">请选择</option>';
+
+        $(allCity).each(function(i,e){
+            if (e.ProID == ProID)
+                option += '<option value="'+ e.name +'" cid="'+ e.CityID +'">'+ e.name +'</option>';
+        });
+
+        $('#js-register select[name="city"]').html(option).show();
+        $('#js-register select[name="district"]').hide();
+    }).on('change','select[name="city"]',function(){
+        var CityID = $(this).find('option:selected').attr('cid');
+        var option = '<option value="">请选择</option>';
+
+        $(allDistrict).each(function(i,e){
+            if (e.CityID == CityID)
+                option += '<option value="'+ e.name +'">'+ e.name +'</option>';
+        });
+
+        if (option.length == 29)
+            option += '<option value="'+ $(this).val() +'">'+ $(this).val() +'</option>';
+
+        $('#js-register select[name="district"]').html(option).show();
+    }).on('submit',function(){
+        Core.Alert({ 'text':'正在提交数据，请稍候...','state':'load','timeout':9999 });
+
+        setTimeout(function(){
+            //提交快递地址
+            var data = Core.InputObj($('#js-register'));
+            data['skus'] = [];
+            $('#js-register [name^="skus"]:checked').each(function(i,e){
+                data['skus'].push([$(e).attr('sku_name'),$(e).val()]);
+            });
+
+            $.post("{:U('Bargain/buy','id='.$bargain['id'])}",data,function(ret){
+                //console.log(ret);
+                if (ret.state){
+                    Core.Alert({ 'text':ret.message,'callback':function(){
+                        location.href = "{:U('Order/detail')}?order_id="+ ret.order_id;
+                    } });
+                }else{
+                    Core.Alert({ 'text':ret.message,'state':'err' });
+                }
+            },'json');
+        },200);
+    });
+
+    var goods_sku = {:($goods_sku?:'[]')};
+    var tmp = {};
+    $.each(goods_sku,function(i,e){
+        tmp['sku'+e.id] = e;
+    });
+    goods_sku = tmp;
+    delete(tmp);
+
+    var skus = {$bargain['skus']};
+    var tpl_dt = '<dt>{sku_name}</dt><dd sku_id="{sku_id}"></dd>';
+    var tpl_dd = '<label class="skus {checked}"><input type="radio" name="skus{sku_id}" sku_name="{sku_name}" value="{value}" {radio_checked}/>{text}</label>'
+    $.each(skus,function(i,e){
+        try{
+            var dd = $('#js-register dd[sku_id="'+e.sku_id+'"]');
+
+            if (!dd.length){
+                $('#consignee-dt').before(Core.FormatTpl(tpl_dt,{
+                    'sku_name':goods_sku['sku'+e.sku_id]['name'],
+                    'sku_id':e.sku_id
+                }));
+            }
+
+            dd.append(Core.FormatTpl(tpl_dd,{
+                'checked':dd.find(':radio').length ? '' : ' checked',
+                'sku_id':e.sku_id,
+                'sku_name':goods_sku['sku'+e.sku_id]['name'],
+                'value':e.value,
+                'radio_checked':dd.find(':radio').length ? '' : ' checked="checked"',
+                'text':e.value
+            }));
+        }catch(e){}
+    });
+    /*</if>*/
+
+    wx.config({
+        debug:false,
+        appId:"{$signPackage['appid']}",
+        timestamp:"{$signPackage['timestamp']}",
+        nonceStr:"{$signPackage['noncestr']}",
+        signature:"{$signPackage['signature']}",
+        jsApiList:[
+            'onMenuShareAppMessage',
+            'onMenuShareTimeline',
+        ]
+    });
+
+    wx.ready(function(){
+        //分享活动内容
+        var _title = "{$bargain['title']}"
+                ,_desc = "{$bargain['des']}"
+                ,_link = "{:U('Bargain/friend','id='.$bargain['id'].'&u='.session('user_id'),'html',true)}"
+                ,_imgUrl = "http://{$_SERVER['HTTP_HOST']}{$bargain['bargain_thumb']}";
+
+        //分享给朋友
+        wx.onMenuShareAppMessage({
+            title:_title,
+            desc:_desc,
+            link:_link,
+            imgUrl:_imgUrl,
+            trigger:function(res){
+                console.log('用户点击发送给朋友');
+            },
+            success:function(res){
+                console.log('已分享');
+            },
+            cancel:function(res){
+                console.log('已取消');
+            },
+            fail:function(res){
+                console.log(JSON.stringify(res));
+            }
+        });
+
+        //分享到朋友圈
+        wx.onMenuShareTimeline({
+            title:_title,
+            link:_link,
+            imgUrl:_imgUrl,
+            trigger:function(res){
+                console.log('用户点击分享到朋友圈');
+            },
+            success:function(res){
+                console.log('已分享');
+            },
+            cancel:function(res){
+                console.log('已取消');
+            },
+            fail:function(res){
+                console.log(JSON.stringify(res));
+            }
+        });
+    });
+
+    wx.error(function(res){
+        console.log(res.errMsg);
+    });
+</script>

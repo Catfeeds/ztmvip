@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Public/Admin/Images/common.css" />
+    <style type="text/css">
+        html,body{ background-color:#fff;}
+        ul li{ float:left; width:120px; margin:10px; line-height:28px;}
+        ul li img{ cursor:pointer; display:block; height:80px; width:100%;}
+        .clear{ clear:both;}
+    </style>
+    <script src="__ROOT__/Public/Common/Js/jquery.js"></script>
+</head>
+
+<body>
+<article>
+    <ul class="js-list">
+        <volist name="list" id="vo">
+            <li>
+                <p><img src="__ROOT__{$vo['file_path']}{$vo['file_name']}" data-rel="__ROOT__{$vo['file_path']}{$vo['file_name']}" title="{$vo['source_name']}"></p>
+                {$vo['source_name']}
+            </li>
+        </volist>
+    </ul>
+    <div class="clear"></div>
+</article>
+<footer class="footer">{$page_show}</footer>
+</body>
+</html>
+<script>
+    $('.js-list').on('click','img',function(){
+        var el = $(this);
+        (opener?opener:parent).callback({'title':el.attr('title'),'url':el.attr('data-rel')});
+    });
+</script>

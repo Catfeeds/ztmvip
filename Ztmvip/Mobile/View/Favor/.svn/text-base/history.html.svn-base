@@ -1,0 +1,70 @@
+    <link rel="stylesheet" type="text/css" href="__CSS__collect_mobile.css" media="(max-width:750px)" />
+    <link rel="stylesheet" type="text/css" href="__CSS__collect_pad.css" media="(min-width:750px)">
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        我的足迹
+        <a class="return" href="{:U('User/index')}"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></a>
+    </div>
+    <div class="columns_box">
+        <div class="columns_in <if condition='$history_type == "goods"'>cur</if>">
+            <div class="columns"><a href="{:U('history')}">浏览商品</a></div>
+        </div>
+        <div class="columns_in <if condition='$history_type == "article"'>cur</if>">
+            <div class="columns"><a href="{:U('history','history_type=article')}">浏览文章</a></div>
+        </div>
+    </div>
+</div>
+<!-- 内容 -->
+<article>
+    <if condition="$history_type == 'goods'">
+        <!-- 商品类型 -->
+        <volist name="history" id="vo">
+            <div class="goods_in">
+                <div class="goods_photo"><img src="{$vo['goods_thumb']}_250x250.jpg" height="250" width="250" alt="" /></div>
+                <div class="goods_inf">
+                    <div class="title">{$vo['goods_name']}</div>
+                    <div class="price">
+                        ￥<i>{:($vo['shop_price']==intval($vo['shop_price'])?intval($vo['shop_price']):$vo['shop_price'])}</i>
+                    </div>
+                    <div class="delate_bt js-delete" data-rel="{$vo['id']}">删 除</div>
+                </div>
+            </div>
+        </volist>
+        <else/>
+        <!-- 文章类型 -->
+        <volist name="history" id="vo">
+            <div class="text_box">
+                <div class="text_photo">
+                    <img src="{$vo['article_thumb']}" height="320" width="206" alt="" />
+                </div>
+                <div class="text_inf">
+                    <div class="title">{$vo['title']}</div>
+                    <div class="title_inf" style="text-indent: 2em">{$vo['content']|strip_tags=###|ltrim=###,"&nbsp; "|mb_substr=###,0,120,"utf-8"}...</div>
+                    <div class="delate_bt js-delete" data-rel="{$vo['id']}">删 除</div>
+                </div>
+            </div>
+        </volist>
+    </if>
+</article>
+<script type="text/javascript">
+    // 点击删除
+    $('.js-delete').on('click',function(){
+        var el = $(this);
+
+        $.post("{:U('history','history_type='.$history_type)}",{ 'id':el.attr('data-rel') },function(ret){
+            if (ret.state){
+                el.closest('.goods_in').remove();
+                el.closest('.text_box').remove();
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    })
+</script>
+<!-- 版权 -->
+<include file="Public/copy_right"/>
+</body>
+</html>

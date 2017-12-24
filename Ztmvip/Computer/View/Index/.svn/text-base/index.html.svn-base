@@ -1,0 +1,408 @@
+<link rel="stylesheet" type="text/css" href="__PCCSS__index.css" />
+</head>
+<body>
+<a name="maodian"></a>
+<include file="Public/top"/>
+
+<script type="text/javascript">
+        var html1=$('#add').html();
+        $(window).on('scroll',function(){
+            var h_top=$(window).scrollTop()+46;
+            var add1="<div class='pos_search'><div class='container'><div class='logo1'><img src='__PCIMG__/index20151218_03.png' alt='' /></div>";
+            var add2="</div></div>";
+            if(110<h_top){
+                if($('#add').hasClass('add')){
+                }else{
+                    var html2=add1+html1+add2;
+                    $('#add').html(html2);
+                }
+                $('#add').addClass('add');
+            }else{
+                $('#add').html(html1);
+                $('#add').removeClass('add');
+            }
+        });
+</script>
+
+<!-- logo直到导航  结束 -->
+<!-- banner轮播 -->
+<div class="index_banner">
+<div class="container">
+    <div class="but">
+        <div class="left"><img src="__PCIMG__index_03.png" alt="" /></div>
+        <div class="right"><img src="__PCIMG__index_05.png" alt="" /></div>
+    </div>
+    <ul>
+        <li><img  src="__PCIMG__index_02.jpg" alt="" /></li>
+        <li><img  src="__PCIMG__index_02.jpg" alt="" /></li>
+        <li><img  src="__PCIMG__index_02.jpg" alt="" /></li>
+        <li><img  src="__PCIMG__index_02.jpg" alt="" /></li>
+    </ul>
+</div>
+</div>
+<!-- banner轮播 -->
+<!-- 圆圈导航 -->
+<ul class="index_nav3">
+<li class="li1">
+    <i class="hover"></i>
+    <a href="javascript:;"><img src="__PCIMG__index_nav_03.jpg" alt="" /></a>
+    <p><a href="javascript:;">需求选择</a></p>
+</li>
+<li class="li2">
+    <i class="hover"></i>
+    <a href="javascript:;"><img src="__PCIMG__index_nav_05.jpg" alt="" /></a>
+    <p><a href="javascript:;">量身定制</a></p>
+</li>
+<li class="li3">
+    <i class="hover"></i>
+    <a href="javascript:;"><img src="__PCIMG__index_nav_07.jpg" alt="" /></a>
+    <p><a href="javascript:;">选择顾问</a></p>
+</li>
+<li class="li4">
+    <i class="hover"></i>
+    <a href="javascript:;"><img src="__PCIMG__index_nav_09.jpg" alt="" /></a>
+    <p><a href="javascript:;">解决方案</a></p>
+</li>
+<li class="li5">
+    <i class="hover"></i>
+    <a href="javascript:;"><img src="__PCIMG__index_nav_11.jpg" alt="" /></a>
+    <p><a href="javascript:;">产品选购</a></p>
+</li>
+<li class="li6">
+    <i class="hover"></i>
+    <a href="javascript:;"><img src="__PCIMG__index_nav_13.jpg" alt="" /></a>
+    <p><a href="javascript:;">跟踪服务</a></p>
+</li>
+</ul>
+<div class="index_title_hr">
+<h1>健康减重方案</h1>
+</div>
+<!-- 减重方案 -->
+<div class="weight">
+<!-- <div class="left"><a href="{:U('Health/special')}"><img src="__PCIMG__index_weight_03.jpg" alt="" /></a></div> -->
+<div class="left"><a href="javascript:;"><img src="__PCIMG__index_weight_03.jpg" alt="" /></a></div>
+<ul class="right">
+    <volist name="health_goods" id="vo">
+    <li class="li{$i}">
+        <a href="{:U('Goods/detail',array('goods_id'=>$vo['id']))}"><img src="{$vo.goods_thumb}" alt="" /></a>
+        <p class="p1"><a href="{:U('Goods/detail',array('goods_id'=>$vo['id']))}">{$vo.goods_name}</a></p>
+        <p class="p2">
+        <span class="span1">￥{$vo.shop_price}</span>
+        <span class="span2">￥{$vo.market_price}</span>
+        </p>
+    </li>
+    </volist>
+</ul>
+</div>
+<div class="index_title_hr">
+<h1>热点分享</h1>
+</div>
+<div class="hot">
+<div class="left"><a href="{$hot_share_left[0]['link']}"><img src="{$hot_share_left[0]['hd_image']}" alt="{$hot_share_left[0]['title']}" /></a></div>
+<ul class="min_hot">
+    <volist name="hot_share_left" id="vo" offset="1">
+    <li class="li1"><a href="{$vo['link']}"><img src="{$vo['hd_image']}" alt="{$vo['title']}" /></a></li>
+    </volist>
+</ul>
+<ul class="right">
+    <li class="title"><span><i>热点推荐</i></span></li>
+    <volist name="hot_share_right" id="vo">
+    <li <if condition="$i eq 1">class="hover"<elseif condition="$i eq 9"/>class="li9"</if>>
+        <p><a href="">{$i}.{$vo.title}</a></p>
+        <img src="{$vo.article_thumb}" alt="{$vo.title}" />
+    </li>
+    </volist>
+</ul>
+</div>
+<!-- 潮流趋势 -->
+
+<div class="index_title_hr" id="fashion">
+<h1>潮流趋势</h1>
+</div>
+<div class="trend">
+<div class="left">
+    <div class="img1">
+        <a href="{$fashion_left[0]['link']}?fashion={$fashion_left[0]['id']}"><img src="{$fashion_left[0]['hd_image']}" alt="{$fashion_left[0]['title']}" /></a>
+    </div>
+    <div class="img2">
+        <a href="{:U('Index/catGoodsList',array('cat_id'=>423))}"><img src=" __PCIMG__index_16.jpg" alt="" /></a>
+    </div>
+</div>
+<div class="left">
+    <div class="img1">
+        <a href="{$fashion_left[1]['link']}?fashion={$fashion_left[1]['id']}"><img src="{$fashion_left[1]['hd_image']}" alt="{$fashion_left[1]['title']}" /></a>
+    </div>
+    <div class="img2">
+        <a href="{:U('Index/catGoodsList',array('cat_id'=>935))}"><img src=" __PCIMG__index_18.jpg" alt="" /></a>
+    </div>
+</div>
+<div class="left">
+    <div class="img1">
+        <a href="{$fashion_left[2]['link']}?fashion={$fashion_left[2]['id']}"><img src="{$fashion_left[2]['hd_image']}" alt="{$fashion_left[2]['title']}" /></a>
+    </div>
+    <div class="img2">
+        <a href="{:U('Index/catGoodsList',array('cat_id'=>457))}"><img src=" __PCIMG__index_20.jpg" alt="" /></a>
+    </div>
+</div>
+<div class="right">
+    <li class="title"><span><i>热门资讯</i></span></li>
+    <volist name="fashion_right" id="vo">
+        <li <if condition="$i eq 1">class="hover"<elseif condition="$i eq 9"/>class="li9"</if>>
+        <p><a href="">{$i}.{$vo.title}</a></p>
+        <img src="{$vo.article_thumb}" alt="{$vo.title}" />
+        </li>
+    </volist>
+</div>
+</div>
+<!-- 潮流趋势结束 -->
+<!-- 品牌馆 -->
+<div class="index_title_hr">
+<h1>品牌馆</h1>
+</div>
+<div class="brand">
+<ul class="left">
+    <li class="li1"><a href="{:U('Index/catGoodsList',array('cat_id'=>423))}"><img src="__PCIMG__index_pp_08.jpg" alt="" /></a></li>
+    <li class="li2">
+        <dl id="brand_banner">
+            <dd>
+            <a href="{:U('Index/brandGoodsList',array('brand_id'=>186))}"><img src="__PCIMG__index_pp_13.jpg" alt="" /></a>
+            <a href="{:U('Index/brandGoodsList',array('brand_id'=>185))}"><img src="__PCIMG__index_pp_15.jpg" alt="" /></a>
+            <a href="{:U('Index/brandGoodsList',array('brand_id'=>184))}"><img src="__PCIMG__index_pp_21.jpg" alt="" /></a>
+            <a href="{:U('Index/brandGoodsList',array('brand_id'=>183))}"><img src="__PCIMG__index_pp_22.jpg" alt="" /></a>
+            </dd>
+            <dd>
+            <a href="{:U('Index/brandGoodsList',array('brand_id'=>182))}"><img src="__PCIMG__index_pp_25.jpg" alt="" /></a>
+            <a href="{:U('Index/brandGoodsList',array('brand_id'=>1000000))}"><img src="__PCIMG__index_pp_26.jpg" alt="" /></a>
+            <a href="{:U('Index/brandGoodsList',array('brand_id'=>1000000))}"><img src="__PCIMG__index_pp_29.jpg" alt="" /></a>
+            <a href="{:U('Index/brandGoodsList',array('brand_id'=>180))}"><img src="__PCIMG__index_pp_30.jpg" alt="" /></a>
+            </dd>
+        </dl>
+    </li>
+
+</ul>
+<ul class="right">
+    <li class="li1"><a href="{:U('Index/brandGoodsList',array('brand_id'=>199))}"><img src="__PCIMG__index_pp_03.jpg" alt="" /></a></li>
+    <li class="li2"><a href="{:U('Index/brandGoodsList',array('brand_id'=>185))}"><img src="__PCIMG__index_pp_05.jpg" alt="" /></a></li>
+    <li class="li3"><a href="{:U('Index/brandGoodsList',array('brand_id'=>184))}"><img src="__PCIMG__index_pp_17.jpg" alt="" /></a></li>
+    <li class="li4"><a href="{:U('Index/brandGoodsList',array('brand_id'=>183))}"><img src="__PCIMG__index_pp_19.jpg" alt="" /></a></li>
+</ul>
+</div>
+<!-- 品牌馆单品推荐轮播 -->
+<div class="banner-container js-trend" id="js-trend">
+<ul>
+    <volist name="brand_best" id="vo">
+        <li>
+            <a href="{:U('Goods/detail',array('goods_id'=>$vo['id']))}"><img src="{$vo.goods_thumb}" alt="{$vo.goods_name}" /></a>
+            <div>
+                <a href="">
+                    <p class="p1">{$vo.goods_name}</p>
+                    <p class="p2">￥{$vo.shop_price|default=0.00}</p>
+                </a>
+            </div>
+        </li>
+    </volist>
+</ul>
+<span class="left"><img src="__PCIMG__index_03.png" alt="" /></span>
+<span class="right"><img src="__PCIMG__index_05.png" alt="" /></span>
+</div>
+<div class="banner-container-title" ><span>单品推荐</span></div>
+<!-- 品牌馆单品推荐轮播结束 -->
+<!-- 女装馆 -->
+<div class="index_title_hr">
+<h1>女装馆</h1>
+</div>
+<p class="index_title_hr_a"><a href="{:U('Index/catGoodsList',array('cat_id'=>1160))}">上衣</a><a href="{:U('Index/catGoodsList',array('cat_id'=>1157))}">裤装</a><a href="{:U('Index/catGoodsList',array('cat_id'=>1154))}">裙装</a></p>
+<ul class="suit-dress">
+<!-- <li class="li1"><a href=""><img src="__PCIMG__index_031.jpg" alt="" /></a></li> -->
+<li class="li2"><a href="{:U('Index/catGoodsList',array('cat_id'=>734))}"><img src="__PCIMG__index_0443.jpg" alt="" /></a></li>
+<li class="li3">
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>1154))}"><img src="__PCIMG__index_08.jpg" alt=""  /></a>
+    <p>裙装</p>
+</li>
+<li class="li4">
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>1157))}"><img src="__PCIMG__index_101.jpg" alt="" /></a>
+    <p>裤装</p>
+</li>
+<li class="li5">
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>1188))}"><img src="__PCIMG__index_21.jpg" alt=""  /></a>
+    <p>打底类</p>
+</li>
+<li class="li6">
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>1149))}"><img src="__PCIMG__index_22.jpg" alt=""  /></a>
+    <p>衬衫</p>
+</li>
+</ul>
+<!-- 女装馆结束 -->
+<!-- 女装馆单品推荐轮播 -->
+<div class="banner-container js-suit-dress">
+<ul>
+    <volist name="women_clothing_best" id="vo">
+        <li>
+            <a href="{:U('Goods/detail',array('goods_id'=>$vo['id']))}"><img src="{$vo.goods_thumb}" alt="{$vo.goods_name}" /></a>
+            <div>
+                <a href="">
+                    <p class="p1">{$vo.goods_name}</p>
+                    <p class="p2">￥{$vo.shop_price|default=0.00}</p>
+                </a>
+            </div>
+        </li>
+    </volist>
+</ul>
+<span class="left"><img src="__PCIMG__index_03.png" alt="" /></span>
+<span class="right"><img src="__PCIMG__index_05.png" alt="" /></span>
+</div>
+<div class="banner-container-title" ><span>单品推荐</span></div>
+<!-- 女装馆单品推荐轮播结束 -->
+<!-- 娘们的鞋包配饰馆 -->
+<div class="index_title_hr">
+<h1>鞋包配饰馆</h1>
+</div>
+<p class="index_title_hr_a"><a href="{:U('Index/catGoodsList',array('cat_id'=>457))}">包包</a><a href="{:U('Index/catGoodsList',array('cat_id'=>718))}">围巾</a><a href="{:U('Index/catGoodsList',array('cat_id'=>1178))}">配饰</a></p>
+<div class="accessories ">
+<ul class="left">
+    <li class="li1"><a href="{:U('Index/catGoodsList',array('cat_id'=>1170))}"><img src="__PCIMG__index_accessories_03.jpg" alt="" /></a></li>
+    <li class="li2"><a href="{:U('Index/catGoodsList',array('cat_id'=>1178))}"><img src="__PCIMG__index_accessories_16.jpg" alt="" /></a></li>
+    <li class="li3"><a href="{:U('Index/catGoodsList',array('cat_id'=>718))}"><img src="__PCIMG__index_accessories_18.jpg" alt="" /></a></li>
+</ul>
+<div class="center">
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>457))}"><img src="__PCIMG__index_accessories_05.jpg" alt="" /></a>
+</div>
+<ul class="right">
+    <volist name="time_goods" id="vo">
+    <li >
+        <a href="{:U('Goods/detail',array('goods_id'=>$vo['id']))}"><img src="{$vo.goods_thumb}" alt="{$vo.goods_name}" /></a>
+        <p class="p1"><a href="{:U('Goods/detail',array('goods_id'=>$vo['id']))}">{$vo.goods_name}</a></p>
+        <p class="p2">￥{$vo.shop_price} <span>[{$vo['shop_price']/$vo['market_price']*10}折]</span></p>
+        <p class="p3"><img src="__PCIMG__index_28.jpg" alt="" />03天19小时00分48秒</p>
+    </li>
+    </volist>
+</ul>
+</div>
+<!-- 娘们的鞋包配饰馆结束 -->
+<!-- 娘们的鞋包单品推荐轮播 -->
+<div class="banner-container js-accessories">
+<ul>
+    <volist name="shoe_bag_best" id="vo">
+        <li>
+            <a href="{:U('Goods/detail',array('goods_id'=>$vo['id']))}"><img src="{$vo.goods_thumb}" alt="{$vo.goods_name}" /></a>
+            <div>
+                <a href="{:U('Goods/detail',array('goods_id'=>$vo['id']))}">
+                    <p class="p1">{$vo.goods_name}</p>
+                    <p class="p2">￥{$vo.shop_price|default=0.00}</p>
+                </a>
+            </div>
+        </li>
+    </volist>
+</ul>
+<span class="left"><img src="__PCIMG__index_03.png" alt="" /></span>
+<span class="right"><img src="__PCIMG__index_05.png" alt="" /></span>
+</div>
+<div class="banner-container-title" ><span>单品推荐</span></div>
+<!-- 娘们的鞋包单品推荐轮播结束 -->
+<!-- 美妆馆 -->
+<div class="index_title_hr">
+<h1>美妆馆</h1>
+</div>
+<p class="index_title_hr_a"><a href="{:U('Index/catGoodsList',array('cat_id'=>425))}">美妆</a><a href="{:U('Index/catGoodsList',array('cat_id'=>415))}">护肤</a><a href="{:U('Index/catGoodsList',array('cat_id'=>423))}">香氛</a></p>
+<ul class="beautiful">
+<li class="li1"><a href="{:U('Index/catGoodsList',array('cat_id'=>425))}"><img src="__PCIMG__index_031.jpg" alt="" /></a></li>
+<li class="li2">
+    <div class="img1">
+        <a href="{:U('Index/catGoodsList',array('cat_id'=>423))}"><img src="__PCIMG__index_33.jpg" alt="" /></a>
+    </div>
+    <div class="img2">
+        <a href="{:U('Index/catGoodsList',array('cat_id'=>453))}"><img src="__PCIMG__index_60.jpg" alt="" /></a>
+    </div>
+</li>
+<li class="li3">
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>448))}"><img src="__PCIMG__in_nav1.jpg" alt=""  /></a>
+    <p>底妆</p>
+</li>
+<li class="li4">
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>449))}"><img src="__PCIMG__in_nav2.jpg" alt="" /></a>
+    <p>腮红</p>
+</li>
+<li class="li5">
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>450))}"><img src="__PCIMG__in_nav3.jpg" alt=""  /></a>
+    <p>眼部</p>
+</li>
+<li class="li6">
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>451))}"><img src="__PCIMG__in_nav4.jpg" alt=""  /></a>
+    <p>唇部</p>
+</li>
+</ul>
+<!-- 美妆馆结束 -->
+<!-- 美妆馆单品推荐轮播 -->
+<div class="banner-container js-beautiful">
+<ul>
+    <volist name="beauty_makeup_best" id="vo">
+        <li>
+            <a href="{:U('Goods/detail',array('goods_id'=>$vo['id']))}"><img src="{$vo.goods_thumb}" alt="{$vo.goods_name}" /></a>
+            <div>
+                <a href="">
+                    <p class="p1">{$vo.goods_name}</p>
+                    <p class="p2">￥{$vo.shop_price|default=0.00}</p>
+                </a>
+            </div>
+        </li>
+    </volist>
+</ul>
+<span class="left"><img src="__PCIMG__index_03.png" alt="" /></span>
+<span class="right"><img src="__PCIMG__index_05.png" alt="" /></span>
+</div>
+<div class="banner-container-title" ><span>单品推荐</span></div>
+<!-- 美妆馆单品推荐轮播结束 -->
+<!-- 养生馆 -->
+<div class="index_title_hr">
+<h1>养生馆</h1>
+</div>
+<p class="index_title_hr_a"><a href="{:U('Index/catGoodsList',array('cat_id'=>696))}">中外名酒</a><a href="{:U('Index/catGoodsList',array('cat_id'=>702))}">粮油调味</a><a href="{:U('Index/catGoodsList',array('cat_id'=>1108))}">保健品</a><a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}">休闲零食</a></p>
+<ul class="rest">
+<li class="li1">
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>1050))}"><img src="__PCIMG__index_066.jpg" alt="" /></a>
+    <p>家居生活</p>
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>1199))}"><img src="__PCIMG__index_0666.jpg" alt="" /></a>
+    <p>日化洗涤</p>
+</li>
+<li class="li2">
+    <a href="javascript:;"><img src="__PCIMG__index_034.jpg" alt="" /></a>
+</li>
+<li class="li3">
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>696))}"><img src="__PCIMG__in_nav5.jpg" alt=""  /></a>
+    <p>中外名酒</p>
+</li>
+<li class="li4">
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>702))}"><img src="__PCIMG__in_nav6.jpg" alt="" /></a>
+    <p>粮油调味</p>
+</li>
+<li class="li5">
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>1104))}"><img src="__PCIMG__in_nav7.jpg" alt=""  /></a>
+    <p>休闲零食</p>
+</li>
+<li class="li6">
+    <a href="{:U('Index/catGoodsList',array('cat_id'=>1108))}"><img src="__PCIMG__in_nav8.jpg" alt=""  /></a>
+    <p>保健品</p>
+</li>
+</ul>
+<!-- 养生馆结束 -->
+<!-- 养生馆单品推荐轮播 -->
+<div class="banner-container js-rest">
+<ul>
+    <volist name="good_health_best" id="vo">
+    <li>
+        <a href="{:U('Goods/detail',array('goods_id'=>$vo['id']))}"><img src="{$vo.goods_thumb}" alt="{$vo.goods_name}" /></a>
+        <div>
+            <a href="">
+            <p class="p1">{$vo.goods_name}</p>
+            <p class="p2">￥{$vo.shop_price|default=0.00}</p>
+            </a>
+        </div>
+    </li>
+    </volist>
+</ul>
+<span class="left"><img src="__PCIMG__index_03.png" alt="" /></span>
+<span class="right"><img src="__PCIMG__index_05.png" alt="" /></span>
+</div>
+<div class="banner-container-title" ><span>单品推荐</span></div>
+<!-- 养生馆单品推荐轮播结束 -->
+<div class="top46"></div>

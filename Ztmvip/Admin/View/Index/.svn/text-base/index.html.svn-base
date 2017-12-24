@@ -1,0 +1,60 @@
+<table class="tbl" width="100%">
+    <thead>
+    <tr>
+        <th colspan="4">订单统计信息</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="label">今日订单</td>
+        <td>{$order_count['today']}</td><td class="label">待支付订单</td>
+        <td>{$order_count['new']}</td>
+    </tr>
+    <tr>
+        <td class="label">待发货订单</td>
+        <td>{$order_count['payed']}</td>
+        <td class="label">备货中订单</td>
+        <td>{$order_count['stock']}</td>
+    </tr>
+    <tr>
+        <td class="label">待收货订单</td>
+        <td>{$order_count['send']}</td>
+        <td class="label">待评价订单</td>
+        <td>{$order_count['receive']}</td>
+    </tr>
+    <tr>
+        <td class="label">退款申请</td>
+        <td>{$order_count['refund']}</td>
+        <td class="label">退款成功</td>
+        <td>{$order_count['refunded']}</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<table class="tbl" width="100%">
+    <thead>
+    <tr>
+        <th colspan="4">系统信息</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="label">服务器操作系统</td>
+        <td>{:php_uname('s')}</td>
+        <td class="label">Web 服务器</td>
+        <td>{$server['SERVER_SOFTWARE']}</td>
+    </tr>
+    <tr>
+        <td class="label">PHP 版本</td>
+        <td>{:phpversion()}</td>
+        <td class="label">MySQL 版本</td>
+        <td>{$server['mysql_version']}</td>
+    </tr>
+    <tr>
+        <td class="label">文件上传的大小</td>
+        <td>{:ini_get('upload_max_filesize')}</td>
+        <td class="label">服务器时间</td>
+        <td>{:date('Y-m-d H:i:s')}</td>
+    </tr>
+    </tbody>
+</table>

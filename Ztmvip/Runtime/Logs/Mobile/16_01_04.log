@@ -1,0 +1,1731 @@
+[ 2016-01-04T09:23:10+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T09:23:10+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0010s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_advert` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexBanner' AND `disabled` = 'N' ORDER BY rank desc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods` [ RunTime:0.0020s ]
+SQL: SELECT g.goods_name,g.market_price,g.shop_price,sg.goods_id,g.goods_thumb,sg.kill_price,sg.goods_number,sg.kill_start,sg.kill_end FROM ztm_seckill_goods AS sg LEFT JOIN ztm_goods AS g ON sg.goods_id=g.id WHERE sg.on_sale='Y' AND sg.disabled='N' AND sg.kill_start=1451836800 AND sg.kill_end=1451923200 ORDER BY sg.rank DESC LIMIT 0,3 [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexFashion' AND `disabled` = 'N' ORDER BY rank desc  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151216/567111719f5ef.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151215/566fd06f1fb82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e50221b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e3607c33.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151211/566ab812f2761.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151211/566ab7e51a6cb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151211/566ab82f8ef2c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151210/566957ff629b8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151210/566957e93ebe1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151210/566957d1536c8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151209/5667f49c13a86.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151211/566ab7fd714e7.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151209/5667f482400bb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151208/5666a34ab0686.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151208/5666a363a11fd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151208/5666a37af3f4a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151209/5667f4b24aa36.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151207/56654a5bd2e24.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151207/56654a415c1bf.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151204/56614f073ade3.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151203/566005c786af2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151202/565ea6ee697fd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151207/56654a764ec19.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151215/566fd06f1fb82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151216/567111719f5ef.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e50221b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e3607c33.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151211/566ab7fd714e7.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151211/566ab7e51a6cb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151210/566957ff629b8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151211/566ab82f8ef2c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151210/566957d1536c8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151211/566ab812f2761.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151210/566957e93ebe1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151209/5667f482400bb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151208/5666a363a11fd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151209/5667f4b24aa36.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151208/5666a34ab0686.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151209/5667f49c13a86.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151207/56654a764ec19.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151208/5666a37af3f4a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151204/56614f073ade3.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151207/56654a415c1bf.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151207/56654a5bd2e24.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151203/566005c786af2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151202/565ea6ee697fd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151225/567cfc2fe6bfb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151225/567cfc2fe6bfb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:23+08:00 ] 127.0.0.1 /Uploads/20151225/567cfc2fe6bfb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:28+08:00 ] 127.0.0.1 /Category/catAll.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_brand` [ RunTime:0.0010s ]
+SQL: SELECT `id`,`brand_name`,`brand_logo` FROM `ztm_goods_brand` WHERE `display` = 'Y' ORDER BY rank desc  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT `id`,`category_name`,`category_logo` FROM `ztm_goods_category` WHERE `parent_id` = 0 AND `disabled` = 'N' ORDER BY rank asc  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:28+08:00 ] 127.0.0.1 /Uploads/20151218/56739f4018d39.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:28+08:00 ] 127.0.0.1 /Uploads/20151217/56724e05715ed.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:28+08:00 ] 127.0.0.1 /Uploads/20151222/5679026632214.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:28+08:00 ] 127.0.0.1 /Uploads/20151216/56710d26a2022.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:48:28+08:00 ] 127.0.0.1 /Uploads/20151203/565ff69508b32.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:48:28+08:00 ] 127.0.0.1 /Category/getChildTree.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 6 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 457 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1007 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+
+[ 2016-01-04T10:49:29+08:00 ] 127.0.0.1 /Category/getChildTree.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 7 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 415 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 421 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 423 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 447 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 425 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 448 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 453 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:30+08:00 ] 127.0.0.1 /Uploads/20151120/564ef91b5b143.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:30+08:00 ] 127.0.0.1 /Uploads/20151204/56615c2f37de8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:31+08:00 ] 127.0.0.1 /Category/getChildTree.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 12 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 696 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 876 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 877 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 878 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1192 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 702 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 923 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 924 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 925 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 703 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1126 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1050 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1059 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1133 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1197 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1104 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 935 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1086 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1103 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1138 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1194 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1195 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1108 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1090 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1106 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1135 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1136 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1137 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1196 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1139 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1140 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1141 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1142 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1143 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1144 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1199 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1200 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1201 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1202 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:31+08:00 ] 127.0.0.1 /Uploads/20151120/564eebbb1c1b3.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:31+08:00 ] 127.0.0.1 /Uploads/20151120/564eeda6e342e.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:31+08:00 ] 127.0.0.1 /Uploads/20151204/56615ba70d377.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:31+08:00 ] 127.0.0.1 /Uploads/20151120/564eed6c64d53.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:32+08:00 ] 127.0.0.1 /Category/getChildTree.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1128 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1132 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1183 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1184 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1185 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-01-04T10:49:32+08:00 ] 127.0.0.1 /Uploads/20151120/564ef59ac1f16.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-01-04T10:49:32+08:00 ] 127.0.0.1 /Uploads/20151125/565520f306664.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:32+08:00 ] 127.0.0.1 /Uploads/20151125/565521493aa09.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:34+08:00 ] 127.0.0.1 /Category/getChildTree.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 6 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 457 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1007 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1168 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 711 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 500 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 716 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 717 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 741 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1129 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1146 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1206 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 718 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1176 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1177 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 734 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 738 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1101 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1023 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1027 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1035 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1082 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1123 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1181 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1154 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1155 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1156 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1157 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1158 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1159 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1160 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1149 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1161 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1162 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1188 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1178 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1189 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:35+08:00 ] 127.0.0.1 /Category/getChildTree.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0030s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 7 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 415 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 421 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 423 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 447 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 425 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 448 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 453 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-01-04T10:49:35+08:00 ] 127.0.0.1 /Uploads/20151120/564ef91b5b143.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:35+08:00 ] 127.0.0.1 /Uploads/20151204/56615c2f37de8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:35+08:00 ] 127.0.0.1 /Category/getChildTree.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 12 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 696 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 876 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 877 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 878 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1192 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 702 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 923 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 924 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 925 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 703 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1126 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1050 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1059 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1133 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1197 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1104 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 935 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1086 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1103 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1138 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1194 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1195 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1108 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1090 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1106 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1135 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1136 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1137 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1196 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1139 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1140 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1141 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1142 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1143 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1144 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1199 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1200 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1201 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1202 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:35+08:00 ] 127.0.0.1 /Uploads/20151204/56615ba70d377.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:35+08:00 ] 127.0.0.1 /Uploads/20151120/564eeda6e342e.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:35+08:00 ] 127.0.0.1 /Uploads/20151120/564eed6c64d53.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:35+08:00 ] 127.0.0.1 /Uploads/20151120/564eebbb1c1b3.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:36+08:00 ] 127.0.0.1 /Category/getChildTree.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1128 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1132 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1183 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1184 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1185 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:36+08:00 ] 127.0.0.1 /Uploads/20151120/564ef59ac1f16.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:36+08:00 ] 127.0.0.1 /Uploads/20151125/565521493aa09.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:36+08:00 ] 127.0.0.1 /Uploads/20151125/565520f306664.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:36+08:00 ] 127.0.0.1 /Category/getChildTree.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 6 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 457 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1007 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1168 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 711 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 500 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 716 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 717 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 741 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1129 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1146 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1206 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 718 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1176 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1177 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 734 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 738 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1101 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1023 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1027 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1035 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1082 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1123 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1181 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1154 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1155 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1156 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1157 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1158 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1159 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1160 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1149 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1161 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1162 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1188 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1178 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1189 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:37+08:00 ] 127.0.0.1 /Category/getChildTree.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 7 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 415 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 421 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 423 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 447 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 425 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 448 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 453 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:37+08:00 ] 127.0.0.1 /Uploads/20151120/564ef91b5b143.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:37+08:00 ] 127.0.0.1 /Uploads/20151204/56615c2f37de8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:37+08:00 ] 127.0.0.1 /Category/getChildTree.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 12 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 696 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 876 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 877 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 878 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1192 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 702 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 923 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 924 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 925 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 703 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1126 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1050 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1059 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1133 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1197 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1104 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 935 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1086 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1103 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1138 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1194 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1195 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1108 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1090 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1106 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1135 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1136 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1137 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1196 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1139 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1140 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1141 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1142 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1143 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1144 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1199 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1200 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1201 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1202 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:37+08:00 ] 127.0.0.1 /Uploads/20151120/564eed6c64d53.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:37+08:00 ] 127.0.0.1 /Uploads/20151204/56615ba70d377.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:37+08:00 ] 127.0.0.1 /Uploads/20151120/564eeda6e342e.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:37+08:00 ] 127.0.0.1 /Uploads/20151120/564eebbb1c1b3.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+
+[ 2016-01-04T10:49:38+08:00 ] 127.0.0.1 /Category/getChildTree.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0010s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1128 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1132 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1183 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1184 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1185 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:38+08:00 ] 127.0.0.1 /Uploads/20151125/565521493aa09.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:38+08:00 ] 127.0.0.1 /Uploads/20151125/565520f306664.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:38+08:00 ] 127.0.0.1 /Uploads/20151120/564ef59ac1f16.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:39+08:00 ] 127.0.0.1 /Category/getChildTree.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0010s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 6 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 457 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1007 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1168 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 711 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 500 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 716 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 717 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 741 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1129 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1146 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1206 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 718 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1176 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1177 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 734 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 738 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1101 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1023 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1027 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1035 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1082 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1123 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1181 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1154 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1155 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1156 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1157 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1158 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1159 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1160 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1149 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1161 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1162 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1188 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1178 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1189 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:40+08:00 ] 127.0.0.1 /Uploads/20151205/56628c891c960.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:40+08:00 ] 127.0.0.1 /Uploads/20151204/56615b259e279.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:40+08:00 ] 127.0.0.1 /Uploads/20151123/565276dec8a95.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:40+08:00 ] 127.0.0.1 /Uploads/20151120/564ef791c889b.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:40+08:00 ] 127.0.0.1 /Uploads/20151204/56615b37c5f15.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:40+08:00 ] 127.0.0.1 /Uploads/20151120/564ef7ae228c2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:40+08:00 ] 127.0.0.1 /Uploads/20151120/564ef76f941ec.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:40+08:00 ] 127.0.0.1 /Uploads/20151222/5679137b3d412.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:40+08:00 ] 127.0.0.1 /Uploads/20151204/56615c10797c6.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:40+08:00 ] 127.0.0.1 /Uploads/20151204/56615c648007a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:41+08:00 ] 127.0.0.1 /Uploads/20151120/564ef7a5c1cb3.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:41+08:00 ] 127.0.0.1 /Uploads/20151123/5652840b7d9e4.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:41+08:00 ] 127.0.0.1 /Uploads/20151120/564ef8a27df96.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:41+08:00 ] 127.0.0.1 /Uploads/20151204/56615b6ea58bd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:41+08:00 ] 127.0.0.1 /Uploads/20151204/56615b5d75893.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:41+08:00 ] 127.0.0.1 /Uploads/20151204/56615b7d97e82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:49:41+08:00 ] 127.0.0.1 /Uploads/20151123/5652bc275acdc.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:41+08:00 ] 127.0.0.1 /Uploads/20151204/56615b533934c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:41+08:00 ] 127.0.0.1 /Uploads/20151204/56615ac31d8e8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:41+08:00 ] 127.0.0.1 /Uploads/20151204/56615b8cd81b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:49:41+08:00 ] 127.0.0.1 /Uploads/20151204/56615b15e2222.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:52:56+08:00 ] 127.0.0.1 /Category/catAll.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_brand` [ RunTime:0.0020s ]
+SQL: SELECT `id`,`brand_name`,`brand_logo` FROM `ztm_goods_brand` WHERE `display` = 'Y' ORDER BY rank desc  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT `id`,`category_name`,`category_logo` FROM `ztm_goods_category` WHERE `parent_id` = 0 AND `disabled` = 'N' ORDER BY rank asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:52:56+08:00 ] 127.0.0.1 /Uploads/20151216/56710d26a2022.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:52:56+08:00 ] 127.0.0.1 /Uploads/20151222/5679026632214.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:52:56+08:00 ] 127.0.0.1 /Uploads/20151217/56724e05715ed.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:52:56+08:00 ] 127.0.0.1 /Uploads/20151218/56739f4018d39.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:52:56+08:00 ] 127.0.0.1 /Uploads/20151203/565ff69508b32.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:52:56+08:00 ] 127.0.0.1 /Category/getChildTree.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 6 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 457 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1007 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1168 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 711 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 500 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 716 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 717 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 741 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1129 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1146 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1206 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 718 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1176 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1177 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 734 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 738 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1101 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1023 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1027 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1035 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1082 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1123 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1181 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1154 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1155 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1156 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1157 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1158 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1159 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1160 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1149 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1161 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1162 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1188 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1178 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1189 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+
+[ 2016-01-04T10:52:57+08:00 ] 127.0.0.1 /Category/catAll.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0010s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_brand` [ RunTime:0.0010s ]
+SQL: SELECT `id`,`brand_name`,`brand_logo` FROM `ztm_goods_brand` WHERE `display` = 'Y' ORDER BY rank desc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0020s ]
+SQL: SELECT `id`,`category_name`,`category_logo` FROM `ztm_goods_category` WHERE `parent_id` = 0 AND `disabled` = 'N' ORDER BY rank asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:52:57+08:00 ] 127.0.0.1 /Uploads/20151217/56724e05715ed.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T10:52:57+08:00 ] 127.0.0.1 /Uploads/20151218/56739f4018d39.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:52:57+08:00 ] 127.0.0.1 /Uploads/20151216/56710d26a2022.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:52:57+08:00 ] 127.0.0.1 /Uploads/20151203/565ff69508b32.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T10:52:58+08:00 ] 127.0.0.1 /Category/getChildTree.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_goods_category` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 6 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 457 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1007 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1168 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 711 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 500 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 716 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 717 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 741 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1129 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1146 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1206 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 718 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1176 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1177 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 734 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 738 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1101 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1023 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1027 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1035 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1082 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1123 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1181 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1154 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1155 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1156 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1157 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1158 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1159 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1160 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1149 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1161 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1162 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1188 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1178 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_goods_category` WHERE `parent_id` = 1189 AND `disabled` = 'N' AND `display` = 'Y'  [ RunTime:0.0010s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_advert` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexBanner' AND `disabled` = 'N' ORDER BY rank desc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_goods` [ RunTime:0.0020s ]
+SQL: SELECT g.goods_name,g.market_price,g.shop_price,sg.goods_id,g.goods_thumb,sg.kill_price,sg.goods_number,sg.kill_start,sg.kill_end FROM ztm_seckill_goods AS sg LEFT JOIN ztm_goods AS g ON sg.goods_id=g.id WHERE sg.on_sale='Y' AND sg.disabled='N' AND sg.kill_start=1451836800 AND sg.kill_end=1451923200 ORDER BY sg.rank DESC LIMIT 0,3 [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexFashion' AND `disabled` = 'N' ORDER BY rank desc  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151215/566fd06f1fb82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e50221b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151211/566ab7fd714e7.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e3607c33.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151211/566ab7e51a6cb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151211/566ab812f2761.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151211/566ab82f8ef2c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151210/566957ff629b8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151210/566957e93ebe1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151209/5667f49c13a86.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151209/5667f482400bb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151209/5667f4b24aa36.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151208/5666a34ab0686.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151208/5666a363a11fd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151208/5666a37af3f4a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151207/56654a5bd2e24.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151207/56654a764ec19.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151207/56654a415c1bf.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151204/56614f073ade3.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151216/567111719f5ef.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.033002s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151203/566005c786af2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151210/566957d1536c8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151202/565ea6ee697fd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151215/566fd06f1fb82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151225/567cfc2fe6bfb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e50221b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e3607c33.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151211/566ab7fd714e7.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151211/566ab7e51a6cb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151211/566ab82f8ef2c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151210/566957ff629b8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151210/566957e93ebe1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151209/5667f4b24aa36.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151209/5667f49c13a86.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151209/5667f482400bb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151208/5666a34ab0686.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151211/566ab812f2761.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151208/5666a363a11fd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151208/5666a37af3f4a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151204/56614f073ade3.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151207/56654a5bd2e24.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151203/566005c786af2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151207/56654a764ec19.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151210/566957d1536c8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151207/56654a415c1bf.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151202/565ea6ee697fd.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151225/567cfc2fe6bfb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:52+08:00 ] 127.0.0.1 /Uploads/20151225/567cfc2fe6bfb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-04T11:22:57+08:00 ] 127.0.0.1 /Uploads/20151123/56526880940a2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-01-04T11:22:57+08:00 ] 127.0.0.1 /Uploads/20151123/56526880940a2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-04T11:22:58+08:00 ] 127.0.0.1 /Index/brandPavilion.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_advert` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'brandPavilion' AND `disabled` = 'N' ORDER BY rank desc  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

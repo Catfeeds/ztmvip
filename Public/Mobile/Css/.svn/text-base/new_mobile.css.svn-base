@@ -1,0 +1,109 @@
+html{font-size:12px;font-family: "冬青黑体简体中文";height:100%;}
+body{background:#F1F1F1;height:100%;}
+.header_box{width:100%;max-width:750px;text-align: center;position:fixed;z-index:999;}
+.return{display:block;width:9px;position:absolute;left:10px;top:13px;}
+.header_title{height:45px;background:#fff;font-size:1.4rem;line-height: 45px;}
+article{padding-top:45px;}
+.good_box{overflow: hidden;}
+.good_box .sheep_box{width:47%;margin:2% 0 0 2%;float: left;background:#fff;}
+.price{color:#AEAEAE;font-size: 1.1rem;}
+.price b{color:#ECC35D;}
+.price i{font-size: 1.3rem;}
+.price u{text-decoration: line-through;}
+.sheep_inf{color:#7F7F7F;height:36px;}
+.copyright{height: 67px;
+    text-align: center;
+    line-height: 14px;
+    padding-top: 12px;
+    box-sizing: border-box;
+    color: #6d6d6d;font-size: 0.8rem;}
+.goods{height:auto;}
+.vip_box{height:80%;}
+.vip_good{padding:20px 10px;margin-top:5px;}
+.good_in{position:relative;height:125px;}
+.good_inf .price{margin:10px 0;}
+.good_photo{width:125px;height:125px;overflow:hidden;position:absolute;}
+.good_inf{padding-left:135px;}
+.title{width:100%;box-sizing: border-box;font-size: 1.2rem;}
+.bt_box{font-size: 1.2rem;text-align: center;line-height: 30px;}
+.bt_left{width:80px;height:30px;border: 1px solid #E8C473;box-sizing: border-box;color:#E8C473;float:left;margin-right:5px;}
+.bt_right{width:80px;height:30px;background:#E8C473;color:#fff;float:left;}
+#loader{width:10%;margin:auto;}
+.l_jiazai{width:40px;height:40px;margin:0 auto;
+    animation: jiazai 2s linear 0s infinite;
+    /* Firefox: */
+    -moz-animation: jiazai 2s linear 0s infinite;
+    /* Safari 和 Chrome: */
+    -webkit-animation: jiazai 2s linear 0s infinite;
+    /* Opera: */
+    -o-animation: jiazai 2s linear 0s infinite;}
+@keyframes jiazai{
+    0%{
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+
+}
+@-moz-keyframes jiazai /* Firefox */
+{
+    0%{
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes jiazai /* Safari 和 Chrome */
+{
+    0%{
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes jiazai /* Opera */
+{
+    0%{
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

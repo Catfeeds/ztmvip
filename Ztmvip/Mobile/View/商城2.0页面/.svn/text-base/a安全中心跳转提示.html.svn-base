@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+    <title>女性整体美解决方案领导者</title>
+    <style type="text/css">
+        .article{margin-top:40%;text-align: center;font-size: 1.2rem;}
+        .bt{width:30%;height:45px;font-size: 1.4rem;margin:100px auto;line-height: 45px;background:#e9c574;color:#fff;}
+        @media screen and (min-width: 750px) {
+            html{font-size: 24px;}
+            .bt{height:90px;line-height:90px;}
+        }
+    </style>
+</head>
+<body>
+<div class="article">
+    <div class="inf">请绑定手机</div>
+    <div class="bt">确 定</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">分类名称</td>
+            <td><input name="topic_name" class="text" type="text" value="{$edit['topic_name']}" required="required" placeholder="请输入分类名称..."></td>
+        </tr>
+        <tr>
+            <td class="label">父分类</td>
+            <td>
+                <tagLib name="html"/>
+                <html:select name="parent_id" options="parent_topic" selected="edit['parent_id']" first="—请选择—" style="select"/>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="tbl tbl-submit" style="width:100%;">
+        <tbody>
+        <tr>
+            <td class="label"></td>
+            <td><button type="submit" class="submit">提 交</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+    $('.js-edit').on('submit',function(event){
+        var data = Core.InputObj(this);
+
+        $.post('',data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.href = "{:U('index')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+</script>

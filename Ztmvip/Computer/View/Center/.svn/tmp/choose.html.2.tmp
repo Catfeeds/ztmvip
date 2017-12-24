@@ -1,0 +1,135 @@
+<link rel="stylesheet" type="text/css" href="__PCCSS__/shopping.css" />
+<script type="text/javascript" src="__PCJS__shan_choose.js"></script>
+</head>
+<body>
+<include file="Public/top"/>
+<div class="bg_h">
+    <div class="success">
+        <p class="p1">订单提交成功，请您尽快付款！订单号：{$order_detail.order_sn} <span>应付金额 <i>{$order_detail.amount}</i> 元</span></p>
+        <p class="p2">请您在提交订单后<i>7天内</i>完成支付，否则订单会自动取消。<a href="{:U('Order/detail',array('order_id'=>$order_id))}"><span class="js-dispaly">查看详情</span></a></p>
+        <!--   <div class="xiangqing">
+                        <p>收货地址：广东广州市天河区老师看到那个粉丝看到那个粉丝都看了那个了<span>收货人：老赵</span><span>134****1397</span></p>
+                        <p>商品名称：健康是打发你不是的健康妇女不是看见的那个风打开手机那个女生的十分大概多少分若干…</p>
+        </div> -->
+    </div>
+    <div class="success_con">
+        <p class="p1">选择支付方式</p>
+        <ul>
+            <li class="js_li1"><a href="javascript:;" onclick="go_alipay({$order_id})">支付宝支付</a></li>
+            <li class="js_li2"><a href="javascript:;">余额支付</a></li>
+            <li class="js_li3"><a href="javascript:;">储值卡支付</a></li>
+            <li class="weixin js_li4 this">
+                <a href="javascript:;">微信扫码支付</a>
+                <!-- <div class="img"><img src="__PCIMG__success_20.gif" alt="" /></div> -->
+            </li>
+        </ul>
+        <form action="">
+            <div class="balance js_con2">
+                <div class="password">
+                    <span>请输入支付密码</span>
+                    <div class=""></div>
+                    <div class="input"><input type="password" id="password" name="password" maxlength="6" /></div>
+                </div>
+                <button type="button" onclick='location.reload(true)' class="but1">取消</button>
+                <button type="button" onclick="make_balance('{$order_id}')">确定</button>
+            </div>
+            <div class="store js_con3">
+                <ul class="shan_card">
+                    <volist name="card_list" id="value">
+                    <li>
+                        <label onclick="choose_card(this,{$value.id})" class="true"></label>
+                        <span>卡号：{$value.prepaid_sn}</span>可用余额：¥{$value.money}
+                    </li>
+                    </volist>
+
+                </ul>
+                <input type="hidden" name="card_id"/>
+                <button type="button" class="but1" onclick='location.reload(true)'>取消</button>
+                <button type="button" onclick="make_card(this)">确定</button>
+            </div>
+            <div class="shaoyishao js_con4" style="display:block;">
+                <p class="p2 js-refresh" style="display:none;">二维码已过期，<span onclick='location.reload(true)'>刷新</span> 页面重新获取二维码。</p>
+                <p class="p4 js-leave">距离二维码过期还剩<span id="shan_second" style="color:red;">30</span>秒，<br />过期后请刷新页面重新获取二维码</p>
+                <div class="img"><img src="{:U('Qrcode/index','text='.$url)}" alt="" /></div>
+                <p class="p3">请使用微信扫一扫<br />扫描二维码支付</p>
+            </div>
+        </form>
+        <script type="text/javascript">
+            $(function(){
+                var second=30;
+                var time_second=setInterval(function(){
+                    if(second==0){
+                        $('.js-leave').hide();
+                        $('.js-refresh').show();
+                        clearInterval(time_second);
+                    }else{
+                        $('#shan_second').html(--second);
+                    }
+                },1000)
+            })
+
+        </script>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // $('.js-dispaly').on('click', function() {
+        //     $(this).toggleClass("click");
+        //     $('.xiangqing').slideToggle();
+        //     if($(this).hasClass('click')){
+            //         $(this).text("收起详情")
+        //     }else{
+            //         $(this).text("查看详情")
+        //     }
+    // });
+$('.js_li2').on('click',  function(event) {
+    $(this).siblings().removeClass('this');
+    $(this).addClass('this');
+    $('.js_con2').siblings().hide();
+    $('.js_con2').show();
+    if ((navigator.userAgent.indexOf('MSIE') >= 0) || (navigator.userAgent.indexOf("rv:11") > -1)  ){
+    document.getElementById("password").className="ie";
+};
+});
+
+$('.js_li3').on('click',  function(event) {
+
+    <notempty name="exist_card">
+        $(this).siblings().removeClass('this');
+        $(this).addClass('this');
+        $('.js_con3').siblings().hide();
+        $('.js_con3').show();
+       <else/>
+        alert('您没有可用的整体美商城储值卡');
+    </notempty>
+
+});
+
+
+
+$('.js_li4').on('click',  function(event) {
+    $(this).siblings().removeClass('this');
+    $(this).addClass('this');
+    $('.js_con4').siblings().hide();
+    $('.js_con4').show();
+});
+</script>
+<div id="shan_alipay"></div>
+</body>
+<script type="text/javascript">
+$(function(){
+    var timeInterval=setInterval(function(){
+        var url="{:U('Pay/isOrderPayed')}";
+        var send={
+                order_id:'{$order_id}'
+            };
+        $.post(url,send,function(reback){
+            if(reback.code=='suc'){
+                clearInterval(timeInterval);
+                alert('支付成功');
+            }
+        })
+    },1000)
+})
+</script>
+</html>

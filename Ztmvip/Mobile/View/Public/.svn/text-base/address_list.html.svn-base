@@ -1,0 +1,47 @@
+  {__NOLAYOUT__}
+  <notempty name="address_list">
+
+  <volist name="address_list" id="value" key="key1">
+  <div class="list_box <eq name="value.is_default" value="Y">list_current</eq>">
+         <div class="default">
+             <div class="default_inf">
+                 <div class="name">收货人：{$value.consignee}</div>
+                 <div class="telephone">{$value.mobile}</div>
+             </div>
+             <div class="place">
+                 {$value.province}
+                 {$value.city}
+                 {$value.district}
+                 {$value.address}
+         
+             </div>
+         </div>
+         <div class="choose">
+             <div class="tick"><img src="__IMG__tick.jpg" alt="" /></div>
+             <div class="ring"></div>
+             <label onclick="make_default(this)" for="choose{$key1}">设为默认地址</label>
+             <input type="radio" name="current" value="{$value.id}" id="choose{$key1}" />
+             <div class="right">
+                 <div class="edit_box">
+                     <a href="{:U('User/editAddress',array('address_id'=>$value['id']))}">
+                         <div class="icon">
+                             <img src="__IMG__icon8.jpg" alt="" />
+                        </div>
+                         编辑
+                     </a>
+                 </div>
+                 <div class="edit_box delete" onclick="delete_address({$value.id});">
+                     <div class="icon"><img src="__IMG__icon9.jpg" alt="" /></div>
+                     删除
+                 </div>
+             </div>
+         </div>
+     </div>
+</volist>
+<else/>
+ <div class="list_container2">
+         <div class="photo" style="width:40%;margin:0 auto">
+             <img src="__IMG__/place_bg.jpg" alt="" />
+         </div>
+</div>
+</notempty>

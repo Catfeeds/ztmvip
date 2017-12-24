@@ -1,0 +1,177 @@
+
+<link rel="stylesheet" type="text/css" href="__CSS__index_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="__CSS__index_pad.css" media="(min-width:750px)">
+<link rel="stylesheet" type="text/css" href="__CSS__swiper.css" />
+<script type="text/javascript" src="__JS__swiper.jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__CSS__classify_base.css"/>
+<link rel="stylesheet" type="text/css" href="__CSS__classify_detailed.css"/>
+<script type="text/javascript" src="__JS__/jquery.lazyload.min.js"></script>
+<script type="text/javascript">
+	// $(function() {
+	// 	$("img.lazy").lazyload({'threshold':400});
+	// 	var height = $('.classify_nav').height()+10
+	// 	var wheight = $(window).height()-$('.nav').height();
+	// 	$('article').css({'padding-top': height,"min-height": wheight-2*height,"background":"#F3F3F3" });
+	// 	$('.classify_nav').on('click',function(){
+	// 		$('html,body').animate({scrollTop:0},0);
+	// 	});
+	// });
+
+	im = new Image();
+	im.onload = function(){
+		$(function() {
+		$("img.lazy").lazyload({'threshold':400});
+		var height = $('.classify_nav').height()+10
+		var wheight = $(window).height()-$('.nav').height();
+		$('article').css({'padding-top': height,"min-height": wheight-2*height,"background":"#F3F3F3" });
+		$('.classify_nav').on('click',function(){
+			$('html,body').animate({scrollTop:0},0);
+		});
+	});
+	}
+	im.src = '__IMG__classify_makings_03.png';
+</script>
+</head>
+
+<body>
+<ul class="classify_nav">
+	<li class="js_nav_li1"  style="color:#252525;" cat_id="{$top_category[1].id}"><img src="__IMG__classify_makings_03.png" />
+		<p>{$top_category[1].category_name}</p>
+	</li>
+	<li class="js_nav_li2" cat_id="{$top_category[2].id}"><img src="__IMG__classify_makings_05.png" />
+		<p>{$top_category[2].category_name}</p>
+	</li>
+	<li class="js_nav_li3" cat_id="{$top_category[3].id}"><img src="__IMG__classify_makings_05.jpg" />
+		<p>{$top_category[3].category_name}</p>
+	</li>
+	<li class="js_nav_li4" cat_id="{$top_category[0].id}"><img src="__IMG__classify_makings_07.jpg"/>
+		<p>{$top_category[0].category_name}</p>
+	</li>
+</ul>
+
+<!--形象美 心灵美  样式-->
+<article>
+	<div class="classify_content" id="brand_list">
+		<div class="classify_title"><span>品牌</span></div>
+		<ul>
+			<div>
+				<volist name="brands" id="val" offset="0" length='5'>
+					<li><a href="{:U('Category/catDetail',array('brand_id'=>$val['id']))}"><img  class="lazy"data-original="{$val.brand_logo}"   src="__IMG__lastbg.jpg" />
+						<p>{$val.brand_name}</p></a>
+					</li>
+				</volist>
+			</div>
+			<div id="ext_brand" style="display:none">
+				<volist name="brands" id="val" offset="5">
+					<li><a href="{:U('Category/catDetail',array('brand_id'=>$val['id']))}"><img class="lazy"data-original="{$val.brand_logo}"  src="__IMG__lastbg.jpg" />
+						<p>{$val.brand_name}</p></a>
+					</li>
+				</volist>
+			</div>
+			<li id="all_brand"><a href="javascript:;"><img class="lazy"data-original="__IMG__classify_makings_24.jpg"   src="__IMG__lastbg.jpg" />
+				<p>全部品牌</p></a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="child_tree">
+	</div>
+</article>
+<include file="Public/copy_right"/>
+<include file="Public/scroll"/>
+<include file="Public/nav"/>
+<script type="text/javascript">
+	$(function(){
+		var width = $(window).width();
+		if(width<750){
+			$('.nav').css('font-size', '12px');
+		}
+	})
+</script>
+<script>
+
+
+	$(function(){
+		function setTitleOffset(){
+			var titles = document.getElementsByClassName("classify_title");
+			for(i=0;i<titles.length;i++){
+				var j=titles[i].getElementsByTagName("span")[0].offsetWidth+20;
+				titles[i].style.width=j+"px";
+			}
+		}
+
+		function getChildTree(id){
+			$.post("{:U('getChildTree')}",{id:id},function(data){
+				if(id != $('li.js_nav_li1').attr('cat_id')){
+					$(data).find('.classify_content').eq(0).addClass('padding-top40');
+					$('#brand_list').hide();
+				}else{
+					$('#brand_list').show();
+				}
+				setTitleOffset();
+				$('#child_tree').html(data);
+				setTitleOffset();
+				$("#child_tree img.lazy").lazyload({effect: "fadeIn"});
+			},'text');
+
+		}
+
+
+		getChildTree($(".js_nav_li1").attr('cat_id'));
+		$(".js_nav_li1").on('click',function(){
+			$(".js_nav_li1 img").attr("src", "__IMG__classify_makings_03.png");
+			$(".js_nav_li2 img").attr("src", "__IMG__classify_makings_05.png");
+			$(".js_nav_li3 img").attr("src", "__IMG__classify_makings_05.jpg");
+			$(".js_nav_li4 img").attr("src", "__IMG__classify_makings_07.jpg");
+			for(i=0;i<=4;i++){
+				$(".js_nav_li"+i).css({"color":"#808080"});
+			}
+			$(this).css({"color":"#252525"});
+			getChildTree($(this).attr('cat_id'));
+
+		})
+		$(".js_nav_li2").on('click',function(){
+			$(".js_nav_li1 img").attr("src", "__IMG__classify_appearance_03.jpg");
+			$(".js_nav_li2 img").attr("src", "__IMG__classify_appearance_05.jpg");
+			$(".js_nav_li3 img").attr("src", "__IMG__classify_makings_05.jpg");
+			$(".js_nav_li4 img").attr("src", "__IMG__classify_makings_07.jpg");
+			for(i=0;i<=4;i++){
+				$(".js_nav_li"+i).css({"color":"#808080"});
+			}
+			$(this).css({"color":"#252525"});
+			getChildTree($(this).attr('cat_id'));
+
+		})
+		$(".js_nav_li3").on('click',function(){
+			$(".js_nav_li1 img").attr("src", "__IMG__classify_appearance_03.jpg");
+			$(".js_nav_li2 img").attr("src", "__IMG__classify_makings_05.png");
+			$(".js_nav_li3 img").attr("src", "__IMG__classify_health_03.jpg" );
+			$(".js_nav_li4 img").attr("src", "__IMG__classify_makings_07.jpg");
+			for(i=0;i<=4;i++){
+				$(".js_nav_li"+i).css({"color":"#808080"});
+			}
+			$(this).css({"color":"#252525"});
+			getChildTree($(this).attr('cat_id'));
+		})
+		$(".js_nav_li4").on('click',function(){
+			$(".js_nav_li1 img").attr("src", "__IMG__classify_appearance_03.jpg");
+			$(".js_nav_li2 img").attr("src", "__IMG__classify_makings_05.png");
+			$(".js_nav_li3 img").attr("src", "__IMG__classify_makings_05.jpg");
+			$(".js_nav_li4 img").attr("src", "__IMG__classify_heart_03.jpg");
+			for(i=0;i<=4;i++){
+				$(".js_nav_li"+i).css({"color":"#808080"});
+			}
+			$(this).css({"color":"#252525"});
+			getChildTree($(this).attr('cat_id'));
+		})
+
+		//全部品牌
+		$('#all_brand').on('click',function(){
+			$('#ext_brand').toggle();
+		});
+	});
+
+
+</script>
+</body>
+</html>

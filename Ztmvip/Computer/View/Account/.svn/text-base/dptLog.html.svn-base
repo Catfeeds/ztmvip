@@ -1,0 +1,34 @@
+
+<link rel="stylesheet" type="text/css" href="__PCCSS__rebate.css" />
+</head>
+<body>
+<include file="Public:top"/>
+<div class="bg_h">
+    <div class="ededed">
+        <!-- 右边 -->
+        <div class="ededed_r">
+            <form action="">
+                <notempty name="account">
+                    <!-- 查看佣金明细 -->
+                    <ul class="ededed_con" >
+                        <volist name="account" id="vo">
+                            <li class="li{$i}">
+                                <p class="p1">订单号：{$vo['account_sn']}</p>
+                                <p class="p2">充值金额：￥{$vo['amount']|sprintf='%.2f',###}（<if condition="$vo.date_pay gt 0">成功<else/>失败</if>）</p>
+                                <p class="p3">{$vo['date_add']|date='Y.m.d',###}</p>
+                            </li>
+                        </volist>
+                    </ul>
+                    <div class="yeshu">{$page_show}</div>
+                    <else/>
+                    <div class="explain"><div class="h5"><span>暂无纪录</span></div></div>
+                </notempty>
+
+            </form>
+        </div>
+
+        <!-- 左边 -->
+        <include file="User:accountLeft"/>
+
+    </div>
+</div>

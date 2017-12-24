@@ -1,0 +1,22 @@
+{__NOLAYOUT__}
+<span class="top_false"></span><p class="title">我的余额</p>
+<ul class="xuanzhe">
+    <li class="li1"><a href="javascript:;">充值记录</a></li>
+    <li class="li2"><a href="javascript:;" class="on_click">提现记录</a></li>
+</ul>
+<dl class="con1">
+    <div class="hidden js-scroll">
+        <volist name="account" id="vo">
+        <dd>金额：{$vo['amount']|abs=###|round=###,2}元(<if condition="$vo.date_pay gt 0">成功<else/>失败</if>)<span>{$vo['date_add']|date='Y.m.d',###}</span></dd>
+        </volist>
+    </div>
+    <script type="text/javascript">
+        var recharge_hidden_h =$('.index_right_nav').height()-172;
+        $('.index_right_nav .right .recharge .con1 .hidden').height(recharge_hidden_h);
+    </script>
+</dl>
+<div class="balance">我的余额：￥{$user_money|sprintf='%.2f',###}</div>
+<ul class="bottom">
+    <li class="li1"><a href="{:U('Account/withdraw')}">申请提现</a></li>
+    <li class="li2"><a href="{:U('Account/deposit')}">充值</a></li>
+</ul>

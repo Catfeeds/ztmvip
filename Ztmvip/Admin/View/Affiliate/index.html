@@ -1,0 +1,62 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <form method="get" action="{:U('')}">
+            <input name="order_sn" class="text" type="text" value="{$Think.get.order_sn}" placeholder="订单号搜索...">
+            <input name="rebate_user" class="text" type="text" value="{$Think.get.rebate_user}" placeholder="会员搜索...">
+            <tagLib name="html"/>
+            <html:select name="separated" options="separated" selected="_GET['separated']" first="—请选择—" style="select"/>
+            <input name="add_start" class="text js-time" type="text" value="{$Think.get.add_start}" placeholder="分佣时间"> -
+            <input name="add_end" class="text js-time" type="text" value="{$Think.get.add_end}" placeholder="分佣时间">
+            <input name="rebate_user_id" type="hidden" value="{$Think.get.rebate_user_id}">
+            <button class="button" type="submit">搜 索</button>
+        </form>
+    </span>
+</div>
+<table class="tbl js-list" width="100%">
+    <thead>
+    <tr>
+        <th width="20"><input type="checkbox"></th>
+        <th>订单号</th>
+        <th>分佣会员</th>
+        <th>分佣金额</th>
+        <th>分佣积分</th>
+        <th>状态</th>
+        <th>分佣时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <if condition="$list">
+        <volist name="list" id="vo">
+            <tr>
+                <td align="center"><input name="id" type="checkbox" value="{$vo['id']}"></td>
+                <td>{$vo['order_sn']}</td>
+                <td>{$vo['rebate_user_name']}</td>
+                <td>{$vo['money']}</td>
+                <td>{$vo['integral']}</td>
+                <td>{:($vo['separated']=='Y'?'已分佣':'未分佣')}</td>
+                <td>{$vo['date_add']|date='Y-m-d H:i:s',###}</td>
+            </tr>
+        </volist>
+        <else/>
+        <tr>
+            <td colspan="7" align="center">暂无数据</td>
+        </tr>
+    </if>
+    </tbody>
+</table>
+<footer class="footer">
+    {$page_show}
+</footer>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Public/Common/DateTimePicker/datetimepicker.css" />
+<script src="__ROOT__/Public/Common/DateTimePicker/datetimepicker.js"></script>
+<script>
+    $('.art-nav form input[name]').on('keypress',function(event){
+        if(event.keyCode == 13){
+            this.form.submit();
+            event.preventDefault();
+        }
+    });
+
+    $('.js-time').datetimepicker({'format':'Y-m-d H:i'});
+</script>

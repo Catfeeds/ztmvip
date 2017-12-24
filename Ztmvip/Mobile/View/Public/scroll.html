@@ -1,0 +1,16 @@
+<div class="returntop top"><img src="__IMG__top.png" alt="" /></div>
+<script>
+    $(window).on('scroll',function(e){
+        var winST = $(window).scrollTop()
+        if(winST>100){
+            $('.returntop').fadeIn(400);
+            $(".search_box").fadeIn(400)
+        }else if(winST<100){
+            $('.returntop').fadeOut(400);
+            $('.search_box').fadeOut(400)
+        }
+    })
+    $('.returntop').on('click',function(e) {            
+        $('html,body').animate({scrollTop:0},0)
+    });
+</script>

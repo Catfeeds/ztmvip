@@ -1,0 +1,116 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <form method="get" action="">
+            <input name="goods_name" class="text" type="text" value="{$Think.get.goods_name}" placeholder="商品名称搜索...">
+            <input name="kill_start" class="text js-time" type="text" value="{$Think.get.kill_start}" placeholder="开始时间"> -
+            <input name="kill_end" class="text js-time" type="text" value="{$Think.get.kill_end}" placeholder="结束时间">
+            <button class="button" type="submit">搜 索</button>
+        </form>
+        <a class="button" href="{:U('edit')}">新 增</a>
+    </span>
+</div>
+<table class="tbl js-list" width="100%">
+    <thead>
+    <tr>
+        <th width="20"><input type="checkbox"></th>
+        <th>商品</th>
+        <th>秒杀价</th>
+        <th>商城价</th>
+        <th>开始时间</th>
+        <th>结束时间</th>
+        <th width="180">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <if condition="$list">
+        <volist name="list" id="vo">
+            <tr>
+                <td align="center"><input name="id" type="checkbox" value="{$vo['id']}"></td>
+                <td><a href="__HOME__{:U('Goods/detail','goods_id='.$vo['goods_id'])}" target="_blank">{$vo['goods_name']}</a></td>
+                <td>{$vo['bargain_price']}</td>
+                <td><del>{$vo['shop_price']}</del></td>
+                <td>{$vo['bargain_start']|date='Y-m-d H:i:s',###}</td>
+                <td>{$vo['bargain_end']|date='Y-m-d H:i:s',###}</td>
+                <td align="center">
+                    <a href="{:U('log','id='.$vo['id'])}">砍价记录</a>
+                    <if condition="$vo['on_sale'] eq 'Y'">
+                        <a class="js-saledown" href="javascript:;">下架</a>
+                        <else/>
+                        <a class="js-saleup" href="javascript:;">上架</a>
+                    </if>
+                    <a href="{:U('edit','id='.$vo['id'])}">修改</a>
+                    <a class="js-delete" href="javascript:;">删除</a>
+                </td>
+            </tr>
+        </volist>
+        <else/>
+        <tr>
+            <td colspan="7" align="center">暂无数据</td>
+        </tr>
+    </if>
+    </tbody>
+</table>
+<footer class="footer">
+    <button class="button js-delete-submit">批量删除</button>
+    <button class="button js-saleup-submit">批量上架</button>
+    <button class="button js-saledown-submit">批量下架</button>
+    {$page_show}
+</footer>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Public/Common/DateTimePicker/datetimepicker.css" />
+<script src="__ROOT__/Public/Common/DateTimePicker/datetimepicker.js"></script>
+<script>
+    $('.js-list').on('click','.js-saleup,.js-saledown',function(event){
+        $(event.delegateTarget).find('tbody :checkbox').prop('checked',false);
+        $(this).closest('tr').find(':checkbox').click();
+        $('.'+ $(this).attr('class') +'-submit').click();
+    }).on('click','.js-delete',function(event){
+        $(event.delegateTarget).find('tbody :checkbox').prop('checked',false);
+        $(this).closest('tr').find(':checkbox').click();
+        $('.js-delete-submit').click();
+    });
+
+    $('.art-nav form input[name]').on('keypress',function(event){
+        if(event.keyCode == 13){
+            this.form.submit();
+            event.preventDefault();
+        }
+    });
+
+    $('.js-saleup-submit,.js-saledown-submit').on('click',function(){
+        var data = Core.InputObj($('.js-list'));
+        data['action'] = $(this).attr('class').indexOf('saleup') != -1 ? 'saleup' : 'saledown';
+
+        $.post("{:U('prop')}",data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.reload();
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+    $('.js-delete-submit').on('click',function(){
+    	Core.Confirm({ 'title':'操作确认','text':'确认要删除选中数据？','callback':function(confirm){
+			if (!confirm)
+				return;
+
+	        var data = Core.InputObj($('.js-list'));
+	        data['action'] = 'delete';
+
+	        $.post("{:U('prop')}",data,function(ret){
+	            if ( ret.state ){
+	                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+	                    location.reload();
+	                } });
+	            }else{
+	                Core.Alert({ 'text':ret.message,'state':'err' });
+	            }
+	        },'json');
+		} });
+    });
+
+    $('.js-time').datetimepicker();
+</script>

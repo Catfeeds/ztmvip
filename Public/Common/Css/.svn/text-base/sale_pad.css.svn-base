@@ -1,0 +1,105 @@
+html{font-size:24px;font-family: "冬青黑体简体中文";background:#F3F3F3;}
+body{background:#F3F3F3;}
+.header_box{width:100%;max-width:750px;text-align: center;position:fixed;z-index:999;border-bottom:1px solid #ccc;}
+.return{position:absolute;left:10px;top:21.5px;}
+.header_title{height:80px;background:#fff;font-size:1.4rem;line-height: 80px;}
+article{padding-top:80px;}
+.sale_banner{width:100%;background:#F3F3F3;}
+.sale_banner .banner{margin-bottom:1.5%;}
+.goods_box{width:100%;overflow: hidden;}
+.goods{width:47.6%;background:#fff;margin:0 1.6% 1.6% 1.6%;float:left;}
+.goods:nth-child(even){margin-left:0;}
+.goods_photo{width:100%;}
+.price{height:60px;line-height: 60px;text-align: center;position:relative;padding-left: 2%;}
+.now_price{font-size: 1.3rem;font-weight: bold;color: #ECC35D;float:left;}
+.now_price i{font-size:1.5rem;}
+.past_price{text-decoration: line-through;color:#AEAEAE;float:left;}
+.mark{width:80px;height:30px;line-height:30px;border: 1px solid #FF4C91;color:#FF4C91;position:absolute;top:15px;right:15px; }
+.inf{color:#7F7F7F;line-height:30px;margin-top:2px;height:60px;padding-left: 2%;}
+
+
+.copyright{font-size:0.8rem;text-align: center;margin:2% 0;color:#6d6d6d;}
+.top{width:60px;height:60px;position:fixed;bottom:10%;right:5%;display:none;}
+
+
+
+
+.l_jiazai{width:80px;height:80px;margin:0 auto;
+    animation: jiazai 2s linear 0s infinite;
+    /* Firefox: */
+    -moz-animation: jiazai 2s linear 0s infinite;
+    /* Safari 和 Chrome: */
+    -webkit-animation: jiazai 2s linear 0s infinite;
+    /* Opera: */
+    -o-animation: jiazai 2s linear 0s infinite;}
+@keyframes jiazai{
+        0%{
+            -webkit-transform: rotate(0deg);
+               -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                 -o-transform: rotate(0deg);
+                    transform: rotate(0deg);
+        }
+        100%{
+            -webkit-transform: rotate(360deg);
+               -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                 -o-transform: rotate(360deg);
+                    transform: rotate(360deg);
+        }
+
+    };
+    @-moz-keyframes jiazai /* Firefox */
+    {
+        0%{
+            -webkit-transform: rotate(0deg);
+               -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                 -o-transform: rotate(0deg);
+                    transform: rotate(0deg);
+        }
+        100%{
+            -webkit-transform: rotate(360deg);
+               -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                 -o-transform: rotate(360deg);
+                    transform: rotate(360deg);
+        }
+    }
+
+    @-webkit-keyframes jiazai /* Safari 和 Chrome */
+    {
+        0%{
+            -webkit-transform: rotate(0deg);
+               -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                 -o-transform: rotate(0deg);
+                    transform: rotate(0deg);
+        }
+        100%{
+            -webkit-transform: rotate(360deg);
+               -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                 -o-transform: rotate(360deg);
+                    transform: rotate(360deg);
+        }
+    }
+
+    @-o-keyframes jiazai /* Opera */
+    {
+        0%{
+            -webkit-transform: rotate(0deg);
+               -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                 -o-transform: rotate(0deg);
+                    transform: rotate(0deg);
+        }
+        100%{
+            -webkit-transform: rotate(360deg);
+               -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                 -o-transform: rotate(360deg);
+                    transform: rotate(360deg);
+        }
+    }
+

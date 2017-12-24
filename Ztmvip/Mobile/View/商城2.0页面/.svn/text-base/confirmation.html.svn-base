@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/confirmation_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="Css/confirmation_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="Js/jquery.js"></script>
+</head>
+<body>
+<!-- 其他 -->
+<div class="returntop top"><img src="Images/top.png" alt="" /></div>
+<script>
+    $(window).on('scroll',function(e){
+        var winST = $(window).scrollTop()
+        if(winST>100){
+            $('.returntop').fadeIn(400);
+            $(".search_box").fadeIn(400)
+        }else{
+            $('.returntop').fadeOut(400);
+            $('.search_box').fadeOut(400)
+        }
+    })
+    $('.returntop').on('click',function(e) {           
+        $('html,body').animate({scrollTop:0},500)
+    });
+</script>
+<!-- 订单确认头部开始 -->
+<div class="header_box">
+    <div class="header_title">订单中心</div>
+    <span class="return"><img src="Images/fh.jpg" alt="" /></span>
+</div>
+<!-- 订单确认头部结束 -->
+<!-- 订单确认内容开始 -->
+<div class="address_box">
+    <!-- 默认地址 -->
+    <div class="default">
+        <div class="default_inf">
+            <div class="name">收货人：凯弟</div>
+            <div class="telephone">13413413413</div>
+        </div>
+        <div class="place">
+            广东省
+            广州市
+            天河区
+            花城大道
+            建滔广场
+        </div>
+    </div>
+ <!-- 添加修改地址 -->
+    <div class="list_box">
+        <a href="#">
+            <div class="icon"><img src="Images/icon1.jpg" alt="" /></div>
+            修改收货地址
+            <div class="jump"><img src="Images/fhy.gif" alt="" /></div>
+        </a>
+    </div>
+</div>
+<!-- 支付方式 -->
+<div class="columns_box">
+    <div class="title">支付方式</div>
+    <label for="method1">
+        <div class="list_box">
+            <div class="icon"><img src="Images/icon2.jpg" alt="" /></div>
+            微信支付
+            <input type="radio" name="payment" value="微信支付" id="method1" />
+            <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+        </div>
+    </label>
+    <label for="method2" class="pay1">
+        <div class="list_box">
+            <div class="icon not"><img src="Images/icon3.jpg" alt="" /></div>
+            余额支付
+            <i>余额不足</i>
+            <input type="radio" name="payment" value="余额支付" id="method2" />
+            <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+        </div>
+    </label>
+    <label for="method3" class="pay2">
+        <div class="list_box">
+            <div class="icon"><img src="Images/icon4.jpg" alt="" /></div>
+            储值卡支付
+            <i></i>
+            <input type="radio" name="payment" value="储值卡支付" id="method3" />
+            <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+        </div>
+    </label>
+</div>
+<!-- 优惠方式 -->
+<div class="columns_box privilege">
+    <div class="title">优惠方式</div>
+    <label for="classify1" class="coupons">
+        <div class="list_box">
+            <div class="icon"><img src="Images/icon5.jpg" alt="" /></div>
+            使用优惠券
+            <i></i>
+            <input type="radio" name="privilege" value="使用优惠券" id="classify1" />
+            <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+        </div>
+    </label>
+    <label for="classify2" class="packet">
+        <div class="list_box">
+            <div class="icon"><img src="Images/icon6.jpg" alt="" /></div>
+            使用红包
+            <i></i>
+            <input type="radio" name="privilege" value="使用红包" id="classify2" />
+            <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+        </div>
+    </label>
+    <div>
+    <label for="classify3" class="integral">
+        <div class="list_box">
+            <div class="icon"><img src="Images/icon7.jpg" alt="" /></div>
+            使用积分
+            <i></i>
+            <input type="radio" name="privilege2" value="使用积分" id="classify3" />
+            <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+        </div>
+    </label>
+    </div>
+</div>
+<!-- 商品 -->
+<div class="columns_box">
+    <div class="goods_box">
+        <div class="goods_pho"><img src="Images/seckill_goods.jpg" alt="" /></div>
+        <div class="inf_box">
+            <div class="goods_inf">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+            <div class="price">￥<i>228</i></div>
+            <div>
+                尺码：M
+                颜色：酒红色
+            </div>
+            <div class="goods_num">
+                <button type="button" class="cut">－</button>
+                <input type="number" name="num" value="1" id="num" min="1" />
+                <button type="button" class="add">＋</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 礼包 -->
+<div class="columns_box package">
+    <div class="package_name">
+        礼包1：<u>￥<i>228</i></u>
+    </div>
+    <div class="goods_num">
+        <button type="button" class="cut">－</button>
+        <input type="number" name="num" value="1" id="num" min="1" />
+        <button type="button" class="add">＋</button>
+    </div>
+    <div class="goods_box">
+        <div class="goods_pho"><img src="Images/seckill_goods.jpg" alt="" /></div>
+        <div class="inf_box">
+            <div class="goods_inf">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+            <div style="margin:30px 0!important;">
+                尺码：M
+                颜色：酒红色
+            </div>
+        </div>
+    </div>
+    <div class="goods_box">
+        <div class="goods_pho"><img src="Images/seckill_goods.jpg" alt="" /></div>
+        <div class="inf_box">
+            <div class="goods_inf">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+            <div style="margin:30px 0">
+                尺码：M
+                颜色：酒红色
+            </div>
+        </div>
+    </div>
+</div>
+<div class="other"></div>
+<!-- 订单页面内容结束 -->
+<!-- 网页底部去支付条 -->
+<div class="footer">
+    <div class="all_price">合计：<i>￥</i>288</div>
+    <div class="pay_bt">去支付</div>
+</div>
+<!-- 储值卡选择块 -->
+<div class="card_bg payin2">
+    <div class="card_box">
+        <label for="card0">
+            <div class="card">
+                <i>不使用储值卡</i>
+                <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+            </div>
+            <input type="radio" name="card" value="不选择储值卡支付" id="card0" />        
+        </label>
+        <label for="card1">
+            <div class="card">
+                <i>卡号1:0001</i>
+                可用余额：
+                3000
+                <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+            </div>
+            <input type="radio" name="card" value="卡号1" id="card1" />       
+        </label>
+        <label for="card2">
+            <div class="card">
+                <i>卡号1:0002</i>
+                可用余额：
+                5000
+                <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+            </div> 
+            <input type="radio" name="card" value="卡号2" id="card2" />      
+        </label>
+        <label for="card3">
+            <div class="card">
+                <i>卡号1:0003</i>
+                可用余额：
+                10000
+                <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+            </div> 
+            <input type="radio" name="card" value="卡号2" id="card3" />      
+        </label>
+    </div>
+</div>
+<!-- 优惠券选择块 -->
+<div class="card_bg couponsin">
+    <div class="card_box">
+        <label for="card0">
+            <div class="card">
+                <i>不使用优惠券</i>
+                <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+            </div>
+            <input type="radio" name="card" value="不选择储值卡支付" id="card0" />        
+        </label>
+        <label for="card1">
+            <div class="card">
+                <i>10元优惠券</i>
+                （满48元可用）
+                <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+            </div>
+            <input type="radio" name="card" value="卡号1" id="card1" />       
+        </label>
+        <label for="card2">
+            <div class="card">
+                <i>30元优惠券</i>
+                （满288元可用）
+                <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+            </div> 
+            <input type="radio" name="card" value="卡号2" id="card2" />      
+        </label>
+        <label for="card3">
+            <div class="card">
+                <i>100元优惠券</i>
+                （满888元可用）
+                <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+            </div> 
+            <input type="radio" name="card" value="卡号2" id="card3" />      
+        </label>
+    </div>
+</div>
+<!-- 红包选择块 -->
+<div class="card_bg packetin">
+    <div class="card_box">
+        <label for="card0">
+            <div class="card">
+                <i>不使用红包</i>
+                <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+            </div>
+            <input type="radio" name="card" value="不选择储值卡支付" id="card0" />        
+        </label>
+        <label for="card1">
+            <div class="card">
+                <i>6元红包</i>
+                <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+            </div>
+            <input type="radio" name="card" value="卡号1" id="card1" />       
+        </label>
+        <label for="card2">
+            <div class="card">
+                <i>8元红包</i>
+                <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+            </div> 
+            <input type="radio" name="card" value="卡号2" id="card2" />      
+        </label>
+        <label for="card3">
+            <div class="card">
+                <i>10元红包</i>
+                <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+            </div> 
+            <input type="radio" name="card" value="卡号2" id="card3" />      
+        </label>
+    </div>
+</div>
+<!-- 积分选择块 -->
+<div class="card_bg integralin">
+    <div class="integral_box">
+        <div class="integralin_now">
+            可用积分：4544 <br />
+            本订单最多可使用积分：188
+        </div>
+        <input type="text" name="integral" placeholder="请输入" class="integral_input" />
+        <div class="integral_bt">确 定</div>
+    </div>
+</div>
+<!-- 去支付弹出窗口 -->
+<div class="payfor_bg">
+    <div class="pay_box">
+        <div class="pay_title">付款详情
+            <div class="cancel">取 消</div>
+        </div>
+        <div class="pay_in">
+            <div class="left">支付方式</div>
+            <div class="right">微信支付</div>
+        </div>
+        <div class="pay_in">
+            <div class="left">商品金额</div>
+            <div class="right">￥288</div>
+        </div>
+        <div class="pay_in">
+            <div class="left">优惠方式</div>
+            <div class="right">优惠券(-￥10)</div>
+        </div>
+        <div class="pay_in not">
+            <div class="left">需付款</div>
+            <div class="right">278元</div>
+        </div>
+        <div class="confirm_box">
+            <div class="confirm">确认付款</div>
+        </div>
+    </div>
+</div>
+<!-- 支付弹窗点击取消块 -->
+<div class="cancel_bg">
+    <div class="cancel_box">
+        <div class="cancel_title">确定要放弃付款</div>
+        <div class="cancel_bt">
+            <div class="left">确 定</div>
+            <div class="right">取 消</div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $("label").on('click',function(event) {
+        $(this).children().children('.tick').css('display','block');
+        $(this).siblings().children().children('.tick').css('display','none')
+    });
+    $(".privilege label").on('click',function(event) {
+        $(this).siblings().children().children('i').html("")
+    });
+    $(".card_box").on('click',function(event) {
+        $(".card_bg").fadeOut();
+    });
+    $(".pay2").on('click',function(event) {
+        $(".payin2").fadeIn();
+    });
+    $(".coupons").on('click',function(event) {
+        $(".couponsin").fadeIn();
+    });
+    $(".packet").on('click',function(event) {
+        $(".packetin").fadeIn();
+    });
+    $(".integral").on('click',function(event) {
+        $(".integralin").fadeIn();
+    });
+    $(".payin2 .card").on('click',function(event) {
+        $(".pay2 .list_box i").html($(this).children('i').html())
+    });
+    $(".couponsin .card").on('click',function(event) {
+        $(".coupons .list_box i").html($(this).children('i').html())
+    });
+    $(".packetin .card").on('click',function(event) {
+        $(".packet .list_box i").html($(this).children('i').html())
+    });
+    $(".integralin .integral_bt").on('click',function(event) {
+        $(".integral .list_box i").html($(".integral_input").val());
+        $(".integralin").fadeOut();
+        console.log($(".integral_input").val())
+    });
+    $(".pay_bt").on('click',function(event) {
+        $('.payfor_bg').css('display','block');
+        $('.pay_box').slideDown();
+    });
+    $(".pay_title .cancel").on('click',function(event) {
+        $(".cancel_bg").fadeIn();
+    });
+    $(".cancel_bt .left").on('click',function(event) {
+        $(".cancel_bg").fadeOut();
+        $('.payfor_bg').css('display','none');
+        $('.pay_box').css('display','none');
+    });
+    $(".cancel_bt .right").on('click',function(event) {
+        $(".cancel_bg").fadeOut();
+    });
+</script>
+
+</body>
+</html>

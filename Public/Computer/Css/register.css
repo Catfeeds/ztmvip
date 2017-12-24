@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+body{background: #f4f4f4;}
+.register{ padding-top: 6px; width:1200px; margin: auto; overflow: hidden;}
+.register .left{ float: left; width:651px;}
+.register .left .logo{ width:196px; height: 120px;}
+
+
+.register .right{ float:left; margin-top: 94px; margin-left: 60px; margin-bottom: 82px; box-shadow: 0px 0px 6px #D8D8D8; width:310px; padding:21px 34px 0px; background:#fff; position: relative;}
+.register .right .alert{ position: absolute; top: 0; left:34px;}
+.register .right input{ width:258px; padding-left: 10px; padding-right: 40px; height:48px; line-height: 48px; border: 1px  solid #dddddd; margin-bottom: 6px; color: #808080;}
+.register .right input.yanzhengma{ width:128px; padding:0px 10px; float:left; margin-right: 15px;  margin-bottom: 10px;}
+.register .right button{ width:145px; height:50px; background:#e9c574; font-size: 14px; font-family: "宋体"; color:#fff;}
+.register .right button.zhuche{ font-size: 16px; width:310px; margin-top: 21px; font-weight: 600;}
+.register .right .checkbox{ font-size: 12px; color:#808080; line-height: 32px; padding-left: 22px; position: relative;}
+.register .right .checkbox i{display:block;
+; width:10px; height:10px; border:1px solid #dddddd; position: absolute; left:0px; top: 10px;}
+.register .right .checkbox  i.ok{ background:url(gou.png);}
+.register .right .denglu{font-size: 12px; color:#808080; padding-top: 18px;padding-bottom: 30px;}
+ .register .right .denglu a{ color:#e9c574;}
+ .register .right .denglu a:hover{  text-decoration: underline; }
+
+
+
+/*登陆页面*/
+ .register .right .title{ font-size: 20px; font-family: "微软雅黑"; color:#e9c574; text-align: center; padding-bottom: 30px;}
+.register .right .entry_alert{ font-size: 12px; color:#f35352; border:1px solid #f35352; line-height: 28px; background:#fff0ce url(entry_alert.jpg) no-repeat 10px; padding-left: 39px; margin-bottom: 15px;}
+.register .right input.name{ background:url(register_031.png) no-repeat 283px 16px; margin-bottom: 15px; }
+
+.register .right input.mima{ background:url(register_031.png) no-repeat 283px -50px; margin-bottom: 0px; }
+.register .right input.name_hover{ border-color: #e9c574; background:url(register_03.png) no-repeat 283px 16px; }
+
+.register .right input.mima_hover{ border-color: #e9c574; background:url(register_03.png) no-repeat 283px -50px; }
+.register .right p.ptishi{ color:#808080; padding-top: 18px;}
+.register .right .weixin{ width:40px; height:40px; margin-top: 21px;}
+.register .right a.wangji{ float:right; color:#808080;}
+
+
+.footer{ background:#f2f2f2;}
+
+
+.he_name,.he_mima1,.he_mima2,.he_phone{ position: relative;}
+
+.register .right .he_name p,.register .right .he_mima1 p,.register .right .he_mima2 p,.register .right .he_phone p,.register .right p.he_yanzhengma{ height:30px; line-height: 30px; font-size: 12px; color:#808080; font-size: 13px;}
+
+.register .right .he_name p span,.register .right .he_mima1 p span,.register .right .he_mima2 p span,.register .right .he_phone p span,.register .right p.he_yanzhengma span{ color:#f35352; float:right; display:none;}
+
+.register .right .he_phone input,.register .right .he_mima1 input,.register .right .he_mima2 input,.register .right input.yanzhengma,.register .right button{ height:40px; line-height: 40px;}
+.register .right .he_phone input,.register .right .he_mima1 input,.register .right .he_mima2 input{ margin-bottom: 11px;}
+.register .right button.zhuche{ height:50px; line-height: 50px;}
+.register .right .false input,.zhuche_false{border-color:#f35352 !important; box-shadow: 0px 0px 3px #f35352; }
+.register .right .false p span{ display:block;}
+
+
+
+
+
+
+
+

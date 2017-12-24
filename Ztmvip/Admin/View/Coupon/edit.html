@@ -1,0 +1,195 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">优惠券名称</td>
+            <td><input name="coupon_name" class="text" type="text" value="{$edit['coupon_name']}" required="required" placeholder="请输入优惠券名称..."></td>
+        </tr>
+        <tr <if condition="$send_count">style="display:none;"</if>>
+        <td class="label">优惠券金额</td>
+        <td><input name="coupon_money" class="text" type="text" value="{$edit['coupon_money']}" required="required" placeholder="请输入优惠券金额..."></td>
+        </tr>
+        <tr <if condition="$send_count">style="display:none;"</if>>
+        <td class="label">发放类型</td>
+        <td>
+            <tagLib name="html"/>
+            <html:radio name="send_type" radios="send_type" checked="edit_send_type" first="—请选择—" style="select" separator="&nbsp;&nbsp;&nbsp;&nbsp;"/>
+        </td>
+        </tr>
+        <tr class="js-user-id" style="display:none;">
+            <td class="label">用户筛选</td>
+            <td>
+                <input class="text js-user-search" type="text" placeholder="用户名称...">
+                <input class="text js-wechat-search" type="text" placeholder="微信用户...">
+            </td>
+        </tr>
+        <tr class="js-user-id" style="display:none;">
+            <td class="label"></td>
+            <td>
+                <select name="user_id" class="select js-user-search-result" multiple style="min-width:300px; min-height:200px;"></select>
+            </td>
+        </tr>
+        <tr class="js-amount-id" style="display:none;">
+            <td class="label">订单金额</td>
+            <td>
+                <input name="min_amount" class="text" type="text" value="{$edit['min_amount']}" placeholder="请输入订单金额下线..." style="min-width:120px;width:120px;"> -
+                <input name="max_amount" class="text" type="text" value="{$edit['max_amount']}" placeholder="请输入订单金额上线..." style="min-width:120px;width:120px;">
+            </td>
+        </tr>
+        <tr class="js-goods-id" style="display:none;">
+            <td class="label">商品筛选</td>
+            <td>
+                <select class="select js-goods-category js-goods-category-id" _name="">
+                    <option value="">—请选择—</option>
+                    <volist name="goods_category" id="vo">
+                        <option value="{$vo['id']}">{$vo['category_name']}</option>
+                    </volist>
+                </select>
+                <tagLib name="html"/>
+                <html:select options="goods_brand" first="—请选择—" style="select js-goods-brand-id"/>
+                <input class="text js-goods-search" type="text" placeholder="商品名称...">
+            </td>
+        </tr>
+        <tr class="js-goods-id" style="display:none;">
+            <td class="label"></td>
+            <td>
+                <select name="goods_id" class="select js-goods-search-result" data-rel="{$edit['goods_id']}" multiple style="min-width:300px; min-height:200px;"></select>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">起用金额</td>
+            <td><input name="min_order_amount" class="text" type="text" value="{$edit['min_order_amount']}" required="required" placeholder="请输入金额下限..."></td>
+        </tr>
+        <tr>
+            <td class="label">发放时间</td>
+            <td>
+                <input name="send_start" class="text js-time" type="text" value="{$edit['send_start']?:time()|date='Y-m-d H:i',###}" required="required" placeholder="请输入开始发放时间..." style="min-width:120px;width:120px;"> -
+                <input name="send_end" class="text js-time" type="text" value="{$edit['send_end']?:time()+86400|date='Y-m-d H:i',###}" required="required" placeholder="请输入结束发放时间..." style="min-width:120px;width:120px;">
+            </td>
+        </tr>
+        <tr>
+            <td class="label">使用时间</td>
+            <td>
+                <input name="use_start" class="text js-time" type="text" value="{$edit['use_start']?:time()|date='Y-m-d H:i',###}" required="required" placeholder="请输入开始使用时间..." style="min-width:120px;width:120px;"> -
+                <input name="use_end" class="text js-time" type="text" value="{$edit['use_end']?:time()+86400|date='Y-m-d H:i',###}" required="required" placeholder="请输入结束使用时间..." style="min-width:120px;width:120px;">
+            </td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td><button type="submit" class="submit">提 交</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Public/Common/DateTimePicker/datetimepicker.css" />
+<script src="__ROOT__/Public/Common/DateTimePicker/datetimepicker.js"></script>
+<script>
+    $('.js-edit').on('submit',function(event){
+        var data = Core.InputObj(this);
+
+        if (data['send_type'] == 'user'){
+            data['user_id'] = [];
+            $('.js-edit').find('select[name="user_id"] :selected').each(function(i,e){
+                data['user_id'].push(e.value);
+            });
+        }
+
+        $.post('',data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.href = "{:U('index')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+
+    $('.js-time').datetimepicker({'format':'Y-m-d H:i'});
+
+    $(':radio[name="send_type"]').on('change',function(){
+        $('.js-user-id,.js-amount-id,.js-goods-id').hide();
+
+        if ($.inArray(this.value,['user','amount','goods']) != -1){
+            $('.js-'+this.value+'-id').show();
+        }
+    }).filter(':checked').change();
+
+    /* --按用户、商品发放-- */
+    var gsr = $('.js-goods-search-result');
+    if (gsr.attr('data-rel') > 0){
+        search_goods();
+    }
+
+    $('.js-goods-search').on('keypress change',function(event){
+        if(event.keyCode == 13){
+            event.preventDefault();
+            search_goods();
+        }
+    });
+
+    function search_goods(){
+        var data = {
+            'goods_id':gsr.attr('data-rel')?$.parseJSON(gsr.attr('data-rel')):'',
+            'words':$('.js-goods-search').val(),
+            'category_id':$('.js-goods-category-id[name]').val(),
+            'brand_id':$('.js-goods-brand-id').val()
+        };
+
+        gsr.attr('data-rel','');
+
+        $.post("{:U('Goods/search')}",data,function(ret){
+            if (!ret)
+                return;
+
+            var tpl = '<option value="{value}">{text}</option>';
+            var html = '';
+
+            $.each(ret,function(i,e){
+                html += Core.FormatTpl(tpl,{'value':e.id,'text':e.goods_name});
+            });
+
+            gsr.html(html);
+        });
+    }
+
+    var usr = $('.js-user-search-result');
+    $('.js-user-search,.js-wechat-search').on('keypress',function(event){
+        if(event.keyCode == 13 || event.type == 'change'){
+            event.preventDefault();
+
+            var data = {
+                'user_name':$('.js-user-search').val(),
+                'wechat_name':$('.js-wechat-search').val()
+            };
+
+            if (!data['user_name'] && !data['wechat_name']){
+                Core.Alert({ 'text':'请输入会员名称或微信昵称','state':'err' });
+                return;
+            }
+
+            $.post("{:U('User/search')}",data,function(ret){
+                if (!ret)
+                    return;
+
+                var tpl = '<option value="{value}">{text}</option>';
+                var html = '';
+
+                $.each(ret,function(i,e){
+                    html += Core.FormatTpl(tpl,{'value':e.id,'text':e.user_name+'【'+e.wechat_user+'】'});
+                });
+
+                usr.html(html);
+            });
+        }
+    });
+    /* --end-- */
+</script>

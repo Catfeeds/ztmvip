@@ -1,0 +1,31 @@
+html{font-size:24px;font-family: "冬青黑体简体中文";height:100%;}
+body{height:100%;background:#F1F1F1;}
+.head_box{width:100%;max-width: 750px;position:fixed;top:0;background:#fff;z-index: 999;}
+.head{width:100%;height:88px;text-align: center;font-size: 1.4rem;line-height:88px;position:relative;}
+.head .return{width:18px;position:absolute;left:20px;top:13px;}
+article{padding-top:88px;}
+.order_inf{margin-top:2%;background:#fff;padding:10px 20px;box-sizing: border-box;font-size: 1.2rem;line-height:50px;}
+.order_inf i{font-weight: bold;line-height: 60px;}
+.order_inf .user_inf{overflow:hidden;}
+.order_inf .user_inf .name{float:left;}
+.order_inf .user_inf .phone{float:right;}
+.order_inf u{font-size: 1.1rem;color:#7F7F7F;}
+.goods_box{width:100%;overflow:hidden;overflow:hidden;background:#fff;margin-top:2%;padding:0 20px;box-sizing: border-box;}
+.goods_in{width:100%;padding:40px 0;box-sizing: border-box;overflow: hidden;}
+.goods_photo{width:33%;float:left;}
+.goods_inf{width:65%;float:right;}
+.goods_inf .title{font-size: 1.1rem;}
+.goods_inf .price{color:#E8C473;line-height:60px;margin-top:20px;}
+.goods_inf .price i{font-size: 1.4rem;font-weight: bold;}
+.goods_inf .price .left{float:right;color:#7F7F7F;}
+.goods_inf .inf_other{color:#7F7F7F;}
+.goods_inf .other_box{color:#7F7F7F;line-height: 80px;}
+.bt_box{width:100%;max-width:750px;position:fixed;bottom:0;padding:20px 0;text-align: center;}
+.bt{width:90%;height:88px;background:#E9C574;line-height:88px;font-size: 1.3rem;margin:0 auto;color:#fff;}
+.two{background:#fff;font-size: 1.1rem;}
+.two .bt1{width:200px;height:68px;line-height:69px;float:left;margin-left:15%;border: 1px solid #E9C574;color:#E9C574;box-sizing: border-box;}
+.two .bt2{width:200px;height:68px;line-height:68px;float:right;margin-right:15%;background:#E9C574;color:#fff;}
+.placeholder{height:128px;}
+
+.bg{width:100%;height:100%;background:rgba(0,0,0,0.6);position:fixed;top:0;z-index: 999;display:none;}
+.remind{width:388px;height:116px;background:#fff;position:absolute;top:50%;margin-top:-58px;left:50%;margin-left:-194px;text-align: center;line-height: 116px;font-size: 1.3rem;}

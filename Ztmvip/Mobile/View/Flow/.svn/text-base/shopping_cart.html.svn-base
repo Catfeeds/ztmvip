@@ -1,0 +1,232 @@
+<link rel="stylesheet" type="text/css" href="__CSS__/car_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="__CSS__/car_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="__JS__/shan_cart.js"></script>
+
+</head>
+<body>
+<notempty name='cart_list' id='value'>
+
+
+
+
+<!-- 购物车头部开始 -->
+<div class="header_box">
+    <div class="header_title">购物车</div>
+    <a href="{:U('Index/index')}";>
+      <div class="return"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></div>
+    </a>
+    <span class="editor">编辑</span>
+</div>
+<!-- 购物车内容开始 -->
+<script type="text/javascript">
+$(function(){
+   $('.editor').on('click',function(event) {
+       var text = $('.editor').text();
+
+       if(text == '编辑'){
+           $(this).text('完成')
+           $('.one').css('display','none');
+           $('.two').css('display','block');
+           $('.remove').css('display', 'block');
+           $('.goods_num2').css('display', 'block');
+
+       }else{
+           $(this).text('编辑')
+           // $('.one').css('display','block');
+           // $('.two').css('display','none');
+           // $('.remove').css('display', 'none');
+           // $('.goods_num2').css('display', 'none');
+            window.location.replace('{:U('Flow/cart')}');
+       }
+   });
+
+})
+
+  
+</script>
+
+
+
+
+
+
+<div class="address_box">
+<form action="">
+
+<!-- ##################### -->
+<volist name="cart_list" id="value" key="key1">
+         
+
+       <eq name="value.buy_flag" value="normal">
+              <!-- 正常商品 -->
+            <div class="columns_box">
+                <input type="checkbox" name="goods" id="good{$key1}" />
+
+
+                <div class="tick_box" onclick="change_selected({$value.id});">
+                    <div class="rud" <eq name="value.selected" value="Y"> style="display:none"</eq>></div>
+                    <div class="tick" <eq name="value.selected" value="Y"> style="display:block"</eq>><img src="__IMG__tick.jpg" alt="" /></div>
+                </div>
+
+                <div class="goods_box">
+                    <div class="goods_pho"><img src="__ROOT__{$value.goods_thumb}"  /></div>
+                    <div class="inf_box one">
+                        <div class="goods_inf">{$value.goods_name}</div>
+                        <div class="price">
+                          ￥<i>{$value.goods_price}</i>
+                           <!-- 商品数目 -->
+                          <div class="left">x{$value.goods_number}</div>
+                        </div>
+                        <div>
+              
+                            <volist name="value.goods_attr" id="attr">
+                                 {$attr[0]}：{$attr[1]}&nbsp;
+                            </volist>
+                        </div>
+                    </div>
+                    <div class="inf_box two">
+                        <div style="margin-top:30px;">
+                           <volist name="value.goods_attr" id="attr">
+                                {$attr[0]}：{$attr[1]}&nbsp;
+                           </volist>
+                        </div>
+                
+
+
+                        <div class="goods_num2">
+                            <button type="button"  onclick="change_goods_number('1',{$value.id})" class="cut"  <eq name="value.goods_number" value="1">style="color:#999"</eq> >－</button>
+                            <input type="hidden" id="back_number{$value.id}" value="{$value.goods_number}" />
+                            <input type="text" name="number" value="{$value.goods_number}" id="goods_number{$value.id}" onblur="change_goods_number('2',{$value.id})" onfocus="back_goods_number({$value.id})" />
+                            <button type="button" onclick="change_goods_number('3',{$value.id})" class="add">＋</button>
+                        </div>
+                        <div class="remove" onclick="drop_cart_goods(this)">删除</div>
+                        <input type="hidden" value="{$value.id}" checked="true"/>
+                    </div>
+                </div>
+            </div>
+        <else/>
+           <!-- 大礼包走这里头 -->
+
+              <!-- 礼包 -->
+              <div class="columns_box package">
+                  <input type="checkbox" name="goods" id="good2" />
+                      <div class="package-box">
+                          <div class="tick_box">
+                              <div class="rud"></div>
+                              <div class="tick"><img src="__IMG__tick.jpg" alt="" /></div>
+                          </div>
+                          <div class="package_name">
+                            礼包1：<u>
+                              ￥<i>228</i>
+                              <!-- 礼包数目 -->
+                              &nbsp;x1
+                              </u>
+                          </div>
+                      </div>
+                      <div class="goods_box">
+                          <div class="goods_pho"><img src="__IMG__seckill_goods.jpg" alt="" /></div>
+                          <div class="inf_box one">
+                              <div class="goods_inf">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                              <div style="margin:30px 0">
+                                  尺码：M
+                                  颜色：酒红色
+                              </div>
+                          </div>
+                          <div class="inf_box two">
+                              <div style="margin:30px 0">
+                                  尺码：M
+                                  颜色：酒红色
+                              </div>
+                          </div>
+                      </div>
+                      <div class="goods_num2">
+                          <button type="button" class="cut">－</button>
+                          <input type="number" name="num" value="1" id="num" min="1" />
+                          <button type="button" class="add">＋</button>
+                      </div>
+                      <div class="remove">删除</div>
+                      <div class="goods_box">
+                          <div class="goods_pho"><img src="__IMG__seckill_goods.jpg" alt="" /></div>
+                          <div class="inf_box one">
+                              <div class="goods_inf">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                              <div style="margin:30px 0">
+                                  尺码：M
+                                  颜色：酒红色
+                              </div>
+                          </div>
+                          <div class="inf_box two">
+                              <div style="margin:30px 0">
+                                  尺码：M
+                                  颜色：酒红色
+                              </div>
+                          </div>
+                      </div>
+              </div>
+
+
+
+        </eq>
+</volist>
+<script type="text/javascript">
+  $('.tick_box').on("click",function(event){
+      $(this).find('.rud').toggle();
+      $(this).find('.tick').toggle();
+  });
+
+</script>
+<!-- ################# -->
+
+</form>
+</div>
+<div class="bt_box" >
+
+    <div class="inf">
+        <input type="radio" name="all" id="all_click" style="display:none;" />
+        <i><label for="#all_click" class="js_allclick">
+            <div class="tick_box" id="shan_all" onclick="select_all();">
+                <div class="rud" <notempty name="all_flag"> style="display:none"</notempty>></div>
+                <div class="tick" <notempty name="all_flag"> style="display:block"</notempty> >
+                    <img src="__IMG__tick.jpg" alt="" />
+                </div>
+            </div>
+        全选</label></i>
+        <em>合计：￥<span id="together_price">{$total.goods_price|default=0}</span></em>
+        <u>(不含运费)</u>
+    </div>
+    <div class="pay_bt" onclick='javascript:location.href ="{:U('Flow/checkout')}";'>去支付&nbsp;<i>(<span id="gonumber">{$total.go_number|default=0}</span>)</i>
+   </div>
+</div>
+
+<!-- 点击全选时 -->
+<!-- <script type="text/javascript">
+  $('.js_allclick').on('click', function(event) {
+    $(this).find('.rud').toggle();
+    $(this).find('.tick').toggle();
+  });
+</script> -->
+
+
+
+<!-- 购物车页面内容结束 -->
+<else/>
+    <div class="header_box">
+        <div class="header_title">购物车</div>
+        <a href="{:U('Index/index')}">
+          <div class="return"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></div>
+        </a>
+       
+    </div>
+    <div class="car_bg_box">
+    <div class="car_bg_boxin">
+        <div class="car_photo"><img src="__IMG__car_bg3.jpg" height="136" width="136" alt="" /></div>
+        <div class="car_text"><a href="{:U('Index/index')}";>您的购物车空空如也~</a></div>
+    </div>
+
+
+</div>
+</notempty>
+<div style="display:none">
+<include file="Public/nav"/>
+</div>
+</body>
+</html>

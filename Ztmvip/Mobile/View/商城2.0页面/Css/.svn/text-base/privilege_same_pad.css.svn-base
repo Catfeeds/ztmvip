@@ -1,0 +1,71 @@
+html{font-size:24px;font-family: "冬青黑体简体中文";height:100%;}
+body{height:100%;}
+.head_box{width:100%;max-width: 750px;position:fixed;top:0;background:#fff;z-index: 999;}
+.head{width:100%;height:88px;border-bottom: 1px solid #ccc;text-align: center;font-size: 1.4rem;line-height:88px;position:relative;}
+.head .return{width:18px;position:absolute;left:20px;top:26px;}
+.head .prompt{width:40px;height:40px;position:absolute;top:26px;right:20px;}
+.columns_box{width:100%;height:88px;border-bottom: 1px solid #ccc;}
+.columns_in{width:33.3%;height:88px;float:left;text-align: center;box-sizing: border-box;}
+.columns_in .columns{width:100%;font-size: 1.1rem;height:34px;line-height:34px;margin-top:26px;border-right: 1px solid #ccc;color:#7F7F7F;box-sizing: border-box;}
+.columns_in:last-child .columns{border:0;}
+.cur{border-bottom: 4px solid #E8C473;}
+.cur .columns{color:#252525;}
+article{padding-top:180px;height:100%;}
+.bag_box{display: none;}
+.bag_in{width:96%;margin:10px auto 0;position:relative;}
+.bag_in .money{font-size: 2rem;font-style: oblique;font-weight: bold;color:#fff;position:absolute;top:70px;left:65px;}
+.bag_in .money i{font-size: 3rem;font-style: oblique;}
+.bag_in .time{position:absolute;top:150px;right:60px;color:#fff;}
+.bag_in .icon{width:21%;position:absolute;top:10px;left:50%;margin-left:-10%;}
+.bg{width:100%;height:100%;max-width:750px;position:fixed;top:0;background:rgba(0,0,0,0.6);z-index: 999;display:none;}
+.bg .ts_box{width:75%;height:600px;background:#922520;color:#fff;position:absolute;top:50%;margin-top:-300px;left:12.5%;}
+.bg .ts_box .text{text-align: justify;padding:0 20px;box-sizing: border-box;line-height: 40px;}
+.text h4{text-align: center;}
+.bg .ts_box h3{font-size: 1.8rem;font-weight: bold;margin-top:30px;line-height:60px;text-align: center;}
+.bg_color{background:#f1f1f1;min-height:100%;overflow: hidden;}
+.cou_box{display:none;}
+.acc{display:block;}
+.cou_box .cou_in{width:96%;margin:10px auto 0;position:relative;color:#808080;}
+.cou_box .cou_in .money{font-size: 2rem;font-style: oblique;font-weight: bold;color:#E9C573;position:absolute;top:110px;left:65px;}
+.cou_box .cou_in .money i{font-size: 3rem;font-style: oblique;}
+.cou_box .cou_in .money u{font-size: 1.5rem;color:#808080;}
+.cou_box .cou_in .time{position:absolute;top:220px;left:60px;color:#808080;}
+.cou_box .cou_in .inf{position:absolute;top:20px;right:20px;}
+.two .cou_in .money{color:#808080;}
+.ts_in{width:70%;height:390px;top:50%;margin-top:-195px;position:absolute;margin-left: -35%;left:50%;}
+.card_box{padding-top:89px;min-height:80%;}
+.card_in{position:relative;width:96%;margin:2% auto 0;}
+
+
+.card_num{position:absolute;bottom:46%;left:8%; font-size:1.7rem; text-shadow:0px 0px 1px #eaf2de;}
+
+
+.card_inf{position:absolute;right:26%;bottom:33%;}
+.copyright{height:154px;text-align: center;line-height: 40px;padding-top:20px;box-sizing: border-box;}
+.logistics{padding-top:89px;}
+.good_box{padding:40px 20px;position:relative;box-sizing: border-box;}
+.good_photo{width:250px;height:250px;position:absolute;left:0;overflow:hidden;}
+.goods_inf{width:100%;padding-left:270px;box-sizing: border-box;}
+.goods_inf .title{font-size: 1.1rem;}
+.goods_inf .price{color:#E8C473;line-height:60px;margin-top:20px;}
+.goods_inf .price i{font-size: 1.4rem;font-weight: bold;}
+.goods_inf .price .left{float:right;color:#7F7F7F;}
+.goods_inf .inf_other{color:#7F7F7F;}
+.goods_inf .other_box{color:#7F7F7F;line-height: 80px;}
+.logistics_list{font-size: 1.2rem;margin:30px 20px;}
+.logistics_list i{font-size: 1.2rem;color:#b6b6b6;}
+.logistics_box{overflow:hidden;padding:40px 0;border-bottom: 1px solid #7F7F7F;}
+.logistics_boxline{width:90%;border-left: 8px solid #C9C9C9;float:right;padding:40px 0;position:relative;}
+.logistics_boxline .inf{width:80%;margin:10px auto;min-height:70px;background:#c9c9c9;border-radius: 20px;color:#fff;line-height:70px;font-size: 1.2rem;position:relative;padding:0 20px;box-sizing: border-box;text-align:justify;}
+.logistics_boxline .inf .first{width:60px;height:60px;position:absolute;left:-18%;top:0px;}
+.now{background:#fff;margin:10px 0 10px -32px;font-size: 1.2rem;line-height:40px;}
+.inf .two{width:38px;height:38px;position:absolute;left:-16.9%;top:5px;}
+.inf:last-child{position:absolute;bottom:-40px;right:10%;}
+.inf:first-child{position:absolute;top:-40px;right:10%;}
+.inf:nth-child(2){background:#E8C473;}
+
+
+.card_article{width:96%;margin:20px auto 0;}
+.placeholder{height:130px;}
+.pay_btnbox{width:100%;max-width:750px;height:130px;position:fixed;bottom:0;}
+.pay_btn{width:90%;margin:0 auto;background:#e9c574;text-align: center;font-size: 1.4rem;color:#fff;line-height:90px;font-weight: bold;}

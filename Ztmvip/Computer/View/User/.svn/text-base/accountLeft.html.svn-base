@@ -1,0 +1,41 @@
+<div class="ededed_nav">
+    <h1>返利中心</h1>
+    <ul>
+        <li><a href="{:U('Affiliate/log')}">查看佣金明细</a></li>
+        <li><a href="{:U('Affiliate/desc')}">什么是返利</a></li>
+        <li><a href="{:U('Affiliate/withdraw')}">申请提现</a></li>
+        <li><a href="{:U('Affiliate/inBalance')}">转入余额</a></li>
+    </ul>
+    <div class="hr"></div>
+    <h1>我的余额</h1>
+    <ul>
+        <li><a href="{:U('Account/withdraw')}">申请提现</a></li>
+        <li><a href="{:U('Account/deposit')}">充值</a></li>
+        <li><a href="{:U('Account/wdwLog')}">提现记录</a></li>
+        <li><a href="{:U('Account/dptLog')}">充值记录</a></li>
+    </ul>
+    <h1>我的红包</h1>
+    <ul>
+        <li><a href="{:U('User/bonusDes')}">红包使用说明</a></li>
+    </ul>
+    <div class="hr"></div>
+    <h1>我的优惠券</h1>
+    <ul>
+        <li><a href="{:U('User/couponDes')}">优惠券使用说明</a></li>
+    </ul>
+    <script type="text/javascript">
+        $(function(){
+            //左边导航样式
+            $('.ededed_nav').find('a').each(function(i,item){
+                var href = $(this).attr('href');
+                if(href.indexOf('.html')>0){
+                    href = href.substr(0,href.indexOf('.html'));
+                }
+                var reg = new RegExp(href,'gim');
+                if(reg.test(String(window.location))){
+                    $(this).closest('li').addClass('cur');
+                }
+            });
+        });
+    </script>
+</div>

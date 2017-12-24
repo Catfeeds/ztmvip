@@ -1,0 +1,231 @@
+[ 2016-01-05T09:14:58+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.021001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0020s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '98e165d436a14a294cedf4c677fb4324' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_advert` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexBanner' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,10000   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_goods` [ RunTime:0.0020s ]
+SQL: SELECT g.goods_name,g.market_price,g.shop_price,sg.goods_id,g.goods_thumb,sg.kill_price,sg.goods_number,sg.kill_start,sg.kill_end FROM ztm_seckill_goods AS sg LEFT JOIN ztm_goods AS g ON sg.goods_id=g.id WHERE sg.on_sale='Y' AND sg.disabled='N' AND sg.kill_start=1451923200 AND sg.kill_end=1452009600 ORDER BY sg.rank DESC LIMIT 0,3 [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexFashion' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,9   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.112006s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.112006s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-01-05T09:14:59+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T09:14:59+08:00 ] 127.0.0.1 /Uploads/20151216/567111719f5ef.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-05T09:14:59+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-05T09:14:59+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-05T09:14:59+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T09:14:59+08:00 ] 127.0.0.1 /Uploads/20151215/566fd06f1fb82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-05T09:14:59+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e50221b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T09:14:59+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e3607c33.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T09:14:59+08:00 ] 127.0.0.1 /Uploads/20151211/566ab7fd714e7.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-05T09:14:59+08:00 ] 127.0.0.1 /Uploads/20151225/567cfc2fe6bfb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T09:15:00+08:00 ] 127.0.0.1 /Uploads/20151225/567cfc2fe6bfb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T09:15:00+08:00 ] 127.0.0.1 /Uploads/20151225/567cfc2fe6bfb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T09:15:00+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T09:15:04+08:00 ] 127.0.0.1 /Uploads/20151123/56526880940a2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-05T09:15:04+08:00 ] 127.0.0.1 /Uploads/20151123/56526880940a2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `ztm_cart` [ RunTime:0.0010s ]
+SQL: SELECT SUM(goods_number) AS count FROM `ztm_cart` WHERE `cart_key` = '25ec53935b7a14cc2d69465da96c39a1' LIMIT 1   [ RunTime:0.0150s ]
+SQL: SHOW COLUMNS FROM `ztm_advert` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexBanner' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,10000   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `ztm_goods` [ RunTime:0.0020s ]
+SQL: SELECT g.goods_name,g.market_price,g.shop_price,sg.goods_id,g.goods_thumb,sg.kill_price,sg.goods_number,sg.kill_start,sg.kill_end FROM ztm_seckill_goods AS sg LEFT JOIN ztm_goods AS g ON sg.goods_id=g.id WHERE sg.on_sale='Y' AND sg.disabled='N' AND sg.kill_start=1451923200 AND sg.kill_end=1452009600 ORDER BY sg.rank DESC LIMIT 0,3 [ RunTime:0.0010s ]
+SQL: SELECT * FROM `ztm_advert` WHERE `topic` = 'indexFashion' AND `disabled` = 'N' ORDER BY rank desc LIMIT 0,9   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151215/566fd06f1fb82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e3607c33.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151215/566fbfd9e81c0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151214/566e8e50221b5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151211/566ab7fd714e7.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151216/567111719f5ef.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151216/5671118e51d60.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151215/566fbff15b94c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151215/566fd0895d1e1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151215/566fd06f1fb82.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151225/567cfc2fe6bfb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151225/567cfc2fe6bfb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-01-05T12:03:09+08:00 ] 127.0.0.1 /Uploads/20151225/567cfc2fe6bfb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T12:03:10+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-01-05T12:03:10+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-01-05T12:03:14+08:00 ] 127.0.0.1 /Uploads/20151123/56526880940a2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-01-05T12:03:14+08:00 ] 127.0.0.1 /Uploads/20151123/56526880940a2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+

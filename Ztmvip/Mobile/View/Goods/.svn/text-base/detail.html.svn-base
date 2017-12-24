@@ -1,0 +1,443 @@
+
+    <link rel="stylesheet" type="text/css" href="__CSS__/details_index_mobile.css" media="(max-width:750px)" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/details_index_pad.css" media="(min-width:750px)">
+    <link rel="stylesheet" type="text/css" href="__CSS__/swiper.css" />
+    <link rel="stylesheet" type="text/css" href="__PCSS__/collect/wait.css" />
+    <script type="text/javascript" src="__JS__/swiper.jquery.min.js"></script>
+    <script type="text/javascript" src="__JS__/shan_detail.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<style type="text/css">
+  .swiper-lazy-preloader{ height: 300px;}
+  .swiper2 .swiper-slide img{width:100%;height:100%;}
+/*###### shiqian add #########*/
+      .miaosha{ width:100px; float:left; margin: 14px 10px; }
+      @media (max-width:750px ) {
+    .miaosha {
+      width: 47px;
+      float: left;
+      margin: 8px 7px;
+  }      
+      }
+/*######################################*/
+</style>
+</head>
+<body>
+<!-- 商品详情页头部开始 -->
+<header class="header">
+    <div class="left">
+        <a href="{$go_out}">
+            <img src="__IMG__fh2.jpg" alt="" />
+        </a>
+    </div>
+    <div class="click_index">
+        <a href="{:U('Index/index')}"><img src="__IMG__xin3.png"  /></a>
+    </div>
+    <div class="click js_carone">
+        <a href="{:U('Flow/cart')}">
+            <img src="__IMG__car.png" alt="" />
+            <div class="num">
+                <php>
+                 if(session('cnumber'))
+                   {
+                        echo session('cnumber');
+                   }else{
+                        echo 0;
+                   }
+                </php>
+            </div>   
+        </a>     
+    </div>
+    <div class="click">
+        <img class="collect" src="<notempty name='flag'>__IMG__xin2.png<else/>__IMG__xin.png</notempty>"  onclick="collect({$goods_id})" />
+    </div>
+<!-- ################################################### -->
+
+<!-- ########################################################### -->
+</header>
+<!-- 商品详情页头部结束 -->
+<div class="bgc">
+    <div class="place"></div>
+    <div class="swiper-container" id="swiper2">
+        <div class="swiper-wrapper">
+          <volist name="pictures" id="value">
+            <div class="swiper-slide">
+                <img class="img swiper-lazy" data-src="__ROOT__{$value.thumb}"  />
+                <div class="swiper-lazy-preloader"></div>
+            </div>
+          </volist>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <script>
+        var swiper2 = new Swiper('#swiper2', {
+            pagination: '.swiper-pagination',
+            slidesPerView: 'auto',
+            paginationClickable: true,
+            spaceBetween: 0,
+            autoplay: 2500,
+            autoplayDisableOnInteraction: false,
+            loop: true,
+            preloadImages: false,
+            lazyLoading: true
+        });
+    </script> 
+
+    <div class="inf_box">
+        <!-- <div class="inf_top">
+            <div class="click other js_cartwo">
+            <a href="{:U('Flow/cart')}">
+                <img src="__IMG__car.png" alt="" />
+                <div class="num">
+                    <php>
+                     if(session('cnumber'))
+                       {
+                            echo session('cnumber');
+                       }else{
+                            echo 0;
+                       }
+                    </php>
+                </div>
+            </a>
+            </div>
+            <div class="click">
+              <img class="collect" src="<notempty name='flag'>__IMG__xin2.png <else/>__IMG__xin.png</notempty>"  onclick="collect({$goods_id})" />
+            </div>
+        </div> -->
+
+        <div class="inf_title">{$details.goods_name}</div>
+        <div class="inf_price">
+            <div class="left" id='shan_final'>￥<i>{$details.final_price}</i></div>
+            <div class="ori">￥{$details.market_price|intval}</div>
+            <!-- 日期1202添加一张秒杀图片,ccs在页面头部 -->
+            <notempty name="is_kill">
+            <img src="__IMG__/inf_price.png" class="miaosha" />
+            </notempty>
+            <!-- ########### ##################### -->
+            <div class="right">已售：<i>{$sale_count|default=0}&nbsp;件</i></div>
+        </div>
+
+    </div>
+
+<notempty name="package_goods_list">
+    <!-- 整体美礼包开始 -->
+    <div class="inf_box">
+        <div class="bag_title">整体美礼包</div>
+        <div class="bag_box">
+            <div class="swiper-container" id="swiper3">
+                <div class="swiper-wrapper">
+                <!-- ########################### -->
+            <volist name="package_goods_list" id="value">
+                    <div class="swiper-slide">
+                        <div class="bag">
+                        <a href="{:U('Goods/packageList',array('goods_id'=>$goods_id))}">
+                            <div class="bag_name">{$value.group_name}</div>
+                         <volist name="value.relation_goods" id="value1">
+                            <div class="bag_goods"><img src="__ROOT__{$value1.goods_thumb}_710x700.jpg" alt="" /></div>
+                         </volist>
+                
+                        </a>
+                        </div>
+                    </div>
+           </volist>
+                     <!-- ################### -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 整体美礼包结束 -->
+</notempty>
+
+    <script>
+            var gd_w = $(window).width()
+        if(gd_w<750){
+            $(".bag_goods").css('width',gd_w*0.27);
+        }else{
+            $(".bag_goods").css('width',750*0.21)
+        };
+        var swiper3 = new Swiper('#swiper3', {
+            slidesPerView: "auto",
+            freeMode : true,
+            spaceBetween: 4
+        });
+</script>
+
+<div class="inf_box down">
+        <div class="goods_inftitle">商品详情
+            <div class="jump"><img src="__IMG__fhy.gif" alt="" /></div>
+        </div>
+        <div class="article">
+            {$details['goods_desc']}
+        </div>
+    </div>
+
+    <div class="inf_box">
+        <div class="service_title same">服务：</div>
+        <div class="service_box">
+            <a id="js_seven" class="service same" href="{:U('Article/show','id=59')}">
+            <if condition="$details['service']['refund']">
+                <span class="dec"><img src="__IMG__gou.png" alt="" /></span>
+                <span class="two">7天无理由退货</span>
+                <else/>
+                <span class="dec"><img src="__IMG__yangyang.png" alt="" /></span>
+                <span class="two" style="color:#888;">7天无理由退货</span>
+            </if>
+            </a>
+            <a class="service same" href="{:U('Article/show','id=59')}">
+                <span class="dec"><img src="__IMG__gou.png" alt="" /></span>
+                <span>分享赚钱</span>
+            </a>
+            <a class="service same" href="{:U('Article/show','id=59')}">
+                <span class="dec"><img src="__IMG__gou.png" alt="" /></span>
+                <span>正品保障</span>
+            </a>
+            <a class="service same" href="{:U('Article/show','id=59')}">
+                <span class="dec"><img src="__IMG__gou.png" alt="" /></span>
+                <span>买贵返双倍差额</span>
+            </a>
+        </div>
+    </div>
+    <div class="inf_box js-skus">
+
+    <!-- 属性规格 -->
+        <form name="ZTM_FORMBUY" id="ZTM_FORMBUY">
+
+
+      <volist name="properties" id="value" key="key1">
+         <div class="radio_box">
+             <div class="radio_title">{$value.name}：</div>
+             <div class="color">
+             <!-- ############################## -->
+               <volist name="value.values" id="value2" key='key2'>
+                 <input onclick="final_price({$goods_id});" type="radio" <eq name="key2" value="1">checked</eq> name="spec_{$key1}" value="{$value.sku_id}_{$key2-1}_{$value.name}_{$value2.label}" id="ztm{$key1}{$key2}" />
+                 <label for="ztm{$key1}{$key2}"<eq name="key2" value="1"> class="rdo_cur"</eq> >{$value2.label}</label>
+               </volist>
+               <!-- ################################# -->
+             </div>                          
+         </div>  
+     </volist>          
+
+                <div class="radio_box" >
+                     <div class="radio_title">购买数量：</div>
+                     <div class="goods_num">
+                         <button class="cut" type="button" onclick="changePrice('1',{$goods_id})">－</button>
+        <input type="text" name="number" value="1" id="goods_number" onchange="changePrice('2',{$goods_id})" />
+
+                         <button class="add" type="button" onclick="changePrice('3',{$goods_id})">＋</button>
+                     </div>                          
+                 </div>
+
+        </form>
+    </div>
+    <script type="text/javascript">
+         final_price({$goods_id});
+    </script>
+
+<notempty name="commentlist">
+    <div class="inf_box">
+        <div class="comm_title">
+            <div class="left">用户评论</div>
+            <div class="right"><i>{$total_comments['count']}人</i>评论<i>{$total_comments['favorable_rate']}%</i>好评</div>
+        </div>
+
+    <volist name="commentlist" id="value">
+        <div class="comm_box">
+            <div class="comm">
+            <!-- 星星 -->
+
+                <div class="left">
+                    <for start="0" end="$value.level">
+                          <div class="star"><img src="__IMG__star.gif" alt="" /></div>
+                    </for>
+                </div>
+                <div class="right">
+                    <!-- 用户名 -->
+                    {$value.user_name}
+                    <!-- 日期 -->
+                    {$value.add_time}
+                    <!-- 时间 -->
+                    
+                </div>
+            </div>
+            <div class="comm_in">{$value.content|subtext=25}</div>            
+        </div>
+</volist>
+       
+    <div class="comm_more"><a href="{:U('Goods/allComment',array('goods_id'=>$goods_id))}">查看全部评论&nbsp;＞</a></div>
+</div>
+</notempty>
+
+
+<notempty name="linked_goods">
+    <!-- 相关推荐开始 -->
+    <div class="inf_box">
+        <div class="goods_inftitle">相关推荐</div>
+        <div class="swiper-container" id="swiper0">
+            <div class="swiper-wrapper">
+
+             <volist name="linked_goods" id="value">
+                <div class="swiper-slide" onclick="javascript:window.location='{:U('Goods/detail',array('goods_id'=>$value['goods_id']),'')}';">
+                    <div class="seckill"><img src="__ROOT__{$value.goods_thumb}_217x217.jpg" alt="" /></div>
+                    <div class="seckill_inf">
+                        <div class="price">￥<em>{$value.shop_price}</em></div>
+                        <div class="inf">{$value.goods_name|subtext=6}</div>
+                    </div>
+                </div>
+           </volist>
+
+            </div>
+        </div>    
+        <script>
+            var swiper = new Swiper('#swiper0', {
+                slidesPerView: "auto",
+                freeMode : true,
+                paginationClickable: true,
+                spaceBetween: 4
+            });
+        </script>
+    </div>
+
+    <!-- 相关推荐结束 -->
+
+</notempty>
+    <script>
+        $(".down").on('click',function(event){
+            $(this).children('.article').slideToggle(300)
+            $(this).siblings('.down').children('.article').slideUp(300)
+        });
+    </script>
+
+    <style type="text/css">
+        .goods_weixin{ overflow: hidden;background: rgb(255, 255, 255);margin: 1% auto 0px;width: 94%; padding:5px 0px;}
+        .goods_weixin .img{ width:140px;  margin: auto;}
+        .goods_weixin p{  font-size: 13px; text-align: center; }
+    </style>
+    <div class="goods_weixin">
+        <div class="img"><img src="__IMG__weixin.png" alt="" /></div>
+        <p>关注注册送红包，分享购买返佣金！</p>
+    </div>
+
+    <div class="inf_box">
+          <include file="Public/copy_right"/>
+    </div>
+  
+</div>
+
+
+<div class="details_bt">
+    <div class="details_bt_box">
+        <div class="shopping_in" onclick="add_cart({$goods_id})">加入购物车</div>
+        <div class="shopping"    onClick="add_cart({$goods_id},1)">立即购买</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+  $(function(){
+      var num = $('#goods_number').val();
+      if(num==1){
+        $('.cut').css('color', '#999');
+      }else{
+        $('.cut').css('color', '#252525');
+      }
+  })
+</script>
+
+ <script>
+        $(function(){
+            $("label").on('click',function(event) {
+                $(this).addClass('rdo_cur').siblings('label').removeClass('rdo_cur')
+            });
+
+            // 点击飞入效果
+            function fly(){
+                $('.shopping_in').on('click',function (){  
+                    var cart = $('.js_carone');
+                    var imgtodrag = $('.img').eq(0);
+                    function flying(){
+                        if (imgtodrag) {
+                            var imgclone = imgtodrag.clone().offset({
+                                top: $('.shopping_in').offset().top,
+                                left:$('.shopping_in').offset().left
+                            }).css({
+                                'opacity': '0.5',
+                                'position': 'absolute',
+                                'height': '150px',
+                                'width': '150px',
+                                'z-index': '100'
+                            }).appendTo($('body')).animate({
+                                'top': cart.offset().top + 10,
+                                'left': cart.offset().left + 10,
+                                'width': 75,
+                                'height': 75
+                            }, 1000);
+                            imgclone.animate({
+                                'width': 0,
+                                'height': 0
+                            }, function () {
+                                $(this).detach();
+                            });
+                        }
+                    }
+                    flying();
+                });
+            }
+            fly();
+        }) 
+        </script>
+
+<!-- ######################### -->
+<include file="Public/collect"/>
+<!-- ############################### -->
+
+</body>
+<script type="text/javascript">   
+    wx.config({
+      debug: false,
+      appId:"{$signPackage['appid']}",
+      timestamp:"{$signPackage['timestamp']}",
+      nonceStr:"{$signPackage['noncestr']}",
+      signature:"{$signPackage['signature']}",
+      jsApiList:[
+        'onMenuShareAppMessage',
+        'onMenuShareTimeline',
+      ]
+    });
+/*****************************************************/
+    wx.ready(function(){
+      
+    //发送给朋友
+    //注意，如果您的分享图标太大，网速又不是很好，则分享的链接将显示不出图标的
+    wx.onMenuShareAppMessage({
+      title:'{$title}',
+      desc:'{$desc}',
+      link:'{$link}',
+      imgUrl:'{$imgUrl}',
+      type: 'link', 
+       success: function () { 
+              // 用户确认分享后执行的回调函数
+          },
+       cancel: function () { 
+              // 用户取消分享后执行的回调函数
+          }
+    });
+   //分享到朋友圈
+    wx.onMenuShareTimeline({
+        title:'{$title}', // 分享标题
+        link:'{$link}', // 分享链接
+        imgUrl:'{$imgUrl}', // 分享图标
+        success: function () { 
+            // 用户确认分享后执行的回调函数
+        },
+        cancel: function () { 
+            // 用户取消分享后执行的回调函数
+        }
+    });
+
+
+}); //ready尾
+
+/*****************************************************/
+</script>
+</html>

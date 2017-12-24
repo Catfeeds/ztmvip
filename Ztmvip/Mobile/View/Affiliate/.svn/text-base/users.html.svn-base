@@ -1,0 +1,55 @@
+    <link href="__CSS__myCustomer.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="Customer max">
+    <div class="top" onclick="location.href='{:('index')}';">我的客户</div>
+    <ul class="js-one ul1">
+        <volist name="user" id="vo">
+            <li><a><img src="{$vo['avatar']}" class="img" />{$vo['user_name']}</a></li>
+        </volist>
+        <!--
+        <li><a href="#"><img src="__IMG__myCustomer_09.jpg" class="but" /><img src="__IMG__myCustomer_06.jpg" class="img" />可见几个哈</a>
+            <ul class=" js-two ul2" style="border:none;">
+                <li><a href="#"><img src="__IMG__myCustomer_09.jpg" class="but" /><img src="__IMG__myCustomer_06.jpg" class="img" />可见几个哈</a>
+                    <ul class="js-three ul3">
+                        <li><a href="#"><img src="__IMG__myCustomer_06.jpg" class="img" />可见几个哈</a></li>
+                        <li><a href="#"><img src="__IMG__myCustomer_06.jpg" class="img" />可见几个哈</a></li>
+                        <li><a href="#"><img src="__IMG__myCustomer_06.jpg" class="img" />可见几个哈</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        -->
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        //二级菜单控制
+        $('.js-one > li').on('click',function(){
+            $(this).children('.js-two').slideToggle();
+            if(this.className=="click"){
+                this.className=null;
+            }
+            else{
+                this.className="click";
+            }
+            return false;
+        });
+        //三级菜单控制
+        $('.js-two > li').on('click',function(){
+            $(this).children('.js-three').slideToggle();
+
+            if(this.className=="click"){
+                this.className=null;
+            }
+            else{
+                this.className="click";
+            }
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

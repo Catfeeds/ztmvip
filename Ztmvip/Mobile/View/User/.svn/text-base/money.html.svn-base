@@ -1,0 +1,198 @@
+    <link rel="stylesheet" type="text/css" href="__CSS__balance_mobile.css" media="(max-width:750px)" />
+    <link rel="stylesheet" type="text/css" href="__CSS__balance_pad.css" media="(min-width:750px)">
+    <style type="text/css">
+        .kaidi{margin-top:200px;font-size:1.2rem;text-align: center;color:#252525;}
+    </style>
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        我的余额
+        <a class="return" href="{:U('User/index')}"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></a>
+    </div>
+    <div class="columns_box">
+        <div class="columns_in cur" data-rel="deposit">
+            <div class="columns">充值记录</div>
+        </div>
+        <div class="columns_in" data-rel="withdraw">
+            <div class="columns">提现记录</div>
+        </div>
+    </div>
+</div>
+<!-- 内容 -->
+<article class="js-account-list">
+    <!-- 充值记录块 -->
+    <div class="list_box accord one">
+        <if condition="$account">
+            <volist name="account" id="vo">
+                <div class="list">
+                    <div class="what">充值金额：{$vo['amount']}元 <span style="color:#f00;">[充值<if condition="!$vo['date_pay'] && !$vo['date_refuse']">中<elseif condition="$vo['date_pay'] gt 0"/>成功<elseif condition="$vo['date_refuse'] gt 0"/>失败</if>]</span></div>
+                    <div class="time">{$vo['date_add']|date='Y.m.d',###}</div>
+                </div>
+            </volist>
+            <else/>
+            <div class="kaidi" style="margin-top:0;">暂无充值记录</div>
+        </if>
+    </div>
+    <!-- 提现金额记录块 -->
+    <div class="list_box two"></div>
+</article>
+<div class="placeholder"></div>
+<!-- 底部按钮 -->
+<div class="bt_box two">
+    <div class="bt1">申请提现</div>
+    <div class="bt2">充 值</div>
+</div>
+<!-- 转入金额输入层 -->
+<div class="bg bg3">
+    <form class="remind_box" id="js-withdraw-form" onsubmit="return false;">
+        <div class="text_box">
+            可提现金额：{$user['user_money']+$user['frozen_money']|sprintf='%.2f',###}元<br />
+            提现金额：<input name="money" type="number" class="price_num" maxlength="9" size="9" />元
+        </div>
+        <div class="text_password">
+            请输入支付密码：<i>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <input name="payment_password" type="password" maxlength="6" class="pass_num" style="" />
+            </i>
+        </div>
+        <div class="remindbt_box">
+            <div class="remind_bt1">取 消</div>
+            <button class="remind_bt2" type="submit">确 定</button>
+        </div>
+    </form>
+</div>
+<!-- 充值输入层 -->
+<form id="form1" action="{:U('User/actAccount')}" method="post">
+<div class="bg bg4">
+    <div class="remind_box">
+        <div class="text_box">
+            请输入充值金额：<input id="account_amount" name="amount" maxlength="9" size="9" type="number" class="price_num"/>元
+        </div>
+        <div class="remindbt_box">
+            <div class="remind_bt1">取 消</div>
+            <div id="account_btn" class="remind_bt2">确 定</div>
+        </div>
+    </div>
+</div>
+</form>
+<script type="text/javascript">
+    $('.pass_num').on('keyup',function(){
+    //这就是输入值的个数
+        var length=this.value.length;
+        //console.log(length);
+        $(this).siblings('.dian:lt('+(length)+')').addClass('dian_cur');
+        $(this).siblings('.dian:not(:lt('+(length)+'))').removeClass('dian_cur');
+    });
+    // 切换类型
+    $('.columns_in').on('click',function(event) {
+        var index = $(this).index();
+        var state = $(this).attr('data-rel');
+        $(this).addClass('cur').siblings().removeClass('cur');
+
+        $.post('',{ 'state':state },function(ret){
+            var tpl = {
+                'deposit':'<div class="list">' +
+                '<div class="what">充值金额：{amount}元 <span style="color:#f00;">[{state}]</span></div>' +
+                '<div class="time">{date_add}</div>' +
+                '</div>',
+                'withdraw':'<div class="list">' +
+                '<div class="what">提现金额：{amount}元 <span style="color:#f00;">[{state}]</span></div>' +
+                '<div class="time">{date_add}</div>' +
+                '</div>'
+            };
+            var content = '';
+
+            if (ret.length){
+                if (!$('.js-account-list .list_box').length)
+                    $('.js-account-list').html('<div class="list_box accord one"></div>');
+
+                $.each(ret,function(i,e){
+                    e.date_pay = parseInt(e.date_pay);
+                    e.date_refuse = parseInt(e.date_refuse);
+
+                    var state_str = (state=='deposit'?'充值':'提现');
+                    if (!e.date_pay && !e.date_refuse)
+                        state_str += '中';
+                    else if (e.date_pay)
+                        state_str += '成功';
+                    else if (e.date_refuse)
+                        state_str += '失败';
+
+                    content += Core.FormatTpl(tpl[state],{
+                        'amount':Math.abs(e.amount).toFixed(2),
+                        'state':state_str,
+                        'date_add':Core.FormatDate('Y.m.d',e.date_add*1000),
+                    });
+                });
+            }else{
+                $('.js-account-list').html('<div class="kaidi">暂无充值记录</div>')
+            }
+            $('.js-account-list .list_box').eq(index).addClass('accord').html(content).siblings().removeClass('accord');
+        },'json');
+    });
+
+    $('#js-withdraw-form').on('submit',function(){
+        var data = Core.InputObj(this);
+
+        $.post("{:U('withdraw')}",data,function(ret) {
+            if (ret.state){
+                Core.Alert({ 'text':ret.message,'callback':function(){
+                    location.reload();
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+    $('.bt').on('click',function(event) {
+        $('.bg1').stop().fadeIn();
+        setTimeout(function(){
+            $('.bg1').stop().fadeOut();
+        },2000);
+    });
+    $('.bg1').on('click',function(){
+        $('.bg').fadeOut();
+    })
+    $('.remind_bt1').on('click',function(){
+        $('#js-withdraw-form').find('input[name]').val('');
+        $('.pass_num').keyup();
+        $('.bg').fadeOut();
+    })
+    $('.two .bt1').on('click',function(){
+        <if condition="!$user['payment_password'] || !$user['mobile'] || !$user['answer'] || !$user['bank_card']">
+        Core.Alert({ 'text':'抱歉，请先设置您的安全信息','state':'err','callback':function(){
+            location.href = "{:U('User/safetyAll','redirect='.base64_encode($_SERVER['HTTP_REFERER']))}";
+        } });
+        <else/>
+        $('.bg3').fadeIn();
+        </if>
+    })
+    $('.two .bt2').on('click',function(){
+        $('.bg4').fadeIn()
+    })
+    //点击充值确定按钮
+    $('#account_btn').on('click',function(){
+        var amount = $('#account_amount').val();
+        var reg =/^[0-9]+(\.[0-9]{1,2})?$/;
+        if(!reg.test(amount) || parseFloat(amount)<=0){
+            alert('请输入正确的金额');
+            return;
+        }
+        if(parseFloat(amount)>99999999.99 ){
+            alert('单笔交易不能大于1亿');
+            return;
+        }
+        $('#form1').submit();
+
+    })
+</script>
+</body>
+</html>

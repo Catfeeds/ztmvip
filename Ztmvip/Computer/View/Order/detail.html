@@ -1,0 +1,193 @@
+    <link rel="stylesheet" type="text/css" href="__PCCSS__user.css" />
+</head>
+<body>
+
+<include file="Public:top"/>
+
+<div class="user_bg">
+    <div class="user">
+        <include file="User:publicLeft"/>
+        <div class="user_right">
+            <form action="">
+                <include file="User:publicUserTop"/>
+
+                <div class="order_deta">
+                    <span class="tishi">订单详情</span>
+                    <p class="p1">收货地址：</span>{$order.consignee}，{$order.mobile}，{$order.province}  {$order.city}  {$order.district}<if condition="$order.zipcode neq ''">，{$order.zipcode}</if></p>
+                    <p class="p2">订单信息</p>
+                    <p class="p3">订单编号：{$order.order_sn}</p>
+                    <p class="p3">创建时间：{$order.date_add|date='Y-m-d H:i:s',###}</p>
+                    <if condition="$order.date_pay gt 0"><p class="p3">成交时间：{$order.date_pay|date='Y-m-d H:i:s',###}</p></if>
+                    <if condition="!in_array($order['payment_state'],array('new','paying'))"><p class="p4">支付方式：{$order['payment_name']}<br /></p></if>
+                    <p class="p4">订单金额：￥{$order['goods_fee']|sprintf='%.2f',###}</p>
+                    <if condition="$order.shipping_fee gt 0"><p class="p4">运费：￥{$order.shipping_fee|default=0.00}</p></if>
+                    <if condition="$order['bonus_id']">
+                        <p class="p4">使用红包：-￥{$order['bonus_amount']}</p>
+                    </if>
+                    <if condition="$order['coupon_id']">
+                        <p class="p4">使用优惠券：-￥{$order['coupon_amount']}</p>
+                    </if>
+                    <if condition="$order['integral']">
+                        <p class="p4">使用积分：-￥{$order['integral'] * 1/100}</p>
+                    </if>
+                    <if condition="in_array($order['payment_state'],array('new','paying'))">
+                        <p class="p5">应付款：￥{$order['goods_fee']+$order['shipping_fee']-$order['payment_amount']-$order['surplus_amount']-$order['prepaid_amount']-$order['integral_amount']-$order['bonus_amount']-$order['coupon_amount']|sprintf='%.2f',###}</p>
+                    <else/>
+                        <p class="p5">实付款：￥{$order['surplus_amount']+$order['payment_amount']+$order['prepaid_amount']|sprintf='%.2f',###}</p>
+                    </if>
+
+                    <div class="order_deta_con js-order" data-rel="{$order.id}" data-sn="{$order.order_sn}">
+                        <ul class="title">
+                            <li class="li1">商品</li>
+                            <li class="li2">单价</li>
+                            <li class="li3">数量</li>
+                            <li class="li4">交易状态</li>
+                            <li class="li5">交易操作</li>
+                        </ul>
+                        <volist name="order.goods" id="v">
+                        <div class="con1">
+                            <div class="img"><img src="{$v.goods_thumb}" alt="" /></div>
+                            <ul class="text">
+                                <li class="li1">{$v.goods_name}</li>
+                                <li class="li2">{$v.goods_price}</li>
+                                <li class="li3">{$v.goods_number}</li>
+                            </ul>
+                            <p>
+                                <php>$v['skus'] = json_decode($v['skus'],true);</php>
+                                <volist name="v.skus" id="skus_val">
+                                    <span>{$skus_val[0]}：{$skus_val[1]}</span>
+                                </volist>
+                            </p>
+                        </div>
+                        </volist>
+                        <ul class="action">
+                            <if condition="($state eq 'new') or ($state eq '')">
+                                <li class="li4"><a href="">待付款</a></li>
+                                <li class="li5">
+                                    <a class="" href="{:U('Center/choose')}?order_id={$order.id}">付款</a>
+                                    <a class="a2 js-delete" href="javascript:;">删除</a>
+                                </li>
+                                <elseif condition="$state eq 'payed'"/>
+                                <li class="li4"><a href=""><if condition="$order.shipping_state eq 'stock'">配货中<else/>待发货</if></a></li>
+                                <li class="li5"><a class="js-send" href="javascript:;">提醒发货</a></li>
+                                <elseif condition="$state eq 'send'"/>
+                                <li class="li4"><a href="">已发货</a><a href="javascript:;">查看物流</a></li>
+                                <li class="li5"><a class="js-receive" href="javascript:;">确认收货</a></li>
+                                <elseif condition="$state eq 'receive'"/>
+                                <li class="li4"><a href="javascript:;">待评价</a></li>
+                                <li class="li5"><a href="{:U('Order/comment',array('order_id'=>$order['id']))}">马上评价</a><a href="{:U('Order/refund',array('order_id'=>$order['id']))}" class="a2">申请售后</a></li>
+                                <elseif condition="$state eq 'refund'"/>
+                                <li class="li4"><a href="javascript:;">订单已完成</a></li>
+                                <li class="li5"><if condition="$order.order_state eq 'refund'">退款中<elseif condition="$order.order_state eq 'refunded'"/>已退款<else/>已完成</if></li>
+                                <elseif condition="$state eq 'recycle'"/>
+                                <li class="li4"><a href="javascript:;">已删除</a></li>
+                                <li class="li5"><a class="js-restore" href="javascript:;">还原</a></li>
+                                <elseif condition="$state eq 'stock'"/>
+                                <li class="li4"><a href="">配货中</a></li>
+                                <li class="li5"><a class="js-send" href="javascript:;">提醒发货</a></li>
+                                <elseif condition="$state eq 'cancled'"/>
+                                <li class="li4"><a href="javascript:;">已取消</a></li>
+                                <li class="li5">已取消</li>
+                                <elseif condition="$state eq 'finished'"/>
+                                <li class="li4"><a href="javascript:;">订单已完成</a></li>
+                                <li class="li5">已完成</li>
+                                <elseif condition="$state eq 'refunding'"/>
+                                <li class="li4"><a href="javascript:;">订单已完成</a></li>
+                                <li class="li5">退款中</li>
+                            </if>
+                        </ul>
+                    </div>
+
+                </div>
+            </form>
+            <div class="height46"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('.js-order').on('click','.js-delete',function(){
+        var el = $(this);
+        Core.Confirm({ 'title':'操作确认','text':'确认要删除选中数据？','callback':function(confirm){
+            if (!confirm)
+                return;
+
+            $.post("{:U('Order/delete')}",{ 'order_id':el.closest('.js-order').attr('data-rel') },function(ret){
+                if ( ret.state ){
+                    Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                        el.closest('.js-order').remove();
+                        window.location.href='__MODULE__/User/order';
+                    } });
+                }else{
+                    Core.Alert({ 'text':ret.message,'state':'err' });
+                }
+            },'json');
+        } });
+    }).on('click','.js-send',function(){ //提醒发货
+        $.post("{:U('Order/sendMail')}",{ 'order_sn':$(this).closest('.js-order').attr('data-sn') },function(ret){
+            if(ret.error == 8)
+                Core.Alert({ 'text':'发货提醒成功' });
+            else if(ret.error == 4)
+                Core.Alert({ 'text':'服务器繁忙...','state':'notic' });
+            else if(ret.error == 'pass')
+                Core.Alert({ 'text':'您的提醒我们已经收到了，整体美商城会尽快帮您发货' });
+        });
+    }).on('click','.js-receive',function(){ //确认收货
+        var el = $(this);
+        if (el.attr('disabled'))
+            return;
+        el.attr('disabled','disabled');
+        $.post("{:U('Order/state')}",{ 'order_id':el.closest('.js-order').attr('data-rel'),'state':'receive' },function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message });
+                el.css({'border':'1px solid #ADADAD','background-color':'#BFBEBA'}).attr('disabled','disabled').text('已 收 货');
+            } else {
+                Core.Alert({ 'text':ret.message,'state':'err' });
+                el.attr('disabled','');
+            }
+
+        },'json');
+    }).on('click','.js-finish',function(){
+        var el = $(this);
+        if (el.attr('disabled'))
+            return;
+        el.attr('disabled','disabled');
+        $.post("{:U('Order/state')}",{ 'order_id':el.closest('.js-order').attr('data-rel'),'state':'finish' },function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message });
+                el.css({'border':'1px solid #ADADAD','background-color':'#BFBEBA'}).attr('disabled','disabled').text('已 完 成');
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+                el.attr('disabled','');
+            }
+        },'json');
+    }).on('click','.js-soft-deletion',function(){
+        var el = $(this);
+        Core.Confirm({ 'title':'操作确认','text':'确认要删除选中数据？','callback':function(confirm){
+            if (!confirm)
+                return;
+
+            $.post("{:U('Order/softDelOrRestore')}",{ 'order_id':el.closest('.js-order').attr('data-rel'),'action':'softDel' },function(ret){
+                if ( ret.state ){
+                    Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                        el.closest('.js-order').remove();
+                    } });
+                }else{
+                    Core.Alert({ 'text':ret.message,'state':'err' });
+                }
+            },'json');
+        } });
+    }).on('click','.js-restore',function(){
+        var el = $(this);
+        $.post("{:U('Order/softDelOrRestore')}",{ 'order_id':el.closest('.js-order').attr('data-rel'),'action':'restore' },function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    el.closest('.js-order').remove();
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+
+</script>

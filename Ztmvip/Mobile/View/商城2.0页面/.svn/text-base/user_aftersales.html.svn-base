@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/submit_same_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="Css/submit_same_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="Js/jquery.js"></script>
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        售后说明
+        <div class="return"><img src="Images/fh.jpg" height="37" width="18" alt="" /></div>
+    </div>
+</div>
+<!-- 内容 -->
+<article>
+    <div class="saleafter_box">
+        <h3>一、 无理由退货政策</h3>
+        整体美承诺，对于您（作为消费者）通过整体美商城购买的商品，若商品能够保持出售时原状且配件、赠品（如有）齐全的，不影响二次销售的前提下，则自商品收货之日起，可享受“7天无理由退货”政策，您可在线进行申请退货；并需自行将商品寄回且承担相关运费；但根据法律规定及商品性质，如下商品不享受“7天无理由退货”政策：<br />
+        (1) 消费者定制商品<br />
+        (2) 鲜活易腐商品，例如鲜花、绿植、果蔬、低温乳品、速冻食品等；<br />
+        (3) 在线下载或消费者拆封的音像制品、计算机软件等数字化商品；<br />
+        (4) 交付的报纸、期刊类商品；<br />
+        (5) 食用类商品，例如食品、保健品、饮料、药品、酒类、奶粉、婴儿辅食等；<br />
+        (6) 贵重类商品，例如钻石、贵金属、手表、珠宝、奢侈品等；<br />
+        (7) 个人护理、贴身类商品，例如计生用品、美护、内衣、贴身袜裤等；<br />
+        (8) 其他根据商品性质不宜退货的商品。
+        <h3>二、特别说明，以下情况不予办理退换货：</h3>
+        (1) 任何非整体美出售的商品（序列号不符）；<br />
+        (2) 过保商品（超过三包保修期的商品）；<br />
+        (3) 未经授权的维修、误用、碰撞、疏忽、滥用、进液、事故、改动、不正确的安装所造成的商 品质量问题，或撕毁、涂改标贴、机器序号、防伪标记；<br />
+        (4) 无法提供商品的发票、保修卡等三包凭证或者三包凭证信息与商品不符及被涂改的；
+    </div>
+</article>
+</body>
+</html>

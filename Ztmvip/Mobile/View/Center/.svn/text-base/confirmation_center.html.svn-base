@@ -1,0 +1,334 @@
+<link rel="stylesheet" type="text/css" href="__CSS__/confirmation_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="__CSS__/confirmation_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="__JS__/shan_center.js"></script>
+<link rel="stylesheet" type="text/css" href="__PCSS__/paywait/iconfont_zhifu.css"/>
+
+</head>
+<body>
+
+
+<!-- 订单确认头部开始 -->
+<div class="header_box" onClick="window.location.href='{:U('User/order',array('state'=>'new'))}'">
+    <div class="header_title">订单中心</div>
+    <span class="return" ><img src="__IMG__fh.jpg" alt="" /></span>
+</div>
+<!-- 订单确认头部结束 -->
+<!-- 订单确认内容开始 -->
+<div class="address_box">
+    <!-- 默认地址 -->
+    <div class="default">
+        <div class="default_inf">
+            <div class="name">收货人：{$consignee.consignee}</div>
+            <div class="telephone">{$consignee.mobile}</div>
+        </div>
+        <div class="place">
+            {$consignee.province}省&nbsp;
+            {$consignee.city}市&nbsp;
+            {$consignee.district}&nbsp;
+            {$consignee.address}&nbsp;
+        </div>
+    </div>
+
+</div>
+<!-- 支付方式 -->
+<input type="hidden" id='shan_order_id' value="{$order_id}" />
+
+
+<div class="columns_box pay_way">
+    <div class="title">支付方式</div>
+
+    <!-- ########################## -->
+
+    <label for="method1" onclick="change_payment(this)" >
+        <div class="list_box" >
+            <div class="icon"><img src="__IMG__icon2.jpg" alt="" /></div>
+            微信支付
+            <div class="tick shan_wx" <eq name="order.payment_name" value="wx"> style="display:block;"</eq>><img src="__IMG__tick.jpg" alt="" /></div>
+        </div>
+    </label>
+     <input type="radio" name="payment" value="wx"   id="method1" />
+     <!-- ################################# -->
+
+
+
+    <label for="method2" class="pay1" onclick="change_payment(this)" >
+        <div class="list_box">
+            <div class="icon not"><img src="__IMG__icon3.jpg" alt="" /></div>
+            余额支付
+            <i id="enough"></i>
+            <div class="tick" <eq name="order.payment_name" value="ye"> style="display:block;"</eq>><img src="__IMG__tick.jpg" alt="" />
+          </div>
+        </div>
+    </label>
+    <input type="radio" name="payment" value="ye" id="method2"  />
+
+
+    <label for="method3" class="pay2" onclick="change_payment(this)">
+        <div class="list_box">
+            <div class="icon"><img src="__IMG__icon4.jpg" alt="" /></div>
+            储值卡支付
+            <i></i>
+           
+            <div class="tick" <eq name="order.payment_name" value="card"> style="display:block;"</eq>><img src="__IMG__tick.jpg" alt="" /></div>
+        </div>
+    </label>
+    <input type="radio" name="payment" value="card" id="method3" />
+ 
+</div>
+
+
+
+<!-- 优惠方式 -->
+<div class="columns_box privilege">
+    <div class="title">优惠方式</div>
+
+    <label for="classify1" class="coupons">
+        <div class="list_box">
+            <div class="icon"><img src="__IMG__icon5.jpg" alt="" /></div>
+            使用优惠券
+            <i>{$coupon_name|default="未使用优惠券"}</i>
+            <div class="tick" <gt name="order_info.coupon_id" value="0">style="display:block;" </gt> >
+               <img src="__IMG__tick.jpg" alt="" />
+            </div>
+        </div>
+    </label>
+    <input type="radio" name="privilege" value="使用优惠券" id="classify1" />
+
+
+<!-- ########################################## -->
+
+
+
+    <label for="classify2" class="packet">
+        <div class="list_box">
+            <div class="icon"><img src="__IMG__icon6.jpg" alt="" /></div>
+            使用红包
+            <i id="bonus_name">{$bonus_name|default="未使用红包"}</i>
+            <div class="tick" <gt name="order_info.bonus_id" value="0">style="display:block;" </gt> >
+               <img src="__IMG__tick.jpg" alt="" />
+            </div>
+        </div>
+    </label>
+    <input type="radio" name="privilege" value="使用红包" id="classify2" />
+</div>
+<div class="columns_box" class="integral">
+    <label for="classify3" class="integral">
+        <div class="list_box">
+            <div class="icon"><img src="__IMG__icon7.jpg" alt="" /></div>
+            使用积分
+            <i id="dis_integral"><gt name="order.integral" value="0">
+                {$order.integral}<else/>未使用积分</gt>
+            </i>
+            <div class="tick" <gt name="order_info.integral" value="0"> style="display:block;"</gt>><img src="__IMG__tick.jpg" alt="" /></div>
+        </div>
+    </label>
+    <input type="radio" name="privilege2" value="使用积分" id="classify3" />
+</div>
+
+
+
+
+<!-- 商品 -->
+<volist name="goods_list" id="value" key="key1">
+    <if condition="$value['buy_flag'] eq 'normal' || $value['buy_flag'] eq 'bargain'">
+    <!-- 正常商品进这里 -->
+        <div class="columns_box">
+            <div class="goods_box">
+                <div class="goods_pho"><img src="__ROOT__{$value.goods_thumb}_250x250.jpg" alt="" /></div>
+                <div class="inf_box">
+                    <div class="goods_inf">{$value.goods_name}</div>
+                    <div class="price">￥<i>{$value.goods_price}</i>       ×   {$value.goods_number}</div>
+                    <div>
+                        <eq name="value.different" value="new">
+                              <volist name="value.skus" id="attr">
+                                 {$attr[0]}：{$attr[1]}&nbsp;&nbsp;
+                              </volist>
+                              <else/>
+                              {$value.skus}
+                        </eq>
+                        
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <else/>
+            <!-- 礼包进入这里 -->
+            <!-- 礼包 -->
+            <div class="columns_box package">
+                <div class="package_name">
+                    礼包1：<u>￥<i>228</i></u>
+                </div>
+                <div class="goods_num">
+                    <button type="button" class="cut">－</button>
+                    <input type="number" name="num" value="1" id="num" min="1" />
+                    <button type="button" class="add">＋</button>
+                </div>
+                <div class="goods_box">
+                    <div class="goods_pho"><img src="Images/seckill_goods.jpg" alt="" /></div>
+                    <div class="inf_box">
+                        <div class="goods_inf">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                        <div style="margin:30px 0!important;">
+                            尺码：M
+                            颜色：酒红色
+                        </div>
+                    </div>
+                </div>
+                <div class="goods_box">
+                    <div class="goods_pho"><img src="Images/seckill_goods.jpg" alt="" /></div>
+                    <div class="inf_box">
+                        <div class="goods_inf">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                        <div style="margin:30px 0">
+                            尺码：M
+                            颜色：酒红色
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </if>
+</volist>
+
+<div class="placeholder"></div>
+
+<!-- 订单页面内容结束 -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- 网页底部去支付条 -->
+<div class="footer">
+    <div class="all_price">合计：<i>￥</i><span id="amount">{$total.amount}</span></div>
+    <div class="pay_bt" onclick="checkout_before_done({$order_id});">去支付</div>
+</div>
+
+<!-- 储值卡选择块 -->
+<div class="card_bg payin2" >
+    <div class="card_box">
+
+
+        <label for="card0" onclick="change_card(this);">
+            <div class="card"> <!-- 点这个，该弹窗就自动消失了 -->
+                <i>不使用储值卡</i>
+                <div class="tick" <eq name="order.prepaid_id" value="0"> style="display:block;" </eq>><img src="__IMG__tick.jpg" alt="" /></div>
+            </div> 
+        </label>
+        <input type="radio" name="shan_card" value="0" id="card0" />       
+     <volist name="card_list" id="value" key="key1">
+        <label for="card{$key1}" onclick="change_card(this);">
+            <div class="card">
+                <i>尾号：{$value.prepaid_sn}</i>&nbsp;&nbsp;&nbsp;&nbsp;
+                可用余额：
+                {$value.money}
+                <div class="tick" <eq name="value.id" value="$order.prepaid_id"> style="display:block;" </eq>>
+                    <img src="__IMG__tick.jpg" alt="" />
+                </div>
+            </div> 
+        </label>
+        <input type="radio" name="shan_card" value="{$value.id}" id="card{$key1}" />      
+    </volist>
+    
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ###################去支付弹出窗口################### -->
+<div class="payfor_bg" id="ZTM_ORDERTOTAL">
+     <!-- 此处动态填充的 -->
+</div>
+<!-- ########################################################## -->
+<!-- 支付弹窗点击取消块 -->
+<div class="cancel_bg">
+    <div class="cancel_box">
+        <div class="cancel_title">确定要放弃付款</div>
+        <div class="cancel_bt">
+            <div class="left">确 定</div>
+            <div class="right">取 消</div>
+        </div>
+    </div>
+</div>
+
+<!-- 密码输入层 -->
+<div class=" bg bg4">
+    <div class="remind_box">
+        <div class="text">
+            请输入支付密码：<i>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <input type="password" maxlength="6" class="pass_num" style="" />
+            </i>
+        </div>
+        <div class="remindbt_box">
+            <div class="remind_bt1">取 消</div>
+            <div class="remind_bt2" onclick="go_check_done({$order_id});">确 定</div>
+        </div>
+        <script type="text/javascript">
+
+            $(".cancel_bt .left").on('click',function(event) {
+                $(".cancel_bg").fadeOut();
+                $('.payfor_bg').css('display','none');
+                $('.pay_box').css('display','none');
+            });
+            $(".cancel_bt .right").on('click',function(event) {
+                $(".cancel_bg").fadeOut();
+                $('.payfor_bg').fadeIn();//大黑层
+                $('.pay_box').slideDown();
+            })
+        </script>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(".pass_num").on('keyup',function(){
+    //这就是输入值的个数
+        var length=this.value.length;
+        console.log(length)
+        $('.dian:lt('+(length)+')').addClass('dian_cur')
+        $('.dian:not(:lt('+(length)+'))').removeClass('dian_cur')  
+    });
+
+    
+
+//取消密码弹出框
+    $('.remind_bt1').on('click',function(){
+        $('.bg4').fadeOut();
+        // $('span .dian').html('');
+        // $('.pass_num').val('');
+    })
+
+
+//全局控制用户选择之后，弹层自动消失的
+    $(".card_box").click(function(event) {
+        $(".card_bg").fadeOut();
+    });
+
+</script>
+
+<include file="Public/paystatus"/>
+<include file="Public/again"/>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+body, nav, dl, dt, dd, p, h1, h2, h3, h4, ul, ol, li, input, button, textarea, footer { margin: 0; padding: 0; }
+u, em, i { font-style: normal; text-decoration: none; }
+a { text-decoration: none; color: #5F5F5F; }
+body { background: #fff; min-width: 320px; max-width: 750px; color: #252525; -webkit-tap-highlight-color: transparent; }
+html { font-family: "微软雅黑", "Lucida Sans Unicode", "Myriad Pro", "Hiragino Sans GB", "Heiti SC", Verdana, simsun; font-size: 12px; -webkit-text-size-adjust: 100%;   /*让谷歌浏览器可以设定字体大小*/ -ms-text-size-adjust: 100%; max-width: 750px; min-width: 320px; margin: auto; }
+button { border: none; } /* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, menu, nav, section { display: block; } /* 设置图片视频等自适应调整 */
+img { width: 100%; display: block; font-size: 0; border: 0; height: auto; width: auto\9; /* ie8 */ }
+.video embed, .video object, .video iframe { width: 100%; height: auto; }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+form { display: inline; }
+ul, ol { list-style: none; }
+input, button, textarea { outline: none; }
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none !important; margin: 0;}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { padding: 0; margin: 0; }
+fieldset, img { border: 0; }
+table { border-collapse: collapse; border-spacing: 0; }
+ol, ul { list-style: none; }
+address, caption, cite, code, dfn, em, strong, th, var { font-weight: normal; font-style: normal; }
+caption, th { text-align: left; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100%; }
+q:before, q:after { content: ''; }
+abbr, acronym { border: 0; }
+a { text-decoration: none; }
+input:focus, button:focus, select:focus { outline: none; }
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { padding: 0; margin: 0; }
+fieldset, img { border: 0; }
+table { border-collapse: collapse; border-spacing: 0; }
+ol, ul { list-style: none; }
+address, caption, cite, code, dfn, em, strong, th, var { font-weight: normal; font-style: normal; }
+caption, th { text-align: left; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100%; }
+q:before, q:after { content: ''; }
+abbr, acronym { border: 0; }
+a { text-decoration: none; }
+input:focus, button:focus, select:focus { outline: none; }
+.clear { clear: both; }
+html { font-size: 10px; font-family: "冬青黑体简体中文"; }
+.max { width: 100%; max-width: 750px; min-width: 320px; margin: auto; overflow: hidden; }
+
+/*我的结算价*/
+body{ background:#6b2e7e;}
+.mymoney{ overflow:hidden; background: #6b2e7e url(../images/bargain_mymoney_02.png) 0px 33px/3% repeat-x; position:fixed; width:100%; height:100%; padding-bottom:50px; font-family:"微软雅黑";}
+.mymoney .bottom-bg{ width:100%; height:44px; background:url(../images/bargain_mymoney_02.png) 0px 0px/3% repeat-x; position:absolute; bottom:44px;}
+.mymoney p.p1{ font-size: 5rem; text-align:center; color:#fff; padding-top:116px; padding-bottom:62px; border-bottom:1px solid #fff;}
+.mymoney .bargain{ overflow:hidden; border-bottom:1px solid #fff; margin-bottom:75px;}
+.mymoney .bargain li{ float:left; text-align:center; width:32%; margin-top:20px; padding-bottom:20px; margin-bottom:20px;}
+.mymoney .bargain li.li1{ box-shadow:1px 0px 0px #fff;}
+.mymoney .bargain li.li2{ width:36%; box-shadow:1px 0px 0px #fff;}
+.mymoney .bargain li .rmb{ font-size:4rem; color:#ffde02; font-family:"微软雅黑"; padding-top:60px; padding-bottom:30px;}
+.mymoney .bargain li .cut{ font-size:2.9rem; color:#fff;}
+.mymoney a{ color:#791e96; font-family:"微软雅黑"; display:block; width:32.53%; line-height:2.5em; height:2.5em; background:#ffde02; border-radius:8px; float:left; text-align:center; font-size:4.2rem; margin-left:12%;}
+.mymoney .bottom-p{ clear:both; padding-top:20px; padding-bottom:10rem; font-size:3rem; color:#fff; text-align:center; line-height:8rem;}
+.mymoney .but3{ color:#6b2e7e;}
+@media (max-width:750px) {
+    html { font-size: 5px;  }
+    .mymoney{ background-position:0px 20px;}
+    .mymoney .bottom-bg{ height:30px;}
+    .mymoney a{ font-size:3.8rem;}
+    .mymoney .bargain{ margin-bottom:30px}
+    .mymoney .bargain li{ margin:10px auto; padding-bottom:10px;}
+    .mymoney .bargain li .rmb{padding-top: 27px;
+        padding-bottom: 30px;}
+    .mymoney p.p1{ padding-top:60px; padding-bottom:25px;}
+    .mymoney .bottom-p{ line-height:4rem;}
+}

@@ -1,0 +1,127 @@
+{__NOLAYOUT__}
+    <include  file="Public/health_header"/>
+    <link rel="stylesheet" type="text/css" href="__HEATH__Css/special_explain.css"/>
+    </head>
+    <body>
+
+    <div class="header_position" >
+        <header href="" class="special_title">
+            服务介绍
+            <i onclick="location.href='{:U('Health/special')}'" class="title_font">&#xe702;</i>
+        </header>
+    </div>
+
+    <div class="special_explain">
+        <img src="__HEATH__Images/special_explain_02.png" class="js_heigth">
+        <div id="position">
+            <div class="price">
+                <button onclick="location.href='{:U('Health/checkout')}'"  type="button" class="button">立即购买</button>
+                <p>套餐价格：<em>￥</em><b>1.68万</b></p>
+            </div>
+        </div>
+        <div id="js_price"></div>
+
+        <script type="text/javascript">
+        var but=document.getElementsByClassName("button")[0];
+        $(but).on('click',function(){
+             but.style.backgroundColor="#d7b25e";
+             setTimeout( function(){
+                 but.style.backgroundColor="#e9c574";
+             },200); 
+        })
+ 
+        $(function(){
+            $(window).on('scroll',function(){
+                var height=$('header').height()+$(".js_heigth").height();
+                var h_top=$(window).scrollTop()+46;
+                if(height<h_top){
+                    $("#position").addClass('position');
+                    $("#js_price").addClass('price1');
+                }else{
+                    $("#position").removeClass('position');
+                    $("#js_price").removeClass('price1');
+                }
+            });
+
+
+        });
+        </script>
+
+        <h1>产品介绍</h1>
+        <p class="text">
+            该项目由整体美商城健康减重顾问王芳与某某军区总医院“健康管理抗衰老中心”共同研发。运用10多年被美国医院极力推崇并采纳的健康减肥方法，无需吃药、无需挨饿、无需剧烈运动、保证不反弹，<em style="color:#ff6969;">50-60天减到目标体重10-30斤左右，终身掌握食疗减肥技能，</em>100%减肥成功，由健康师、营养师、心理师等12人专家团队一对一跟进服务，12年的临床实战验证，现已服务高端人群3000多人。<em style="color:#252525;">凡购买本套餐客户每月前10名申请购买，整体美商城每月返190元健康基金红包到客户健康储值卡，储值卡可以购买商城商品，连续返7年两个月。</em>
+        </p>
+
+        <h1>整体美健康顾问</h1>
+        <div class="consultant">
+            <img src="__HEATH__Images/special_explain_05.png">
+            <h2>王芳</h2>
+            <p>毕业于北京师范大学心理学专业曾先后赴法、意、德、韩等国家参与健康管理专业研修，曾任广州某军区健康管理中心副主任，服务高端客户逾3000人。</p>
+            <h3>研究方向：</h3>
+            <p>（1）个人及家庭健康管理</p>
+            <p>（2）企业员工健康管理</p>
+        </div>
+        <h1 class="h1">个人经历</h1>
+        <div class="text">
+            <p>广东药学院健康管理中心副主任</p>
+            <p>广州市微量元素研究所副所长</p>
+            <p>中国健康管理师俱乐部高级技术顾问</p>
+            <p>整体美独家健康减重顾问</p>
+            <p>深度成长商学院高级导师全国巡回讲座逾1000场，受惠企业1800家，学员近10万人次</p>
+            <h3>研究方向：</h3>
+            <p>（1）个人及家庭健康管理</p>
+            <p>（2）企业员工健康管理 </p>
+        </div>
+        <a href="#SB" name="SB"/></a>
+        <h1 name="SB">服务内容</h1>
+        <img src="__HEATH__Images/special_explain_08.jpg">
+
+        <div class="shaer_20151218">
+            <h3>相关案例</h3>
+            <ul>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_05.jpg" alt="" />
+                <p>使用前</p>
+                </li>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_07.jpg" alt="" />
+                <p>使用后</p>
+                </li>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_11.jpg" alt="" />
+                <p>使用前</p>
+                </li>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_12.jpg" alt="" />
+                <p>使用后</p>
+                </li>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_15.jpg" alt="" />
+                <p>使用前</p>
+                </li>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_16.jpg" alt="" />
+                <p>使用后</p>
+                </li>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_19.jpg" alt="" />
+                <p>使用前</p>
+                </li>
+                <li>
+                <img src="__HEATH__Images/special_explain_20151218_20.jpg" alt="" />
+                <p>使用后</p>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+    
+    <div class="weixin">
+        <a href="{:U('Health/special_register')}">马上去填写检测数据<img src="__HEATH__Images/special_explain_04.jpg"></a>
+        <h2>或者关注整体美官方微信填写</h2>
+        <img src="__HEATH__Images/special_explain_03.jpg" class="img" alt="" />
+    </div>
+
+      <include   file="Public/health_footer" />
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{$page_title}-{$sitename}</title>
+    <link rel="sgortcut icon" href="__ROOT__/Public/Admin/Images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Public/Admin/Images/common.css" />
+    <script src="__ROOT__/Public/Common/Js/jquery.js"></script>
+    <script src="__ROOT__/Public/Common/Js/common.js"></script>
+    <script src="__ROOT__/Public/Admin/Js/common.js"></script>
+</head>
+<body>
+<!-- 网站头部 -->
+<header class="nav">
+    <div class="logo"><img src="__ROOT__/Public/Admin/Images/logo.png" height="50"/></div>
+    <div class="nav_in">
+        <ul class="left">
+            <li class="cur1"><span class="iconfont cur2">&#xe607;</span>起始</li>
+            <!--<li><span class="iconfont">&#xe7c2;</span><a href="{:U('Goods/index')}">商品管理</a></li>
+            <li><span class="iconfont">&#xe63d;</span><a href="{:U('Order/index')}">订单管理</a></li>-->
+        </ul>
+        <ul class="right">
+            <li class="user"><span class="iconfont">&#xe7a4;</span>&nbsp;{$manager_nick}</li>
+            <!--<li><a href="http://www{:strstr($_SERVER['HTTP_HOST'],'.')}" target="_blank">查看网店</a></li>-->
+            <li><a class="js-ajax" href="{:U('Index/clean')}">清除缓存</a></li>
+            <li><a href="{:U('Login/out')}">退出</a></li>
+        </ul>
+    </div>
+</header>
+<!-- 左侧列表 -->
+<aside class="aside">
+    <dl class="list">
+        <dd index="1"><span class="iconfont2">&#xe63d;</span>&nbsp;&nbsp;检测管理</dd>
+        <if condition="check_admin_rights('examine',false)"><dt><a href="{:U('Examine/index')}">检测记录</a></dt></if>
+    </dl>
+
+    <dl class="list">
+        <dd index="4"><span class="iconfont2">&#xe628;</span>&nbsp;&nbsp;会员管理</dd>
+        <if condition="check_admin_rights('user',false)"><dt><a href="{:U('User/index')}">会员列表</a></dt></if>
+    </dl>
+    <if condition="check_admin_rights('admin',false)">
+    <dl class="list">
+        <dd index="6"><span class="iconfont2">&#xe64e;</span>&nbsp;&nbsp;权限管理</dd>
+        <dt><a href="{:U('ManagerDepart/index')}">管理部门</a></dt>
+        <dt><a href="{:U('ManagerGroup/index')}">管理组</a></dt>
+        <dt><a href="{:U('Manager/index')}">管理员</a></dt>
+    </dl>
+    </if>
+</aside>
+<article class="article">
+{__CONTENT__}
+</article>
+</body>
+</html>
+<script>
+    $(function(){
+        $('.nav_in .left li').on('click',function() {
+            $(this).addClass('cur1').siblings().removeClass('cur1');
+            $(this).children().addClass('cur2').parent().siblings().children().removeClass('cur2');
+        });
+
+        $('.aside .list dd').on('click',function() {
+            $(this).siblings().slideToggle(300).parent().siblings().children('dt').slideUp(300);
+            $(this).children().addClass('cur2').parent().parent().siblings().children().children().removeClass('cur2');
+            $(this).siblings().removeClass("cur3");
+        });
+
+        $('.aside .list dt').on('click',function() {
+            $(this).addClass('cur3').siblings().removeClass('cur3')
+        });
+
+        if ('{$aside_id}'){
+            $('.aside .list dd[index="{$aside_id}"]').click();
+        }
+
+        $('.list').each(function(i,e){
+            if (!$(e).find('dt').length)
+                $(e).remove();
+        });
+    })
+</script>

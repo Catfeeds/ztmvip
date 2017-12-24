@@ -1,0 +1,24 @@
+
+<link rel="stylesheet" type="text/css" href="__CSS__/confirmation_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="__CSS__/confirmation_pad.css" media="(min-width:750px)">
+</head>
+<body>
+
+<!-- 支付成功详情头部开始 -->
+<div class="header_box">
+    <div class="header_title">支付详情</div>
+    <span class="return" onClick='javascript:window.location="{:U('Center/checkout',array('order_id'=>$order_id))}"'><img src="__IMG__fh.jpg" alt="" /></span>
+    <span class="rt_home">
+        <a href="{:U('Index/index')}">
+            <img src="__IMG__rthome.jpg" alt="" />
+        </a>
+    </span>
+</div>
+<!-- 支付成功详情头部结束 -->
+<!-- 支付成功详情内容开始 -->
+<div class="address_box" onClick='javascript:window.location="{:U('Center/checkout',array('order_id'=>$order_id))}"'>
+    <div class="bbg"><img src="__IMG__bg3.jpg" height="180" width="185" alt="" /></div>
+    <h3>抱歉！支付失败！</h3>
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<link rel="stylesheet" type="text/css" href="__CSS__safe_same_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="__CSS__safe_same_pad.css" media="(min-width:750px)">
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        设置安全信息
+        <a class="return" href="javascript:history.go(-1);"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></a>
+    </div>
+</div>
+<!-- 内容 -->
+<article id="js-form">
+    <if condition="!$user['mobile']">
+        <div class="list2_box">
+            手机号码
+            <input name="mobile" type="text" class="pass" maxlength="13" />
+        </div>
+        <div class="list2_box">
+            短信验证码
+            <div class="list2_boxin">
+                <input name="sms_code" type="text" class="pass1" />
+                <input type="button" class="btn js-sms-code" data-rel="new" value="获取验证码"/>
+            </div>
+        </div>
+        <else/>
+        <div class="list2_box">
+            短信验证码
+            <div class="list2_boxin">
+                <input name="sms_code" type="text" class="pass1" />
+                <input type="button" class="btn js-sms-code" value="获取验证码" />
+            </div>
+        </div>
+    </if>
+    <if condition="!$user['answer']">
+        <div class="list2_box">
+            安全问题
+            <ul class="question_box">
+                <span class="title">请选择密保问题</span>
+                <li>您母亲的姓名是？</li>
+                <li>您母亲的生日是？</li>
+                <li>您父亲的姓名是？</li>
+                <li>您父亲的生日是？</li>
+                <li>您配偶的姓名是？</li>
+                <li>您配偶的生日是？</li>
+                <li>您的学号（或工号）是？</li>
+                <li>您小学班主任的名字是？</li>
+                <li>您初中班主任的名字是？</li>
+                <li>您高中班主任的名字是？</li>
+                <li>您最熟悉的童年好友名字是？</li>
+                <li>您最熟悉的学校宿舍室友名字是？</li>
+                <li>对您影响最大的人名字是？</li>
+            </ul>
+            <input name="question" type="hidden"/>
+        </div>
+        <div class="list2_box">
+            输入答案
+            <input name="answer" type="text" class="pass" />
+        </div>
+        <else/>
+        <div class="list2_box">
+            安全问题
+            <ul class="question_box">
+                <span class="title">{$user['question']}</span>
+            </ul>
+        </div>
+        <div class="list2_box">
+            输入答案
+            <input name="answer" type="text" class="pass" />
+        </div>
+    </if>
+    <if condition="!$user['payment_password']">
+        <div class="list2_box">
+            支付密码
+            <input name="payment_password" type="password" class="pass" maxlength="6" />
+        </div>
+        <div class="list2_box">
+            确认密码
+            <input name="repayment_password" type="password" class="pass" maxlength="6" />
+        </div>
+    </if>
+    <div class="bt_box">
+        <div class="bt" id="js-submit">确定</div>
+    </div>
+</article>
+</body>
+</html>
+<script type="text/javascript">
+    $('.js-sms-code').on('click',function(){
+        if ($(this).prop('disabled'))
+            return;
+
+        var timeout = 60;
+        var el = $(this);
+
+        $.post("{:U('Sms/'.($user['mobile']?'userSafety':'userMobile'))}",{ 'topic':el.attr('data-rel'),'mobile':$('input[name="mobile"]').val() },function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message });
+                sms_time(el,timeout);
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+    function sms_time(el,timeout){
+        if (timeout == 0) {
+            el.css('background-color','').prop('disabled',false).val('获取验证码');
+        }else{
+            el.css('background-color','#ccc').prop('disabled',true).val('重新发送('+ timeout +')');
+            timeout--;
+            setTimeout(function(){
+                sms_time(el,timeout);
+            },1000);
+        }
+    }
+
+    $('.question_box').on('click',function(event){
+        $(this).find('li').toggle(0);
+    });
+
+    $('.question_box li').on('click',function(event){
+        $('.question_box .title').text($(this).text());
+        $(':hidden[name="question"]').val($(this).text());
+    });
+
+    $('#js-submit').on('click',function(){
+        var data = Core.InputObj($('#js-form'));
+
+        $.post('',data,function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message,'callback':function(){
+                    if ("{:I('get.redirect','','base64_decode')}")
+                        location.href = "{:I('get.redirect','','base64_decode')}";
+                    else
+                        history.go(-1);
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+</script>

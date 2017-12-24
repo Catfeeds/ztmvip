@@ -1,0 +1,7 @@
+{__NOLAYOUT__}
+<option>请选择</option>
+  <volist name="district_list" id="value">
+    <option  value="{$value.region_id}">{$value.region_name}</option>
+  </volist>
+
+

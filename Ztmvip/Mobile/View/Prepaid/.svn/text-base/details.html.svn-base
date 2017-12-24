@@ -1,0 +1,94 @@
+
+<link rel="stylesheet" type="text/css" href="__CSS__privilege_same_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="__CSS__privilege_same_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+    <!-- 根据选择卡片显示头部 -->
+        {$page_title}
+        <div class="return" onclick="javascript:window.location.href='{:U(\'Prepaid/index\')}'"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></div>
+    </div>
+</div>
+<!-- 内容 -->
+<div class="card_box">
+    <div class="card_in">
+        <img src="{$prepaid.prepaid_image}" alt="{$prepaid.prepaid_name}" />
+        <div class="card_num">{$prepaid.prefix} **** **** **</div>
+        <div class="card_inf he_card_inf" style="text-shadow: 1px 1px 1px #D8D8D8;">
+           <!--  面值：{$prepaid.par}元<br />
+            余额：{$prepaid.par}元
+            ￥{:intval($prepaid['par'])==$prepaid['par']?intval($prepaid['par']):$prepaid['par']}-->
+        </div>
+    </div>
+    <div style="line-height:2em; text-align:right; font-size:1.8rem; padding-top:1em; padding-right:20px;">商城价{:intval($prepaid['price'])==$prepaid['price']?intval($prepaid['price']):$prepaid['price']}元</div>
+    <div class="card_article">
+        {$prepaid.prepaid_desc}
+    </div>
+    <div class="placeholder"></div>
+    <form id="pay_form" action="{:U('User/buyPrepaid')}" method="post">
+    <div class="pay_btnbox">
+        <div class="pay_btn"><a href="javascript:;" style="color:#fff" >立即购买</a></div>
+    </div>
+    <input type="hidden" name="prepaid_id" value="{$prepaid.id}" />
+    </form>
+</div>
+</body>
+</html>
+<script>
+$(function(){
+	$('.pay_btn').on('click',function(){
+        window.location.href = '__MODULE__/User/buyPrepaid.html?prepaid_id='+$(':hidden[name=prepaid_id]').val();
+	});
+});
+</script>
+<script type="text/javascript">   
+    wx.config({
+      debug: false,
+      appId:"{$signPackage['appid']}",
+      timestamp:"{$signPackage['timestamp']}",
+      nonceStr:"{$signPackage['noncestr']}",
+      signature:"{$signPackage['signature']}",
+      jsApiList:[
+        'onMenuShareAppMessage',
+        'onMenuShareTimeline',
+      ]
+    });
+/*****************************************************/
+    wx.ready(function(){
+      
+    //发送给朋友
+    //注意，如果您的分享图标太大，网速又不是很好，则分享的链接将显示不出图标的
+    wx.onMenuShareAppMessage({
+      title:'{$title}',
+      desc:'{$desc}',
+      link:'{$link}',
+      imgUrl:'{$imgUrl}',
+      type: 'link', 
+       success: function () { 
+              // 用户确认分享后执行的回调函数
+          },
+       cancel: function () { 
+              // 用户取消分享后执行的回调函数
+          }
+    });
+   //分享到朋友圈
+    wx.onMenuShareTimeline({
+        title:'{$title}', // 分享标题
+        link:'{$link}', // 分享链接
+        imgUrl:'{$imgUrl}', // 分享图标
+        success: function () { 
+            // 用户确认分享后执行的回调函数
+        },
+        cancel: function () { 
+            // 用户取消分享后执行的回调函数
+        }
+    });
+
+
+}); //ready尾
+
+/*****************************************************/
+</script>

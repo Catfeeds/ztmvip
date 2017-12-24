@@ -1,0 +1,170 @@
+@charset "utf-8";
+/* CSS Document */
+.register{ padding:0px 20px;}
+
+.register .contairen>li{ height:60px; line-height: 60px; border-bottom:1px solid #cecece; position: relative; padding-left: 88px; padding-right: 22px;}
+.register .contairen > li  > span{ color: #252525; font-size: 14px; position: absolute;left: 1px; width:88px;}
+.register .contairen > li  >input{ height:34px; line-height: 34px; border:0px; background: #f1f1f1; width:100%; font-size: 12px; color:#252525; text-indent: 20px;}
+/*.register .contairen > li .input{ height:34px; line-height: 34px; border:0px; margin:auto; background: #f1f1f1; width:100%; position: relative; top: 13px;font-size: 12px; color:#252525;text-indent: 20px;}*/
+
+@font-face {font-family: 'font_right';
+    src: url('font_right/iconfont.eot'); /* IE9*/
+    src: url('font_right/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('font_right/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('font_right/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('font_right/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.font_right{
+    font-family:"font_right" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;}
+.register .contairen > li  >.font_right{ position: absolute;right:32px; top: 0; color:#949494;}
+.register .contairen > li >i{position: absolute;right:35px; top: 0; color:#949494;}
+.register .contairen > li.name{ height:70px; padding-top: 10px;}
+.register .contairen > li.name p{  font-size: 11px; line-height: 21px; position: relative; top: -12px; padding-left: 7px; color:#808080;overflow:hidden;
+text-overflow:ellipsis;
+white-space :nowrap;
+}
+.register .contairen > li.sex{ text-align: center;}
+.register .contairen > li.sex span{ text-align: left;}
+.register .contairen > li.sex img{ width:60px; height:60px; display: inline-block;
+vertical-align: top;
+zoom: 1; /* Fix for IE7 */
+*display: inline; /* Fix for IE7 */ margin:0px 10px;}
+
+.register button{background:#e9c574; font-size: 18px; height:44px; line-height: 44px; width:100%; margin: 20px auto 10px; color:#fff; border:0;}
+
+.bg_hui{ position: fixed; left:0; top: 0; height:100%; width:100%; background:rgba(0, 0, 0, 0.7); z-index:5 ;}
+
+
+
+
+
+
+.date {position: fixed; z-index: 10; left:0; top: 0; right:0; bottom:0; margin:auto; width:250px; height:295px; background:#fff;}
+.date p.p_top{ height:44px; text-align: center; line-height: 44px; font-size: 14px; color:#252525; border-bottom:1px solid #808080;}
+.date p em{ font-size: 12px; display: inline-block; width:33%; text-align: center; line-height: 30px;}
+.date .select{height:165px; width:33%; float:left; text-align: center; border-bottom:1px solid #808080; overflow: hidden; padding-bottom: 15px;}
+.date .select .swiper-wrapper{ margin-top: 68px;}
+.date .select .swiper-slide{ line-height: 34px; color:#d6d6d6;}
+.date .select .swiper-slide-prev,.date .select .swiper-slide-next{ color:#7f7f7f;}
+.date .select .swiper-slide-active{ color:#252525;}
+.date span{ height:39px; line-height: 39px; text-align: center; width:49%; display: inline-block; color:#252525;}
+.date span:first-of-type { border-right: 1px solid #808080;}
+
+.date .xian_top,.date .xian_top1,.date .xian_top2{background:url(../Images/tm_03.png) 0 0 /100% 85px; width:40px; height:25px; position: absolute; top: 75px; left: 22px;}
+.date .xian_bot,.date .xian_bot1,.date .xian_bot2{-webkit-transform: rotate(180deg);
+   -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+     -o-transform: rotate(180deg);
+        transform: rotate(180deg); top: 58px;}
+.date .xian_top1{ left: 103px;}
+.date .xian_top2{ left: 185px;;}
+
+
+
+
+
+.cycle {position: fixed; z-index: 10; left:0; top: 0; right:0; bottom:0; margin:auto; width:250px; height:295px; background:#fff;}
+.cycle p.p_top{ height:44px; text-align: center; line-height: 44px; font-size: 14px; color:#252525; border-bottom:1px solid #808080;}
+.cycle p em{ font-size: 12px; display: inline-block; width:33%; text-align: center; line-height: 30px;}
+.cycle .select{height:165px; width:33%; float:left; text-align: center; border-bottom:1px solid #808080; overflow: hidden; padding-bottom: 15px;}
+.cycle .select .swiper-wrapper{ margin-top: 68px;}
+.cycle .select .swiper-slide{ line-height: 34px; color:#d6d6d6;}
+.cycle .select .swiper-slide-prev,.cycle .select .swiper-slide-next{ color:#7f7f7f;}
+.cycle .select .swiper-slide-active{ color:#252525;}
+.cycle span{ height:39px; line-height: 39px; text-align: center; width:49%; display: inline-block; color:#252525;}
+.cycle span:first-of-type { border-right: 1px solid #808080;}
+
+.cycle .xian_top,.cycle .xian_top1,.cycle .xian_top2{background:url(../Images/tm_03.png) 0 0 /100% 85px; width:40px; height:25px; position: absolute; top: 75px; left: 22px;}
+.cycle .xian_bot,.cycle .xian_bot1,.cycle .xian_bot2{-webkit-transform: rotate(180deg);
+   -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+     -o-transform: rotate(180deg);
+        transform: rotate(180deg); top: 228px;}
+.cycle .xian_top1{ left: 103px;}
+.cycle .xian_top2{ left: 185px;}
+
+
+
+
+
+ .js_zq {position: fixed; z-index: 30; left:0; top: 0; right:0; bottom:0; margin:auto; width:150px; height:306px; background:#fff;}
+ .js_zq p{ height:44px; text-align: center; line-height: 44px; font-size: 14px; color:#252525;}
+ .js_zq .select{ height:220px; width:100%; text-align: center; border:1px solid #808080; border-width: 1px 0px; overflow: hidden;}
+ .js_zq .select .swiper-wrapper{ margin-top: 88px;}
+ .js_zq .select .swiper-slide{ height:44px; line-height:44px; color:#d6d6d6;
+    }
+ .js_zq .select .swiper-slide-prev, .js_zq .select .swiper-slide-next{ color:#7f7f7f;}
+ .js_zq .select .swiper-slide-active{ color:#252525;}
+ .js_zq span{ height:39px; line-height: 39px; text-align: center; width:49%; display: inline-block; color:#252525;}
+ .js_zq span:first-of-type { border-right: 1px solid #808080;}
+ .js_zq .xian_top{background:url(../Images/tm_03.png) 0 0 /100% 85px; width:40px; height:25px; position: absolute; top: 45px; left: 53px;}
+.js_zq .xian_bot{-webkit-transform: rotate(180deg);
+   -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+     -o-transform: rotate(180deg);
+        transform: rotate(180deg); top:240px;}
+
+.swiper-container{ background:url("../Images/huang.jpg") no-repeat scroll 22px 67px / 39px 1px,url("../Images/huang.jpg") no-repeat scroll 22px  101px / 39px 1px;}
+.js_zq .swiper-container{ background:url("../Images/huang.jpg") no-repeat scroll 53px 90px / 39px 1px,url("../Images/huang.jpg") no-repeat scroll 53px  128px / 39px 1px;}
+
+
+
+.tishi{ width:304px; min-height:216px; background:#fff; position: fixed; top: 50%; margin-top: -108px; left: 50%; margin-left: -152px; z-index: 40;}
+
+@font-face {font-family: 'tishi_font';
+    src: url('tishi_font/iconfont.eot'); /* IE9*/
+    src: url('tishi_font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('tishi_font/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('tishi_font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('tishi_font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.tishi_font{
+    font-family:"tishi_font" !important;
+    font-size:35px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale; color:#fff;
+    position: relative;top:5px;
+}
+.tishi .top{
+    background:#e9c574; border-radius: 50%;
+     width:49px; height:49px; text-height: 49px; text-align: center; position: absolute;top:-25px; left:126px;
+
+}
+.tishi h1{font-size: 18px; color:#252525;font-weight: 400; text-align: center; padding-top: 45px; padding-bottom:15px;}
+.tishi p{ display:block; width:220px; text-align: center; font-size: 16px; color:#252525; border-top: 1px solid #252525; margin:auto; min-height:40px; padding-top: 10px; padding-bottom: 5px;}
+.tishi span{ display:block;width:100px; height:34px; line-height: 34px; background:#e9c574; color:#fff; font-size: 14px; text-align: center; margin:auto; margin-bottom: 20px;}
+
+
+
+.register .result{ text-indent: 10px; height:50px; line-height: 50px; font-size:14px; color:#252525;}
+.register .result a{color:#252525; padding-left: 10px; text-decoration: underline;}
+
+
+
+@media (max-width:750px){  
+
+}
+
+@media (max-width:640px){  
+
+}
+@media (max-width:480px){
+    
+}
+@media (max-width:414px){ /* iPhone 6 Plus */
+
+}
+@media (max-width:375px){ /* iPhone 6 */
+    
+}
+@media (max-width:360px){ /* Sansung S3 / s4 */
+}
+@media (max-width:320px){ /* iPhone 5 */
+    
+}

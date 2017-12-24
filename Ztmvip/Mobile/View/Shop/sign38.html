@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>{:C('WEBSITE.TITLE')} - {:C('WEBSITE.NAME')}</title>
+    <link rel="stylesheet" type="text/css" href="/Public/Common/Images/common.css" />
+    <link rel="stylesheet" type="text/css" href="/Public/Mobile/Thumbs/thumbs.css" />
+    <script src="__JS__jquery.js"></script>
+    <script src="/Public/Common/Js/common.js"></script>
+</head>
+<body>
+<div id="form" class="form" style="display:block;padding-top:20pt;">
+    <form id="js-form" onsubmit="return false;">
+        <table width="90%" align="center">
+            <thead>
+            <tr>
+                <th>报名信息</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="text" name="shop_name" required="required" placeholder="店铺名称（必填）"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="corp" required="required" placeholder="企业全称（必填）"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="tel" required="required" placeholder="手机号码（必填）"></td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="province" required="required">
+                        <option value="0">请选择省份</option>
+                    </select>
+                    <select name="city" required="required">
+                        <option value="0">请选择城市</option>
+                    </select>
+                    <select name="district" required="required">
+                        <option value="0">请选择区域</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" name="address" required="required" placeholder="详细地址（必填）"></td>
+            </tr>
+            <tr>
+                <td><button type="submit">提交</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<div class="center">
+    <p>&nbsp;</p>
+    <p><img src="/Public/Mobile/Thumbs/im-015.png" width="28%"></p>
+    <p>您的健康财富专家 · 出品</p>
+    <p>&nbsp;</p>
+</div>
+</body>
+</html>
+<script src="/Public/Common/Js/address.js"></script>
+<script>
+    $('.js-sign-btn').on('click',function(){
+        $('#info').hide();
+        $('#form').show();
+    });
+
+    $('#js-receive').on('click',function(){
+        $('.receive-bg,.receive-form').show();
+    });
+
+    var form = $('#js-form');
+    var option = '<option value="">请选择</option>';
+    $(allProvince).each(function(i,e){
+        option += '<option value="'+ e.name +'" pid="'+ e.ProID +'">'+ e.name +'</option>';
+    });
+    $('#js-form select[name="province"]').html(option);
+
+    form.on('click','.close',function(){
+        $('.receive-bg,.receive-form').hide();
+    }).on('change','select[name="province"]',function(){
+        var ProID = $(this).find('option:selected').attr('pid');
+        var option = '<option value="">请选择</option>';
+
+        $(allCity).each(function(i,e){
+            if (e.ProID == ProID)
+                option += '<option value="'+ e.name +'" cid="'+ e.CityID +'">'+ e.name +'</option>';
+        });
+
+        form.find('select[name="city"]').html(option).show();
+        form.find('select[name="district"]').hide();
+    }).on('change','select[name="city"]',function(){
+        var CityID = $(this).find('option:selected').attr('cid');
+        var option = '<option value="">请选择</option>';
+
+        $(allDistrict).each(function(i,e){
+            if (e.CityID == CityID)
+                option += '<option value="'+ e.name +'">'+ e.name +'</option>';
+        });
+
+        form.find('select[name="district"]').html(option).show();
+    }).on('submit',function(){
+        Core.Alert({ 'text':'正在提交数据，请稍候...','state':'load','timeout':9999 });
+
+        setTimeout(function(){
+            //提交快递地址
+            var data = Core.InputObj(form);
+
+            $.post("",data,function(ret){
+                //console.log(ret);
+                if (ret.state){
+                    Core.Alert({ 'text':ret.message,'callback':function(){
+                        location.href='/';
+                    } });
+                }else{
+                    Core.Alert({ 'text':ret.message,'state':'err' });
+                }
+            },'json');
+        },200);
+    });
+</script>

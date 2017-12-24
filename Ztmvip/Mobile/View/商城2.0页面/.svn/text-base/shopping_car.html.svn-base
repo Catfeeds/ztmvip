@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/car_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="Css/car_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="Js/jquery.js"></script>
+</head>
+<body>
+<!-- 其他 -->
+<div class="returntop top"><img src="Images/top.png" alt="" /></div>
+<script>
+    $(window).on('scroll',function(e){
+        var winST = $(window).scrollTop()
+        if(winST>100){
+            $('.top').fadeIn(400);
+            $(".search_box").fadeIn(400)
+        }else{
+            $('.top').fadeOut(400);
+            $('.search_box').fadeOut(400)
+        }
+    })
+    $('.returntop').on('click',function(e) {           
+        $('html,body').animate({scrollTop:0},500)
+    });
+</script>
+<!-- 购物车头部开始 -->
+<div class="header_box">
+    <div class="header_title">购物车</div>
+    <span class="editor">编辑</span>
+</div>
+<!-- 购物车内容开始 -->
+<div class="address_box">
+<form action="">
+<div class="columns_box">
+    <input type="checkbox" name="goods" id="good1" />
+    <div class="tick_box">
+        <div class="rud"></div>
+        <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+    </div>
+    <div class="goods_box">
+        <div class="goods_pho"><img src="Images/seckill_goods.jpg" alt="" /></div>
+        <div class="inf_box one">
+            <div class="goods_inf">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+            <div class="price">￥<i>228</i></div>
+            <div>
+                尺码：M
+                颜色：酒红色
+            </div>
+        </div>
+        <div class="inf_box two">
+            <div>
+                尺码：M
+                颜色：酒红色
+            </div>
+            <div class="goods_num2">
+                <button type="button" class="cut">－</button>
+                <input type="number" name="num" value="1" id="num" min="1" />
+                <button type="button" class="add">＋</button>
+            </div>
+            <div class="remove">删除</div>
+        </div>
+    </div>
+</div>
+<!-- 礼包 -->
+<div class="columns_box package">
+    <input type="checkbox" name="goods" id="good2" />
+        <div class="package-box">
+            <div class="tick_box">
+                <div class="rud"></div>
+                <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+            </div>
+            <div class="package_name">礼包1：<u>￥<i>228</i></u></div>
+        </div>
+        <div class="goods_box">
+            <div class="goods_pho"><img src="Images/seckill_goods.jpg" alt="" /></div>
+            <div class="inf_box one">
+                <div class="goods_inf">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div style="margin:30px 0">
+                    尺码：M
+                    颜色：酒红色
+                </div>
+            </div>
+            <div class="inf_box two">
+                <div style="margin:30px 0">
+                    尺码：M
+                    颜色：酒红色
+                </div>
+            </div>
+        </div>
+        <div class="goods_num2">
+            <button type="button" class="cut">－</button>
+            <input type="number" name="num" value="1" id="num" min="1" />
+            <button type="button" class="add">＋</button>
+        </div>
+        <div class="remove">删除</div>
+        <div class="goods_box">
+            <div class="goods_pho"><img src="Images/seckill_goods.jpg" alt="" /></div>
+            <div class="inf_box one">
+                <div class="goods_inf">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div style="margin:30px 0">
+                    尺码：M
+                    颜色：酒红色
+                </div>
+            </div>
+            <div class="inf_box two">
+                <div style="margin:30px 0">
+                    尺码：M
+                    颜色：酒红色
+                </div>
+            </div>
+        </div>
+</div>
+</form>
+</div>
+<div class="other"></div>
+<div class="bt_box">
+    <div class="inf">
+        <i>
+            <div class="tick_box">
+                <div class="rud"></div>
+                <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+            </div>
+        全选</i>
+        <em>合计：￥228</em>
+        <u>(含运费)</u>
+    </div>
+    <div class="pay_bt">去支付<i>(2)</i></div>
+</div>
+<!-- 购物车页面内容结束 -->
+<div class="nav_box">
+    <div class="nav_in">
+        <div class="nav"><img src="Images/nav1.gif" alt="" /></div>
+    </div>
+    <div class="nav_in">
+        <div class="nav"><img src="Images/nav2.gif" alt="" /></div>
+    </div>
+    <div class="nav_in">
+        <div class="nav"><img src="Images/nav3.gif" alt="" /></div>
+        <!-- 购物车上数字 -->
+        <div class="goods_num">2</div>
+        <!-- 购物车上数字结束 -->
+    </div>
+    <div class="nav_in">
+        <div class="nav"><img src="Images/nav4.gif" alt="" /></div>
+    </div>
+</div>
+<script>
+    $('.columns_box').on('click',function(event){
+        $(this).find('.rud').toggle();
+        $(this).find('.tick').toggle();
+        $('.bt_box .tick').css('display', 'none');
+        $('.bt_box .rud').css('display', 'block');
+        if($(this).find('input').is(':checked')){
+            $(this).find('input').removeAttr("checked");
+        }else{
+            $(this).find('input').prop({
+            checked: 'ture'
+            });
+        }
+    }); 
+    $('.editor').on('click',function(event) {
+        var text = $('.editor').text();
+
+        if(text == '编辑'){
+            $(this).text('完成')
+            $('.one').css('display','none');
+            $('.two').css('display','block');
+            $('.remove').css('display', 'block');
+        }else{
+            $(this).text('编辑')
+            $('.one').css('display','block');
+            $('.two').css('display','none');
+            $('.remove').css('display', 'none');
+        }
+    });
+    $('.remove').on('click',function(event) {
+        $(this).closest('.columns_box').remove();
+    });
+    $('.inf i').on('click',function(event) {
+        if($('input').is(':checked')){
+            $('input').removeAttr("checked");
+        $('.tick').css('display', 'none');
+        $('.rud').css('display', 'block');
+        }else{
+            $('input').prop({
+            checked: 'ture'
+            });
+            $('.tick').css('display', 'block');
+        $('.rud').css('display', 'none');
+        }
+    });
+    
+</script>
+</body>
+</html>

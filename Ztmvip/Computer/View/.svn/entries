@@ -1,0 +1,147 @@
+10
+
+dir
+2641
+svn://61.145.112.66:2046/ztmvip2/Ztmvip/Computer/View
+svn://61.145.112.66:2046/ztmvip2
+
+
+
+2016-01-29T09:13:53.615717Z
+2639
+baogui
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+ceb6eee5-7280-4378-a85c-b67e4aa3744a
+
+layout.html
+file
+
+
+
+
+2016-01-04T01:15:40.609741Z
+5d158b04b12c11e574722a47fbe18e5c
+2015-12-28T03:22:16.391994Z
+1574
+hongfu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+81
+
+Center
+dir
+
+Region
+dir
+
+Article
+dir
+
+Affiliate
+dir
+
+Register
+dir
+
+UploadFile
+dir
+
+Cart
+dir
+
+Account
+dir
+
+Sms
+dir
+
+Search
+dir
+
+Index
+dir
+
+Flow
+dir
+
+Login
+dir
+
+index.html
+file
+
+
+
+
+2016-01-04T01:15:40.609741Z
+7215ee9c7d9dc229d2921a40e899ec5f
+2015-12-04T08:38:46.622653Z
+990
+baogui
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+
+Order
+dir
+
+Goods
+dir
+
+User
+dir
+
+Public
+dir
+

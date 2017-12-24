@@ -1,0 +1,84 @@
+
+        <link rel="stylesheet" type="text/css" href="__PCCSS__goods_list.css" />
+        <script type="text/javascript" src="__PCJS__jquery.jqzoom.js"></script>
+    </head>
+    <body>
+    <include file="Public/top"/>
+        <div class="text_bg">
+            <p class="gps"><a href="{:U('Index/index')}">首页</a> > <a href="{:U('Index/index#fashion')}">潮流趋势</a> >{$article.title}</p>
+            <div class="text">
+                <p class="title">{$article.title}</p>
+                <p class="fengxiang">
+                <span class="span1">文章导读</span>
+                <span class="span3 js-share">分享
+                <include file="Article/share"/>
+                </span>
+                <span <if condition="$flag">class="span2 js-collect cur"<else/>class="span2 js-collect"</if> onclick="collect({$article.id})">收藏</span>
+                </p>
+                <div class="con">{$article.content}</div>
+                <p class="titel1"><span>相关文章</span></p>
+                <div class="xiangguan">
+                    <ul>
+                        <volist name="relation_article" id="vo">
+                        <li><a href="{$vo['link']}?fashion={$vo.id}"><img src="{$vo.hd_image}" alt="" /></a></li>
+                        </volist>
+                    </ul>
+                    <span class="left"  onclick="left()"><img src="__PCIMG__index_03.png" alt="" /></span>
+                    <span class="right" onclick="right()"><img src="__PCIMG__index_05.png" alt="" /></span>
+                </div>
+                <script type="text/javascript">
+                    ind=$('.xiangguan li').length;
+                    width=ind*236;
+                    $('.xiangguan ul').css('width', width);
+                    function right(){
+                        int=window.clearInterval(int);
+                        $('.xiangguan ul').stop(true,true);
+                        var left=parseInt($('.xiangguan ul').css("left"))-236;
+                        if(left>1160-width){
+                            $('.xiangguan ul').animate({"left":left}, 400)};
+                    };
+                    function left(){
+                        int=window.clearInterval(int);
+                        $('.xiangguan ul').stop(true,true);
+                        var left=parseInt($('.xiangguan ul').css("left"))+236;
+                        if(left<=0){
+                            $('.xiangguan ul').animate({"left":left}, 400)};
+                    };
+                    function zidong(){
+                        if(parseInt($('.xiangguan ul').css("left"))-236>1160-width){
+                            right();
+                        }else{
+                           clearInterval();
+                        }
+                    };
+                    var int=self.setInterval("zidong()",3000);
+                    /* *
+                     * 添加文章到收藏夹
+                     */
+                    function collect(article_id)
+                    {
+                        var url="/index.php?m=Computer&c=Article&a=addCollection";
+                        var send={'article_id':article_id};
+                        $.get(url,send,function(reback){
+                            if (reback.status == 8) {
+                                if(reback.action=='add')
+                                {
+                                    $('.js-collect').addClass('cur');
+                                }else{
+                                    $('.js-collect').removeClass('cur');
+                                }
+                            }else if (reback.status == 2) {
+                                Core.Alert({'text':'未登录不能收藏','state':'err'});
+                            }
+                        })
+                    }
+                    $(function(){
+                        $('.js-share').hover(function(){
+                            $('.bdsharebuttonbox').show();
+                        },function(){
+                            $('.bdsharebuttonbox').hide();
+                        });
+                    });
+                </script>
+            </div>
+        </div>

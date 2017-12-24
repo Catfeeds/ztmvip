@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/collect_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="Css/collect_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="Js/jquery.js"></script>
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        我的足迹
+        <div class="return"><img src="Images/fh.jpg" height="37" width="18" alt="" /></div>
+    </div>
+</div>
+<!-- 内容 -->
+<article style="padding-top:45px">
+        <!-- 商品类型 -->
+        <div class="goods_in">
+            <div class="goods_photo"><img src="Images/goods.jpg" height="440" width="360" alt="" /></div>
+            <div class="goods_inf">
+                <div class="title">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div class="price">
+                    ￥<i>228</i>
+                </div>
+                <div class="delate_bt">删 除</div>
+            </div>
+        </div>
+        <div class="goods_in">
+            <div class="goods_photo"><img src="Images/goods.jpg" height="440" width="360" alt="" /></div>
+            <div class="goods_inf">
+                <div class="title">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div class="price">
+                    ￥<i>228</i>
+                </div>
+                <div class="delate_bt">删 除</div>
+            </div>
+        </div>
+        <div class="goods_in">
+            <div class="goods_photo"><img src="Images/goods.jpg" height="440" width="360" alt="" /></div>
+            <div class="goods_inf">
+                <div class="title">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div class="price">
+                    ￥<i>228</i>
+                </div>
+                <div class="delate_bt">删 除</div>
+            </div>
+        </div>
+        <div class="goods_in">
+            <div class="goods_photo"><img src="Images/goods.jpg" height="440" width="360" alt="" /></div>
+            <div class="goods_inf">
+                <div class="title">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div class="price">
+                    ￥<i>228</i>
+                </div>
+                <div class="delate_bt">删 除</div>
+            </div>
+        </div>
+        <div class="goods_in">
+            <div class="goods_photo"><img src="Images/goods.jpg" height="440" width="360" alt="" /></div>
+            <div class="goods_inf">
+                <div class="title">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div class="price">
+                    ￥<i>228</i>
+                </div>
+                <div class="delate_bt">删 除</div>
+            </div>
+        </div>
+        <div class="goods_in">
+            <div class="goods_photo"><img src="Images/goods.jpg" height="440" width="360" alt="" /></div>
+            <div class="goods_inf">
+                <div class="title">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div class="price">
+                    ￥<i>228</i>
+                </div>
+                <div class="delate_bt">删 除</div>
+            </div>
+        </div>
+        <!-- 文章类型 -->
+        <div class="text_box">
+            <div class="text_photo">
+                <img src="Images/article.gif" height="320" width="206" alt="" />
+                <div class="text_name">
+                    美妆秘籍<br />
+                    共享美丽
+                </div>
+            </div>
+            <div class="text_inf">
+                <div class="title">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div class="title_inf">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div class="delate_bt">删 除</div>
+            </div>
+        </div>
+        <div class="text_box">
+            <div class="text_photo">
+                <img src="Images/article.gif" height="320" width="206" alt="" />
+                <div class="text_name">
+                    美妆秘籍<br />
+                    共享美丽
+                </div>
+            </div>
+            <div class="text_inf">
+                <div class="title">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div class="title_inf">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div class="delate_bt">删 除</div>
+            </div>
+        </div>
+        <div class="text_box">
+            <div class="text_photo">
+                <img src="Images/article.gif" height="320" width="206" alt="" />
+                <div class="text_name">
+                    美妆秘籍<br />
+                    共享美丽
+                </div>
+            </div>
+            <div class="text_inf">
+                <div class="title">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div class="title_inf">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div class="delate_bt">删 除</div>
+            </div>
+        </div>
+        <div class="text_box">
+            <div class="text_photo">
+                <img src="Images/article.gif" height="320" width="206" alt="" />
+                <div class="text_name">
+                    美妆秘籍<br />
+                    共享美丽
+                </div>
+            </div>
+            <div class="text_inf">
+                <div class="title">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div class="title_inf">香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫香诗丽欧美大牌高端九分袖钉珠网纱拼接针织衫打底衫</div>
+                <div class="delate_bt">删 除</div>
+            </div>
+        </div>
+    </article>
+<script type="text/javascript">
+    // 点击删除
+    $('.delate_bt').on('click',function(){
+        $(this).closest('.goods_in').remove();
+        $(this).closest('.text_box').remove();
+    })
+</script>
+<!-- 版权 -->
+    <div class="copyright">
+        &copy整体美商城<br />
+        客服电话：400-777-1225<br />
+        客服微信：HRlianna
+    </div>
+</body>
+</html>

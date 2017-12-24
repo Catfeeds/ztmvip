@@ -1,0 +1,16 @@
+html{font-size:12px;font-family: "冬青黑体简体中文";height:100%;}
+body{height:100%;}
+.head_box{width:100%;max-width: 750px;position:fixed;top:0;background:#fff;z-index: 999;}
+.head{width:100%;height:44px;border-bottom: 1px solid #ccc;text-align: center;font-size: 1.4rem;line-height:44px;position:relative;}
+.head .return{width:9px;position:absolute;left:10px;top:13px;}
+.columns_box{width:100%;height:44px;border-bottom: 1px solid #ccc;}
+.columns_in{width:20%;height:44px;float:left;text-align: center;box-sizing: border-box;}
+.columns_in .columns{width:100%;font-size: 1.1rem;height:17px;line-height:17px;margin-top:13px;border-right: 1px solid #ccc;color:#7F7F7F;box-sizing: border-box;}
+.cur{border-bottom: 2px solid #E8C473;}
+.cur .columns{color:#252525;}
+article{padding-top:90px;}
+
+
+
+.copyright{height:77px;text-align: center;line-height: 20px;padding-top:10px;box-sizing: border-box;}
+

@@ -1,0 +1,26 @@
+{__NOLAYOUT__}
+<include file="Public/health_header"/>
+<link rel="stylesheet" type="text/css" href="__HEATH__Css/special.css"/>
+</head>
+    <body>
+    <div class="header_position">
+        <div  class="special_title">
+            <i onclick="location.href='{:U('Index/index')}'" class="title_font">&#xe702;</i>
+            健康减重方案
+        </div>
+    </div>
+        <a href="{:U('Health/special_text')}" class="img">
+            <div class="hover"></div>
+            <img src="__HEATH__Images/special_02.jpg">
+        </a>
+        <a href="{:U('Health/special_explain')}" class="img">
+            <div class="hover"></div>
+            <img src="__HEATH__Images/special_07.jpg">
+        </a>
+        <a href="{:U('Health/special_share')}" class="img">
+            <div class="hover"></div>
+            <img src="__HEATH__Images/special_04.jpg">
+        </a>
+        <include file="Public/health_footer"/>
+    </body>
+</html>

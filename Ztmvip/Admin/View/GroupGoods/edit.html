@@ -1,0 +1,141 @@
+<style type="text/css">
+    .relation-goods-btn{ display:inline-block; text-align:center; line-height:30px; vertical-align:middle; padding:0 10px;}
+</style>
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">组合名称</td>
+            <td><input name="group_name" class="text" type="text" value="{$edit['group_name']}" required="required" placeholder="请输入组合名称..."></td>
+        </tr>
+        <tr>
+            <td class="label">组合售价</td>
+            <td><input name="price" class="text" type="text" value="{$edit['price']}" required="required" placeholder="请输入组合售价..."></td>
+        </tr>
+        <tr>
+            <td class="label">分佣比例</td>
+            <td><input name="profit" class="text" type="text" value="{$edit['profit']}" required="required" placeholder="请输入分佣比例..."></td>
+        </tr>
+        <tr>
+            <td class="label">组合商品</td>
+            <td>
+                <select class="select js-goods-category js-relation-goods-category-id" _name="">
+                    <option value="">—请选择—</option>
+                    <volist name="goods_category" id="vo">
+                        <option value="{$vo['id']}">{$vo['category_name']}</option>
+                    </volist>
+                </select>
+                <tagLib name="html"/>
+                <html:select options="goods_brand" first="—请选择—" style="select js-relation-goods-brand-id"/>
+                <input class="text js-relation-goods-search" type="text" placeholder="商品名称...">
+            </td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td>
+                <select class="select js-relation-goods-search-result" multiple style="min-width:300px; min-height:200px;"></select>
+                <div class="relation-goods-btn">
+                    <p><button class="js-relation-goods-insert" data-rel="all" type="button">》</button></p>
+                    <p><button class="js-relation-goods-insert" data-rel="one" type="button">></button></p>
+                    <p><button class="js-relation-goods-remove" data-rel="one" type="button"><</button></p>
+                    <p><button class="js-relation-goods-remove" data-rel="all" type="button">《</button></p>
+                </div>
+                <select name="relation_goods" class="select" multiple style="min-width:300px; min-height:200px;"></select>
+                <textarea class="js-relation-goods" style="display:none;">{$edit['relation_goods']}</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td>
+                <button type="submit" class="submit">提 交</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+    var rgsr = $('.js-relation-goods-search-result');
+    var rg = $('select[name="relation_goods"]');
+    $('.js-relation-goods-search').on('keypress',function(event){
+        if(event.keyCode == 13){
+            event.preventDefault();
+
+            var data = {
+                'words':$('.js-relation-goods-search').val(),
+                'category_id':$('.js-relation-goods-category-id[name]').val(),
+                'brand_id':$('js-relation-goods-brand-id').val()
+            };
+            $.post("{:U('Goods/search')}",data,function(ret){
+                if (!ret)
+                    return;
+
+                var tpl = '<option value="{value}">{text}</option>';
+                var html = '';
+
+                $.each(ret,function(i,e){
+                    html += Core.FormatTpl(tpl,{'value':e.id,'text':e.goods_name});
+                });
+
+                rgsr.html(html);
+            });
+        }
+    });
+
+    $('.relation-goods-btn').on('click','.js-relation-goods-insert',function(){
+        if ($(this).attr('data-rel') == 'all'){
+            rg.append(rgsr.find('option').clone());
+        }else{
+            rg.append(rgsr.find(':selected').clone());
+        }
+    }).on('click','.js-relation-goods-remove',function(){
+        if ($(this).attr('data-rel') == 'all'){
+            rg.html('');
+        }else{
+            rg.find(':selected').remove();
+        }
+    });
+
+    if ($('.js-relation-goods').val() && $('.js-relation-goods').val() != '[]'){
+        var relation_goods = $.parseJSON($('.js-relation-goods').val());
+        $.post("{:U('Goods/search')}",{'goods_id':relation_goods},function(ret){
+            if (!ret)
+                return;
+
+            var tpl = '<option value="{value}">{text}</option>';
+            var html = '';
+
+            $.each(ret,function(i,e){
+                html += Core.FormatTpl(tpl,{'text':e.goods_name,'value':e.id});
+            });
+
+            $('select[name="relation_goods"]').html(html);
+        });
+    }
+
+    $('.js-edit').on('submit',function(event){
+        var data = Core.InputObj(this);
+
+        data['relation_goods'] = [];
+        rg.find('option').each(function(i,e){
+            data['relation_goods'].push(e.value);
+        });
+
+        $.post('',data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.href = "{:U('index','goods_id='.$goods_id)}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+</script>

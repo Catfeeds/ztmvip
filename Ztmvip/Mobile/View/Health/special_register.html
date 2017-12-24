@@ -1,0 +1,375 @@
+﻿{__NOLAYOUT__}
+<include file="Public/health_header"/>
+<link rel="stylesheet" type="text/css" href="__HEATH__Css/register.css" />
+<script type="text/javascript" src="__HEATH__Js/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="__HEATH__Js/shan_health.js"></script>
+</head>
+<body>
+<div class="header_position">
+<header class="special_title"> 个人信息 <a class="title_font" href="{:U('Health/special_explain')}">&#xe702;</a> </header>
+</div>
+<img src="__HEATH__Images/register_02.jpg">
+
+
+
+<form  action=""  method="post" id="shan_health">
+<div class="register">
+  <ul class="contairen">
+    <li class="name"><span>姓名</span>
+      <input type="text" name="user_name" value="{$fixed['user_name']}" <notempty name="fixed.user_name">disabled</notempty> />
+      <p>为了更好的为您服务，请用真实姓名注册。</p>
+    </li>
+    <li class="sex"><span>性别</span>
+         <img class="nan" src="__HEATH__Images/register_04.png">
+         <img class="nv" src="__HEATH__Images/register_05.png">
+         <input type="hidden" name="sex" id="js_sex" value="{$fixed['sex']|default=female}" />
+    </li>
+
+
+
+    <!-- 男女选择 --> 
+    <script>
+        $(".sex > .nan ").on('click',function(){
+                $(".sex > .nan ").attr('src', '__HEATH__Images/register_04_1.png');
+                $(".sex > .nv").attr('src', '__HEATH__Images/register_05_1.png');
+
+                $("#js_sex").val('male');
+                $(".js_man_none").css({"display":"none"});
+            
+        });
+        $(".sex > .nv ").on('click',function(){
+                $(".sex > .nan ").attr('src', '__HEATH__Images/register_04.png');
+                $(".sex > .nv").attr('src', '__HEATH__Images/register_05.png');
+                 $("#js_sex").val('female');
+                $(".js_man_none").css({"display":"block"});
+            
+        });
+    </script> 
+
+
+    <eq  name="fixed.sex" value="female">
+    <script type="text/javascript">
+    $(".sex > .nan ").off('click');
+    $(".sex > .nv ").off('click');
+    </script>  
+    </eq>
+
+    <eq name="fixed.sex" value="male">
+       <script type="text/javascript">
+
+
+           $(function(){
+
+              $(".sex > .nan ").attr('src', '__HEATH__Images/register_04_1.png');
+              $(".sex > .nv").attr('src', '__HEATH__Images/register_05_1.png');
+
+              $("#js_sex").val('male');
+              $(".js_man_none").css({"display":"none"});
+
+
+
+               $(".sex > .nan ").off('click');
+               $(".sex > .nv ").off('click');
+           })
+    
+
+       </script>
+    </eq>
+    <!-- 男女选择结束 -->
+    <li><span>生日</span>
+      <!-- <div class="input js_date"></div> -->
+      <input class="input js_date" type="text" id="js_birthday" name="birthday" value="{$fixed['birthday']}" <notempty name="fixed.birthday">disabled</notempty>  />
+      <i class="font_right">&#xe642;</i>
+      
+
+    </li>
+    <li><span>手机号</span>
+      <input type="text" name="mobile" value="{$fixed['mobile']}" <notempty name="fixed.mobile">disabled</notempty> />
+    </li>
+   <!--  <li><span>邀请码</span>
+      <input type="text" name="code" value="" />
+    </li> -->
+    <li class="js_man_none" ><span>上次经期</span>
+      <!-- <div class="input" id="js_last_time"></div> -->
+      <input type="text" id="js_last_red" name="last_red" value="" />
+      <i class="font_right">&#xe642;</i></li>
+    <li class="js_man_none"><span>月经周期</span>
+      <!-- <div class="input" id="js_zq"></div> -->
+      <input type="text" name="red_period" id="js_red_period" value="" />
+      <i class="font_right">&#xe642;</i></li>
+    <li class="js_man_none"><span>经期</span>
+      <input type="text" name="red_keep" value="" />
+      <i>天</i></li>
+    <li><span>身高</span>
+      <input type="text" name="height" value="" />
+      <i>cm</i></li>
+    <li><span>当前体重</span>
+      <input type="text" name="weight" value="" />
+      <i>kg</i></li>
+    <li><span>脂肪率</span>
+      <input type="text" name="fat" value="" />
+      <i>%</i></li>
+    <li><span>基础代谢</span>
+      <input type="text" name="metabolize" value="" />
+      <i>kca</i></li>
+    <li><span>腰围</span>
+      <input type="text" name="waistline" value=""/>
+      <i>cm</i></li>
+    <li><span>臀围</span>
+      <input type="text" name="hipline" value="" />
+      <i>cm</i></li>
+  </ul>
+  <button type="button" onclick="health_register();">提交</button>
+</div>
+
+</form>
+
+
+
+<!-- 灰色背景 -->
+<!-- ####################################################### -->
+<div class="bg_hui"  <notempty name="buy_flag">style="display:none;" <else/>style="display:block;"</notempty>>
+</div>
+<!-- ################################################# -->
+
+<!-- 生日 -->
+<div class="date"  style="display:none" >
+  <p class="p_top">2002-06-14</p>
+  <p><em>年</em><em>月</em><em>日</em></p>
+  <div class="select swiper-container swiper-container-date">
+    <ul class="swiper-wrapper">
+    <script type="text/javascript">
+      for(var i=2015;i>1920;i--){
+        $(".date .swiper-wrapper:eq(0)").prepend("<li class='swiper-slide'>"+i+"</li>");
+      }
+    </script>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+    </ul>
+  </div>
+  <div class="select swiper-container">
+    <ul class="swiper-wrapper">
+      <li class="swiper-slide">1</li>
+      <li class="swiper-slide">2</li>
+      <li class="swiper-slide">3</li>
+      <li class="swiper-slide">4</li>
+      <li class="swiper-slide">5</li>
+      <li class="swiper-slide">6</li>
+      <li class="swiper-slide">7</li>
+      <li class="swiper-slide">8</li>
+      <li class="swiper-slide">9</li>
+      <li class="swiper-slide">10</li>
+      <li class="swiper-slide">11</li>
+      <li class="swiper-slide">12</li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+    </ul>
+  </div>
+  <div class="select swiper-container">
+    <ul class="swiper-wrapper">
+    <script type="text/javascript">
+      for(var i=31;i>0;i--){
+        $(".date .swiper-wrapper:eq(2)").prepend("<li class='swiper-slide'>"+i+"</li>");
+      }
+    </script>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+    </ul>
+  </div>
+  <span class="quxiao">取消</span><span id="js_date_ok">确定</span>
+  <div class="xian_top"></div>
+  <div class="xian_top xian_bot"></div>
+  <div class="xian_top1"></div>
+  <div class="xian_top1 xian_bot1"></div>
+  <div class="xian_top2"></div>
+  <div class="xian_top2 xian_bot2"></div>
+</div>
+
+
+ <div class="cycle"  style="display:none" >
+  <p class="p_top">2002-06-14</p>
+  <p><em>年</em><em>月</em><em>日</em></p>
+  <div class="select swiper-container">
+    <ul class="swiper-wrapper">
+      <li class="swiper-slide">2014</li>
+      <li class="swiper-slide">2015</li>
+      <li class="swiper-slide">2016</li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+    </ul>
+  </div>
+  <div class="select swiper-container">
+    <ul class="swiper-wrapper">
+      <li class="swiper-slide">1</li>
+      <li class="swiper-slide">2</li>
+      <li class="swiper-slide">3</li>
+      <li class="swiper-slide">4</li>
+      <li class="swiper-slide">5</li>
+      <li class="swiper-slide">6</li>
+      <li class="swiper-slide">7</li>
+      <li class="swiper-slide">8</li>
+      <li class="swiper-slide">9</li>
+      <li class="swiper-slide">10</li>
+      <li class="swiper-slide">11</li>
+      <li class="swiper-slide">12</li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+    </ul>
+  </div>
+  <div class="select swiper-container">
+    <ul class="swiper-wrapper">
+    <script type="text/javascript">
+      for(var i=31;i>0;i--){
+        $(".cycle .swiper-wrapper:eq(2)").prepend("<li class='swiper-slide'>"+i+"</li>");
+      }
+    </script>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+    </ul>
+  </div>
+  <span class="quxiao">取消</span><span id="js_cycle_ok">确定</span>
+  <div class="xian_top"></div>
+  <div class="xian_top xian_bot"></div>
+  <div class="xian_top1"></div>
+  <div class="xian_top1 xian_bot1"></div>
+  <div class="xian_top2"></div>
+  <div class="xian_top2 xian_bot2"></div>
+</div>
+
+
+
+
+
+
+
+
+<!-- 月经周期 -->
+<div class="js_zq" style=" display:none;" >
+  <p><i>29</i>天</p>
+  <div class="select swiper-container">
+    <ul class="swiper-wrapper">
+    <script type="text/javascript">
+      for(var i=41;i>24;i--){
+        $(".js_zq .swiper-wrapper:eq(0)").prepend("<li class='swiper-slide'>"+i+"</li>");
+      }
+    </script>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+      <li class="swiper-slide"></li>
+    </ul>
+  </div>
+  <span class="quxiao">取消</span><span id="js_zq_ok">确定</span>
+  <div class="xian_top"></div>
+  <div class="xian_top xian_bot"></div>
+</div>
+
+<!-- =####################===================== -->
+<div class="tishi"  <notempty name="buy_flag">style="display:none;" <else/>style="display:block;"</notempty>  >
+  <div class="top">
+      <i class="tishi_font">&#xe71e;</i>
+  </div>
+  <h1>提示</h1>
+  <p id="shan_error">友情提示：请先购买整体美商城健康减重套餐</p>
+  <span>确定</span>
+</div>
+<!-- =========================================== -->
+
+<script>
+        function heSwiper(){
+            var mySwiper = new Swiper('.swiper-container', {
+                autoplayDisableOnInteraction :true,
+                slidesPerView: 5  ,
+                direction : 'vertical',
+                freeMode : true,
+                freeModeMomentumRatio : 1,
+                freeModeSticky : true,
+            });
+
+
+            var mySwiper = new Swiper('.swiper-container-date', {
+            initialSlide :59,
+            autoplayDisableOnInteraction :true,
+            slidesPerView: 5  ,
+            direction : 'vertical',
+            freeMode : true,
+            freeModeMomentumRatio : 0.5,
+            freeModeSticky : true,
+      });
+
+        };
+
+        $(".bg_hui,.quxiao").on('click',function(){
+            $(".cycle,.date,.bg_hui,.js_zq,.tishi").css({"display":"none"});
+        });
+        // <!-- 生日 -->
+        $(".js_date").on('click',function(){
+            $(".bg_hui").css({"display":"block"});
+            $(".date").css({"display":"block"});
+            heSwiper();
+        });
+        $("#js_date_ok").on('click',function(){
+           // $(".js_date em:eq(0)").text($(".date .swiper-slide-active:eq(0)").text());
+           // $(".js_date em:eq(1)").text($(".date .swiper-slide-active:eq(1)").text());
+           // $(".js_date em:eq(2)").text($(".date .swiper-slide-active:eq(2)").text());
+           var text=$(".date .swiper-slide-active:eq(0)").text()+"-";
+               text+=$(".date .swiper-slide-active:eq(1)").text()+"-";
+               text+=$(".date .swiper-slide-active:eq(2)").text();
+           $(".js_date").text(text);
+           $("#js_birthday").val(text);
+           $(".cycle,.date,.bg_hui,.js_zq").css({"display":"none"});
+        });
+
+
+
+        // 上次经期
+        $("#js_last_red").on('click',function(){
+            $(".bg_hui").css({"display":"block"});
+            $(".cycle").css({"display":"block"});
+            heSwiper();
+        });
+        $("#js_cycle_ok").on('click',function(){
+           var text=$(".cycle .swiper-slide-active:eq(0)").text()+"-";
+               text+=$(".cycle .swiper-slide-active:eq(1)").text()+"-";
+               text+=$(".cycle .swiper-slide-active:eq(2)").text();
+           $("#js_last_red").text(text);
+           $("#js_last_red").val(text);
+           $(".cycle,.date,.bg_hui,.js_zq").css({"display":"none"});
+        });
+
+        //月经周期
+        $("#js_red_period").on('click',function(){
+            $(".bg_hui").css({"display":"block"});
+            $(".js_zq").css({"display":"block"});
+            heSwiper();
+        });
+        $("#js_zq_ok").on('click',function(){
+            // $("#js_red_period").text($(".js_zq .swiper-slide-active:eq(0)").text()+"天");
+            $("#js_red_period").val($(".js_zq .swiper-slide-active:eq(0)").text()+"天");
+            $(".cycle,.date,.bg_hui,.js_zq").css({"display":"none"});
+        });
+
+
+   //取消弹层
+        $(".tishi span").on('click',function(){
+            $(".cycle,.date,.bg_hui,.js_zq,.tishi").css({"display":"none"});
+
+        });
+
+    </script>
+
+    <include  file="Public/health_footer"/>
+</body>
+</html>

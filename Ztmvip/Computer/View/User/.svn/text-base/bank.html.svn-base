@@ -1,0 +1,129 @@
+
+<link rel="stylesheet" type="text/css" href="__PCCSS__user.css" />
+</head>
+<body>
+
+
+<include file="Public:top"/>
+
+
+
+<div class="user_bg">
+    <div class="user">
+        <include file="User:publicLeft"/>
+        <div class="user_right">
+            <form action="" id="js-form">
+                <div class="user_data">
+                    <p class="title">
+                        <span>
+                        <!-- 个人信息 -->
+                        绑定银行卡
+
+                        </span>
+                    </p>
+                    <div class="security">
+
+                        <ul class="" >
+                            <li class="li0">
+                            </li>
+                            <if condition="$user['bank_card']">
+                            <li class="li1"><span>已绑定的银行卡</span><input type="text" value="{$user['bank_card']|substr=###,0,6}***{$user['bank_card']|substr=###,-4}" disabled='disabled'/></li>
+                            </if>
+                            <li class=""><span>开户银行</span><input name="bank_name" type="text" /></li>
+                            <li class=""><span>银行卡号</span><input name="bank_card" type="text" /></li>
+                            <li class=""><span>开户名</span><input name="bank_user" type="text" /></li>
+                            <li class="li2"><span>手机验证码</span><input name="sms_code" type="text" /><button class="js-sms-code" type="button">获取验证码</button></li>
+                            <li class="li3">
+                                <span>安全问题</span>
+
+                                <input name="question" type="hidden" class="js-wenti" />
+                                <div class="select fixed">
+                                    <i>{$user['question']}</i>
+                                </div>
+                                <script type="text/javascript">
+                                    $('.select').on('click', function() {
+                                        $('.select dl').css({"display":"block"});
+                                    });
+                                    $('.select dd').on('click', function() {
+                                        var val=$(this).text();
+                                        $('.select i').text(val);
+                                        $('.select dl').css({"display":"none"});
+                                        $('.js-wenti').val(val);
+                                        return false;
+                                    });
+                                </script>
+                            </li>
+                            <li class="">
+                                <span>输入答案</span>
+                                <input name="answer" type="text" />
+                            </li>
+                            <li class="li4"><button class="js-submit" type="button">确定</button></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $('.js-sms-code').on('click',function(){
+        if ($(this).prop('disabled'))
+            return;
+        $(this).prop('disabled',true);
+        var timeout = 60;
+        var el = $(this);
+
+        $.post("{:U('Sms/userBank')}",{  },function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message });
+                sms_time(el,timeout);
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+    function sms_time(el,timeout){
+        if (timeout == 0) {
+            el.removeClass('click').prop('disabled',false).html('获取验证码');
+        }else{
+            el.addClass('click').prop('disabled',true).html('重新发送('+ timeout +')');
+            timeout--;
+            setTimeout(function(){
+                sms_time(el,timeout);
+            },1000);
+        }
+    }
+
+    $('.js-submit').on('click',function(){
+        var data = Core.InputObj($('#js-form'));
+
+        $.post('',data,function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message,'callback':function(){
+                    if ("{:I('get.redirect','','base64_decode')}")
+                        location.href = "{:I('get.redirect','','base64_decode')}";
+                    else
+                        location.reload();
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

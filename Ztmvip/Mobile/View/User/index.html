@@ -1,0 +1,215 @@
+<link rel="stylesheet" type="text/css" href="__CSS__/user_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="__CSS__/user_pad.css" media="(min-width:750px)">
+</head>
+<body>
+<!-- 收藏按钮 -->
+<div class="collection"><a href="{:U('Favor/index')}"><img src="__IMG__xin.png" height="58" width="58" alt="" /></a></div>
+<!-- 网站头部 -->
+<div class="user_head">
+    <div class="use_banner"><img src="__IMG__user_banner.jpg" alt="" /></div>
+    <a class="user_photo" href="{:U('info')}">
+        <div class="user_photo_box"><img src="{$info['avatar']}" alt="" /></div>
+        <div class="real_box"><div class="real_photo"><img src="{$info['avatar']}" alt="" /></div></div>
+    </a>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var useph = $('.use_banner').height();
+        var collh = $('.collection').height();
+        var collt = $('.collection').offset().top
+        $(window).on('scroll',function(e){
+            var winST = $(window).scrollTop()
+            if(winST>useph-collh-collt){
+                $('.collection').fadeOut();
+                
+            }else{
+                $('.collection').fadeIn();
+            }
+        })
+    })
+</script>
+<!-- 个人信息 -->
+<div class="user_inf">
+    <div class="user_name">
+        <i>{$info['nick_name']}</i><br />
+        {$info['parent_name']}推荐会员
+    </div>
+    <div class="user_other">
+        <span>
+            <div class="left">
+                <i>积分</i><br />
+                {$info['integral']}
+            </div>
+        </span>
+<!--         <a href="javascript:;"  id="qrcode">
+            <div class="right"><img src="__IMG__erweima.jpg" height="46" width="46" alt="" /></div>
+        </a> -->
+    </div>
+</div>
+<!-- 功能列表 -->
+<div class="user_list">
+    <div class="list">
+        <a href="{:U('order','state=new')}">
+            <div class="icon dif">
+                <img src="__IMG__user_icon1.jpg" height="45" width="58" alt="" />
+                <if condition="$order_count['new']">
+                    <div class="goods_num">{$order_count['new']}</div>
+                </if>
+            </div>
+            <div class="icon_inf">待付款</div>
+        </a>
+    </div>
+    <div class="list">
+        <a href="{:U('order','state=payed')}">
+            <div class="icon dif">
+                <img src="__IMG__user_icon2.jpg" height="45" width="58" alt="" />
+                <if condition="$order_count['payed']">
+                    <div class="goods_num">{$order_count['payed']}</div>
+                </if>
+            </div>
+            <div class="icon_inf">待发货</div>
+        </a>
+    </div>
+    <div class="list">
+        <a href="{:U('order','state=send')}">
+            <div class="icon">
+                <img src="__IMG__user_icon3.jpg" height="45" width="58" alt="" />
+                <if condition="$order_count['send']">
+                    <div class="goods_num">{$order_count['send']}</div>
+                </if>
+            </div>
+            <div class="icon_inf">待收货</div>
+        </a>
+    </div>
+    <div class="list">
+        <a href="{:U('order','state=receive')}">
+            <div class="icon">
+                <img src="__IMG__user_icon4.jpg" height="45" width="58" alt="" />
+                <if condition="$order_count['receive']">
+                    <div class="goods_num">{$order_count['receive']}</div>
+                </if>
+            </div>
+            <div class="icon_inf">待评价</div>
+        </a>
+    </div>
+    <div class="list">
+        <a href="{:U('order','state=refund')}">
+            <div class="icon dif">
+                <img src="__IMG__user_icon5.jpg" height="45" width="58" alt="" />
+                <if condition="$order_count['refund']">
+                    <div class="goods_num">{$order_count['refund']}</div>
+                </if>
+            </div>
+            <div class="icon_inf">退款/售后</div>
+        </a>
+    </div>
+</div>
+<div class="list_box">
+    <a href="javascript:;" id="qrcode_one">
+        <div class="list_in">
+            我的二维码
+            <div class="jump"><img src="__IMG__fhy2.jpg" height="24" width="13" alt="" /></div>
+        </div>
+    </a>
+    <a href="{:U('Affiliate/index')}">
+        <div class="list_in">
+            返利中心
+            <div class="jump"><img src="__IMG__fhy2.jpg" height="24" width="13" alt="" /></div>
+        </div>
+    </a>
+    <a href="{:U('money')}">
+        <div class="list_in">
+            我的余额 <i style="font-size:1.0rem;color:#808080;">￥{$info['real_money']|sprintf='%.2f',###}</i>
+            <div class="jump"><img src="__IMG__fhy2.jpg" height="24" width="13" alt="" /></div>
+        </div>
+    </a>
+    <a href="{:U('bonus')}">
+        <div class="list_in">
+            我的红包
+            <div class="jump"><img src="__IMG__fhy2.jpg" height="24" width="13" alt="" /></div>
+        </div>
+    </a>
+    <a href="{:U('coupon')}">
+        <div class="list_in">
+            我的优惠券
+            <div class="jump"><img src="__IMG__fhy2.jpg" height="24" width="13" alt="" /></div>
+        </div>
+    </a>
+    <a href="{:U('prepaid')}">
+        <div class="list_in">
+            我的储值卡
+            <div class="jump"><img src="__IMG__fhy2.jpg" height="24" width="13" alt="" /></div>
+        </div>
+    </a>
+    <a href="{:U('safety')}">
+        <div class="list_in">
+            安全中心
+            <div class="jump"><img src="__IMG__fhy2.jpg" height="24" width="13" alt="" /></div>
+        </div>
+    </a>
+    <a href="{:U('notice')}">
+        <div class="list_in">
+            售后说明
+            <div class="jump"><img src="__IMG__fhy2.jpg" height="24" width="13" alt="" /></div>
+        </div>
+    </a>
+</div>
+<!-- 版权 -->
+<include file="Public/copy_right"/>
+<include file="Public/nav"/>
+</body>
+</html>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    $('#qrcode ,#qrcode_one').on('click',function(){
+        Core.Layout({ 'text':'<p>推荐好友,您和好友各得190元红包</p><img src="{$qrcode}" style="height:300px;width:300px;"><span id="display">活动规则 >></span><div>1. 推荐好友注册好友即可获得红包<br />２.推荐好友注册同时自己也可获得红包<br />３.推荐的好友已在商城注册的不参与本活动<br />４.本活动最终解释权归整体美社交商城所有</div>' });
+        $('#display').on('click',function(){
+            $('.core-layer .content div').show();
+        })
+    });
+
+    wx.config({
+        debug:false,
+        appId:"{$signPackage['appid']}",
+        timestamp:"{$signPackage['timestamp']}",
+        nonceStr:"{$signPackage['noncestr']}",
+        signature:"{$signPackage['signature']}",
+        jsApiList:[
+            'onMenuShareAppMessage',
+            'onMenuShareTimeline',
+        ]
+    });
+
+    wx.ready(function() {
+        var _title = '分享就能赚钱.整体美商城',
+                _desc = '整体美解决方案领导者',
+                _link = "{:U('Index/index','u='.session('user_id'),'html',true)}",
+                _imgUrl = "http://{$_SERVER['HTTP_HOST']}{$qrcode}";
+        //发送给朋友
+        wx.onMenuShareAppMessage({
+            title:_title,
+            desc:_desc,
+            link:_link,
+            imgUrl:_imgUrl,
+            type:'link',
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+        //分享到朋友圈
+        wx.onMenuShareTimeline({
+            title:_title,
+            link:_link,
+            imgUrl:_imgUrl,
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+    });
+</script>

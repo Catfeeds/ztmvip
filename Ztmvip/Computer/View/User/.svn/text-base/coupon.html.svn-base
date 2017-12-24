@@ -1,0 +1,50 @@
+{__NOLAYOUT__}
+<span class="top_false"></span><p class="title">我的优惠券</p>
+<ul class="xuanzhe">
+    <li class="li1"><a href="javascript:;" class="this">未使用({$coupon_count['new']})</a></li>
+    <li class="li2"><a href="javascript:;">已使用({$coupon_count['used']})</a></li>
+    <li class="li3"><a href="javascript:;">已过期({$coupon_count['expired']})</a></li>
+</ul>
+<div class="coupon">
+    <ul class="js-scroll">
+
+        <!-- 未使用红包3种样式 -->
+        <volist name="coupon" id="vo">
+        <php>$rand = mt_rand(1,3);</php>
+        <li class="ajax_coupon{$coupon_type}_display" >
+            <div class="coupon_1 coupon_{$coupon_type}_{$rand} ">
+                <p class="p1">整体美优惠券</p>
+                <p class="p2"><span><i>{$vo['coupon_money']|sprintf='%d',###}</i>元</span><img src="__PCIMG__coupon_04.jpg" class="l" alt="" />满{$vo['min_order_amount']|sprintf='%.2f',###}元可用<img src="__PCIMG__coupon_05.gif" class="r" alt="" /></p>
+            </div>
+            <p class="date">{$vo['use_start']|date='Y-m-d',###} —— {$vo['use_end']|date='Y-m-d',###}</p>
+        </li>
+        </volist>
+
+
+        <!-- 已使用红包3种样式 -->
+        <!--<volist name="coupon_not_used" id="vo">
+         <php>$rand = mt_rand(1,3);</php>
+        <li class="ajax_coupon2_display" style="display:none;">
+            <div class="coupon_2 coupon_2_{$rand}">
+                <p class="p1">整体美优惠券<span>已使用</span></p>
+                <p class="p2"><span><i>{$vo['coupon_money']|sprintf='%d',###}</i>元</span><img src="__PCIMG__coupon_04.jpg" class="l" alt="" />满{$vo['min_order_amount']|sprintf='%.2f',###}元可用<img src="__PCIMG__coupon_05.gif" class="r" alt="" /></p>
+            </div>
+            <p class="date">{$vo['use_start']|date='Y-m-d',###} —— {$vo['use_end']|date='Y-m-d',###}</p>
+        </li>
+        </volist>-->
+
+
+        <!-- 过期红包3种样式 -->
+        <!--<volist name="coupon_not_used" id="vo">
+        <php>$rand = mt_rand(1,3);</php>
+        <li class="ajax_coupon3_display" style="display:none;">
+            <div class="coupon_2 coupon_2_{$rand}">
+                <p class="p1">整体美优惠券<span>已过期</span></p>
+                <p class="p2"><span><i>{$vo['coupon_money']|sprintf='%d',###}</i>元</span><img src="__PCIMG__coupon_04.jpg" class="l" alt="" />满{$vo['min_order_amount']|sprintf='%.2f',###}元可用<img src="__PCIMG__coupon_05.gif" class="r" alt="" /></p>
+            </div>
+            <p class="date">{$vo['use_start']|date='Y-m-d',###} —— {$vo['use_end']|date='Y-m-d',###}</p>
+        </li>
+        </volist>-->
+    </ul>
+</div>
+<p class="text"><a href="{:U('User/couponDes')}" >优惠券使用说明>></a></p>

@@ -1,0 +1,145 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <form method="get" action="{:U('')}">
+            <input name="title" class="text" type="text" value="{$Think.get.title}" placeholder="文章标题搜索...">
+            <tagLib name="html"/>
+            <html:select name="topic_id" options="topic" selected="_GET['topic_id']" first="—请选择—" style="select"/>
+            <button class="button" type="submit">搜 索</button>
+        </form>
+        <a class="button" href="{:U('edit')}">新 增</a>
+    </span>
+</div>
+<table class="tbl js-list" width="100%">
+    <thead>
+    <tr>
+        <th width="20"><input type="checkbox"></th>
+        <th>文章标题</th>
+        <th>文章分类</th>
+        <th width="80">排序</th>
+        <th width="150">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <if condition="$list">
+        <volist name="list" id="vo">
+            <tr>
+                <td align="center"><input name="id" type="checkbox" value="{$vo['id']}"></td>
+                <td><a href="__HOME__{:U('Article/show','id='.$vo['id'])}" target="_blank">{$vo['title']}</a></td>
+                <td>{$vo['topic_name']}</td>
+                <td align="center">
+                    <a class="js-rank" href="javascript:;">拖拽排序</a>
+                </td>
+                <td align="center">
+                    <if condition="$vo['display'] eq 'Y'">
+                        <a class="js-hidden" href="javascript:;">隐藏</a>
+                        <else/>
+                        <a class="js-show" href="javascript:;">显示</a>
+                    </if>
+                    <a href="{:U('edit','id='.$vo['id'])}">修改</a>
+                    <a class="js-delete" href="javascript:;">删除</a>
+                </td>
+            </tr>
+        </volist>
+        <else/>
+        <tr>
+            <td colspan="5" align="center">暂无数据</td>
+        </tr>
+    </if>
+    </tbody>
+</table>
+<footer class="footer">
+    <button class="button js-delete-submit">批量删除</button>
+    <button class="button js-show-submit">批量显示</button>
+    <button class="button js-hidden-submit">批量隐藏</button>
+    {$page_show}
+</footer>
+<script>
+    $('.js-list').on('click','.js-show,.js-hidden',function(event){
+        $(event.delegateTarget).find('tbody :checkbox').prop('checked',false);
+        $(this).closest('tr').find(':checkbox').click();
+        $('.'+ $(this).attr('class') +'-submit').click();
+    }).on('click','.js-delete',function(event){
+        $(event.delegateTarget).find('tbody :checkbox').prop('checked',false);
+        $(this).closest('tr').find(':checkbox').click();
+        $('.js-delete-submit').click();
+    }).on('dragstart','.js-rank',function(event){
+        $(this).closest('tr').attr('rank',true);
+        window.rank_arr = [];
+    }).on('dragenter','tbody tr',function(event){
+        if ($(this).closest('tr').is('tr[rank]'))
+            return;
+
+        var rank_tr = $('.js-list tbody tr[rank]');
+        var parent =  $(this).closest('tr');
+        var id = parent.find(':checkbox').val();
+
+        if (parent.nextAll('tr[rank]').length){
+            parent.before(rank_tr);
+        }else{
+            parent.after(rank_tr);
+        }
+
+        if (window.rank_arr[window.rank_arr.length-1] == id){
+            window.rank_arr.pop();
+        }else if ($.inArray(id,window.rank_arr) == -1){
+            window.rank_arr.push(id);
+        }
+    }).on('dragend','.js-rank',function(event){
+        $('.js-list tbody tr[rank]').removeAttr('rank');
+
+        var data = {
+            'id':$(this).closest('tr').find(':checkbox').val(),
+            'action':'rank',
+            'rank':window.rank_arr
+        };
+        $.post("{:U('prop')}",data,function(ret){
+            if ( ret.state ){
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+    $('.art-nav form input[name]').on('keypress',function(event){
+        if(event.keyCode == 13){
+            this.form.submit();
+            event.preventDefault();
+        }
+    });
+
+    $('.js-show-submit,.js-hidden-submit').on('click',function(){
+        var data = Core.InputObj($('.js-list'));
+        data['action'] = $(this).attr('class').indexOf('show') != -1 ? 'show' : 'hidden';
+
+        $.post("{:U('prop')}",data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.reload();
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+	$('.js-delete-submit').on('click',function(){
+		Core.Confirm({ 'title':'操作确认','text':'确认要删除选中数据？','callback':function(confirm){
+			if (!confirm)
+				return;
+
+			var data = Core.InputObj($('.js-list'));
+			data['action'] = 'delete';
+
+			$.post("{:U('prop')}",data,function(ret){
+				if ( ret.state ){
+					Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+						location.reload();
+					} });
+				}else{
+					Core.Alert({ 'text':ret.message,'state':'err' });
+				}
+			},'json');
+		} });
+    });
+</script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/sale_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="Css/sale_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="Js/jquery.js"></script>
+</head>
+<body>
+<!-- 其他 -->
+<div class="returntop top"><img src="Images/top.png" alt="" /></div>
+<script>
+    $(window).on('scroll',function(e){
+        var winST = $(window).scrollTop()
+        if(winST>100){
+            $('.returntop').fadeIn(400);
+            $(".search_box").fadeIn(400)
+        }else{
+            $('.returntop').fadeOut(400);
+            $('.search_box').fadeOut(400)
+        }
+    })
+    $('.returntop').on('click',function(e) {            
+        $('html,body').animate({scrollTop:0},500)
+    });
+</script>
+<!-- 特卖专场头部开始 -->
+<div class="header_box">
+    <div class="header_title">新品首发</div>
+    <span class="return"><img src="Images/fh.jpg" alt="" /></span>
+</div>
+<!-- 特卖专场头部结束 -->
+<!-- 特卖专场展示开始 -->
+<div class="sale_banner">
+    <div class="banner"><a href="首发羊页面"><img src="Images/new_banner1.jpg" alt="" /></a></div>
+    <div class="banner"><a href="色非鞋"><img src="Images/new_banner02.jpg" alt="" /></a></div>
+    <div class="banner"><a href="羊毛大衣"><img src="Images/new_banner03.jpg" alt="" /></a></div>
+    <div class="banner"><a href="旗王女包"><img src="Images/new_banner4.jpg" alt="" /></a></div>
+</div>
+<!-- 特卖专场展示结束 -->
+<!-- 版权开始 -->
+<div class="copyright">
+    &copy整体美商城<br />
+    客服电话：400-777-1225<br />
+    客服微信：HRlianna
+</div>
+<!-- 版权结束 -->
+
+</html>

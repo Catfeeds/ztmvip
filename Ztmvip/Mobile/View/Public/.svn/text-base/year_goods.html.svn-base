@@ -1,0 +1,42 @@
+{__NOLAYOUT__}
+<volist name="goods" id="value">
+    <li>
+        <a href="{:U('Goods/detail',array('goods_id'=>$value['id']))}">
+            <div class="img">
+                <img class="lazy" data-original="__ROOT__{$value.goods_thumb}_250x250.jpg" src="__IMG__lastbg.jpg" alt="" />
+            </div>
+            <div class="text">
+                <h2>
+                    <span class="span1"><i>￥{$value.shop_price}</i></span>
+                    <span class="span2">￥{$value.market_price}</span>
+                    <!-- <span class="span3">8.8折</span> -->
+                </h2>
+                <p>{$value.goods_name|subtext=14}</p>
+            </div>
+        </a>
+    </li>
+</volist>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,108 @@
+<style type="text/css">
+    .tbl .success,.tbl .error{ cursor:pointer; font-weight:bold;}
+    .tbl .success{ color:#42C32C;}
+    .tbl .error{ color:#f00; font-size:18px;}
+</style>
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <form method="get" action="{:U('')}">
+            <input name="shop_name" class="text" type="text" value="{$Think.get.shop_name}" placeholder="店铺名称搜索...">
+            <input name="goods_name" class="text" type="text" value="{$Think.get.goods_name}" placeholder="ID/商品名称搜索...">
+            <select class="select js-goods-category" _name="category_id" option="{$Think.get.category_id}">
+                <option value="">—请选择—</option>
+                <volist name="goods_category" id="vo">
+                    <option value="{$vo['id']}">{$vo['category_name']}</option>
+                </volist>
+            </select>
+            <tagLib name="html"/>
+            <html:select name="brand_id" options="goods_brand" selected="_GET['brand_id']" first="—请选择—" style="select"/>
+            <select name="on_sale" class="select" option="{$Think.get.on_sale}">
+                <option value="">—请选择—</option>
+                <option value="Y">上架商品</option>
+                <option value="N">下架商品</option>
+            </select>
+            <button class="button" type="submit">搜 索</button>
+        </form>
+    </span>
+</div>
+<table class="tbl js-list" width="100%">
+    <thead>
+    <tr>
+        <th width="20"><input type="checkbox"></th>
+        <th width="60">ID</th>
+        <th>商品</th>
+        <th>店铺</th>
+        <th>分类</th>
+        <th>品牌</th>
+        <th>市场价</th>
+        <th>商城价</th>
+        <th width="200">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <if condition="$list">
+        <volist name="list" id="vo">
+            <tr>
+                <td align="center"><input name="id" type="checkbox" value="{$vo['id']}"></td>
+                <td align="center">{$vo['id']}</td>
+                <td><a href="__HOME__{:U('Goods/detail','goods_id='.$vo['id'])}" target="_blank">{$vo['goods_name']}</a></td>
+                <td>{$vo['shop_name']}</td>
+                <td>{$vo['category_name']}</td>
+                <td>{$vo['brand_name']}</td>
+                <td><del>{$vo['market_price']}</del></td>
+                <td>{$vo['shop_price']}</td>
+                <td align="center">
+                    <a href="{:U('GroupGoods/index','goods_id='.$vo['id'])}">组合商品</a>
+                    <a href="{:U('Comment/goods','goods_id='.$vo['id'])}">评论</a>
+                    <if condition="$vo['verify'] eq 'Y'">
+                        <a href="javascript:;" class="js-refuse">取消审核</a>
+                        <else/>
+                        <a href="javascript:;" class="js-pass">通过审核</a>
+                    </if>
+                </td>
+            </tr>
+        </volist>
+        <else/>
+        <tr>
+            <td colspan="9" align="center">暂无数据</td>
+        </tr>
+    </if>
+    </tbody>
+</table>
+<footer class="footer">
+    <button class="button js-pass-submit">批量通过</button>
+    <button class="button js-refuse-submit">批量取消</button>
+    {$page_show}
+</footer>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Public/Common/DateTimePicker/datetimepicker.css" />
+<script src="__ROOT__/Public/Common/DateTimePicker/datetimepicker.js"></script>
+<script>
+    $('.js-list').on('click','.js-pass,.js-refuse',function(event){
+        $(event.delegateTarget).find('tbody :checkbox').prop('checked',false);
+        $(this).closest('tr').find(':checkbox').click();
+        $('.'+ $(this).attr('class') +'-submit').click();
+    });
+
+    $('.art-nav form input[name]').on('keypress',function(event){
+        if(event.keyCode == 13){
+            this.form.submit();
+            event.preventDefault();
+        }
+    });
+
+    $('.js-pass-submit,.js-refuse-submit').on('click',function(){
+        var data = Core.InputObj($('.js-list'));
+        data['action'] = $(this).attr('class').indexOf('pass') != -1 ? 'pass' : 'refuse';
+
+        $.post("{:U('prop')}",data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.reload();
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+</script>

@@ -1,0 +1,107 @@
+    <link rel="stylesheet" type="text/css" href="__CSS__privilege_same_mobile.css" media="(max-width:750px)" />
+    <link rel="stylesheet" type="text/css" href="__CSS__privilege_same_pad.css" media="(min-width:750px)">
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        我的红包
+        <a class="return" href="{:U('User/index')}"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></a>
+        <div class="prompt"><img src="__IMG__qicon.jpg" height="40" width="40" alt="" /></div>
+    </div>
+    <div class="columns_box">
+        <div class="columns_in cur" data-rel="new">
+            <div class="columns">未使用({$bonus_count['new']})</div>
+        </div>
+        <div class="columns_in" data-rel="used">
+            <div class="columns">已使用({$bonus_count['used']})</div>
+        </div>
+        <div class="columns_in" data-rel="expired">
+            <div class="columns">已过期({$bonus_count['expired']})</div>
+        </div>
+    </div>
+</div>
+<!-- 内容 -->
+<article class="js-bonus-list">
+    <!-- 未使用 -->
+    <div class="bag_box acc">
+        <volist name="bonus" id="vo">
+            <div class="bag_in">
+                <img src="__IMG__hbbg.jpg" height="301" width="711" alt="" />
+                <div class="money"><i>{$vo['money']|sprintf='%d',###}</i>元</div>
+                <div class="time">{$vo['use_start']|date='Y-m-d',###} —— {$vo['use_end']|date='Y-m-d',###}</div>
+            </div>
+        </volist>
+    </div>
+    <!-- 已使用 -->
+    <div class="bag_box"></div>
+    <!-- 已过期 -->
+    <div class="bag_box"></div>
+</article>
+<!-- 版权 -->
+<include file="Public/copy_right"/>
+<!-- 红包说明弹层 -->
+<div class="bg">
+    <div class="ts_box">
+        <img src="__IMG__hbt.jpg" height="139" width="556" alt="" />
+        <div class="text">
+            <h3>专享红包</h3>
+            <h4>·····使用说明·····</h4>
+            1.红包可在整体美商城在线支付时使用，红包领取后在有效期内使用。<br />
+            2.红包仅限单次使用，一经使用不可退回。<br />
+            3.使用红包购买的商品，进行退款退货时仅限退还非红包部分金额。
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('.columns_in').on('click',function(event) {
+        var index = $(this).index();
+        var state = $(this).attr('data-rel');
+        $(this).addClass('cur').siblings().removeClass('cur');
+
+        $.post('',{ 'state':state },function(ret){
+            var tpl = {
+                'new':'<div class="bag_in">' +
+                '<img src="__IMG__hbbg.jpg" height="301" width="711" alt="" />' +
+                '<div class="money"><i>{money}</i>元</div>' +
+                '<div class="time">{use_start} —— {use_end}</div>' +
+                '</div>',
+                'used':'<div class="bag_in">' +
+                '<img src="__IMG__hbbg2.jpg" height="301" width="711" alt="" />' +
+                '<div class="money"><i>{money}</i>元</div>' +
+                '<div class="time">{use_start} —— {use_end}</div>' +
+                '<div class="icon"><img src="__IMG__hbyy.png" alt="" /></div>' +
+                '</div>',
+                'expired':'<div class="bag_in">' +
+                '<img src="__IMG__hbbg3.jpg" height="301" width="711" alt="" />' +
+                '<div class="money"><i>{money}</i>元</div>' +
+                '<div class="time">{use_start} —— {use_end}</div>' +
+                '<div class="icon"><img src="__IMG__hbgq.png" alt="" /></div>' +
+                '</div>'
+            };
+            var content = '';
+
+            $.each(ret,function(i,e){
+                content += Core.FormatTpl(tpl[state],{
+                    'money':parseInt(e.money),
+                    'use_start':Core.FormatDate('Y-m-d',e.use_start*1000),
+                    'use_end':Core.FormatDate('Y-m-d',e.use_end*1000),
+                });
+            });
+
+            $('.js-bonus-list .bag_box').eq(index).addClass('acc').html(content).siblings().removeClass('acc');
+        },'json');
+    });
+
+    $('.prompt').on('click',function(event) {
+        $(".bg").stop().fadeIn();
+    });
+    $('.bg').on('click',function(event) {
+        $(".bg").stop().fadeOut();
+    });
+    $('.columns_in').on('click',function(e) {            
+        $('html,body').animate({scrollTop:0},0)
+    });
+</script>
+</body>
+</html>

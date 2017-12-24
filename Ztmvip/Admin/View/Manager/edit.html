@@ -1,0 +1,61 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">用户名</td>
+            <td><input name="user_name" class="text" type="text" value="{$edit['user_name']}" required="required" placeholder="请输入用户名..."></td>
+        </tr>
+        <tr>
+            <td class="label">姓名</td>
+            <td><input name="nick_name" class="text" type="text" value="{$edit['nick_name']}" required="required" placeholder="请输入姓名..."></td>
+        </tr>
+        <tr>
+            <td class="label">密码</td>
+            <td><input name="password" class="text" type="password" value="" <if condition='!$edit'>required="required"</if> placeholder="请输入密码..."></td>
+        </tr>
+        <tr>
+            <td class="label">密码确认</td>
+            <td><input name="repassword" class="text" type="password" value="" <if condition='!$edit'>required="required"</if> placeholder="请确认密码..."></td>
+        </tr>
+        <tr>
+            <td class="label">部门</td>
+            <td>
+                <tagLib name="html"/>
+                <html:select name="depart_id" style="select" options="depart" selected="edit['depart_id']" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label">管理组</td>
+            <td>
+                <tagLib name="html"/>
+                <html:select name="group_id" style="select" options="group" selected="edit['group_id']" />
+            </td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td><button type="submit" class="submit">提 交</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+    $('.js-edit').on('submit',function(event){
+        $.post('',Core.InputObj(this),function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.href = "{:U('index')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+</script>

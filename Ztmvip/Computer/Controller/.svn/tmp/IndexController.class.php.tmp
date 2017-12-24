@@ -1,0 +1,77 @@
+<?php
+/**
+ * 首页控制器
+ * author: Tom
+ */
+namespace Computer\Controller;
+class IndexController extends BaseController
+{
+    //首页
+    public function index()
+    {
+        //用户登录信息
+        $user_model = D('User');
+        if($user_model->isLogin()){
+            $user_info = $user_model->field('id,mobile,user_money')->find(session('user_id'));
+            $this->assign('user_info',$user_info);
+            $this->assign('islogin','true');
+        }
+
+      //获取 hot 类
+      $hot_cat=D('GoodsCategory')->getHotCategory();
+      $this->assign('hot_cat',$hot_cat);
+     // $all_cat=D('GoodsCategory')->getChildTree();
+  
+
+
+
+        $this->assign('page_title', '女性整体美解决方案领导者');
+        $this->display();
+    }
+
+
+  /**
+   * 某个类(含扩展类)下的商品
+   * @param  [type] $cat_id [description]
+   * @return [type]         [description]
+   */
+  public function catGoodsList()
+  {
+     $get = I('get.');
+    $category_name=D('GoodsCategory')->getCategoryName($get['cat_id']);
+    $this->assign('category_name',$category_name);
+    $count=D('Goods')->getCatGoodsCount($get['cat_id']);
+    $page=new \Think\Page($count,12);
+    $page->setConfig('prev','上一页');
+    $page->setConfig('next','下一页');
+    $page->setConfig('first','首页');
+    $page->setConfig('last','末页');
+    $show=$page->show();
+
+     $memcache=new \Think\Cache\Driver\Memcache(C('MEMCACHED'));
+     $pagenum=$get['p']?$get['p']:1;
+     $key=md5('catgoods'.$get['cat_id'].$pagenum);
+    if($back=$memcache->get($key))
+    {     
+        $goods_list=unserialize($back);
+    }else{
+      $goods_list=D('Goods')->categoryGetGoods($get['cat_id'],$page->firstRow,$page->listRows);
+      $memcache->set($key,serialize($goods_list));    
+    }
+  
+     $this->assign('goods_list',$goods_list);
+     $this->assign('page',$show);
+     $this->display('goods_list');
+
+ 
+  }
+
+
+
+
+
+
+
+
+
+}

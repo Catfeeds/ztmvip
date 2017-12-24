@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+a.img{ position: relative; display:block;line-height:0 ; margin-bottom: 5px;}
+a.img img{display:block; }
+a.img .hover{ height:100%; width:100%;  background:rgba(255,255,255,0.15); position: absolute;display:none;}
+a.img:hover .hover{display:block;}
+.special_text{}
+.special_text .h1{ padding-top: 20px; padding-bottom: 10px; line-height: 1em; font-size: 15px; color: #252525; font-weight: 600;}
+.special_text .h1 i{ display: inline-block; height:15px; width:7.5px; background: #252525;margin-right: 10px; position: relative;top:1px; }
+
+.special_text .h2{ color:#252525; padding-bottom: 5px;}
+.special_text p{color:#808080; padding-left: 10px; padding-right: 10px; line-height: 1.2em; font-size: 12px; padding-bottom: 15px;}
+.special_text ul li{ float: left; width:50%; text-align: center;}
+.special_text ul li img{ width:60%; margin: 0 auto;}
+.special_text ul li p{ font-size: 12px; padding-top: 10px; padding-bottom: 20px;}
+
+
+
+
+
+
+
+
+@media (max-width:750px){  
+
+}
+
+@media (max-width:640px){  
+
+}
+@media (max-width:480px){
+    
+}
+@media (max-width:414px){ /* iPhone 6 Plus */
+
+}
+@media (max-width:375px){ /* iPhone 6 */
+    
+}
+@media (max-width:360px){ /* Sansung S3 / s4 */
+    .special_text .h2,.special_text ul li p{ font-size: 11.5px;}
+}
+@media (max-width:320px){ /* iPhone 5 */
+    
+}

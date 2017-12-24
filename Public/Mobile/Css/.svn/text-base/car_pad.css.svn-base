@@ -1,0 +1,57 @@
+html{font-size:24px;font-family: "冬青黑体简体中文";background:#fff;height:100%;}
+body{background:#fff;height:100%;}
+.header_box{width:100%;max-width:750px;text-align: center;position:fixed;z-index:999;border-bottom: 1px solid #ccc;}
+.return{position:absolute;left:20px;top:21.5px;display:block;}
+.header_title{height:88px;background:#fff;font-size:1.4rem;line-height: 88px;}
+.address_box{padding:88px 0 228px;}
+.columns_box{margin-top:2%;background:#fff;font-size: 1.2rem;overflow:hidden;}
+.columns_box .list_box .not{top:8px;}
+.tick{width:30px;height:30px;position:absolute;top:50%;right:20%;display:none;}
+.goods_box{width:90%;padding:40px 0;box-sizing: border-box;font-size:1.1rem;position:relative;float:right;}
+.goods_box .goods_pho{width:208px;height:208px;border: 1px solid #ccc;position:absolute;left:0;overflow:hidden;}
+.goods_box .inf_box{width:100%;height:208px;padding:0 10px 0 240px;box-sizing: border-box;}
+.goods_box .goods_inf{line-height:100%;font-size: 1.2rem;}
+.goods_box .price{font-weight: bold;color:#E8C473;margin-top:10px;line-height: 100px;}
+.goods_box .price i{font-size: 1.6rem;}
+.goods_box .price .left{float:right;}
+input{display:none;}
+
+
+.address_box h3{font-size: 1.5rem;font-weight: bold;text-align: center;margin:20% 0 10%;}
+.pay_inf{font-size: 1.2rem;line-height: 30px;width:370px;margin:0 auto;}
+.rt_home{position:absolute;right:20px;top:21.5px;display:block;}
+.goods_num2{display:block;margin:70px auto 5px;overflow:hidden;padding:5px;}
+.goods_num2 input::-webkit-inner-spin-button {
+     -webkit-appearance: none;
+}
+.goods_num2 input{width:60px;font-size:1.0rem;display:inline-block;text-align:center;border-radius: 0;border:0;border-left:1px solid #CDCDCD;border-right:1px solid #CDCDCD;margin:0 5px;}
+.goods_num2 button{font-size: 1.2rem;background:#fff;border:0;outline:none;}
+.package{position:relative;}
+.package .inf_box{padding-top:10px;box-sizing: border-box;}
+.package .goods_num{position:absolute;top:50%;z-index: 888;left:40%;margin:0;}
+.package_name{padding-left:5px;line-height: 60px;font-size: 1.2rem;}
+.package_name u{color:#E8C473;}
+.package_name i{font-size: 1.6rem;}
+.package_box{height:30px;overflow:hidden;}
+.package-box .tick_box{height:30px;}
+.package-box .tick_box .rud{top:15px;}
+.package-box .tick_box .tick{top:15px;}
+.columns_box .two{display:none;overflow:hidden;box-sizing: border-box;}
+.editor{position:absolute;right:10px;top:24px;height:40px;line-height:40px;font-size: 1.2rem;color:#808080;}
+.tick_box{height:208px;width:10%;float:left;position:relative;}
+.tick_box .rud{width:30px;height:30px;border-radius: 50%;border: 1px solid #000;position:absolute;top:50%;right:20%;}
+
+
+
+.package .goods_num2{position:absolute;top:320px;left:41%;width:60%;z-index: 999;display:none;margin:0;}
+.remove{width:60px;height:208px;word-wrap: break-word;font-size: 1.4rem;color:#fff;background:#B7B7B7;position:absolute;right:0;box-sizing: border-box;letter-spacing: 60px;text-align: center;padding:56px 0 0 12px;top:50%;margin-top:-113px;display:none;}
+.bt_box .inf{height:100px;line-height:100px;padding-left:10%;position:relative;font-size: 1.2rem;}
+.bt_box .inf .tick_box{position:absolute;left:0;top:16px;height:30px;}
+.bt_box .inf em{margin-left:20px;}
+.pay_bt{width:80%;height:88px;line-height:88px;text-align:center;font-size:1.2rem;color:#fff;margin:0 auto 40px;background:#E9C573;}
+.bt_box{width:100%;max-width:750px;position:fixed;bottom:0;background:#fff;z-index: 9999;}
+.bt_box u{font-size: 1.0rem;}
+.car_bg_box{position:relative;height:80%;}
+.car_bg_boxin{width:100%;position:absolute;top:50%;margin-top:-115px;}
+.car_bg_box .car_photo{width:136px;margin:0 auto 50px;}
+.car_bg_box .car_text{text-align: center;font-size: 1.2rem;}

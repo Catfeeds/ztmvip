@@ -1,0 +1,132 @@
+@charset "utf-8";
+/* CSS Document */
+
+.index_top .nav li.li1 ul{ background:#bfbfbf; display:none;}
+.index_top .nav li.li1{ background: #E9C574 url(good_list_03.png) no-repeat 117px 14px;}
+.index_top .nav li.li1 a:hover{ text-decoration: none;}
+.index_top .nav li.li1:hover{  background: #E9C574 url(good_list_03.png) no-repeat 117px -7px;}
+.index_top .nav li.li1:hover ul{ display: block;}
+
+.bg_h{ width:100%; min-width: 1200px; background: #ededed; overflow: hidden;}
+.ededed { width:1200px; margin: 0px auto ; padding:40px 0px 46px;}
+.ededed_nav{ width:112px; padding: 0px 20px 20px; background:#fff; color: #252525;box-shadow: 0px 0px 6px #D8D8D8;}
+.ededed_nav h1{ /*font-size: 12px;*/ font-weight: 400; height: 51px; line-height: 51px;}
+.ededed_nav ul{ overflow: hidden;}
+.ededed_nav ul li{/*font-size: 12px;*/ line-height: 12px; height:12px; padding-left: 15px; margin-bottom: 19px; cursor:pointer; background: url(rebate_03.jpg) no-repeat 0px -28px;}
+.ededed_nav ul li a{color: #252525;}
+.ededed_nav ul li.cur,.ededed_nav ul li:hover{ background: url(rebate_03.jpg) no-repeat 0px 3px;}
+.ededed_nav ul li:hover a,.ededed_nav ul li.cur a{color:#e9c574;}
+.ededed_nav .hr{ border-bottom: 1px dashed #cecece;}
+
+.ededed_r{ float: right; width:998px;box-shadow: 0px 0px 6px #D8D8D8; margin-bottom: 45px; background:#fff;min-height: 474px;}
+
+.ededed_r .gps1{ height:25px; line-height: 25px; text-align: center; font-size: 16px; padding-top: 15px; padding-bottom: 86px;}
+.ededed_r .gps1 a{ color:#808080;}
+.ededed_r .gps1 i{ display:inline-block; width:23px; height:25px; background:url(ggggggg1234_03.png) no-repeat 6px 15px;}
+.ededed_con{ padding:0px 80px;  min-height: 664px;}
+.ededed_con li{ border-top: 1px solid #dddddd; height:94px; line-height: 94px;}
+.ededed_con li.li1{ border-top: none;}
+.ededed_con li .p1{ float: left; width:376px;}
+.ededed_con li .p2{ float:left; width:228px;}
+.ededed_con li .p3{ float: right; width:200px; text-align: right;}
+
+.withdraw_top{}
+.withdraw_top .gps{ width:318px; height:52px; margin:auto; font-size: 16px; color:#fff; background: url(rebate1_03.png) no-repeat -212px 0px;}
+.withdraw_top .gps li{ float: left; width:106px;line-height: 26px; text-align: center;}
+.withdraw_top .gps li .p2{ font-size: 12px; color:#808080; }
+
+.withdraw_top .ul1{ background: url(rebate1_03.png) no-repeat -212px 0px;}
+.withdraw_top .ul1 li.li1 .p2{ color:#252525;}
+.withdraw_top .ul2{ background: url(rebate1_03.png) no-repeat -106px 0px;}
+.withdraw_top .ul2 li.li2 .p2{ color:#252525;}
+.withdraw_top .ul3{ background: url(rebate1_03.png) no-repeat -318px 0px;}
+.withdraw_top .ul3 li.li3 p{ display:none;}
+.withdraw_top .ul3 li.li3 .p2{ color:#252525; display: inline-block; margin-top: 26px;}
+
+.withdraw_con1{ padding-top: 83px; text-align: center; color:#252525;}
+.withdraw_con1 p input{ width:60px; border:none; border-bottom: 1px solid #252525; margin:0px 18px; font-size: 14px; text-align: center;}
+.withdraw_con1 p{ padding-bottom: 38px;}
+
+.withdraw_con1 .but a{ display:inline-block; min-width:66px;line-height: 32px; color:#e9c574; border:1px solid #e9c574; background:#fff; margin:0px 8px; font-size: 14px;}
+.withdraw_con1 .but a.a2{ background:#e9c574; color:#fff;}
+
+
+.withdraw_con2 .password{ overflow: hidden; width:355px; margin: 60px auto 0px; font-size: 14px;}
+.withdraw_con2 .password *{ float: left; height:40px; line-height: 40px;}
+.withdraw_con2 .password .input{ background:url(balance_03.jpg) no-repeat; width:240px; border:none; font-size: 30px; position: relative; overflow: hidden; margin-left: 10px;}
+.withdraw_con2 .password .input input{  width: 245px;
+  border: none;
+  background: none;
+  font-size: 83px;
+  position: absolute;
+  left: 0px;
+  top: -29px;
+  height: 100px;
+  line-height: 100px;
+  letter-spacing: 10px;
+  padding-left: 4px;}
+
+    @-moz-document url-prefix(){
+.withdraw_con2 .password .input input {
+width: 245px;
+border: medium none;
+background: transparent none repeat scroll 0% 0%;
+font-size: 50px;
+position: absolute;
+left: 0px;
+top: -35px;
+height: 100px;
+line-height: 100px;
+letter-spacing: 9px;
+padding-left: 4px;
+}
+        }/* 仅firefox 识别 */
+
+.withdraw_con2 .password .input input.ie{  width: 245px;
+      border: none;
+      background: none;
+      font-size: 63px;
+      position: absolute;
+      left: -3px;
+      top: -37px;
+      height: 100px;
+      line-height: 100px;
+      letter-spacing: 1px;
+      padding-left: 4px;
+
+    }
+
+
+
+  
+.withdraw_con2 .but{ text-align: center; padding-top: 40px; padding-left: 90px;}
+.withdraw_con2 .but a{ float: left;  display:inline-block; min-width:66px; height:32px; line-height: 32px; color:#e9c574; border:1px solid #e9c574; background:#fff; font-size: 14px;}
+.withdraw_con2 .but a.a2{ margin-left: 40px; background:#e9c574; color:#fff;}
+
+.withdraw_con3{ padding-top: 90px; text-align: center; font-size: 14px; color:#252525;}
+
+
+
+.explain{ color:#252525; padding:0px 80px;}
+.explain .h5{ text-align: center; font-size: 14px; font-weight: 600; text-align: center; height:94px; line-height: 94px; background:url(hr5_03.png) repeat-x 0px;}
+.explain .h5 span{ background:#fff; padding:0px 20px;}
+.explain p{ font-size: 14px; padding-bottom: 20px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

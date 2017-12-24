@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/place_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="Css/place_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="Js/jquery.js"></script>
+</head>
+<body>
+<!-- 其他 -->
+<div class="returntop top"><img src="Images/top.png" alt="" /></div>
+<script>
+    $(window).on('scroll',function(e){
+        var winST = $(window).scrollTop()
+        if(winST>100){
+            $('.returntop').fadeIn(400);
+            $(".search_box").fadeIn(400)
+        }else{
+            $('.returntop').fadeOut(400);
+            $('.search_box').fadeOut(400)
+        }
+    })
+    $('.returntop').on('click',function(e) {           
+        $('html,body').animate({scrollTop:0},500)
+    });
+</script>
+<!-- 地址头部开始 -->
+<div class="header_box">
+    <div class="header_title">增加地址</div>
+    <span class="return"><img src="Images/fh.jpg" alt="" /></span>
+</div>
+<!-- 地址头部结束 -->
+<!-- 地址内容开始 -->
+<div class="address_box">
+    <div class="columns">
+        收货人：
+        <input type="text" name="consignee" class="input" placeholder="请输入收件人..." />
+    </div>
+    <div class="columns">
+        手机号：
+        <input type="number" name="phone" class="input" placeholder="请输入联系方式..." />
+    </div>
+    <div class="columns click">
+        省市区：
+    </div>
+    <div class="columns">
+        街道地址：
+        <input type="text" name="place" class="input" placeholder="请输入详细地址..." />
+    </div>
+    <div class="columns dif">
+        设为默认地址
+        <div class="tick_box">
+            <div class="rud"></div>
+            <div class="tick"><img src="Images/tick.jpg" alt="" /></div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <button class="place_bt">保存地址</button>
+</div>
+<!-- 省市区选择块 -->
+<div class="layer_bg all" style="display:none">
+    <div class="layer_box">
+        <div class="title">选择省市区</div>
+        <div class="layer_list check1">
+            <div class="layer_name">省 份</div>
+            <div class="listbox">
+                <i></i>
+                <div class="mark"></div>
+            </div>
+        </div>
+        <div class="layer_list check2">
+            <div class="layer_name">城 市</div>
+            <div class="listbox">
+                <i></i>
+                <div class="mark"></div>
+            </div>
+        </div>
+        <div class="layer_list check3">
+            <div class="layer_name">区 域</div>
+            <div class="listbox">
+                <i></i>
+                <div class="mark"></div>
+            </div>
+        </div>
+        <div class="layer_btbox">
+            <div class="layer_bt">确 定</div>
+        </div>
+    </div>
+</div>
+<!-- 省选择块 -->
+<div class="layer_bg province" style="display:none">
+    <div class="bg_box">
+        <input type="radio" name="province" id="province1" />
+        <input type="radio" name="province" id="province2" />
+        <input type="radio" name="province" id="province3" />
+        <input type="radio" name="province" id="province4" />
+        <input type="radio" name="province" id="province5" />
+        <input type="radio" name="province" id="province6" />
+        <input type="radio" name="province" id="province7" />
+        <input type="radio" name="province" id="province8" />
+        <label for="province1"><div class="box_in">广东省</div></label>
+        <label for="province2"><div class="box_in">广东省</div></label>
+        <label for="province3"><div class="box_in">广东省</div></label>
+        <label for="province4"><div class="box_in">广东省</div></label>
+        <label for="province5"><div class="box_in">广东省</div></label>
+        <label for="province6"><div class="box_in">广东省</div></label>
+        <label for="province7"><div class="box_in">广东省</div></label>
+        <label for="province8"><div class="box_in">广东省</div></label>
+    </div>
+</div>
+<!-- 市选择块 -->
+<div class="layer_bg city" style="display:none">
+    <div class="bg_box">
+        <input type="radio" name="city" id="city1" />
+        <input type="radio" name="city" id="city2" />
+        <input type="radio" name="city" id="city3" />
+        <input type="radio" name="city" id="city4" />
+        <input type="radio" name="city" id="city5" />
+        <input type="radio" name="city" id="city6" />
+        <input type="radio" name="city" id="city7" />
+        <input type="radio" name="city" id="city8" />
+        <label for="city1"><div class="box_in">广州市</div></label>
+        <label for="city2"><div class="box_in">广州市</div></label>
+        <label for="city3"><div class="box_in">广州市</div></label>
+        <label for="city4"><div class="box_in">广州市</div></label>
+        <label for="city5"><div class="box_in">广州市</div></label>
+        <label for="city6"><div class="box_in">广州市</div></label>
+        <label for="city7"><div class="box_in">广州市</div></label>
+        <label for="city8"><div class="box_in">广州市</div></label>
+    </div>
+</div>
+<!-- 区选择块 -->
+<div class="layer_bg area" style="display:none">
+    <div class="bg_box">
+        <input type="radio" name="area" id="area1" />
+        <input type="radio" name="area" id="area2" />
+        <input type="radio" name="area" id="area3" />
+        <input type="radio" name="area" id="area4" />
+        <input type="radio" name="area" id="area5" />
+        <input type="radio" name="area" id="area6" />
+        <label for="area1"><div class="box_in">天河区</div></label>
+        <label for="area2"><div class="box_in">天河区</div></label>
+        <label for="area3"><div class="box_in">天河区</div></label>
+        <label for="area4"><div class="box_in">天河区</div></label>
+        <label for="area5"><div class="box_in">天河区</div></label>
+        <label for="area6"><div class="box_in">天河区</div></label>
+    </div>
+</div>
+<script type="text/javascript">
+    $('.click').on('click',function(event) {
+        $('.all').fadeIn();
+    });
+    $('.check1').on('click',function(event) {
+        $('.province').fadeIn();
+    });
+    $('.check2').on('click',function(event) {
+        $('.city').fadeIn();
+    });
+    $('.check3').on('click',function(event) {
+        $('.area').fadeIn();
+    });
+    $('.province .box_in').on('click',function(event) {
+        $('.check1 i').text($(this).text());
+        $('.province').fadeOut();
+    });
+    $('.city .box_in').on('click',function(event) {
+        $('.check2 i').text($(this).text());
+        $('.city').fadeOut();
+    });
+    $('.area .box_in').on('click',function(event) {
+        $('.check3 i').text($(this).text());
+        $('.area').fadeOut();
+    });
+    $('.layer_bt')..on('click',function(event) {
+        $('.layer_bg').fadeOut();
+        $('.click').html("省市区："+$('.check1 i').text()+" "+$('.check2 i').text()+" "+$('.check3 i').text())
+    });
+    $('.dif').on('click',(function(event) {
+        $('.tick').toggle();
+        $('.rud').toggle()
+    });
+</script>
+</body>
+</html>

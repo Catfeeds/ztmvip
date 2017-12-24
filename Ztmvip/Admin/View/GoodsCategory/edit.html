@@ -1,0 +1,95 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">分类名称</td>
+            <td><input name="category_name" class="text" type="text" value="{$edit['category_name']}" required="required" placeholder="请输入分类名称..."></td>
+        </tr>
+        <tr>
+            <td class="label">分类Logo</td>
+            <td>
+                <if condition="$edit['category_logo']">
+                    <p>
+                        <a href="{$edit['category_logo']}" target="_blank"><img src="{$edit['category_logo']}" height="120"></a>
+                        <input type="hidden" name="category_logo" value="{$edit['category_logo']}"><br><br>
+                    </p>
+                </if>
+                <button class="button js-upload-file" type="button">上传图片</button>
+                <button class="button js-select-file" type="button">相册选择</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">广告词</td>
+            <td><textarea style="height:200px;padding:5px;width:100%;" name="category_tagline" placeholder="请输入广告词，最多255个字...">{$edit['category_tagline']}</textarea></td>
+        </tr>
+        <tr>
+            <td class="label">父分类</td>
+            <td>
+                <tagLib name="html"/>
+                <html:select name="parent_id" options="parent_category" selected="edit['parent_id']" first="—请选择—" style="select"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label"></td>
+            <td><button type="submit" class="submit">提 交</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+    $('.js-edit').on('submit',function(event){
+        var data = Core.InputObj(this);
+
+        $.post('',data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.href = "{:U('index')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+
+    $('.js-upload-file').on('mouseenter',function(){
+        var el = $(this);
+        el.upfile();
+        window.callback = function(ret){
+            var tpl = '<p>' +
+                    '<a href="{url}" target="_blank"><img src="{url}" height="120"></a>' +
+                    '<input type="hidden" name="category_logo" value="{url}"><br><br>' +
+                    '</p>';
+
+            if (ret.state){
+                el.siblings('p').remove();
+                el.parent().prepend(Core.FormatTpl(tpl,{'url':ret.url}));
+            }else{
+                Core.Alert({'text':ret.message,'state':'err'});
+            }
+        }
+    });
+
+    $('.js-select-file').on('click',function(){
+        var el = $(this);
+        el.selfile();
+        window.callback = function(ret){
+            var tpl = '<p>' +
+                    '<a href="{url}" target="_blank"><img src="{url}" height="120"></a>' +
+                    '<input type="hidden" name="category_logo" value="{url}"><br><br>' +
+                    '</p>';
+
+            el.siblings('p').remove();
+            el.parent().prepend(Core.FormatTpl(tpl,{'url':ret.url}));
+            Core.Frame({'close':true});
+        }
+    });
+</script>

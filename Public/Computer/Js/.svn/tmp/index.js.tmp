@@ -1,0 +1,362 @@
+/* 
+* @Author: Marte
+* @Date:   2015-12-24 15:42:31
+* @Last Modified by:   Marte
+* @Last Modified time: 2015-12-31 13:50:59
+*/
+
+
+    function indexbanner(){
+        banner_index=$('.index_banner .container li').length;
+        ul_w_banner=banner_index*1920;
+        $(".index_banner .container ul").css({"width":ul_w_banner});
+        ul_pos_left_banner=0;
+
+
+        $(".index_banner .container .left").on('click',function(){
+            if(ul_pos_left_banner>=0){
+                ul_pos_left_banner=1920-ul_w_banner;
+                $(".index_banner .container ul").animate({"left":ul_pos_left_banner},400);
+            }else{
+                ul_pos_left_banner=ul_pos_left_banner+1920;
+                $(".index_banner .container ul").animate({"left":ul_pos_left_banner},400);
+            }
+        });
+
+        $(".index_banner .container .right").on('click',function(){
+            if(ul_pos_left_banner<=1920-ul_w_banner){
+                ul_pos_left_banner=0;
+                $(".index_banner .container ul").animate({"left":ul_pos_left_banner},400);
+            }else{
+                ul_pos_left_banner=ul_pos_left_banner-1920;
+                $(".index_banner .container ul").animate({"left":ul_pos_left_banner},400);
+            }
+        });
+    }
+    indexbanner();
+
+
+
+
+
+
+
+
+
+
+    function JsImg1(){
+        // var js_img1=document.getElementsByClassName("js-trend")[0];
+            var js_img1=$('.js-trend')[0];
+            li_index=js_img1.getElementsByTagName('li').length;
+        ul_w=li_index*172;
+        $(".js-trend ul").css({"width":ul_w});
+        ul_pos_left=0;
+        $(".js-trend .left").on('click',function(){
+            if(ul_pos_left<0){
+                ul_pos_left=ul_pos_left+171;
+                $(".js-trend ul").animate({"left":ul_pos_left},200);
+            }
+        });
+        $(".js-trend .right").on('click',function(){
+            if(ul_pos_left>1331-ul_w){
+                ul_pos_left=ul_pos_left-171;
+                $(".js-trend ul").animate({"left":ul_pos_left},200);
+            }
+        });
+    }
+    JsImg1();
+
+function JsImg2(){
+    var js_img2=$(".js-suit-dress")[0];
+        li_index=js_img2.getElementsByTagName('li').length;
+    ul_w2=li_index*172;
+    $(".js-suit-dress ul").css({"width":ul_w2});
+    ul_pos_left2=0;
+    $(".js-suit-dress .left").on('click',function(){
+        if(ul_pos_left2<0){
+            ul_pos_left2=ul_pos_left2+171;
+            $(".js-suit-dress ul").animate({"left":ul_pos_left2},200);
+        }
+    });
+    $(".js-suit-dress .right").on('click',function(){
+        if(ul_pos_left2>1331-ul_w2){
+            ul_pos_left2=ul_pos_left2-171;
+            $(".js-suit-dress ul").animate({"left":ul_pos_left2},200);
+        }
+    });
+}
+ JsImg2();
+
+
+function JsImg3(){
+    var js_img3=$(".js-accessories")[0];
+        li_index1=js_img3.getElementsByTagName('li').length;
+    ul_w3=li_index1*172;
+    $(".js-accessories ul").css({"width":ul_w3});
+    ul_pos_left3=0;
+    $(".js-accessories .left").on('click',function(){
+        if(ul_pos_left3<0){
+            ul_pos_left3=ul_pos_left3+171;
+            $(".js-accessories ul").animate({"left":ul_pos_left3},200);
+        }
+    });
+    $(".js-accessories .right").on('click',function(){
+        if(ul_pos_left3>1331-ul_w3){
+            ul_pos_left3=ul_pos_left3-171;
+            $(".js-accessories ul").animate({"left":ul_pos_left3},200);
+        }
+    });
+}
+ JsImg3();
+
+ function JsImg4(){
+    var js_img4=$(".js-beautiful")[0];
+        li_index1=js_img4.getElementsByTagName('li').length;
+    ul_w4=li_index1*172;
+    $(".js-beautiful ul").css({"width":ul_w4});
+    ul_pos_left4=0;
+    $(".js-beautiful .left").on('click',function(){
+        if(ul_pos_left4<0){
+            ul_pos_left4=ul_pos_left4+171;
+            $(".js-beautiful ul").animate({"left":ul_pos_left4},200);
+        }
+    });
+    $(".js-beautiful .right").on('click',function(){
+        if(ul_pos_left4>1331-ul_w4){
+            ul_pos_left4=ul_pos_left4-171;
+            $(".js-beautiful ul").animate({"left":ul_pos_left4},200);
+        }
+    });
+}
+ JsImg4();
+
+ function JsImg5(){
+    var js_img5=$(".js-rest")[0];
+        li_index1=js_img5.getElementsByTagName('li').length;
+    ul_w5=li_index1*172;
+    $(".js-rest ul").css({"width":ul_w5});
+    ul_pos_left5=0;
+    $(".js-rest .left").on('click',function(){
+        if(ul_pos_left5<0){
+            ul_pos_left5=ul_pos_left5+171;
+            $(".js-rest ul").animate({"left":ul_pos_left5},200);
+        }
+    });
+    $(".js-rest .right").on('click',function(){
+        if(ul_pos_left5>1331-ul_w5){
+            ul_pos_left5=ul_pos_left5-171;
+            $(".js-rest ul").animate({"left":ul_pos_left5},200);
+        }
+    });
+}
+ JsImg5();
+
+
+
+$('.hot .right li').hover(function(){
+    $('.hot .right li').removeClass("hover");
+    $(this).addClass('hover');
+     if ($('.hot .right li.title').hasClass('hover')){
+        $('.hot .right li:eq(1)').addClass('hover');
+     }
+        
+});
+
+
+
+$('.trend .right li').hover(function(){
+    $('.trend .right li').removeClass("hover");
+    $(this).addClass('hover');
+     if ($('.trend .right li.title').hasClass('hover')){
+        $('.trend .right li:eq(1)').addClass('hover');
+     }
+});
+
+
+
+
+
+
+
+
+// 首页个人中心
+
+
+//返利中心
+$('.index_right_nav .personal_nav ul li.li2').on('click', function() {
+    $('.index_right_nav').addClass('index_right_nav_click');
+    $('.index_right_nav .personal_nav ul li').removeClass('li2hover li3hover li4hover li5hover li6hover li7hover li8hover');
+    $(this).addClass('li2hover');
+    $('.rebate,.recharge,.js_hongbao_display,.js_coupon,.save,.collect,.trade').css({"display":"none"});
+    $('.rebate').css({"display":'block'});
+});
+
+
+
+$('.index_right_nav .personal_nav ul li.li3').on('click', function() {
+    $('.index_right_nav').addClass('index_right_nav_click');
+    $('.index_right_nav .personal_nav ul li').removeClass('li2hover li3hover li4hover li5hover li6hover li7hover li8hover');
+    $(this).addClass('li3hover');
+    $('.rebate,.recharge,.js_hongbao_display,.js_coupon,.save,.collect,.trade').css({"display":"none"});
+    $('.recharge').css({"display":'block'});
+});
+
+// 我的红包
+$('.index_right_nav .personal_nav ul li.li4').on('click', function() {
+    $('.index_right_nav').addClass('index_right_nav_click');
+    $('.index_right_nav .personal_nav ul li').removeClass('li2hover li3hover li4hover li5hover li6hover li7hover li8hover');
+    $(this).addClass('li4hover');
+    $('.rebate,.recharge,.js_hongbao_display,.js_coupon,.save,.collect,.trade').css({"display":"none"});
+    $('.js_hongbao_display').css({"display":'block'});
+});
+
+$('.js_hongbao_display .xuanzhe .li1').on('click', function() {
+    $('.js_hongbao_display .xuanzhe li a').removeClass('this');
+    $(this).children('a').addClass('this');
+    $('.index_right_nav .right .hongbao .con1 ul li').css({"display":"none"});
+    $('.index_right_nav .right .hongbao .con1 ul li.ajax_hongbao1_display').css({"display":"block"});
+
+});
+$('.js_hongbao_display .xuanzhe .li2').on('click', function() {
+    $('.js_hongbao_display .xuanzhe li a').removeClass('this');
+    $(this).children('a').addClass('this');
+    $('.index_right_nav .right .hongbao .con1 ul li').css({"display":"none"});
+    $('.index_right_nav .right .hongbao .con1 ul li.ajax_hongbao2_display').css({"display":"block"});
+});
+$('.js_hongbao_display .xuanzhe .li3').on('click', function() {
+    $('.js_hongbao_display .xuanzhe li a').removeClass('this');
+    $(this).children('a').addClass('this');
+    $('.index_right_nav .right .hongbao .con1 ul li').css({"display":"none"});
+    $('.index_right_nav .right .hongbao .con1 ul li.ajax_hongbao3_display').css({"display":"block"});
+});
+
+
+
+//优惠券
+$('.index_right_nav .personal_nav ul li.li5').on('click', function() {
+    $('.index_right_nav').addClass('index_right_nav_click');
+    $('.index_right_nav .personal_nav ul li').removeClass('li2hover li3hover li4hover li5hover li6hover li7hover li8hover');
+    $(this).addClass('li5hover');
+    $('.rebate,.recharge,.js_hongbao_display,.js_coupon,.save,.collect,.trade').css({"display":"none"});
+    $('.js_coupon').css({"display":'block'});
+});
+$('.index_right_nav .right .js_coupon .xuanzhe li.li1').on('click', function() {
+    $('.index_right_nav .right .hongbao .coupon ul li').css({"display":'none'});
+    $('.ajax_coupon1_display').css({"display":"block"});
+});
+$('.index_right_nav .right .js_coupon .xuanzhe li.li2').on('click', function() {
+    $('.index_right_nav .right .hongbao .coupon ul li').css({"display":'none'});
+    $('.ajax_coupon2_display').css({"display":"block"});
+});
+$('.index_right_nav .right .js_coupon .xuanzhe li.li3').on('click', function() {
+    $('.index_right_nav .right .hongbao .coupon ul li').css({"display":'none'});
+    $('.ajax_coupon3_display').css({"display":"block"});
+});
+
+
+// 储值卡
+$('.index_right_nav .personal_nav ul li.li6').on('click', function() {
+    $('.index_right_nav').addClass('index_right_nav_click');
+    $('.index_right_nav .personal_nav ul li').removeClass('li2hover li3hover li4hover li5hover li6hover li7hover li8hover');
+    $(this).addClass('li6hover');
+    $('.rebate,.recharge,.js_hongbao_display,.js_coupon,.save,.collect,.trade').css({"display":"none"});
+    $('.save').css({"display":'block'});
+});
+
+
+// 收藏
+$('.index_right_nav .personal_nav ul li.li7').on('click', function() {
+    $('.index_right_nav').addClass('index_right_nav_click');
+    $('.index_right_nav .personal_nav ul li').removeClass('li2hover li3hover li4hover li5hover li6hover li7hover li8hover');
+    $(this).addClass('li7hover');
+    $('.rebate,.recharge,.js_hongbao_display,.js_coupon,.save,.collect,.trade').css({"display":"none"});
+    $('.collect').css({"display":'block'});
+});
+
+
+$(".index_right_nav .right .collect .xuanzhe li.li1").on('click', function() {
+    $(".index_right_nav .right .collect .xuanzhe li").children('a').addClass('on_click');
+    $(this).children('a').removeClass('on_click');
+    $('.index_right_nav .right .collect .con ul li').css({"display":"none"});
+    $('.index_right_nav .right .collect .con ul li.ajax_li1').css({"display":"block"});
+
+});
+$(".index_right_nav .right .collect .xuanzhe li.li2").on('click', function() {
+    $(".index_right_nav .right .collect .xuanzhe li").children('a').addClass('on_click');
+    $(this).children('a').removeClass('on_click');
+    $('.index_right_nav .right .collect .con ul li').css({"display":"none"});
+    $('.index_right_nav .right .collect .con ul li.ajax_li2').css({"display":"block"});
+});
+
+
+
+
+
+$('.index_right_nav .personal_nav ul li.li8').on('click', function() {
+<<<<<<< .mine
+    $('.index_right_nav').addClass('index_right_nav_click');
+    $('.index_right_nav .personal_nav ul li').removeClass('li2hover li3hover li4hover li5hover li6hover li7hover li8hover');
+    $(this).addClass('li8hover');
+    $('.rebate,.recharge,.js_hongbao_display,.js_coupon,.save,.collect,.trade').css({"display":"none"});
+    $('.trade').css({"display":'block'});
+=======
+    var _this = $(this);
+    $.get('/Login/cart','',function(ret) {
+        if(ret.state !== false) {
+            $('.trade').html(ret.cart);
+            /*---------- front end ----------*/
+            $('.index_right_nav').addClass('index_right_nav_click');
+            $('.index_right_nav .personal_nav ul li').removeClass('li2hover li3hover li4hover li5hover li6hover li7hover li8hover');
+            _this.addClass('li8hover');
+            $('.rebate,.recharge,.js_hongbao_display,.js_coupon,.save,.collect,.trade').css({"display":"none"});
+            $('.trade').css({"display":'block'});
+            /*========== front end ==========*/
+        }
+    },'json');
+>>>>>>> .r1678
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$('.index_right_nav').on('click', '.right .top_false',function() {
+    $('.index_right_nav').removeClass('index_right_nav_click');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

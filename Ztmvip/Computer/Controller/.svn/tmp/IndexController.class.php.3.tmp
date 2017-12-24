@@ -1,0 +1,106 @@
+<?php
+/**
+ * 首页控制器
+ * author: Tom
+ */
+namespace Computer\Controller;
+class IndexController extends BaseController
+{
+    //首页
+    public function index()
+    {
+        //session('user_id',19023);
+        show_bug(session());
+        $this->assign('page_title', '女性整体美解决方案领导者');
+        $this->display();
+    }
+
+
+    /**
+     * 某个类(含扩展类)下的商品
+     * @param  [type] $cat_id [description]
+     * @return [type]         [description]
+     */
+    public function catGoodsList()
+    {
+        $get = I('get.');
+        $category_name = D('GoodsCategory')->getCategoryName($get['cat_id']);
+        $this->assign('category_name', $category_name);
+        $count = D('Goods')->getCatGoodsCount($get['cat_id']);
+
+        $page = $this->page($count, 50);
+
+        //  $memcache=new \Think\Cache\Driver\Memcache(C('MEMCACHED'));
+        //  $pagenum=$get['p']?$get['p']:1;
+        //  $key=md5('catgoods'.$get['cat_id'].$pagenum);
+        // if($back=$memcache->get($key))
+        // {
+        //     $goods_list=unserialize($back);
+        // }else{
+        //   $goods_list=D('Goods')->categoryGetGoods($get['cat_id'],$page->firstRow,$page->listRows);
+        //   $memcache->set($key,serialize($goods_list));
+        // }
+
+        $goods_list = D('Goods')->categoryGetGoods($get['cat_id'], $page->firstRow, $page->listRows);
+
+
+        $this->assign('goods_list', $goods_list);
+        $this->display('goods_list');
+
+
+    }
+
+
+    public function newGoodsList()
+    {
+        $count = M('Advert')->where(array('topic' => 'newStarting', 'disabled' => 'N'))->order('rank desc')->count();
+        $new_starts = M('Advert')->where(array('topic' => 'newStarting', 'disabled' => 'N'))->order('rank desc')->select();
+        $new_starts = array_map(function($val){
+            $url_arr = parse_url($val['link']);
+            $val['link'] =  $url_arr['path'];
+            return $val;
+        }, $new_starts);
+        $hot_goods = M('Goods')->where(array('hot' => 'Y', 'on_sale' => 'Y', 'disabled' => 'N'))->order('click desc,rank desc')->limit($count)->select();
+        $this->assign('new_starts', $new_starts);
+        $this->assign('hot_goods', $hot_goods);
+        $this->assign('新品首发');
+        $this->display('new_start');
+    }
+
+    public function specialBuy()
+    {
+        $count = M('Advert')->where(array('topic' => 'specialBuy', 'disabled' => 'N'))->order('rank desc')->count();
+        $special_buy = M('Advert')->where(array('topic' => 'specialBuy', 'disabled' => 'N'))->order('rank desc')->select();
+        $special_buy = array_map(function($val){
+            $url_arr = parse_url($val['link']);
+            $val['link'] =  $url_arr['path'];
+            return $val;
+        }, $special_buy);
+        $goods_brand = M('GoodsBrand')->where(array('display' => 'Y'))->order('rank desc')->limit($count)->select();
+        $this->assign('special_buy', $special_buy);
+        $this->assign('goods_brand', $goods_brand);
+        $this->assign('特卖专场');
+        $this->display('special_buy');
+    }
+
+
+    //购物车
+    public function cart()
+    {
+        #取得购物车商品列表，计算合计(
+        $cart_goods = D('Cart')->getCartList();
+        $this->assign('cart_list', $cart_goods ['cart_list']);
+        $this->assign('total', $cart_goods ['total']);
+
+        #判断是否是全选
+        $count = D('Cart')->existUnSelected();
+        if (!$count) {
+            $this->assign('all_flag', 1);
+        }
+        $this->assign('page_title', '女性整体美解决方案领导者');
+        $cart = $this->fetch('Index:cart');
+        $this->ajaxReturn(array('cart' => $cart));
+    }
+
+
+}

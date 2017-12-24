@@ -1,0 +1,92 @@
+
+    <link rel="stylesheet" type="text/css" href="__PCCSS__user.css" />
+    <script src="__PCJS__lhf_common.js"></script>
+  </head>
+  <body>
+
+
+<include file="Public:top"/>
+
+
+
+<div class="user_bg">
+    <div class="user">
+        <include file="User:publicLeft"/>
+        <div class="user_right">
+        <form action="">
+            <div class="user_data">
+                <p class="title"><span>个人信息</span></p>
+                <ul class="this">
+                    <li class="hover"  id="js-li1">基本资料</li>
+                    <li id="js-li2">头像照片</li>
+                </ul>
+                <ul class="this_data">
+                    <li class="img"><span class="span1">当前头像：</span><div class="touxiang"> <div class="hover">编辑头像</div><img src="{$this_user.avatar}" alt="" /></div></li>
+                    <li class="name"><span class="span1">用户名：</span>{$this_user.user_name}</li>
+                    <li class="phone"><span class="span1">手机号：</span>{$this_user.mobile}<a href="{:U('mobile',array('redirect'=>base64_encode($_SERVER['REQUEST_URI'])))}">修改手机号</a></li>
+                    <li class="address"><span class="span1">收货地址：</span>{$this_user.consignee}，{$this_user.receive_mobile}，{$this_user.province}  {$this_user.city}  {$this_user.district}<if condition="$this_user.zipcode neq ''">，{$this_user.zipcode}</if><a href="{:U('Region/address')}">修改收货地址</a></li>
+                </ul>
+                <ul class="this_touxiang" style="display:none;">
+                    <li class="img"><div class="touxiang"><img src="__PCIMG__touxiangwen.jpg" alt="" /></div><a class="js-edit" href="javascript:;">修改头像</a></li>
+                    <li><p>仅支持JPG、GIF、PNG图片文件，且文件小于5M</p></li>
+                    <li class="li4"><button class="js-edit-avatar" type="button">确认</button></li>
+                    <input type="hidden" name="avatar"/>
+                    <input type="hidden" name="upfile_id" />
+                </ul>
+            </div>
+            <script type="text/javascript">
+                $('#js-li1').on('click', function() {
+                    $('#js-li1 , #js-li2').removeClass('hover');
+                    $(this).addClass('hover');
+                    $('.this_touxiang').css({'display':'none'});
+                    $('.this_data').css({'display':'block'});
+                    $('.js-upload-file-layer').remove();
+                });
+                $('#js-li2').on('click', function() {
+                    $('#js-li1 , #js-li2').removeClass('hover');
+                    $(this).addClass('hover');
+                    $('.this_data').css({'display':'none'});
+                    $('.this_touxiang').css({'display':'block'});
+                });
+
+                $('.this_data .touxiang .hover').on('click',function(){
+                    $('#js-li2').click();
+                });
+
+                $('.this_touxiang').on('mouseenter','img,.js-edit',function(){
+                    $(this).upfile();
+                    var el = $(this).closest('.this_touxiang').find('img');
+                    window.callback = function(ret){
+                        if (ret.state){
+                            el.attr('src',ret.url);
+                            $(':hidden[name=avatar]').val(ret.url);
+                            $(':hidden[name=upfile_id]').val(ret.upfile_id);
+                        }else{
+                            Core.Alert({'text':ret.message,'state':'err'});
+                        }
+                    }
+                });
+
+
+                //修改头像
+                $('.js-edit-avatar').on('click',function(){
+                    var avatar = $(':hidden[name=avatar]').val();
+                    var upfile_id = $(':hidden[name=upfile_id]').val();
+                    if(!avatar || !upfile_id){
+                        Core.Alert({'text':'您还没选择头像','state':'err'});
+                        return;
+                    }
+                    $.post("{:U('editAvatar')}",{avatar:avatar,upfile_id:upfile_id},function(ret){
+                        if(ret.state){
+                            window.location.reload();
+                        }else{
+                            Core.Alert({'text':ret.message,'state':'err'});
+                        }
+                    },'json');
+                });
+            </script>
+
+        </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+
+<link rel="stylesheet" type="text/css" href="__PCCSS__register.css" />
+</head>
+<body>
+
+
+<div class="register">
+    <div class="left">
+        <div class="logo"><a href="{:U('Index/index')}"><img src="__PCIMG__index_logo.png" alt="" /></a></div>
+        <div class="banner"><img src="__PCIMG__register_06.jpg" alt="" /></div>
+    </div>
+    <div class="right">
+        <form class="js-findpwd" action="">
+            <div class="he_phone">
+                <p>手机号码<span>错误提示语</span></p>
+                <input name="mobile" type="text" class="iphone" />
+            </div>
+            <p class="he_yanzhengma"><span>请输入验证码</span>验证码</p>
+            <input name="sms_code" class="yanzhengma" type="text"   />
+            <button type="button" class="js-sms-code" data-rel="new">点击获取验证码</button>
+            <button class="zhuche js-submit-findpwd" type="button">重置密码</button>
+            <div style="padding-top: 50px;"></div>
+        </form>
+    </div>
+</div>
+
+<script src="__PCJS__lhf_findPwd.js"></script>
+<script type="text/javascript">
+
+    $('.js-submit-findpwd').on('click',function(){
+        if(!checkFindPwd()){
+            return;
+        }
+        $.post("{:U('')}",Core.InputObj('.js-findpwd'),function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message });
+                if(ret.uri){
+                    window.location.href=ret.uri;
+                }
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+    $('.js-sms-code').on('click',function(){
+        if(!checkPhone()){
+            return;
+        }
+        if ($(this).prop('disabled'))
+            return;
+        $(this).prop('disabled',true);
+        var timeout = 60;
+        var el = $(this);
+        $.post("{:U('Sms/userFindPwd')}",{ 'topic':el.attr('data-rel'),'mobile':$('input[name="mobile"]').val() },function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message });
+                sms_time(el,timeout);
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+    function sms_time(el,timeout){
+        if (timeout == 0) {
+            el.css('background-color','').prop('disabled',false).html('点击获取验证码');
+        }else{
+            el.css('background-color','#ccc').prop('disabled',true).html('重新发送('+ timeout +')');
+            timeout--;
+            setTimeout(function(){
+                sms_time(el,timeout);
+            },1000);
+        }
+    }
+
+</script>

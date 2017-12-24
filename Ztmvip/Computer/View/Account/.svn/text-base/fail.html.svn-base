@@ -1,0 +1,12 @@
+
+<link rel="stylesheet" type="text/css" href="__PCCSS__user.css" />
+</head>
+<body>
+<include file="Public:top"/>
+
+<div class="user_bg">
+    <div class="success">
+        <h1><div class="img1"><img src="__PCIMG__fail_03.jpg" alt="" /></div>抱歉！支付失败！</h1>
+        <p><a href="{:U('Account/dptLog')}">查看充值记录</a><a href="{:U('Account/deposit')}" class="a2">继续充值</a></p>
+    </div>
+</div>

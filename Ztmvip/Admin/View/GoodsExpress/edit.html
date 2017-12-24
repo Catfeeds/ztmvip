@@ -1,0 +1,52 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">运费名称</td>
+            <td><input name="express_name" class="text" type="text" value="{$edit['express_name']}" required="required" placeholder="请输入运费名称..."></td>
+        </tr>
+        <tr>
+            <td class="label">包邮金额</td>
+            <td><input name="free_amount" class="text" type="text" value="{$edit['free_amount']}" required="required" placeholder="请输入包邮金额..."></td>
+        </tr>
+        <tr>
+            <td class="label">邮费</td>
+            <td><input name="postage" class="text" type="text" value="{$edit['postage']}" required="required" placeholder="请输入邮费..."></td>
+        </tr>
+        <tr>
+            <td class="label">默认邮费</td>
+            <td>
+                <tagLib name="html"/>
+                <html:radio name="is_default" radios="is_default" checked="edit_is_default" separator="&nbsp;&nbsp;"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td><button type="submit" class="submit">提 交</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+    $('.js-edit').on('submit',function(event){
+        var data = Core.InputObj(this);
+
+        $.post('',data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.href = "{:U('index')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+</script>

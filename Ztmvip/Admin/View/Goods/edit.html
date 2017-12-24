@@ -1,0 +1,739 @@
+<style type="text/css">
+    .relation-goods-btn{ display:inline-block; text-align:center; line-height:30px; vertical-align:middle; padding:0 10px;}
+    .extend-category{ display:inline-block; height:30px; background-color:#069; margin-right:10px; padding:0 10px; line-height:30px; vertical-align:middle;}
+    .skus label{ display:inline-block; padding-right:10px;}
+</style>
+<div class="art-nav">
+    <table class="js-tab tab">
+        <tbody>
+        <tr>
+            <td class="hover" index="0"><h2>{$page_title}</h2></td>
+            <td index="1"><h2>商品属性</h2></td>
+            <td index="2"><h2>相关商品</h2></td>
+        </tr>
+        </tbody>
+    </table>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" style="width:100%;">
+        <tbody>
+        <tr>
+            <td class="label">商品名称</td>
+            <td><input name="goods_name" class="text" type="text" value="{$edit['goods_name']}" required="required" placeholder="请输入产品名称..." style="width:550px;"></td>
+        </tr>
+        <tr>
+            <td class="label">商品分类</td>
+            <td>
+                <select class="select js-goods-category" _name="category_id" option="{$edit['category_id']}">
+                    <option value="">—请选择—</option>
+                    <volist name="goods_category" id="vo">
+                        <option value="{$vo['id']}">{$vo['category_name']}</option>
+                    </volist>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">扩展分类</td>
+            <td>
+                <select class="select js-goods-category js-extend-category-select" _name="">
+                    <option value="">—请选择—</option>
+                    <volist name="goods_category" id="vo">
+                        <option value="{$vo['id']}">{$vo['category_name']}</option>
+                    </volist>
+                </select>
+                <button type="button" class="button js-extend-category-insert">添加</button>
+                <textarea class="js-goods-extend-category" style="display:none;">{$goods_extend_category}</textarea>
+                <if condition="$all_goods_category">
+                    <select id="goods-extend-category" style="display:none;">
+                        <volist name="all_goods_category" id="vo">
+                            <option value="{$vo['id']}">{$vo['category_name']}</option>
+                        </volist>
+                    </select>
+                </if>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">品牌</td>
+            <td>
+                <tagLib name="html"/>
+                <html:select name="brand_id" options="goods_brand" selected="edit['brand_id']" first="—请选择—" style="select"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">市场价</td>
+            <td><input name="market_price" class="text" type="text" value="{$edit['market_price']}" required="required" placeholder="请输入市场价..."></td>
+        </tr>
+        <tr>
+            <td class="label">商城价</td>
+            <td><input name="shop_price" class="text" type="text" data-original="{$edit['shop_price']}" value="{$edit['shop_price']}" required="required" placeholder="请输入商城价..."></td>
+        </tr>
+        <tr>
+            <td class="label">商品图</td>
+            <td class="js-upimg-box" style="word-spacing:-4px;">
+                <if condition="$edit['goods_gallery']">
+                    <volist name="edit['goods_gallery']" id="vo">
+                        <ul class="upimg js-upimg">
+                            <li class="up">
+                                <img src="{$vo['image']}" style="display:block;">
+                                <span class="prev">《</span>
+                                <span class="next">》</span>
+                            </li>
+                            <li class="btn">
+                                <a class="s" title="从相册选择"></a>
+                                <a class="e" title="修改"></a>
+                                <a class="d" title="删除"></a>
+                                <div class="cls"></div>
+                            </li>
+                            <input name="goods_gallery" type="hidden" value="{$vo['image']}">
+                        </ul>
+                    </volist>
+                </if>
+                <ul class="upimg upimg-new js-upimg">
+                    <li class="up">
+                        <a>上传图片</a>
+                        <img src="">
+                        <span class="prev">《</span>
+                        <span class="next">》</span>
+                    </li>
+                    <li class="btn">
+                        <a class="s" title="从相册选择"></a>
+                        <a class="e" title="修改"></a>
+                        <a class="d" title="删除"></a>
+                        <div class="cls"></div>
+                    </li>
+                    <li class="cls"></li>
+                    <input name="goods_gallery" type="hidden" value="">
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">缩略图</td>
+            <td class="js-upimg-box">
+                <if condition="$edit['goods_thumb']">
+                    <ul class="upimg js-upimg">
+                        <li class="up"><img src="{$edit['goods_thumb']}" style="display:block;"></li>
+                        <li class="btn">
+                            <a class="s" title="从相册选择"></a>
+                            <a class="e" title="修改"></a>
+                            <div class="cls"></div>
+                        </li>
+                        <input name="goods_thumb" type="hidden" value="{$edit['goods_thumb']}">
+                    </ul>
+                    <else/>
+                    <ul class="upimg js-upimg">
+                        <li class="up">
+                            <a>上传图片</a>
+                            <img src="">
+                        </li>
+                        <li class="btn">
+                            <a class="s" title="从相册选择"></a>
+                            <a class="e" title="修改"></a>
+                            <div class="cls"></div>
+                        </li>
+                        <input name="goods_thumb" type="hidden" value="">
+                    </ul>
+                </if>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">运费模版</td>
+            <td>
+                <tagLib name="html"/>
+                <html:select name="express_id" options="goods_express" selected="default_express" first="—请选择—" style="select"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">分佣比例</td>
+            <td><input name="profit" class="text" type="text" value="{:($edit['profit']?:0)}" required="required" placeholder="请输入分佣比例..." style="min-width:50px;width:50px;"> %</td>
+        </tr>
+        <tr>
+            <td class="label">库存</td>
+            <td><input name="goods_number" class="text" type="text" value="{:($edit['goods_number']?:100)}" required="required" placeholder="请输入商品库存..."></td>
+        </tr>
+        <tr>
+            <td class="label">虚拟销量</td>
+            <td><input name="sales" class="text" type="text" value="{:($edit['sales']?:rand(10,100))}" required="required" placeholder="请输入虚拟销量..."></td>
+        </tr>
+        <tr>
+            <td class="label">可用积分</td>
+            <td><input name="pay_integral" class="text" type="text" value="{:($edit['pay_integral']?:0)}" required="required" placeholder="请输入积分数..."></td>
+        </tr>
+        <tr>
+            <td class="label">商品详情</td>
+            <td><textarea style="height:500px;width:100%" id="goods_desc" name="goods_desc">{$edit['goods_desc']}</textarea></td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="tbl" style="display:none; width:100%;">
+        <tbody>
+        <tr>
+            <td class="label">商品属性</td>
+            <td id="sku_id">
+                <input name="sku_id" type="hidden" value="{$edit['sku_id']}">
+                <textarea name="skus" style="display:none;">{$edit['skus']}</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td id="skus">
+                <table class="tbl skus js-skus" width="100%">
+                    <tbody></tbody>
+                </table>
+                <table class="tbl skus js-skus-price" style="display:none;margin:30px 0 0 0;">
+                    <tbody></tbody>
+                </table>
+                <textarea name="skus" style="display:none;">{$edit['skus']}</textarea>
+                <textarea name="skus_price" style="display:none;">{$edit['skus_price']}</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">支持服务</td>
+            <td id="js-service" data-rel='<php>echo $edit['service']?:'{"quality":"quality","refund":"refund","share":"share","double":"double"}';</php>'>
+                <label><input name="service" type="checkbox" value="refund"> 七天无理由退款</label>
+                <label><input name="service" type="checkbox" value="share"> 分享赚钱</label>
+                <label><input name="service" type="checkbox" value="quality"> 正品保障</label>
+                <label><input name="service" type="checkbox" value="double"> 买贵双倍差价</label>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="tbl" style="display:none; width:100%;">
+        <tbody>
+        <tr>
+            <td class="label">相关商品</td>
+            <td>
+                <select class="select js-goods-category js-relation-goods-category-id" _name="">
+                    <option value="">—请选择—</option>
+                    <volist name="goods_category" id="vo">
+                        <option value="{$vo['id']}">{$vo['category_name']}</option>
+                    </volist>
+                </select>
+                <tagLib name="html"/>
+                <html:select options="goods_brand" first="—请选择—" style="select js-relation-goods-brand-id"/>
+                <input class="text js-relation-goods-search" type="text" placeholder="商品名称...">
+            </td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td>
+                <select class="select js-relation-goods-search-result" multiple style="min-width:300px; min-height:200px;"></select>
+                <div class="relation-goods-btn">
+                    <p><label><input name="relation_type" type="radio" value="0" checked> 单向关联</label></p>
+                    <p><label><input name="relation_type" type="radio" value="1"> 双向关联</label></p>
+                    <p><button class="js-relation-goods-insert" data-rel="all" type="button">》</button></p>
+                    <p><button class="js-relation-goods-insert" data-rel="one" type="button">></button></p>
+                    <p><button class="js-relation-goods-remove" data-rel="one" type="button"><</button></p>
+                    <p><button class="js-relation-goods-remove" data-rel="all" type="button">《</button></p>
+                </div>
+                <select name="relation_goods" class="select" multiple style="min-width:300px; min-height:200px;"></select>
+                <textarea class="js-relation-goods" style="display:none;">{$edit['relation_goods']}</textarea>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="tbl tbl-submit" style="width:100%;border-top:0;">
+        <tbody>
+        <tr>
+            <td class="label"></td>
+            <td><button type="submit" class="submit">提 交</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="__ROOT__/Public/Common/Ueditor/ueditor.config.js"></script>
+<script src="__ROOT__/Public/Common/Ueditor/ueditor.all.min.js"></script>
+<script>window.UEDITOR_CONFIG['serverUrl']="{:U('UploadFile/ueditor')}";</script>
+<script>
+    $(function(){
+        /* --支持服务-- */
+        var norefund = [703,1126,1104,935,1086,1103,1138,1194,1195,1139,1141,1140,1142,1143,1144,1207,696,876,877,878,1192,702,923,924,925,1108,1106,1090,1135,1136,1137,1196];
+        $('body').on('change','.js-goods-category',function(){
+            $(':checkbox[name="service"][value="refund"]').prop('checked',$.inArray(parseInt(this.value),norefund) == -1);
+        });
+
+        var service = $.parseJSON($('#js-service').attr('data-rel'));
+        $.each(service,function(i,e){
+           $(':checkbox[name="service"][value="'+e+'"]').prop('checked',true);
+        });
+        /* --end-- */
+
+        /* --扩展分类-- */
+        $('body').on('click','.js-extend-category-insert',function(){
+            var el = $(this);
+            var parent = el.parent();
+            var val = el.prevAll('.js-extend-category-select[name]').val();
+
+            if (!val || parent.find(':hidden[name="extend_category"][value="'+ val +'"]').length)
+                return;
+
+            var tpl = '<a style="color:#fff;" class="extend-category js-extend-category" title="点击移除">' +
+                    '{text}' +
+                    '<input name="extend_category" type="hidden" value="{value}">' +
+                    '</a>';
+            parent.find('.js-extend-category-select:first').before(Core.FormatTpl(tpl,{
+                'value':val,
+                'text':el.prevAll('.js-extend-category-select[name]').find(':selected').text()
+            }));
+        });
+
+        $('.js-edit').on('click','.js-extend-category',function(){
+            $(this).remove();
+        });
+
+        if ($('.js-goods-extend-category').val() && $('.js-goods-extend-category').val() != '[]'){
+            $.each($.parseJSON($('.js-goods-extend-category').val()),function(i,e){
+                var tpl = '<a style="color:#fff;" class="extend-category js-extend-category" title="点击移除">' +
+                        '{text}' +
+                        '<input name="extend_category" type="hidden" value="{value}">' +
+                        '</a>';
+                $('#goods-extend-category').parent().prepend(Core.FormatTpl(tpl,{
+                    'value':e.category_id,
+                    'text':$('#goods-extend-category option[value="'+e.category_id+'"]').text()
+                }));
+            });
+        }
+        /* --end-- */
+    });
+    /* --商品属性-- */
+    var td_sku_id = $('#sku_id');
+    var td_skus = $('#skus');
+    td_sku_id.on('change','select',function(event){
+        var select = $(this);
+
+        if (select.val() == ''){
+            $(event.delegateTarget).find(':hidden[name="sku_id"]').val('');
+            td_skus.find('.js-skus tbody').html('');
+            skus_price_table.init();
+            return;
+        }
+
+        $.post("{:U('GoodsSku/search')}",{'sku_id':select.val()},function(ret){
+            if (!ret.length)
+                return;
+
+            /* --商品属性值-- */
+            var skus = ret[0].skus;
+            var tpl_tr = '<tr>' +
+                    '<td class="label">{name}</td>' +
+                    '<td>{input}</td>' +
+                    '</tr>';
+            var tpl_text = '<label style="padding:2px 5px;"><a class="js-skus-insert">[+]</a> <input name="skus_{sku_id}" class="text" type="text" value="" style="min-width:100px;width:100px;"> <a class="js-skus-remove">[-]</a></label>';
+            var tpl_redio = '<label><input name="skus_{sku_id}" type="radio" value="{value}"> {value}</label>';
+            var tpl_checkbox = '<label><input name="skus_{sku_id}" type="checkbox" value="{value}"> {value}</label>';
+            var html = '';
+
+            $.each(skus,function(i,e){
+                var input = '';
+
+                if (e.input == 'text'){
+                    input += Core.FormatTpl(tpl_text,{'sku_id':e.id});
+                }else if (e.input == 'radio'){
+                    $.each(e.value,function(j,k){
+                        input += Core.FormatTpl(tpl_redio,{'sku_id':e.id,'value':k});
+                    });
+                }else if (e.input == 'checkbox'){
+                    $.each(e.value,function(j,k){
+                        input += Core.FormatTpl(tpl_checkbox,{'name':e.name,'value':k});
+                    });
+                }
+
+                html += Core.FormatTpl(tpl_tr,{'name':e.name,'input':input});
+            });
+            td_skus.find('.js-skus').html(html);
+
+            /* --初始化值-- */
+            if (td_skus.find('textarea[name="skus"]').val()){
+                skus = $.parseJSON(td_skus.find('textarea[name="skus"]').val());
+
+                $.each(skus,function(i,e){
+                    var input = td_skus.find('[name="skus_'+ e.sku_id +'"]');
+
+                    if (input.length){
+                        if (input.filter(':radio,:checkbox').length){
+                            input.filter(':radio[value="'+ e.value +'"],:checkbox[value="'+ e.value +'"]').click();
+                        }else if (input.filter(':text').length){
+                            input.filter(':text:last').val(e.value).change();
+                            input.filter(':text:last').prev('.js-skus-insert').click();
+                        }
+                    }
+                });
+            }
+            /* --end-- */
+            $(event.delegateTarget).find(':hidden[name="sku_id"]').val(select.val());
+        });
+    }).on('click','#reset-sku',function(){
+        $.post("{:U('GoodsSku/search')}",{'sku_id':0},function(ret){
+            if (!ret.length)
+                return;
+
+            var tpl_select = '<select class="select"><option value="">—请选择—</option>{options}</select>';
+            var tpl_option = '<option value="{value}">{text}</option>';
+            var options = '';
+
+            $.each(ret,function(i,e){
+                options += Core.FormatTpl(tpl_option,{'value':e.id,'text':e.sku_name});
+            });
+
+            td_sku_id.find('select').remove();
+            td_sku_id.prepend(Core.FormatTpl(tpl_select,{'options':options}));
+            td_skus.find('.js-skus').html('');
+        });
+    });
+
+    td_skus.on('click','.js-skus .js-skus-insert',function(){
+        $(this).parent().after($(this).parent().prop('outerHTML'));
+    }).on('click','.js-skus .js-skus-remove',function(){
+        if (!$(this).parent().siblings().length)
+            return;
+
+        $(this).parent().remove();
+        skus_price_table.show();
+    }).on('change','.js-skus :text[name^="skus_"]',function(){
+        skus_price_table.show();
+    }).on('click','.js-skus :radio[name^="skus_"],:checkbox[name^="skus_"]',function(){
+        skus_price_table.show();
+    }).on('change',':text[name^="skus_price_"]',function(){
+        var value = {};
+        value[this.name.replace('skus_price_','')] = $(this).val();
+        skus_price_table.setval(value);
+    });
+
+    var skus_price_table = (function(){
+        var _price = {};
+
+        function combine(arr) {
+            var r = [];
+            (function f(t, a, n) {
+                if (n == 0) return r.push(t);
+                for (var i = 0; i < a[n-1].length; i++) {
+                    f(t.concat(a[n-1][i]), a, n - 1);
+                }
+            })([], arr, arr.length);
+            return r;
+        }
+
+        return {
+            'init':function(){
+                td_skus.find('.js-skus-price tbody').html('').hide();
+                if (td_skus.find('textarea[name="skus_price"]').val()) {
+                    $.each($.parseJSON(td_skus.find('textarea[name="skus_price"]').val()),function(i,e){
+                        _price[e.skus] = e.price;
+                    });
+                }else{
+                    _price = {};
+                }
+            },
+            'show':function(){
+                var arr = [];
+                var th_arr = [];
+
+                td_skus.find('.js-skus tr').each(function(i,e){
+                    var input = [];
+
+                    if ($(e).find(':checked').length){
+                        $(e).find(':checked').each(function(j,k){
+                            input.push(k.name.match(/\d+/ig)[0]+':'+j+':'+$(e).find('td:first').text()+':'+$(k).val());
+                        });
+                    }else if ($(e).find(':text').length){
+                        $(e).find(':text').each(function(j,k){
+                            if ($(k).val())
+                                input.push(k.name.match(/\d+/ig)[0]+':'+j+':'+$(e).find('td:first').text()+':'+$(k).val());
+                        });
+                    }
+
+                    if (input.length){
+                        th_arr.push($(e).find('td:first').text());
+                        arr.push(input);
+                    }
+                });
+
+                var res = combine(arr.reverse());
+
+                //合并单元格
+                var row = [];
+                var rowspan = res.length;
+                for(var n=arr.length-1; n>-1; n--) {
+                    row[n] = parseInt(rowspan/arr[n].length);
+                    rowspan = row[n];
+                }
+                row.reverse();
+
+                //table tr td
+                var str = '';
+                var len = res[0].length;
+                var base_price = $(':text[name="shop_price"]').val();
+                for (var i=0; i<res.length; i++) {
+                    var tmp = '';
+
+                    for(var j=0; j<len; j++) {
+                        var _sku_id = res[i][j].match(/[^:]+$/ig)[0];
+
+                        if(i%row[j]==0 && row[j]>1) {
+                            tmp += '<td rowspan="'+row[j]+'" align="center">'+_sku_id+'</td>';
+                        }else if(row[j]==1){
+                            tmp += '<td align="center">'+_sku_id+'</td>';
+                        }
+                    }
+
+                    if (tmp.length){
+                        var skus_id = res[i].join(';');
+                        str += '<tr>'+ tmp +'<td align="center">' +
+                                '<input name="skus_price_'+skus_id+'" class="text" type="text" value="'+ (_price[skus_id]?_price[skus_id]:base_price) +'" style="min-width:100px;width:100px;">' +
+                                '</td></tr>';
+                    }
+                }
+
+                if (str.length){
+                    //thead
+                    var th = '';
+                    for (var i = 0; i < th_arr.length; i++){
+                        th += '<th>'+ th_arr[i] +'</th>';
+                    };
+                    th = '<thead>'+th+'<th>价格</th></thead>';
+
+                    //tbody
+                    str = th +'<tbody>'+ str +'</tbody>';
+
+                    td_skus.find('.js-skus-price').html(str).show();
+                }else{
+                    td_skus.find('.js-skus-price').html('').hide();
+                }
+            },
+            'setval':function(val){
+                $.each(val,function(i,e){
+                    _price[i] = e;
+                });
+            },
+            'getval':function(key){
+                if (key){
+                    return _price[key] ? _price[key] : '';
+                }else{
+                    var value = [];
+
+                    $.each(_price,function(i,e){
+                        value.push({'skus':i,'price':e});
+                    });
+
+                    return value;
+                }
+            }
+        };
+    })();
+
+    var sku_id = td_sku_id.find(':hidden[name="sku_id"]').val();
+    $.post("{:U('GoodsSku/search')}",{ 'sku_id':sku_id },function(ret){
+        var tpl_select = '<select class="select"><option value="">——请选择——</option>{options}</select>'+ (sku_id ? '&nbsp;<a id="reset-sku">重新选择</a>' : '');
+        var tpl_option = '<option value="{value}">{text}</option>';
+        var options = '';
+
+        $.each(ret,function(i,e){
+            options += Core.FormatTpl(tpl_option,{'value':e.id,'text':e.sku_name});
+        });
+
+        td_sku_id.prepend(Core.FormatTpl(tpl_select,{'options':options}));
+
+        if (sku_id){
+            skus_price_table.init();
+            td_sku_id.find('select').val(sku_id).change();
+        }
+    });
+    /* --end-- */
+    /* --关联商品-- */
+    var rgsr = $('.js-relation-goods-search-result');
+    var rg = $('select[name="relation_goods"]');
+    $('.js-relation-goods-search').on('keypress',function(event){
+        if(event.keyCode == 13){
+            event.preventDefault();
+
+            var data = {
+                'words':$('.js-relation-goods-search').val(),
+                'category_id':$('.js-relation-goods-category-id[name]').val(),
+                'brand_id':$('.js-relation-goods-brand-id').val()
+            };
+            $.post("{:U('search')}",data,function(ret){
+                if (!ret)
+                    return;
+
+                var tpl = '<option value="{value}">{text}</option>';
+                var html = '';
+
+                $.each(ret,function(i,e){
+                    html += Core.FormatTpl(tpl,{'value':e.id,'text':e.goods_name});
+                });
+
+                rgsr.html(html);
+            });
+        }
+    });
+
+    $('.relation-goods-btn').on('click','.js-relation-goods-insert',function(){
+        if ($(this).attr('data-rel') == 'all'){
+            rg.append(rgsr.find('option').clone());
+        }else{
+            rg.append(rgsr.find(':selected').clone());
+        }
+    }).on('click','.js-relation-goods-remove',function(){
+        if ($(this).attr('data-rel') == 'all'){
+            rg.html('');
+        }else{
+            rg.find(':selected').remove();
+        }
+    });
+
+    if ($('.js-relation-goods').val() && $('.js-relation-goods').val() != '[]'){
+        var relation_goods = $.parseJSON($('.js-relation-goods').val());
+        $.post("{:U('Goods/search')}",{'goods_id':relation_goods},function(ret){
+            if (!ret)
+                return;
+
+            var tpl = '<option value="{value}">{text}</option>';
+            var html = '';
+
+            $.each(ret,function(i,e){
+                html += Core.FormatTpl(tpl,{'text':e.goods_name,'value':e.id});
+            });
+
+            $('select[name="relation_goods"]').html(html);
+        });
+    }
+    /* --end-- */
+
+    $('.js-edit').on('change',':text[name="shop_price"]',function(){
+        var el = $(this);
+        var old_price = el.attr('data-original');
+        var new_price = el.val();
+
+        $('.js-edit :text[name="pay_integral"]').val(parseInt(this.value));
+        td_skus.find(':text[name^="skus_price_"]').each(function(i,e){
+            if ($(e).val() == old_price)
+                $(e).val(new_price);
+        });
+    }).on('submit',function(event){
+        var el = $(this);
+        if (el.attr('disabled'))
+            return false;
+
+        el.attr('disabled','disabled');
+
+        var data = Core.InputObj(this);
+
+        data['skus'] = [];
+
+        $.each(data,function(i,e){
+            /* --skus-- */
+            if (i.indexOf('skus_price') != -1){
+                delete(data[i]);
+                return;
+            }
+
+            if (i.indexOf('skus_') != -1){
+                if (!$.isArray(e)){
+                    e = [e];
+                }
+
+                $.each(e,function(j,k){
+                    if (!k)
+                        return;
+
+                    data['skus'].push({
+                        'sku_id':i.match(/\d+/ig)[0],
+                        'value':k
+                    });
+                });
+
+                delete(data[i]);
+            }
+            /* --end-- */
+        });
+        data['skus_price'] = [];
+        $.each($('.js-skus-price :text[name]'),function(i,e){
+            data['skus_price'].push({'skus':$(e).attr('name').replace(/^skus_price_/ig,''),'price':parseFloat($(e).val()).toFixed(2)});
+        });
+        //console.log(data);
+
+        /* --支持服务-- */
+        data['service'] = {};
+        $(':checked[name="service"]').each(function(i,e){
+            data['service'][e.value] = e.value;
+        });
+        /* --end-- */
+
+        /* --相关商品-- */
+        data['relation_goods'] = [];
+        $('select[name="relation_goods"] option').each(function(i,e){
+            data['relation_goods'].push(e.value);
+        });
+        /* --end-- */
+
+        Core.Alert({ 'text':'正在处理数据，请稍候','state':'load','timeout':99999 });
+
+        $.post('',data,function(ret){
+            el.removeAttr('disabled');
+
+            if ( ret.state ){
+                Core.Alert({ 'text':'','timeout':1 });
+                Core.Confirm({ 'title':'是否返回列表页','text':ret.message,'callback':function(confirm){
+                    if (confirm)
+                        history.go(-1);
+                    else
+                        location.reload();
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+
+    UE.getEditor('goods_desc');
+
+    $('.js-upimg-box').on('mouseenter','.up a',function(event){
+        var el = $(this).closest('ul');
+
+        window.callback = function(ret){
+            el.find('.up img').attr('src',ret.url).show();
+            el.find(':hidden[name]').val(ret.url).change();
+        }
+    }).on('click','.s',function(event){
+        var el = $(this).closest('ul');
+        window.callback = function(ret){
+            el.find('.up img').attr('src',ret.url).show();
+            el.find(':hidden[name]').val(ret.url).change();
+            Core.Frame({'close':true});
+        }
+    }).on('mouseenter','.e',function(event){
+        var el = $(this).closest('ul');
+        window.callback = function(ret){
+            el.find('.up img').attr('src',ret.url).show();
+            el.find(':hidden[name]').val(ret.url).change();
+        }
+    }).on('change',':hidden[name]',function(event){
+        var el = $(this).closest('ul');
+        if (el.hasClass('upimg-new')){
+            var ne = el.clone();
+            ne.find('.up img').attr('src','').hide();
+            ne.find(':hidden[name]').val('');
+
+            el.parent().append(ne);
+            el.find('.up a').remove();
+            el.removeClass('upimg-new');
+        }else{
+
+            el.find('.up a').remove();
+        }
+    });
+
+    $('.js-tab').on('click','td',function(){
+        $('.js-tab td').removeClass('hover');
+        $(this).addClass('hover');
+        $('.js-edit > .tbl').hide().eq($(this).attr('index')).show();
+        $('.tbl-submit').show();
+        $('.js-upload-file-layer').hide();
+        if ($(this).attr('index') == 0)
+            $('.js-upload-file-layer').show();
+    });
+</script>

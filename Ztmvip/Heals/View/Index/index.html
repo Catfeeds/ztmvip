@@ -1,0 +1,49 @@
+<table class="tbl" width="100%">
+    <thead>
+    <tr>
+        <th colspan="4">用户检测统计信息</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="label">今日提交</td>
+        <td>{$examine_count['today']}</td>
+        <td class="label"></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="label">待处理</td>
+        <td>{$examine_count['new']}</td>
+        <td class="label">已处理</td>
+        <td>{$examine_count['confirm']}</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<table class="tbl" width="100%">
+    <thead>
+    <tr>
+        <th colspan="4">系统信息</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="label">服务器操作系统</td>
+        <td>{:php_uname('s')}</td>
+        <td class="label">Web 服务器</td>
+        <td>{$server['SERVER_SOFTWARE']}</td>
+    </tr>
+    <tr>
+        <td class="label">PHP 版本</td>
+        <td>{:phpversion()}</td>
+        <td class="label">MySQL 版本</td>
+        <td>{$server['mysql_version']}</td>
+    </tr>
+    <tr>
+        <td class="label">文件上传的大小</td>
+        <td>{:ini_get('upload_max_filesize')}</td>
+        <td class="label">服务器时间</td>
+        <td>{:date('Y-m-d H:i:s')}</td>
+    </tr>
+    </tbody>
+</table>

@@ -1,0 +1,48 @@
+html{font-size:12px;font-family: "冬青黑体简体中文";}
+.user_head{position:relative;}
+.user_photo{width:84px;height:84px;position:absolute;left:20px;bottom:-42px;border-radius: 50%;overflow:hidden;}
+.user_photo_box{width:100%;height:100%;border-radius: 50%;position:absolute;top:0;left:0;opacity: 0.5;}
+.real_box{width:88%;height:88%;border-radius: 50%;position:absolute;overflow:hidden;top:6%;left:6%;}
+.real_photo{width:84px;height:84px;position:absolute;left:50%;margin-left:-42px;margin-top:-42px;top:50%;border-radius: 50%;overflow:hidden;}
+.collection{width:29px;height:29px;position:fixed;top:10px;right:20px;z-index: 999;}
+.user_inf{height:55px;width:100%;padding-left: 32%;box-sizing: border-box;border-bottom: 1px solid #ccc;}
+.user_inf .user_name{font-size: 1.0rem;width:60%;float: left;}
+.user_inf .user_name i{font-size: 1.2rem;line-height: 25px;}
+.user_inf .user_other{font-size: 1.1rem;width:40%;float:left;}
+.user_inf .user_other .left i{line-height:25px;}
+.user_inf .user_other .left{width:60%;float:left;text-align:center;}
+.user_inf .user_other .right{width:40%;float:left;}
+.user_inf .user_other .right img{width:50%;margin-top:30%;}
+.user_list{height:82px;border-bottom: 1px solid #ccc;}
+.user_list .list{width:20%;height:100%;float:left;}
+.user_list .list .icon{width:26px;height:26px;margin:20px auto 0;position:relative;}
+.user_list .list .dif{width:28px;}
+.user_list .list .icon_inf{line-height:30px;text-align: center;font-size: 1.0rem;}
+.list_box{padding:0 20px;}
+.list_box .list_in{height:45px;line-height:45px;font-size: 1.2rem;border-bottom: 1px solid #ccc;}
+.list_box .list_in .jump{float:right;width:8px;margin-top:15px;}
+.copyright{height:67px;font-size:0.8rem;text-align: center;line-height: 14px;padding-top:12px;box-sizing: border-box;color:#6d6d6d;}
+.placeholder{width:100%;height:50px;}
+.nav_box{width:100%;max-width: 750px;height:50px;background: #252525;position:fixed;bottom:0;}
+.nav_box .nav_in{width:25%;height:50px;float:left;}
+.nav_box .nav_in .nav{width:30px;margin:10px auto;position:relative;}
+.goods_num{width:15px;height:15px;border-radius: 50%;background:#FFD773;text-align: center;line-height: 15px;position:absolute;top:0;left:5px;color:#fff;}
+.icon .goods_num{top:-4px;left:20px;}
+
+/*1201修改*/
+.core-layer .content{ padding-top: 10px;}
+.core-layer .content p{text-align: center;
+font-size: 18px;
+position: absolute;
+left: 0;
+right: 0;}
+.core-layer .content span{
+
+display:block;
+width:8em;
+margin:auto;
+text-align: center;
+font-size: 15px;}
+.core-layer .content div{ padding-left: 1em; display: none;}
+.core-layer .content div,.core-layer .content span{ position: relative; top:-1em;}
+.user_inf .user_other .left{ float:right;}

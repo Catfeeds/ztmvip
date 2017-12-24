@@ -1,0 +1,99 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <form method="get" action="{:U('')}">
+            <input name="order_sn" class="text" type="text" value="{$Think.get.order_sn}" placeholder="订单号搜索...">
+            <input name="goods_name" class="text" type="text" value="{$Think.get.goods_name}" placeholder="商品名称搜索...">
+            <input name="consignee" class="text" type="text" value="{$Think.get.consignee}" placeholder="收货人搜索...">
+            <tagLib name="html"/>
+            <html:select name="payment_state" options="order_state['payment']" selected="_GET['payment_state']" first="-请选择-" style="select"/>
+            <tagLib name="html"/>
+            <html:select name="order_state" options="order_state['order']" selected="_GET['order_state']" first="-请选择-" style="select"/>
+            <tagLib name="html"/>
+            <html:select name="shipping_state" options="order_state['shipping']" selected="_GET['shipping_state']" first="-请选择-" style="select"/>
+            <input name="add_start" class="text js-time" type="text" value="{$Think.get.add_start}" placeholder="下单时间搜索..."> -
+            <input name="add_end" class="text js-time" type="text" value="{$Think.get.add_end}" placeholder="下单时间搜索...">
+            <input name="user_id" type="hidden" value="{$Think.get.user_id}">
+            <input name="shop" type="hidden" value="{$Think.get.shop}">
+            <button class="button" type="submit" data-rel="display">搜 索</button>
+            <input name="xls" type="radio" value="N" checked style="display:none;">
+            <button class="button" type="submit" data-rel="xls">导 出</button>
+            <input name="xls" type="radio" value="Y" style="display:none;">
+        </form>
+    </span>
+</div>
+<table class="tbl js-list" width="100%">
+    <thead>
+    <tr>
+        <th width="20"><input type="checkbox"></th>
+        <th>订单编号</th>
+        <th>订单商品</th>
+        <th>订单店铺</th>
+        <th>收货人</th>
+        <th>订单总额</th>
+        <th>支付状态</th>
+        <th>订单状态</th>
+        <th>快递状态</th>
+        <th>支付时间</th>
+        <th>收货时间</th>
+        <th>下单时间</th>
+        <th width="80">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <if condition="$list">
+        <volist name="list" id="vo">
+            <tr>
+                <td align="center"><input name="id" type="checkbox" value="{$vo['id']}"></td>
+                <td>{$vo['order_sn']}</td>
+                <td>
+                    <volist name="vo['order_goods']" id="v">
+                        <p><a href="__HOME__{:U('Goods/detail','goods_id='.$v['goods_id'])}" target="_blank">{$v['goods_name']}</a></p>
+                    </volist>
+                </td>
+                <td>{$vo['shop_name']|default='整体美'}</td>
+                <td>{$vo['consignee']}</td>
+                <td>{$vo['goods_fee']+$vo['shipping_fee']|sprintf='%.2f',###}</td>
+                <td>{$order_state['payment'][$vo['payment_state']]}</td>
+                <td>{$order_state['order'][$vo['order_state']]}</td>
+                <td>{$order_state['shipping'][$vo['shipping_state']]}</td>
+                <td>{:($vo['date_pay']?date('Y-m-d H:i',$vo['date_pay']):'')}</td>
+                <td>{:($vo['date_receive']?date('Y-m-d H:i',$vo['date_receive']):'')}</td>
+                <td>{$vo['date_add']|date='Y-m-d H:i',###}</td>
+                <td align="center">
+                    <a href="{:U('edit','id='.$vo['id'])}">详情</a>
+                </td>
+            </tr>
+        </volist>
+        <else/>
+        <tr>
+            <td colspan="13" align="center">暂无数据</td>
+        </tr>
+    </if>
+    </tbody>
+</table>
+<footer class="footer">
+    {$page_show}
+</footer>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Public/Common/DateTimePicker/datetimepicker.css" />
+<script src="__ROOT__/Public/Common/DateTimePicker/datetimepicker.js"></script>
+<script>
+    $('.js-list').on('click','.js-delete',function(event){
+        $(event.delegateTarget).find('tbody :checkbox').prop('checked',false);
+        $(this).closest('tr').find(':checkbox').click();
+        $('.js-delete-submit').click();
+    });
+
+    $('.art-nav form input[name]').on('keypress',function(event){
+        if(event.keyCode == 13){
+            this.form.submit();
+            event.preventDefault();
+        }
+    });
+
+    $('.js-time').datetimepicker({'format':'Y-m-d H:i'});
+
+    $('.art-nav form .button').on('click',function(){
+        $(this).next(':radio').prop('checked',true);
+    });
+</script>

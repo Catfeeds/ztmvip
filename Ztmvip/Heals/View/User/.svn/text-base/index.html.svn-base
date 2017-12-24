@@ -1,0 +1,94 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <form method="get" action="{:U('')}">
+            <input name="user_name" class="text" type="text" value="{$Think.get.user_name}" placeholder="ID/用户名搜索...">
+            <!--<input name="wechat_user" class="text" type="text" value="{$Think.get.wechat_user}" placeholder="微信号搜索...">-->
+            <input name="mobile" class="text" type="text" value="{$Think.get.mobile}" placeholder="手机号搜索...">
+            <button class="button" type="submit">搜 索</button>
+        </form>
+    </span>
+</div>
+<table class="tbl js-list" width="100%">
+    <thead>
+    <tr>
+        <th width="20"><input type="checkbox"></th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>生日</th>
+        <th>国家</th>
+        <th>省</th>
+        <th>市</th>
+        <th>区</th>
+        <th>手机</th>
+        <th>邀请码</th>
+        <th>注册时间</th>
+        <th width="180">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <if condition="$list">
+        <volist name="list" id="vo">
+            <tr>
+                <td align="center"><input name="id" type="checkbox" value="{$vo['id']}"></td>
+                <td>{$vo['user_name']}</td>
+                <td>{:$vo['sex']=='male'?'男':'女'}</td>
+                <td>{$vo['birthday'|date='Y-m-d',###]}</td>
+                <td>{$vo['country']}</td>
+                <td>{$vo['province']}</td>
+                <td>{$vo['city']}</td>
+                <td>{$vo['district']}</td>
+                <td>{$vo['mobile']}</td>
+                <td>{$vo['code']}</td>
+                <td>{$vo['date_add']|date='Y-m-d H:i',###}</td>
+                <td align="center">
+                    <a href="{:U('Examine/index','user_id='.$vo['id'])}">检测记录</a>
+                    <!--<if condition="$vo['disabled'] eq 'Y'">
+                        <a class="js-enable" href="javascript:;">启用</a>
+                        <else/>
+                        <a class="js-disable" href="javascript:;">禁用</a>
+                    </if>-->
+                </td>
+            </tr>
+        </volist>
+        <else/>
+        <tr>
+            <td colspan="12" align="center">暂无数据</td>
+        </tr>
+    </if>
+    </tbody>
+</table>
+<footer class="footer">
+    <!--<button class="button js-disable-submit">批量禁用</button>
+    <button class="button js-enable-submit">批量启用</button>-->
+    {$page_show}
+</footer>
+<script>
+    $('.js-list').on('click','.js-disable,.js-enable',function(event){
+        $(event.delegateTarget).find('tbody :checkbox').prop('checked',false);
+        $(this).closest('tr').find(':checkbox').click();
+        $('.'+ $(this).attr('class') +'-submit').click();
+    });
+
+    $('.art-nav form input[name]').on('keypress',function(event){
+        if(event.keyCode == 13){
+            this.form.submit();
+            event.preventDefault();
+        }
+    });
+
+    $('.js-disable-submit,.js-enable-submit').on('click',function(){
+        var data = Core.InputObj($('.js-list'));
+        data['action'] = $(this).attr('class').indexOf('disable') != -1 ? 'disable' : 'enable';
+
+        $.post("{:U('prop')}",data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.reload();
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+</script>

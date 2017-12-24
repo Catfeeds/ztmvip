@@ -1,0 +1,74 @@
+
+    <link rel="stylesheet" type="text/css" href="__PCCSS__logistics.css" />
+  </head>
+  <body>
+  <include file="Public:top"/>
+    <div class="bg_h">
+        <div class="logistics js-submit">
+            <h2>商品评价</h2>
+            <volist name="order.goods" id="vo">
+            <div class="order">
+                <p class="p1"><span>{$order.date_add|date='Y-m-d',###}</span>订单号：{$order.order_sn}</p>
+                <div class="con">
+                    <div class="img"><img src="{$vo.goods_thumb}" alt="{$vo.goods_name}" /></div>
+                    <ul class="text">
+                        <li class="li1">{$vo.goods_name}</li>
+                        <li class="li2">{$vo.shop_price}</li>
+                        <li class="li3">X{$vo.goods_number|default=0}</li>
+                    </ul>
+                    <p>
+                        <php>$vo['skus'] = json_decode($vo['skus'],true);</php>
+                        <volist name="vo.skus" id="v">
+                            <span>{$v[0]}：{$v[1]}</span>
+                        </volist>
+                    </p>
+                </div>
+            </div>
+                <form action="">
+                    <div class="pingjia js-pingjia">
+                        <span>评分：</span>
+                        <label class="iconfont cur" >&#xe632;</label>
+                        <label class="iconfont" >&#xe632;</label>
+                        <label class="iconfont" >&#xe632;</label>
+                        <label class="iconfont" >&#xe632;</label>
+                        <label class="iconfont" >&#xe632;</label>
+                        <input name="level_{$vo['goods_id']}" type="hidden" value="1">
+                    </div>
+
+                    <div class="textarea">
+                        <p>评价：</p>
+                        <textarea name="content_{$vo['goods_id']}" cols="" rows="" placeholder="请在这里输入评价内容" maxlength="150"></textarea>
+                    </div>
+
+                </form>
+            </volist>
+            <div  class="button"><button style="button">发表评价</button></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    //评价星星
+    $('.js-pingjia label').on('click',function(){
+        var index = $(this).index();
+        $(this).parent().find(':hidden[name^="level_"]').val(index);
+    });
+    $('.js-pingjia label').hover(function(){
+        $(this).addClass('cur').prevAll('label').addClass('cur').end().nextAll('label').removeClass('cur');
+    },function(){
+        var index = $(this).parent().find(':hidden[name^="level_"]').val();
+        $(this).parent().find('label').eq(index-1).addClass('cur').prevAll('label').addClass('cur').end().nextAll('label').removeClass('cur');
+    });
+
+    $('.button').on('click',function(){
+        var data = Core.InputObj('.js-submit');
+
+        $.post('',data,function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message,'callback':function(){
+                    location.href = "{:U('User/order')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+    </script>

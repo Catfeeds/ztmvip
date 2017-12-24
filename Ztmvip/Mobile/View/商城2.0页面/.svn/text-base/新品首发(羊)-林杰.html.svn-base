@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/swiper.css" /> 
+<link rel="stylesheet" type="text/css" href="Css/new_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="Css/new_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="Js/jquery.js"></script>
+<script type="text/javascript" src="Js/swiper.jquery.min.js"></script>
+</head>
+<body>
+<!-- 头部开始 -->
+<div class="header_box">
+    <div class="header_title">新品首发</div>
+    <span class="return"><img src="Images/fh.jpg" alt="" /></span>
+</div>
+<!-- 内容开始 -->
+<div class=""><img src="Images/nowbg_02.jpg" height="1118" width="750" alt="" /></div>
+<div class=""><img src="Images/nowbg_03.jpg" height="1118" width="750" alt="" /></div>
+<div class=""><img src="Images/nowbg_04.jpg" height="1118" width="750" alt="" /></div>
+<div class=""><img src="Images/nowbg_05.jpg" height="1118" width="750" alt="" /></div>
+<div class="good_box">
+    <div class="sheep_box">
+        <div class="photo"><img src="Images/sheep.jpg" height="440" width="360" alt="" /></div>
+        <div class="price">
+            <b>￥<i>229</i></b>&nbsp;
+            <u>￥329</u>
+        </div>
+        <div class="sheep_inf">
+            内蒙草原散养羊前腿2000g(包邮）
+        </div>
+    </div>
+    <div class="sheep_box">
+        <div class="photo"><img src="Images/sheep.jpg" height="440" width="360" alt="" /></div>
+        <div class="price">
+            <b>￥<i>229</i></b>&nbsp;
+            <u>￥274.8</u>
+        </div>
+        <div class="sheep_inf">
+            内蒙草原散养羊排2000g(包邮）
+        </div>
+    </div>
+    <div class="sheep_box">
+        <div class="photo"><img src="Images/sheep.jpg" height="440" width="360" alt="" /></div>
+        <div class="price">
+            <b>￥<i>1889</i></b>&nbsp;
+            <u>￥2266</u>
+        </div>
+        <div class="sheep_inf">
+            内蒙草原散养羊(整只40斤)(包邮）
+        </div>
+    </div>
+    <div class="sheep_box">
+        <div class="photo"><img src="Images/sheep.jpg" height="440" width="360" alt="" /></div>
+        <div class="price">
+            <b>￥<i>1229</i></b>&nbsp;
+            <u>￥1474</u>
+        </div>
+        <div class="sheep_inf">
+            内蒙草原散养羊(整只25斤)(包邮）
+        </div>
+    </div>
+</div>
+    <div class="copyright">
+        &copy整体美商城<br />
+        客服电话：400-777-1225<br />
+        客服微信：HRlianna
+    </div>
+</body>
+</html>

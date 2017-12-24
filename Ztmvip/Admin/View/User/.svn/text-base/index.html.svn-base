@@ -1,0 +1,93 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <form method="get" action="{:U('')}">
+            <input name="user_name" class="text" type="text" value="{$Think.get.user_name}" placeholder="ID/用户名搜索...">
+            <input name="wechat_user" class="text" type="text" value="{$Think.get.wechat_user}" placeholder="微信号搜索...">
+            <input name="mobile" class="text" type="text" value="{$Think.get.mobile}" placeholder="手机号搜索...">
+            <button class="button" type="submit">搜 索</button>
+        </form>
+    </span>
+</div>
+<table class="tbl js-list" width="100%">
+    <thead>
+    <tr>
+        <th width="20"><input type="checkbox"></th>
+        <th>用户ID</th>
+        <th>用户名</th>
+        <th>微信号</th>
+        <th>手机号</th>
+        <th>余额</th>
+        <th>冻结金额</th>
+        <th>积分</th>
+        <th>注册时间</th>
+        <th width="220">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <if condition="$list">
+        <volist name="list" id="vo">
+            <tr>
+                <td align="center"><input name="id" type="checkbox" value="{$vo['id']}"></td>
+                <td>{$vo['id']}</td>
+                <td><img src="{$vo['avatar']}" height="50" width="50"/> {$vo['user_name']}</td>
+                <td>{$vo['wechat_user']}</td>
+                <td>{$vo['mobile']}</td>
+                <td>{$vo['user_money']}</td>
+                <td>{$vo['frozen_money']}</td>
+                <td>{$vo['integral']}</td>
+                <td>{$vo['date_add']|date='Y-m-d',###}</td>
+                <td align="center">
+                    <a href="{:U('Order/index','user_id='.$vo['id'])}">订单记录</a>
+                    <a href="{:U('Account/index','user_id='.$vo['id'])}">资金明细</a>
+                    <a href="{:U('Affiliate/index','rebate_user_id='.$vo['id'])}">分佣记录</a><br>
+                    <a href="{:U('edit','id='.$vo['id'])}">详情</a>
+                    <if condition="$vo['disabled'] eq 'Y'">
+                        <a class="js-enable" href="javascript:;">启用</a>
+                        <else/>
+                        <a class="js-disable" href="javascript:;">禁用</a>
+                    </if>
+                </td>
+            </tr>
+        </volist>
+        <else/>
+        <tr>
+            <td colspan="10" align="center">暂无数据</td>
+        </tr>
+    </if>
+    </tbody>
+</table>
+<footer class="footer">
+    <button class="button js-disable-submit">批量禁用</button>
+    <button class="button js-enable-submit">批量启用</button>
+    {$page_show}
+</footer>
+<script>
+    $('.js-list').on('click','.js-disable,.js-enable',function(event){
+        $(event.delegateTarget).find('tbody :checkbox').prop('checked',false);
+        $(this).closest('tr').find(':checkbox').click();
+        $('.'+ $(this).attr('class') +'-submit').click();
+    });
+
+    $('.art-nav form input[name]').on('keypress',function(event){
+        if(event.keyCode == 13){
+            this.form.submit();
+            event.preventDefault();
+        }
+    });
+
+    $('.js-disable-submit,.js-enable-submit').on('click',function(){
+        var data = Core.InputObj($('.js-list'));
+        data['action'] = $(this).attr('class').indexOf('disable') != -1 ? 'disable' : 'enable';
+
+        $.post("{:U('prop')}",data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.reload();
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+</script>

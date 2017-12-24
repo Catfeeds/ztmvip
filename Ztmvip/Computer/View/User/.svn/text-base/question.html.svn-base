@@ -1,0 +1,115 @@
+
+<link rel="stylesheet" type="text/css" href="__PCCSS__user.css" />
+</head>
+<body>
+
+
+<include file="Public:top"/>
+
+
+
+<div class="user_bg">
+    <div class="user">
+        <include file="User:publicLeft"/>
+        <div class="user_right">
+            <form action="" id="js-form">
+                <div class="user_data">
+                    <p class="title">
+                        <span>
+                        <!-- 个人信息 -->
+                        设置安全问题
+
+                        </span>
+                    </p>
+                    <div class="security">
+
+                        <ul class="" >
+                            <li class="li0"></li>
+                            <if condition="$user['question']">
+                            <li class="li1"><span>原安全问题</span><input type="text" value="{$user['question']}" disabled='disabled'/></li>
+
+                            <li class="">
+                                <span>输入答案</span>
+                                <input name="old_answer" type="text" />
+                            </li>
+                            </if>
+                            <li class="li3">
+                                <span><if condition="$user['question']">新的安全问题<else/>安全问题</if></span>
+                                <input name="question" type="hidden" class="js-wenti" />
+                                <div class="select">
+                                    <i>请选择密保问题？</i>
+                                    <dl>
+                                        <dd>您母亲的姓名是？</dd>
+                                        <dd>您母亲的生日是？</dd>
+                                        <dd>您父亲的姓名是？</dd>
+                                        <dd>您父亲的生日是？</dd>
+                                        <dd>您配偶的姓名是？</dd>
+                                        <dd>您配偶的生日是？</dd>
+                                        <dd>您的学号（或工号）是？</dd>
+                                        <dd>您小学班主任的名字是？</dd>
+                                        <dd>您初中班主任的名字是？</dd>
+                                        <dd>您高中班主任的名字是？</dd>
+                                        <dd>您最熟悉的童年好友名字是？</dd>
+                                        <dd>您最熟悉的学校宿舍室友名字是？</dd>
+                                        <dd>对您影响最大的人名字是？</dd>
+                                    </dl>
+                                </div>
+                                <script type="text/javascript">
+                                    $('.select').on('click', function() {
+                                        $('.select dl').css({"display":"block"});
+                                    });
+                                    $('.select dd').on('click', function() {
+                                        var val=$(this).text();
+                                        $('.select i').text(val);
+                                        $('.select dl').css({"display":"none"});
+                                        $('.js-wenti').val(val);
+                                        return false;
+                                    });
+                                </script>
+                            </li>
+                            <li class="">
+                                <span>输入答案</span>
+                                <input name="answer" type="text" />
+                            </li>
+                            <li class="li4"><button class="js-submit" type="button">确定</button></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $('.js-submit').on('click',function(){
+        var data = Core.InputObj($('#js-form'));
+
+        $.post('',data,function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message,'callback':function(){
+                    if ("{:I('get.redirect','','base64_decode')}")
+                        location.href = "{:I('get.redirect','','base64_decode')}";
+                    else
+                        location.reload();
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

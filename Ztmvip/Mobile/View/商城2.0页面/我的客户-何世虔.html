@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css"/>
+<link href="Css/myCustomer.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/jquery.js"></script>
+
+</head>
+
+<body>
+<div class="Customer max">
+  <div class="top">我的客户</div>
+  <ul class="js-one ul1">
+    <li><a href="#"><img src="Images/myCustomer_09.jpg" class="but" /><img src="Images/myCustomer_06.jpg" class="img" />可见几个哈</a>
+      <ul class=" js-two ul2" style="border:none;">
+        <li><a href="#"><img src="Images/myCustomer_09.jpg" class="but" /><img src="Images/myCustomer_06.jpg" class="img" />可见几个哈</a>
+          <ul class="js-three ul3">
+            <li><a href="#"><img src="Images/myCustomer_06.jpg" class="img" />可见几个哈</a></li>
+            <li><a href="#"><img src="Images/myCustomer_06.jpg" class="img" />可见几个哈</a></li>
+            <li><a href="#"><img src="Images/myCustomer_06.jpg" class="img" />可见几个哈</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#"><img src="Images/myCustomer_06.jpg" class="img" />可见几个哈</a></li>
+    <li><a href="#"><img src="Images/myCustomer_06.jpg" class="img" />可见几个哈</a></li>
+    <li><a href="#"><img src="Images/myCustomer_09.jpg" class="but" /><img src="Images/myCustomer_06.jpg" class="img" />可见几个哈</a></li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+
+
+$(function(){
+	//二级菜单控制
+     $('.js-one > li').on('click',function(){
+          $(this).children('.js-two').slideToggle();
+			  if(this.className=="click"){
+				 this.className=null;    
+			  }
+				  else{
+					   this.className="click";
+				  }
+				return false;
+     });
+	 //三级菜单控制
+     $('.js-two > li').on('click',function(){
+		  $(this).children('.js-three').slideToggle();
+		  
+			  if(this.className=="click"){
+				 this.className=null;    
+			  }
+				  else{
+					   this.className="click";
+				  }
+				return false;
+     });
+});
+
+</script>
+</body>
+</html>

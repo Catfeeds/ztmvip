@@ -1,0 +1,60 @@
+{__NOLAYOUT__}
+<include file="Public/health_header"/>
+<link rel="stylesheet" type="text/css" href="__HEATH__Css/special.css"/>
+
+</head>
+<body>
+    <div class="header_position">
+        <div  class="special_title">
+            都是肥胖惹的祸
+            <i onclick="history.go(-1)" class="title_font">&#xe702;</i>
+        </div>
+    </div>
+<div class="special_text">
+    <img src="__HEATH__Images/special_text_02.jpg">
+    <p class="h1"><i></i>都是肥胖惹的祸</p class="h1">
+    <p class="h2">什么是肥胖？</p>
+    <p>如今，全球有近三分之一的人超重或肥胖。在中国，肥胖呈爆炸式增长。目前约有43.6%，即6亿的中国人超重或者肥胖。肥胖已成为全世界的一大难题，那肥胖的标准是什么？您离肥胖还有多远？</p>
+    <img src="__HEATH__Images/special_text_04.jpg">
+    <p class="h1"><i></i>肥胖的表现</p class="h1">
+    <p>在临床上，诊断肥胖以体重指数（BMI）为标准。BMI定义为体重除以身高的平方(kg/m2)。针对亚洲地区人群的体质及其与肥胖相关疾病的特点，以下为BMI的分类标准：<br />肥胖是人体内脂肪积聚过多所致的现象，并不是人们视为的“健康”标志。肥胖不仅影响形体美，而且给生活带来不便，更重要是容易引起多种并发症，加速衰老和死亡。所以说肥胖是疾病的先兆、衰老的信号。</p>
+    <img src="__HEATH__Images/special_text_06.jpg">
+    <p class="h1"><i></i>肥胖的危害</p class="h1">
+    <ul>
+        <li>
+            <img src="__HEATH__Images/special_text_09.jpg">
+            <p>是健康长寿之大敌</p>
+        </li>
+        <li>
+            <img src="__HEATH__Images/special_text_11.jpg">
+            <p>影响劳动力，易遭受外伤</p>
+        </li>
+        <li>
+            <img src="__HEATH__Images/special_text_15.jpg">
+            <p>易发高血压及心脏病</p>
+        </li>
+        <li>
+            <img src="__HEATH__Images/special_text_16.jpg">
+            <p>易患内分泌及代谢性疾病</p>
+        </li>
+        <li>
+            <img src="__HEATH__Images/special_text_19.jpg">
+            <p>对心肺功能有不良影响</p>
+        </li>
+        <li>
+            <img src="__HEATH__Images/special_text_20.jpg">
+            <p>易引起肝胆病变</p>
+        </li>
+        <li>
+            <img src="__HEATH__Images/special_text_23.jpg">
+            <p>会增加手术难度、术后易感染</p>
+        </li>
+        <li>
+            <img src="__HEATH__Images/special_text_24.jpg">
+            <p>并发疝气</p>
+        </li>
+    </ul>
+</div>
+     <include  file="Public/health_footer"/>
+</body>
+</html>

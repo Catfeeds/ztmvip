@@ -1,0 +1,86 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <form method="get" action="{:U('')}">
+            <input name="coupon_name" class="text" type="text" value="{$Think.get.coupon_name}" placeholder="优惠券名称搜索...">
+            <button class="button" type="submit">搜 索</button>
+        </form>
+        <a class="button" href="{:U('edit')}">新 增</a>
+    </span>
+</div>
+<table class="tbl js-list" width="100%">
+    <thead>
+    <tr>
+        <th width="20"><input type="checkbox"></th>
+        <th>优惠券名称</th>
+        <th>发放类型</th>
+        <th>优惠券金额</th>
+        <th>起用金额</th>
+        <th>发放数</th>
+        <th>使用数</th>
+        <th width="150">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <if condition="$list">
+        <volist name="list" id="vo">
+            <tr>
+                <td align="center"><input name="id" type="checkbox" value="{$vo['id']}"></td>
+                <td>{$vo['coupon_name']}</td>
+                <td>{$send_type[$vo['send_type']]}</td>
+                <td>{$vo['coupon_money']|sprintf='%.2f',###}</td>
+                <td>{$vo['min_order_amount']|sprintf='%.2f',###}</td>
+                <td>{$vo['send_count']}</td>
+                <td>{$vo['use_count']}</td>
+                <td align="center">
+                    <a href="{:U('log','id='.$vo['id'])}">发放记录</a>
+                    <a href="{:U('edit','id='.$vo['id'])}">修改</a>
+                    <a class="js-delete" href="javascript:;">移除</a>
+                </td>
+            </tr>
+        </volist>
+        <else/>
+        <tr>
+            <td colspan="8" align="center">暂无数据</td>
+        </tr>
+    </if>
+    </tbody>
+</table>
+<footer class="footer">
+    <button class="button js-delete-submit">批量删除</button>
+    {$page_show}
+</footer>
+<script>
+    $('.js-list').on('click','.js-delete',function(event){
+        $(event.delegateTarget).find('tbody :checkbox').prop('checked',false);
+        $(this).closest('tr').find(':checkbox').click();
+        $('.js-delete-submit').click();
+    });
+
+    $('.art-nav form input[name]').on('keypress',function(event){
+        if(event.keyCode == 13){
+            this.form.submit();
+            event.preventDefault();
+        }
+    });
+
+    $('.js-delete-submit').on('click',function(){
+    	Core.Confirm({ 'title':'操作确认','text':'确认要删除选中数据？','callback':function(confirm){
+			if (!confirm)
+				return;
+
+			var data = Core.InputObj($('.js-list'));
+	        data['action'] = 'delete';
+	
+	        $.post("{:U('prop')}",data,function(ret){
+	            if ( ret.state ){
+	                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+	                    location.reload();
+	                } });
+	            }else{
+	                Core.Alert({ 'text':ret.message,'state':'err' });
+	            }
+	        },'json');
+		} });
+    });
+</script>

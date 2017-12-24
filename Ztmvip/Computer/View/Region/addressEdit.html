@@ -1,0 +1,187 @@
+{__NOLAYOUT__}
+
+<div class="con">
+    <form action="" id="js-form">
+        <div class="alert_top"><if condition="$address">编辑<else/>新增</if>收货人信息<div class="img js-false"><img src="__PCIMG__shopping_alert_04.png" alt="" /></div></div>
+        <ul>
+            <li class="li1 js-name">
+                <span><i>*</i>收货人：</span>
+                <input type="text" name="consignee" value="{$address.consignee}"/>
+                <p>请您填写收货人姓名</p>
+            </li>
+            <li class="li2">
+                <span><i>*</i>所在地区：</span>
+                <select class="js-province" name="province">
+                     <option value="">请选择</option>
+                </select>
+                <select class="js-city" name="city">
+                    <option value="">请选择</option>
+                </select>
+                <select class="js-district" name="district">
+                    <option value="">请选择</option>
+                </select>
+                <p class="js-region">请您填写完整的地区信息</p>
+            </li>
+            <li class="li3 js-address">
+                <span><i>*</i>详细地址：</span>
+                <input type="text" name="address"  value="{$address.address}"/>
+                <p>请您填写收货人详细地址</p>
+            </li>
+            <li  class="li4 js-phone">
+                <span><i>*</i>手机号码：</span>
+                <input type="text" maxlength="11" name="mobile"  value="{$address.mobile}"/>
+                <p>请您填写收货人手机号码</p>
+            </li>
+            <li  class="li5"><button class="js-submit" type="button">保存收货人信息</button></li>
+            <input type="hidden" name="id"/>
+        </ul>
+    </form>
+    <script type="text/javascript">
+        $('.js-name input').on('blur', function() {
+            var name=$(this).val();
+            if(name==""){
+                $('.js-name p').show();
+                flag = false;
+            }else{
+                $('.js-name p').hide();
+            }
+        });
+        $('.js-address input').on('blur',function(){
+            var address=$(this).val();
+            if(address==""){
+                $('.js-address p').show();
+                flag = false;
+            }else{
+                $('.js-address p').hide();
+            }
+        });
+        $('.js-phone input').on('blur',function  () {
+            var phone=$(this).val();
+            var p=$('.js-phone p');
+            var reg = /^0?1[3|4|5|8][0-9]\d{8}$/;
+            if(!reg.test(phone)){
+                p.text("请填入正确的收货人手机号码").show();
+                flag = false;
+            }else{
+                p.hide();
+            }
+        });
+
+        $('.js-false').on('click',function(){
+            $('.shopping_alert').fadeOut();
+        });
+        $('.shopping_alert .con').on('click', function() {
+            return false;
+        });
+
+        
+        var province = "{$address['province']}";
+        var city = "{$address['city']}";
+        var district = "{$address['district']}";
+
+        var proOption='';
+        var cityOption = '';
+        var districtOption = '';
+        
+        if(!province){
+            proOption += '<option value="">请选择省</option>';
+        }
+        if(!city){
+            cityOption += '<option value="">请选择市</option>';
+        }
+        if(!district){
+            districtOption += '<option value="">请选择地区</option>';
+        }
+        $(allProvince).each(function(i,pe){
+            if(pe.name == province) {
+                $(allCity).each(function(j,ce){
+                    if(pe.ProID == ce.ProID){
+                        if(ce.name == city){
+                            cityOption += '<option selected="selected" value="'+ ce.name +'" cid="'+ ce.CityID +'">'+ ce.name +'</option>';
+                        }else{
+                            cityOption += '<option value="'+ ce.name +'" cid="'+ ce.CityID +'">'+ ce.name +'</option>';
+                        }
+                    }
+
+                    if(ce.name == city){
+                        $(allDistrict).each(function(k,de){
+                            if(ce.CityID==de.CityID){
+                                if(de.name == district) {
+                                    districtOption += '<option selected="selected" value="'+ de.name +'">'+ de.name +'</option>';
+                                }else{
+                                    districtOption += '<option value="'+ de.name +'">'+ de.name +'</option>';
+                                }
+                            }
+                        });
+                    }
+                });
+
+                proOption += '<option selected="selected" value="' + pe.name + '" pid="' + pe.ProID + '">' + pe.name + '</option>';
+            }else{
+                proOption += '<option value="' + pe.name + '" pid="' + pe.ProID + '">' + pe.name + '</option>';
+            }
+        });
+
+        $('#js-form select.js-province').html(proOption);
+        $('#js-form select.js-city').html(cityOption);
+        $('#js-form select.js-district').html(districtOption);
+        
+        $('#js-form').on('change','select.js-province',function(){
+            var ProID = $(this).find('option:selected').attr('pid');
+            var option = '<option value="">请选择市</option>';
+
+            $(allCity).each(function(i,e){
+                if (e.ProID == ProID)
+                    option += '<option value="'+ e.name +'" cid="'+ e.CityID +'">'+ e.name +'</option>';
+            });
+
+            $('#js-form select.js-city').html(option);
+            $('#js-form select.js-district').html('<option value="">请选择地区</option>');
+        }).on('change','select.js-city',function(){
+            var CityID = $(this).find('option:selected').attr('cid');
+            var option = '<option value="">请选择地区</option>';
+
+            $(allDistrict).each(function(i,e){
+                if (e.CityID == CityID)
+                    option += '<option value="'+ e.name +'">'+ e.name +'</option>';
+            });
+
+            $('#js-form select.js-district').html(option);
+        }).on('change','select.js-district',function(){
+            if($('.js-province').val()<=0 ||$('.js-city').val()<=0 || $(this).val()<=0){
+                $('.js-region').show();
+                flag = false;
+            }else{
+                $('.js-region').hide();
+            }
+        });
+
+        var flag;
+        function checkForm(){
+            flag = true;
+            $('.js-name input').blur();
+            $('.js-address input').blur();
+            $('.js-phone input').blur();
+            $('.js-district').change();
+            return flag;
+        }
+        $('.js-submit').on('click',function(){
+
+            if(!checkForm()){
+                return;
+            }
+            var data = Core.InputObj('#js-form');
+
+            $.post("{:U('Region/addressEdit')}",data,function(ret){
+                if(ret.state){
+                    Core.Alert({'text':ret.message,callback:function(){
+                        location.reload();
+                    }});
+                }else{
+                    Core.Alert({'text':ret.message,'state':'err'});
+                }
+            },'json');
+        });
+
+    </script>
+</div>

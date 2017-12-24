@@ -1,0 +1,21 @@
+ {__NOLAYOUT__}
+<div class="bg_box">
+
+  <volist name="choose_attr" id="value" key="key1">
+    <div class="title">{$value.name}</div>
+    <div class="color_box">
+       <volist name="value.values" id="value2" key="key2">
+        <input type="radio" name="spec_{$key1}" value="{$value.name}_{$value2.label}" id="color{$key1}{$key2}" />
+        <label for="color{$key1}{$key2}" <eq name="key2" value="1"> class="rdo_cur"</eq> >{$value2.label}</label>
+       </volist>
+
+    </div>
+</volist>
+
+
+    <div class="bt_box">
+        <div class="cancel">取 消</div>
+        <div class="determine">确 定</div>
+    </div>
+</div>
+

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/balance_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="Css/balance_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="Js/jquery.js"></script>
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        我的余额
+        <div class="return"><img src="Images/fh.jpg" height="37" width="18" alt="" /></div>
+    </div>
+    <div class="columns_box">
+        <div class="columns_in cur">
+            <div class="columns">充值记录</div>
+        </div>
+        <div class="columns_in">
+            <div class="columns">提现记录</div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('.columns_in').on('click',function(event) {
+            $(this).addClass('cur').siblings().removeClass('cur');
+        });
+    </script>
+</div>
+<!-- 内容 -->
+<article>
+<!-- 充值记录块 -->
+    <div class="list_box accord one">
+        <div class="list">
+            <div class="what">充值金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">充值金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">充值金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">充值金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">充值金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">充值金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">充值金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">充值金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">充值金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">充值金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+    </div>
+<!-- 提现金额记录块 -->
+    <div class="list_box two">
+        <div class="list">
+            <div class="what">提现金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">提现金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">提现金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">提现金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">提现金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">提现金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">提现金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">提现金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">提现金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+        <div class="list">
+            <div class="what">提现金额：100元</div>
+            <div class="time">2015.10.26</div>
+        </div>
+    </div>
+</article>
+<div class="placeholder"></div>
+<!-- 底部按钮 -->
+<div class="bt_box two">
+    <div class="bt1">申请提现</div>
+    <div class="bt2">充 值</div>
+</div>
+<!-- 提醒层 -->
+<div class="bg bg1">
+    <div class="remind">申请已提交!</div>
+</div>
+<!-- 提醒设置密码层 -->
+<div class=" bg bg2">
+    <div class="remind_box">
+        <div class="text">请设置支付密码</div>
+        <div class="remindbt_box">
+            <div class="remind_bt1">取 消</div>
+            <div class="remind_bt2">确 定</div>
+        </div>
+    </div>
+</div>
+<!-- 转入金额输入层 -->
+<div class=" bg bg3">
+    <div class="remind_box">
+        <div class="text">
+        请输入转入金额：<input type="number" />元</div>
+        <div class="remindbt_box">
+            <div class="remind_bt1">取 消</div>
+            <div class="remind_bt2">确 定</div>
+        </div>
+    </div>
+</div>
+<!-- 密码输入层 -->
+<div class=" bg bg4">
+    <div class="remind_box">
+        <div class="text">
+            请输入支付密码：<i><input type="password" maxlength="6" /></i>
+        </div>
+        <div class="remindbt_box">
+            <div class="remind_bt1">取 消</div>
+            <div class="remind_bt2">确 定</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    // 切换类型
+    $('.columns_in').on('click',function(event) {
+        var index = $(this).index()
+        $('.list_box').eq(index).addClass('accord').siblings().removeClass("accord");
+    });
+    function length(){
+        if($('.one .list').length==0) {
+            $('.one').text('暂无充值记录')
+        }else if($('.two .list').length==0){
+            $('.two').text('暂无提现记录')
+        };
+    }
+    length();
+    $('.bt').on('click',function(event) {
+        $('.bg').stop().fadeIn();
+        setTimeout(function(){
+            $('.bg').stop().fadeOut();
+        },2000)
+    });
+    $('.bg1').on('click',function(event) {
+        $('.bg1').stop().fadeOut();
+    });
+    $('.remind_bt1').on('click',function(event) {
+        $('.bg').stop().fadeOut();
+    });
+    $('.bt1').on('click',function(event) {
+        $('.bg3').stop().fadeIn();
+    });
+    $('.bg3 .remind_bt2').on('click',function(event) {
+        $('.bg4').stop().fadeIn();
+    });
+    $('.bg3 .remind_bt2').on('click',function(event) {
+        $('.bg3').stop().fadeOut();
+    });
+</script>
+</body>
+</html>

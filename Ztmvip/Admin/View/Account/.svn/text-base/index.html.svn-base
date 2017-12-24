@@ -1,0 +1,69 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <form method="get" action="{:U('')}">
+            <input name="user_name" class="text" type="text" value="{$Think.get.user_name}" placeholder="ID/用户名搜索...">
+            <tagLib name="html"/>
+            <html:select name="change_type" options="change_type" selected="_GET['change_type']" first="—请选择—" style="select"/>
+            <button class="button" type="submit" data-rel="display">搜 索</button>
+            <input name="xls" type="radio" value="N" checked style="display:none;">
+            <button class="button" type="submit" data-rel="xls">导 出</button>
+            <input name="xls" type="radio" value="Y" style="display:none;">
+        </form>
+    </span>
+</div>
+<table class="tbl js-list" width="100%">
+    <thead>
+    <tr>
+        <th width="20"><input type="checkbox"></th>
+        <th>用户ID</th>
+        <th>用户名</th>
+        <th>类型</th>
+        <th>用户余额</th>
+        <th>冻结金额</th>
+        <th>用户积分</th>
+        <th>等级积分</th>
+        <th>备注</th>
+        <th>操作员</th>
+        <th>操作时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <if condition="$list">
+        <volist name="list" id="vo">
+            <tr>
+                <td align="center"><input name="id" type="checkbox" value="{$vo['id']}"></td>
+                <td>{$vo['user_id']}</td>
+                <td>{$vo['user_name']}</td>
+                <td>{$change_type[$vo['change_type']]}</td>
+                <td>{$vo['user_money']}</td>
+                <td>{$vo['frozen_money']}</td>
+                <td>{$vo['integral']}</td>
+                <td>{$vo['level_integral']}</td>
+                <td>{$vo['change_desc']}</td>
+                <td>{$vo['manager_name']}</td>
+                <td>{$vo['date_add']|date='Y-m-d H:i',###}</td>
+            </tr>
+        </volist>
+        <else/>
+        <tr>
+            <td colspan="11" align="center">暂无数据</td>
+        </tr>
+    </if>
+    </tbody>
+</table>
+<footer class="footer">
+    {$page_show}
+</footer>
+<script>
+    $('.art-nav form input[name]').on('keypress',function(event){
+        if(event.keyCode == 13){
+            this.form.submit();
+            event.preventDefault();
+        }
+    });
+
+    $('.art-nav form .button').on('click',function(){
+        $(this).next(':radio').prop('checked',true);
+    });
+</script>

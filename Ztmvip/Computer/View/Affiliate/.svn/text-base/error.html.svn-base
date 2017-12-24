@@ -1,0 +1,38 @@
+
+<link rel="stylesheet" type="text/css" href="__PCCSS__rebate.css" />
+</head>
+<body>
+<include file="Public:top"/>
+<div class="bg_h">
+    <div class="ededed">
+
+
+        <!-- 右边 -->
+        <div class="ededed_r">
+                <!-- 第一步 -->
+                <div class="withdraw_con1">
+                    <p>{$message}</p>
+                    <div class="but">
+                        <a href="javascript:;" onclick="location.href='{$url}';" class="a2 js-ok1">确认</a>
+                    </div>
+                </div>
+
+                <!--&lt;!&ndash; 第二步 &ndash;&gt;-->
+                <!--<div class="withdraw_con2" style="display:none;">-->
+                    <!--<div class="password">-->
+                        <!--<span>请输入支付密码</span>-->
+                        <!--<div class="input"><input type="password" maxlength="6" /></div>-->
+                        <!--<div class="but">-->
+                            <!--<a href="javascript:;">取消</a>-->
+                            <!--<a href="javascript:;" class="a2  js-ok2">确认</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+        </div>
+
+
+        <!-- 左边 -->
+        <include file="User:accountLeft"/>
+
+    </div>
+</div>

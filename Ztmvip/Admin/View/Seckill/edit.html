@@ -1,0 +1,92 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">秒杀产品</td>
+            <td>
+                <input id="js-goods-search-txt" class="text" type="text" placeholder="搜索关键字...">
+                <p><select id="js-goods-search-select" name="goods_id" class="select" multiple="multiple" option="{$edit['goods_id']}" style="height:200px;margin-top:10px;min-width:300px;"></select></p>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">秒杀价</td>
+            <td><input name="kill_price" class="text" type="text" value="{$edit['kill_price']}" required="required" placeholder="请输入秒杀价..."></td>
+        </tr>
+        <tr>
+            <td class="label">秒杀数量</td>
+            <td><input name="goods_number" class="text" type="number" value="{:($edit['goods_number']?:100)}" required="required" placeholder="请输入秒杀数量..." style="min-width:150px;"></td>
+        </tr>
+        <tr>
+            <td class="label">开始时间</td>
+            <td><input name="kill_start" class="text js-time" type="text" value="{$edit['kill_start']?:time()|date='Y-m-d H:i',###}" required="required" placeholder="请选择开始时间..."></td>
+        </tr>
+        <tr>
+            <td class="label">结束时间</td>
+            <td><input name="kill_end" class="text js-time" type="text" value="{$edit['kill_end']?:time()+86400|date='Y-m-d H:i',###}" required="required" placeholder="请选择结束时间..."></td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td><button type="submit" class="submit">提 交</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Public/Common/DateTimePicker/datetimepicker.css" />
+<script src="__ROOT__/Public/Common/DateTimePicker/datetimepicker.js"></script>
+<script>
+    $('.js-edit').on('submit',function(event){
+        $.post('',Core.InputObj(this),function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.href = "{:U('index')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+
+    $('#js-goods-search-txt').on('keypress',function(event){
+        if(event.keyCode == 13){
+            var data = {'words':$(this).val()};
+
+            $.post("{:U('Goods/search')}",data,function(ret){
+                var html = '';
+                var tpl = '<option value="{val}">{text}</option>';
+
+                $.each(ret,function(i,e){
+                    html += Core.FormatTpl(tpl,{'text': e.goods_name,'val':e.id});
+                });
+
+                $('#js-goods-search-select').html(html);
+            },'json');
+
+            event.preventDefault();
+        }
+    });
+
+    $('.js-time').datetimepicker({'format':'Y-m-d H:i'});
+
+    if ($('#js-goods-search-select').attr('option')){
+        var data = {'goods_id':$('#js-goods-search-select').attr('option')};
+
+        $.post("{:U('Goods/search')}",data,function(ret){
+            var html = '';
+            var tpl = '<option value="{val}" selected="selected">{text}</option>';
+
+            $.each(ret,function(i,e){
+                html += Core.FormatTpl(tpl,{'text': e.goods_name,'val':e.id});
+            });
+
+            $('#js-goods-search-select').html(html);
+        },'json');
+    }
+</script>

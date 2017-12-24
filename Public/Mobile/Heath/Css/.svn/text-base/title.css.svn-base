@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{font-family: "冬青黑体简体中文";}
+@font-face {font-family: "title_font";
+  src: url('title_font/iconfont.eot'); /* IE9*/
+  src: url('title_font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('title_font/iconfont.woff') format('woff'), /* chrome, firefox */
+  url('title_font/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('title_font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.title_font {
+  font-family:"title_font" !important;
+  font-size:14px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-appxiugaiicon27:before { content: "\e702"; }
+.icon-banquan:before { content: "\e611"; }
+
+.special_title{ height:45px; line-height: 45px; text-align: center; font-size: 17px; border-bottom: 1px solid #808080;}
+.header_position { height:45px;}
+.header_position .special_title { position: fixed; top: 0px; left:0px; z-index: 4; width:100%; padding-left:0px; padding-right: 0px; background: #fff;}
+
+
+.special_title i,.special_title a{ position: absolute;left:10px; font-size: 20px; padding-right: 20px;}
+footer.footer{ padding-bottom: 20px; padding-top: 10px;}
+footer.footer p{ line-height: 14px; font-size: 10px; text-align: center; color: #6d6d6d;}
+footer.footer p i{ position: relative;top:1.5px;}
+@media (max-width:750px){  
+
+}
+
+@media (max-width:640px){  
+
+}
+@media (max-width:480px){
+    
+}
+@media (max-width:414px){ /* iPhone 6 Plus */
+
+}
+@media (max-width:375px){ /* iPhone 6 */
+    
+}
+@media (max-width:360px){ /* Sansung S3 / s4 */
+    .special_text .h2,.special_text ul li p{ font-size: 11.5px;}
+}
+@media (max-width:320px){ /* iPhone 5 */
+    
+}

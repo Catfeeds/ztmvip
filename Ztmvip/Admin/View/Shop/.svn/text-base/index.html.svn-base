@@ -1,0 +1,134 @@
+<style type="text/css">
+    .tbl .success,.tbl .error{ cursor:pointer; font-weight:bold;}
+    .tbl .success{ color:#42C32C;}
+    .tbl .error{ color:#f00; font-size:18px;}
+</style>
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <form method="get" action="{:U('')}">
+            <input name="shop_name" class="text" type="text" value="{$Think.get.shop_name}" placeholder="ID/店铺名称搜索...">
+            <input name="tel" class="text" type="text" value="{$Think.get.tel}" placeholder="联系电话搜索...">
+            <tagLib name="html"/>
+            <html:select name="shop_level" options="shop_level" selected="_GET['shop_level']" style="select" first="—请选择—"/>
+            <select class="select js-shop-province" name="province" option="{$Think.get.province}">
+                <option value="">—请选择省—</option>
+            </select>
+            <select class="select js-shop-city" name="city" option="{$Think.get.city}">
+                <option value="">—请选择市—</option>
+            </select>
+            <select class="select js-shop-district" name="district" option="{$Think.get.district}">
+                <option value="">—请选择区域—</option>
+            </select>
+            <button class="button" type="submit">搜 索</button>
+        </form>
+    </span>
+</div>
+<table class="tbl js-list" width="100%">
+    <thead>
+    <tr>
+        <th width="20"><input type="checkbox"></th>
+        <th width="60">ID</th>
+        <th>商铺</th>
+        <th>等级</th>
+        <th>电话</th>
+        <th>审核</th>
+        <th>申请时间</th>
+        <th>审核时间</th>
+        <th width="150">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <if condition="$list">
+        <volist name="list" id="vo">
+            <tr>
+                <td align="center"><input name="id" type="checkbox" value="{$vo['id']}"></td>
+                <td align="center">{$vo['id']}</td>
+                <td><a href="__HOME__{:U('Shop/index','shop_id='.$vo['id'])}" target="_blank">{$vo['shop_name']}</a></td>
+                <td>{$vo['tel']}</td>
+                <td>{$shop_level[$vo['shop_level']]}</td>
+                <td>{$verify[$vo['verify']]}</td>
+                <td>{$vo['date_add']|date='Y-m-d H:i',###}</td>
+                <td>{$vo['date_vef']|date='Y-m-d H:i',###}</td>
+                <td align="center">
+                    <a href="{:U('Goods/shop','shop_id='.$vo['id'])}">店铺商品</a>
+                    <a href="{:U('edit','id='.$vo['id'])}">查看</a>
+                    <if condition="$vo['disabled'] eq 'Y'">
+                        <a class="js-enable" href="javascript:;">启用</a>
+                        <else/>
+                        <a class="js-disable" href="javascript:;">禁用</a>
+                    </if>
+                </td>
+            </tr>
+        </volist>
+        <else/>
+        <tr>
+            <td colspan="9" align="center">暂无数据</td>
+        </tr>
+    </if>
+    </tbody>
+</table>
+<footer class="footer">
+    <button class="button js-disable-submit">批量禁用</button>
+    <button class="button js-enable-submit">批量启用</button>
+    {$page_show}
+</footer>
+<script src="__ROOT__/Public/Common/Js/address.js"></script>
+<script>
+    $('.art-nav form input[name]').on('keypress',function(event){
+        if(event.keyCode == 13){
+            this.form.submit();
+            event.preventDefault();
+        }
+    });
+
+    var option = '<option value="">--请选择省--</option>';
+    $(allProvince).each(function(i,e){
+        option += '<option value="'+ e.name +'" pid="'+ e.ProID +'">'+ e.name +'</option>';
+    });
+    $('select.js-shop-province').html(option);
+
+    $('.art-nav').on('change','select.js-shop-province',function(){
+        var ProID = $(this).find('option:selected').attr('pid');
+        var option = '<option value="">--请选择市--</option>';
+
+        $(allCity).each(function(i,e){
+            if (e.ProID == ProID)
+                option += '<option value="'+ e.name +'" cid="'+ e.CityID +'">'+ e.name +'</option>';
+        });
+
+        $('select.js-shop-city').html(option).show();
+        $('select.js-shop-district').html('<option value="">--请选择地区--</option>');
+    }).on('change','select.js-shop-city',function(){
+        var CityID = $(this).find('option:selected').attr('cid');
+        var option = '<option value="">--请选择地区--</option>';
+
+        $(allDistrict).each(function(i,e){
+            if (e.CityID == CityID)
+                option += '<option value="'+ e.name +'">'+ e.name +'</option>';
+        });
+
+        $('select.js-shop-district').html(option).show();
+    });
+
+    $('.js-list').on('click','.js-disable,.js-enable',function(event){
+        $(event.delegateTarget).find('tbody :checkbox').prop('checked',false);
+        $(this).closest('tr').find(':checkbox').click();
+        $('.'+ $(this).attr('class') +'-submit').click();
+    });
+
+    $('.js-disable-submit,.js-enable-submit').on('click',function(){
+        var data = Core.InputObj($('.js-list'));
+        data['action'] = $(this).attr('class').indexOf('enable') != -1 ? 'enable' : 'disable';
+
+        $.post("{:U('prop')}",data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.reload();
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+</script>

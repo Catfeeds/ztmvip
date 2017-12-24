@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css"/>
+<link href="Css/classify.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/jquery.js"></script>
+</head>
+
+<body>
+<div class="classify max">
+<div class="position">
+	<div class="Search">
+    	<img src="Images/classify_06.png" /><input type="text" placeholder="搜索商品和品牌" /><button type="button"></button>
+        <!-- 20151221 筛选S-->
+        <div class="shaixuan">筛选</div>
+        <!-- 20151221 筛选E-->
+    </div>
+    <ul class="nav" id="ul">
+    	<li class="click">默认</li>
+    	<li>人气</li>
+    	<li>销量</li>
+    	<li>价格<i class="iconfont">&#xe6b3;</i></li>
+    </ul>
+</div>
+
+
+    <ul class="con1">
+        <li><img src="Images/classify_16.jpg" />
+            <p class="p1">￥288</p>
+            <p class="p2">香诗丽欧美大牌高端九分袖钉珠网纱拼接针…</p>
+        </li>
+        <li><img src="Images/classify_16.jpg" />
+            <p class="p1">￥288</p>
+            <p class="p2">香诗丽欧美大牌高端九分袖钉珠网纱拼接针…</p>
+        </li>
+        <li><img src="Images/classify_16.jpg" />
+            <p class="p1">￥288</p>
+            <p class="p2">香诗丽欧美大牌高端九分袖钉珠网纱拼接针…</p>
+        </li>
+        <li><img src="Images/classify_16.jpg" />
+            <p class="p1">￥288</p>
+            <p class="p2">香诗丽欧美大牌高端九分袖钉珠网纱拼接针…</p>
+        </li>
+    </ul>
+</div>
+<script>
+window.onload=function(){
+	var li=document.getElementById("ul").getElementsByTagName("li")
+    var is=li[3].getElementsByTagName("i")[0];
+			for(var i=0;i<li.length;i++){
+
+                
+				li[i].onclick=function(){
+					for(var j=0;j<li.length;j++){
+						li[j].className="";
+					}
+					this.className="click";
+
+
+				}
+			}  
+			
+}
+</script>
+
+
+
+<!-- 20151221 弹层 -->
+
+<div class="shaixuan_pos">
+    <div class="container">
+        <form action="">
+
+
+        <!-- 头部   S-->
+            <div class="sx_top">
+                <span>取消</span>
+                筛选
+                <button>确定</button>
+            </div> 
+        <!-- 头部   E -->
+
+
+            <dl>
+                <dt><span>显示更多</span>品牌</dt>
+                <dd>品牌品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌品牌</dd>
+                <dd>品牌</dd>
+                <dd>品牌</dd>
+            </dl> 
+            <dl>
+                <dt><span>显示更多</span>分类</dt>
+                <dd>分类分类</dd>
+                <dd>分类</dd>
+                <dd>分类</dd>
+                <dd>分类分类</dd>
+                <dd>分类</dd>
+                <dd>分类</dd>
+                <dd>分类分类</dd>
+                <dd>分类</dd>
+                <dd>分类</dd>
+                <dd>分类分类</dd>
+                <dd>分类</dd>
+                <dd>分类</dd>
+                <dd>分类分类</dd>
+                <dd>分类</dd>
+                <dd>分类</dd>
+                <dd>分类分类</dd>
+                <dd>分类</dd>
+                <dd>分类</dd>
+                <dd>分类分类</dd>
+                <dd>分类</dd>
+                <dd>分类</dd>
+                <dd>分类分类</dd>
+                <dd>分类</dd>
+                <dd>分类</dd>
+                <dd>分类分类</dd>
+                <dd>分类</dd>
+                <dd>分类</dd>
+            </dl>
+            <ul>
+                <li><span>价格区间</span></li>
+                <li><input type="text" placeholder="最低价格" />-<input type="text" placeholder="高价格" /></li>
+            </ul> 
+<!-- 清楚按钮 -->
+            <div class="qingchu">
+                <button type="button">清楚选项</button>
+            </div>
+
+<!-- 清楚按钮 -->
+
+        </form>
+
+    </div>
+
+</div>
+<script type="text/javascript">
+
+
+//动画
+$(".shaixuan ").on('click',function(){
+    $(".shaixuan_pos").css({"display":"block"});
+    $(".shaixuan_pos .container,.shaixuan_pos .qingchu").css({"animation":" donghua .8s linear 0s 1 normal","-webkit-animation":" donghua .8s linear 0s 1 normal"});
+
+});
+$(".shaixuan_pos").on('click',function(){
+    $(this).css({"display":"none"});
+    $(".shaixuan_pos .container,.shaixuan_pos .qingchu").css({"animation":" donghua 0s linear 0s 1 normal","-webkit-animation":" donghua 0s linear 0s 1 normal"});
+});
+
+//选中
+$(".shaixuan_pos").find('dl').each(function(i,item){
+    $(item).find('dd').on('click',function(){
+        $(this).addClass('this').siblings('dd').removeClass('this');
+        return false;
+    });
+});
+$(".shaixuan_pos .container").on('click',function(){
+    return false;
+});
+</script>
+<!-- 20151221 -->
+
+
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+
+    <link rel="stylesheet" type="text/css" href="__PCCSS__goods_list.css" />
+  </head>
+  <body>
+  <include file="Public:top"/>
+<!-- banner -->
+<div class="index_banner"><img  src="__PCIMG__index_02.jpg" alt="" /></div>
+<!-- banner -->
+<h1>特卖专场</h1>
+<div class="special">
+    <ul class="special_l">
+        <volist name="goods_brand" id="vo">
+        <li><a href="{:U('Index/brandGoodsList',array('brand_id'=>$vo['id']))}"><img src="{$vo.brand_logo}" alt="{$vo.brand_name}" /></a></li>
+        </volist>
+    </ul>
+    <ul class="special_r">
+        <volist name="special_buy" id="vo">
+        <li><a href="{$vo.link}/id/{$vo.id}.html"><img src="{$vo.hd_image}" alt="{$vo.title}" /></a></li>
+        </volist>
+    </ul>
+</div>
+  </body>
+</html>

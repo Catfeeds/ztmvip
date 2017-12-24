@@ -1,0 +1,27 @@
+
+<link rel="stylesheet" type="text/css" href="__PCCSS__rebate.css" />
+</head>
+<body>
+<include file="Public:top"/>
+<div class="bg_h">
+    <div class="ededed">
+
+
+        <!-- 右边 -->
+        <div class="ededed_r">
+            <div class="explain">
+                <div class="h5"><span>红包使用说明</span></div>
+                <p>1.本红包可在整体美商城在线支付时使用，红包领取后3日内有效。</p>
+                <p>2.本红包仅限单次使用，一经使用不可退回。</p>
+                <p>3.红包与整体美商城优惠券不可叠加使用。</p>
+                <p>4.使用红包购买的商品，进行退款退货时仅限退还非红包部分金额。</p>
+            </div>
+        </div>
+
+
+
+        <!-- 左边 -->
+        <include file="User:accountLeft"/>
+
+    </div>
+</div>

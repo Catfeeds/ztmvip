@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css"/>
+<link rel="stylesheet" type="text/css" href="Css/detailed_text.css"/>
+<script type="text/javascript" src="Js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="Css/swiper.css" />
+<script type="text/javascript" src="Js/swiper.jquery.min.js"></script>
+</head>
+
+<body>
+<!--头部-->
+<style type="text/css">
+    .text_gif{ position: fixed; top:5px; right:15px; width:25%; z-index: 5; display:block; opacity: 1;}
+</style>
+<img class="text_gif" src="Images/text_gif_03.png">
+<script type="text/javascript">
+    function  TT(){
+        if($(".text_gif").css("opacity")=="1"){
+            $(".text_gif").css({"opacity":"0"})
+        }else{
+            $(".text_gif").css({"opacity":"1"})
+        }
+     setTimeout('TT()',200);
+    }
+    TT();
+    $(".text_gif").on('click',function(){
+        $(".text_gif").remove();
+    });
+</script>
+<div class="position">
+    <div class="header_box1">
+        <div class="header_title1">啊啊啊啊啊</div>
+        <span class="return1"><img src="Images/fh.jpg" alt="" /></span>
+    </div>
+</div>
+<div class="kong"></div>
+<!--头部结束-->
+
+<h1 class="detailed_text_h1">妹子，我掐指一算，你还差一件大衣啊！</h1>
+<p class="detailed_text_daodu">文章导读<p>
+<div class="detailed_text">
+
+	<p>晨起秋雾，凉意瑟瑟，踏着零散满地的落叶，这个季节，一件型色兼具的大衣绝对是最煽情的利器。那么问题是到底该如何选择适合自己的外套？那就不要错过这次为大家准备的街拍啦。</p>
+	<img src="Images/detailed_text_03.jpg" />
+	<p>晨起秋雾，凉意瑟瑟，踏着零散满地的落叶，这个季节，一件型色兼具的大衣绝对是最煽情的利器。那么问题是到底该如何选择适合自己的外套？那就不要错过这次为大家准备的街拍啦。</p>
+	<img src="Images/detailed_text_03.jpg" />
+	<p>晨起秋雾，凉意瑟瑟，踏着零散满地的落叶，这个季节，一件型色兼具的大衣绝对是最煽情的利器。那么问题是到底该如何选择适合自己的外套？那就不要错过这次为大家准备的街拍啦。</p>
+    
+
+</div>
+<div class="detailed_bottom">
+	<img src="Images/detailed_text_04.jpg" />
+    <img src="Images/detailed_text_06.jpg" class="logo" />
+    <img src="Images/detailed_text_07.jpg" class="ewm" />
+    <p class="p1">2015秋冬新款<br />中长款韩版修身呢大衣外套</p>
+    <p class="p2"><i class="icon iconfont">&#xe70b;</i>长按识别二维码即可购买</p>
+</div>
+<style type="text/css">
+.title{height:40px;line-height: 40px;font-size: 1.7rem;margin-top:2.2%;text-align: center;position:relative;}
+.title .left{position:absolute;left:50%;margin-left: -70px;top:50%;}
+.title .right{position:absolute;right:50%;margin-right:-70px;top:50%;}
+.text{width:100%; background:rgba(37,37,37,0.6);color:#fff;font-size:13px; line-height:14px; height:36px; padding:5px 0px 5px 0px;text-align:center;box-sizing: border-box;position:absolute;bottom:2%;    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.swiper-container{ margin-bottom:10px;}
+</style>
+<div class="title">
+    <em>潮流趋势</em>
+    <span class="left"><img src="Images/line.gif" alt="" /></span>
+    <span class="right"><img src="Images/line.gif" alt="" /></span>
+</div>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="Images/article.gif" alt="" />
+            <div class="text">美丽秘籍<br />共享美丽</div>
+        </div>
+        <div class="swiper-slide">
+            <img src="Images/article2.gif" alt="" />
+            <div class="text">约会红人，<br />这样妆！</div>
+        </div>
+        <div class="swiper-slide">
+            <img src="Images/article2.gif" alt="" />
+            <div class="text">约会红人，</div>
+        </div>
+    </div>
+</div>
+<script>
+var mySwiper = new Swiper('.swiper-container', {
+    loop: true,
+    freeMode : true,
+    slidesPerView:   4,
+    spaceBetween:5,
+})
+</script>
+
+
+
+
+
+</body>
+</html>

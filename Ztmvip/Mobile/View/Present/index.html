@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>{$present['title']}</title>
+    <link rel="stylesheet" type="text/css" href="/Public/Common/Images/common.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__present_base.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__swiper.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__present_animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__present_index_big.css" media="(min-width:414px)">
+    <link rel="stylesheet" type="text/css" href="__CSS__present_index.css" media="(min-width:375px) and (max-width:413px)">
+    <link rel="stylesheet" type="text/css" href="__CSS__present_index_small.css" media="(max-width:374px)" />
+    <script type="text/javascript" src="__JS__jquery.js"></script>
+    <script type="text/javascript" src="/Public/Common/Js/common.js"></script>
+    <script type="text/javascript" src="__JS__swiper.jquery.min.js"></script>
+    <script type="text/javascript" src="__JS__swiper.animate.min.js"></script>
+    <script>
+        $(function() {
+            $('.swiper-container').css({'background':'url(__IMG__present_bg.gif) no-repeat center center'});
+        });
+    </script>
+    <style type="text/css">
+        html{height:100%;}
+        body{height:100%;}
+        .swiper-slide{background:none;height:100%;}
+        img{width:100%;height:100%;}
+        #hm_t_undefined{ display:none;}
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <audio class="music1" autoplay="autoplay" controls="controls" loop="-1" style="display:none;">
+        <source src="__IMG__present_music.mp3" type="audio/mpeg">
+    </audio>
+    <audio class="music2" controls="controls" style="display:none;">
+        <source src="__IMG__present_music2.mp3" type="audio/mpeg">
+    </audio>
+    <div class="music_bt zhuan"><img src="__IMG__present_normalmusic.svg" alt="" /></div>
+    <div class="swiper-wrapper">
+        <div class="swiper-slide one">
+            <img src="__IMG__present_one.jpg" height="100%" width="100%" alt="" />
+        </div>
+        <div class="swiper-slide two">
+            <img src="__IMG__present_two.jpg" height="100%" width="100%" alt="" />
+        </div>
+        <div class="swiper-slide three">
+            <img src="__IMG__present_three.jpg" height="100%" width="100%" alt="" />
+        </div>
+        <div class="swiper-slide four">
+            <img src="__IMG__present_four.jpg" height="100%" width="100%" alt="" />
+        </div>
+        <div class="swiper-slide five">
+            <img src="__IMG__present_five.jpg" height="100%" width="100%" alt="" />
+        </div>
+        <div class="swiper-slide six">
+            <img src="__IMG__present_six.jpg" height="100%" width="100%" alt="" />
+        </div>
+        <div class="swiper-slide seven">
+            <img src="__IMG__present_seven.jpg" height="100%" width="100%" alt="" />
+        </div>
+        <div class="swiper-slide eight">
+            <img src="__IMG__present_eight.jpg" height="100%" width="100%" alt="" />
+        </div>
+        <div class="swiper-slide nine">
+            <img src="__IMG__present_nine.jpg" height="100%" width="100%" alt="" />
+        </div>
+        <div class="swiper-slide ten">
+            <img src="__IMG__present_ten.jpg" height="100%" width="100%" alt="" />
+            <if condition="!$order">
+                <div class="text_box3" style="top:73%;">
+                    <div class="sqbt" style="background-color:#f40;">分享报名</div>
+                    <div class="inf" style="margin-top:3%;">已经有&nbsp<i>{$sign_ups+10000}</i>&nbsp人参加</div>
+                </div>
+                <else/>
+                <div class="text_box3" style="top:72%;">
+                    <div>您已参加过此活动，分享到朋友圈邀请更多好友来参加吧</div>
+                    <div class="inf" style="margin-top:1%;">已经有&nbsp<i>{$sign_ups+10000}</i>&nbsp人参加</div>
+                </div>
+            </if>
+        </div>
+    </div>
+</div>
+<div class="bg">
+    <div class="bg_in"><img src="__IMG__present_txbg.png" height="195" width="433" alt="" />
+    </div>
+</div>
+<if condition="!$order">
+    <div class="bg2">
+        <div class="text_box2" style="width:90%;top:30%;left:3%;padding:2%;">
+            <form id="js-register" onsubmit="return false;">
+                <div class="title" style="font-size:1.2em;">填写申请</div>
+                <div class="close" style="position:absolute;background-color:#000;color:#fff;top:-0.75em;right:-0.5em;height:1.5em;width:1.5em;text-align:center;border-radius:1em;">x</div>
+                <div style="padding:0.5em 0;">
+                    <i>&nbsp;&nbsp;姓名：</i>
+                    <input style="width:70%;height:2em;" type="text" name="consignee" required="required" placeholder="请输入收件人..."/>
+                </div>
+                <div style="padding:0.5em 0;">
+                    <i>&nbsp;&nbsp;手机：</i>
+                    <input style="width:70%;height:2em;" type="text" name="mobile" required="required" placeholder="请输入手机号码"/>
+                </div>
+                <div style="padding:0.5em 0;">
+                    <i>&nbsp;&nbsp;地址：</i>
+                    <select style="width:20%;height:2em;" name="province" required="required">
+                        <option value="0">请选择省份</option>
+                    </select>
+                    <select style="width:20%;height:2em;display:none;" name="city" required="required">
+                        <option value="0">请选择城市</option>
+                    </select>
+                    <select style="width:20%;height:2em;display:none;" name="district" required="required">
+                        <option value="0">请选择区域</option>
+                    </select>
+                </div>
+                <div style="padding:0.5em 0;">
+                    <i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
+                    <input  style="width:70%;height:2em;" type="text" name="address" required="required" placeholder="请填写详细地址"/>
+                </div>
+                <div class="bt_box" style="padding:0.5em 0;text-align:center;">
+                    <button class="bt" type="submit" style="float:none;padding: 0.5em 1em;border-radius: 0.5em;">提交申请</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</if>
+</body>
+</html>
+<script type="application/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/Public/Common/Js/address.js"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+        direction : 'vertical',
+        loop : true,
+        onInit: function(swiper){
+            swiperAnimateCache(swiper);
+            swiperAnimate(swiper);
+        },
+        onSlideChangeEnd: function(swiper){
+            swiperAnimate(swiper);
+            var abc = swiper.activeIndex
+            if(abc==10||abc==0){
+                $(".music1").get(0).pause();
+                $(".music2").get(0).currentTime = 0;
+                $(".music2").get(0).play();
+            }else if($(".music_bt").hasClass('zhuan')){
+                $(".music1").get(0).play();
+                $(".music2").get(0).pause();
+            }else{
+                $(".music2").get(0).pause();
+                $(".music1").get(0).pause();
+            }
+        }
+    });
+    $(".music_bt").click(function(event) {
+        if($(".music_bt").hasClass('zhuan')){
+            $(this).removeClass('zhuan')
+            $(".music1").get(0).pause();
+        }else{
+            $(this).addClass('zhuan')
+            $(".music1").get(0).play();
+        }
+    });
+
+    $('.sqbt').click(function(event) {
+        $(".bg").fadeIn();
+    });
+    $(".bg").click(function(event) {
+        //location.href='http://www.ztmvip.com';
+        $(".bg").fadeOut();
+    });
+    $(".close").click(function(event) {
+        $(".bg2").fadeOut();
+    });
+
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement('script');
+        hm.src = '//hm.baidu.com/hm.js?0f0b15bb49fcf471ea731895570e125c';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm,s);
+    })();
+
+    /*<if condition="!$order">*/
+    var option = '<option value="">请选择</option>';
+    $(allProvince).each(function(i,e){
+        option += '<option value="'+ e.name +'" pid="'+ e.ProID +'">'+ e.name +'</option>';
+    });
+    $('#js-register select[name="province"]').html(option);
+
+    $('#js-register').on('click','.skus',function(){
+        $(this).siblings().removeClass('checked');
+        $(this).parent().find(':radio').prop('checked',false);
+        $(this).addClass('checked').find(':radio').prop('checked',true);
+    }).on('change','select[name="province"]',function(){
+        var ProID = $(this).find('option:selected').attr('pid');
+        var option = '<option value="">请选择</option>';
+
+        $(allCity).each(function(i,e){
+            if (e.ProID == ProID)
+                option += '<option value="'+ e.name +'" cid="'+ e.CityID +'">'+ e.name +'</option>';
+        });
+
+        $('#js-register select[name="city"]').html(option).show();
+        $('#js-register select[name="district"]').hide();
+    }).on('change','select[name="city"]',function(){
+        var CityID = $(this).find('option:selected').attr('cid');
+        var option = '<option value="">请选择</option>';
+
+        $(allDistrict).each(function(i,e){
+            if (e.CityID == CityID)
+                option += '<option value="'+ e.name +'">'+ e.name +'</option>';
+        });
+
+        $('#js-register select[name="district"]').html(option).show();
+    }).on('submit',function(){
+        Core.Alert({ 'text':'正在提交数据，请稍候...','state':'load','timeout':9999 });
+
+        setTimeout(function(){
+            //提交快递地址
+            var data = Core.InputObj($('#js-register'));
+            data['skus'] = [];
+
+            $.post("{:U('Present/receive','id='.$present['id'])}",data,function(ret){
+                //console.log(ret);
+                if (ret.state){
+                    Core.Alert({ 'text':ret.message,'callback':function(){
+                        location.href='http://www.ztmvip.com';
+                    } });
+                }else{
+                    Core.Alert({ 'text':ret.message,'state':'err' });
+                }
+            },'json');
+        },200);
+    });
+    /*</if>*/
+
+    wx.config({
+        debug:false,
+        appId:"{$signPackage['appid']}",
+        timestamp:"{$signPackage['timestamp']}",
+        nonceStr:"{$signPackage['noncestr']}",
+        signature:"{$signPackage['signature']}",
+        jsApiList:[
+            'onMenuShareAppMessage',
+            'onMenuShareTimeline',
+        ]
+    });
+
+    wx.ready(function(){
+        //分享活动内容
+        var _title = "{$present['title']}"
+                ,_desc = "{$present['des']}"
+                ,_link = "{:U('Present/index','id='.$present['id'].'&u='.session('user_id'),'html',true)}"
+                ,_imgUrl = "http://{$_SERVER['HTTP_HOST']}__IMG__present_share.png";
+        //分享给朋友
+        wx.onMenuShareAppMessage({
+            title:_title,
+            desc:_desc,
+            link:_link,
+            imgUrl:_imgUrl,
+            trigger:function(res){
+                console.log('用户点击发送给朋友');
+            },
+            success:function(res){
+                console.log('已分享');
+                if ($("#js-register").length){
+                    $(".bg").hide();
+                    $(".bg2").fadeIn();
+                }else{
+                    location.href='http://www.ztmvip.com';
+                }
+            },
+            cancel:function(res){
+                console.log('已取消');
+            },
+            fail:function(res){
+                console.log(JSON.stringify(res));
+            }
+        });
+
+        //分享到朋友圈
+        wx.onMenuShareTimeline({
+            title:_title,
+            link:_link,
+            imgUrl:_imgUrl,
+            trigger:function(res){
+                console.log('用户点击分享到朋友圈');
+            },
+            success:function(res){
+                console.log('已分享');
+                if ($("#js-register").length){
+                    $(".bg").hide();
+                    $(".bg2").fadeIn();
+                }else{
+                    location.href='http://www.ztmvip.com';
+                }
+            },
+            cancel:function(res){
+                console.log('已取消');
+            },
+            fail:function(res){
+                console.log(JSON.stringify(res));
+            }
+        });
+    });
+
+    wx.error(function(res){
+        console.log(res.errMsg);
+    });
+</script>

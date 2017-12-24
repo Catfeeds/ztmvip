@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+@font-face {font-family: 'iconfont';
+    src: url('iconfont_zhifu/iconfont.eot'); /* IE9*/
+    src: url('iconfont_zhifu/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('iconfont_zhifu/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('iconfont_zhifu/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('iconfont_zhifu/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;}
+
+
+.iconfont_zhifu{ width:200px; height:200px;position: fixed; left:50%;margin-left: -100px;top: 50%;margin-top: -100px; background: rgba(0,0,0,0.5); text-align: center; color: #fff;border-radius: 8px;}
+.iconfont_zhifu i{ font-size: 44px;padding-top: 45px; display: block; }
+.iconfont_zhifu ul{ margin:auto; width:49px;}
+.iconfont_zhifu p{ font-size: 23px; line-height:1em; padding-top: 6px;padding-bottom: 23px;}
+.iconfont_zhifu ul li{ float: left; width:10px;height:10px;background:#8F8D8D  ; margin:0px 3px; border-radius: 50%;}
+
+@-webkit-keyframes donghua {0%{background:#fff; -webkit-transform:scale(1.2);}}
+@keyframes donghua {0%{background:#fff; transform:scale(1.2);}}
+
+.iconfont_zhifu ul li.li1{   animation: donghua 3s linear 0s infinite normal;  -webkit-animation: donghua 3s linear 0s infinite normal;  }
+.iconfont_zhifu ul li.li2{   animation: donghua 3s linear 1s infinite normal;  -webkit-animation: donghua 3s linear 1s infinite normal;  }
+.iconfont_zhifu ul li.li3{   animation: donghua 3s linear 2s infinite normal;  -webkit-animation: donghua 3s linear 2s infinite normal;  }
+@media (max-width:750px){  
+
+}
+
+@media (max-width:640px){  
+
+}
+
+@media (max-width:414px){ /* iPhone 6 Plus */
+
+}
+@media (max-width:375px){ /* iPhone 6 */
+    
+}
+@media (max-width:360px){ /* Sansung S3 / s4 */
+    
+}
+@media (max-width:320px){ /* iPhone 5 */
+    
+}

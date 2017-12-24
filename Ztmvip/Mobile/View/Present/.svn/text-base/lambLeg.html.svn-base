@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>{:C('WEBSITE.TITLE')} - {:C('WEBSITE.NAME')}</title>
+    <link rel="stylesheet" type="text/css" href="/Public/Common/Images/common.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__base.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__sale_mobile.css" media="(max-width:750px)" />
+    <link rel="stylesheet" type="text/css" href="__CSS__sale_pad.css" media="(min-width:750px)">
+    <script type="text/javascript" src="__JS__jquery.js"></script>
+    <script type="text/javascript" src="/Public/Common/Js/common.js"></script>
+    <script type="text/javascript" src="/Public/Common/Js/shanbumin.js"></script>
+    <style type="text/css">
+        .sale_banner{ padding:0;}
+        .receive-bg{ background:rgba(0,0,0,0.5);height:100%;width:100%;position:fixed;top:0;left:0;display:none;}
+        .receive-form{ height:0;width:0;top:50%;left:50%;overflow:visible;position:fixed;display:none;}
+        .receive-form .close{ position:absolute;right:-10pt;font-size:20pt;top:-10pt;border-radius:10pt;background:#000;color:#fff;width:20pt;height:20pt;text-align:center;line-height:16pt;font-family:Consolas;}
+        .receive-form form{ background:#fff;position:relative;top:-175pt;display:block;font-size:12pt;padding:15pt 0;}
+        .receive-form td,.receive-form th{ padding:5pt;}
+        .receive-form td strong{ display:block;text-align:right;}
+        .receive-form input,.receive-form select{ height:30pt;font-size:12pt;}
+        .receive-form input{ padding:0 5pt;width:90%;}
+        .receive-form select{ width:25%;}
+        .button{ display:inline-block;border:1px solid #E9C574;background:#E9C574;color:#fff;padding:5pt 10px;font-size:14px;}
+        .receive-button{ padding:10pt 0;text-align:center;}
+    </style>
+</head>
+<body>
+    <div class="sale_banner">
+        <div><img src="http://www.ztmvip.com/Uploads/20151217/56722d12bc7e1.jpg"></div>
+        <div><img src="/Public/Mobile/Images/nowbg_02.jpg" height="1118" width="750" alt=""></div>
+        <div><img src="/Public/Mobile/Images/nowbg_03.jpg" height="1118" width="750" alt=""></div>
+        <div><img src="/Public/Mobile/Images/nowbg_04.jpg" height="1118" width="750" alt=""></div>
+        <div><img src="/Public/Mobile/Images/nowbg_05.jpg" height="1118" width="750" alt=""></div>
+        <div class="receive-button">
+            <a class="button" href="/">进入商城</a>
+            <a class="button" id="js-receive">领取羊肉</a>
+        </div>
+    </div>
+
+    <div class="receive-bg js-receive-bg"></div>
+    <div class="receive-form js-receive-form">
+        <form id="js-form" onsubmit="return false;">
+            <div class="close">x</div>
+            <table width="100%">
+                <thead>
+                <tr>
+                    <th colspan="2" align="center">领取信息</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td width="20%"><strong>姓名</strong></td>
+                    <td><input type="text" name="consignee" required="required" placeholder="请输入收件人..."/></td>
+                </tr>
+                <tr>
+                    <td><strong>手机</strong></td>
+                    <td><input type="text" name="mobile" required="required" placeholder="请输入手机号码..."/></td>
+                </tr>
+                <tr>
+                    <td><strong>地址</strong></td>
+                    <td>
+                        <select name="province" required="required">
+                            <option value="0">请选择省份</option>
+                        </select>
+                        <select name="city" required="required">
+                            <option value="0">请选择城市</option>
+                        </select>
+                        <select name="district" required="required">
+                            <option value="0">请选择区域</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="text" name="address" required="required" placeholder="请填写详细地址..."/></td>
+                </tr>
+                <tr>
+                    <td><strong>领取码</strong></td>
+                    <td><input type="text" name="code" required="required" placeholder="请填写领取码..." value="{$Think.get.code}"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button class="button js-submit" type="submit">提交申请</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
+<script src="/Public/Common/Js/address.js"></script>
+<script>
+    $('#js-receive').on('click',function(){
+        $('.receive-bg,.receive-form').show();
+    });
+
+    var form = $('#js-form');
+    form.width($(document.body).innerWidth()*0.9).css('left',$(document.body).innerWidth()*-0.45);
+
+    var option = '<option value="">请选择</option>';
+    $(allProvince).each(function(i,e){
+        option += '<option value="'+ e.name +'" pid="'+ e.ProID +'">'+ e.name +'</option>';
+    });
+    $('#js-form select[name="province"]').html(option);
+
+    form.on('click','.close',function(){
+        $('.receive-bg,.receive-form').hide();
+    }).on('change','select[name="province"]',function(){
+        var ProID = $(this).find('option:selected').attr('pid');
+        var option = '<option value="">请选择</option>';
+
+        $(allCity).each(function(i,e){
+            if (e.ProID == ProID)
+                option += '<option value="'+ e.name +'" cid="'+ e.CityID +'">'+ e.name +'</option>';
+        });
+
+        form.find('select[name="city"]').html(option).show();
+        form.find('select[name="district"]').hide();
+    }).on('change','select[name="city"]',function(){
+        var CityID = $(this).find('option:selected').attr('cid');
+        var option = '<option value="">请选择</option>';
+
+        $(allDistrict).each(function(i,e){
+            if (e.CityID == CityID)
+                option += '<option value="'+ e.name +'">'+ e.name +'</option>';
+        });
+
+        form.find('select[name="district"]').html(option).show();
+    }).on('submit',function(){
+        Core.Alert({ 'text':'正在提交数据，请稍候...','state':'load','timeout':9999 });
+
+        setTimeout(function(){
+            //提交快递地址
+            var data = Core.InputObj(form);
+            data['skus'] = [];
+
+            $.post("{:U('')}",data,function(ret){
+                //console.log(ret);
+                if (ret.state){
+                    Core.Alert({ 'text':ret.message,'callback':function(){
+                        location.href='/';
+                    } });
+                }else{
+                    Core.Alert({ 'text':ret.message,'state':'err' });
+                }
+            },'json');
+        },200);
+    });
+</script>

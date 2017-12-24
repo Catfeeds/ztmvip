@@ -1,0 +1,92 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">品牌名称</td>
+            <td><input name="brand_name" class="text" type="text" value="{$edit['brand_name']}" required="required" placeholder="请输入品牌名称..."></td>
+        </tr>
+        <tr>
+            <td class="label">品牌Logo</td>
+            <td>
+                <if condition="$edit['brand_logo']">
+                    <p>
+                        <a href="{$edit['brand_logo']}" target="_blank"><img src="{$edit['brand_logo']}" height="120"></a>
+                        <input type="hidden" name="brand_logo" value="{$edit['brand_logo']}"><br><br>
+                    </p>
+                </if>
+                <button class="button js-upload-file" type="button">上传图片</button>
+                <button class="button js-select-file" type="button">相册选择</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">品牌介绍</td>
+            <td><textarea style="height:500px;width:100%" id="brand_desc" name="brand_desc">{$edit['brand_desc']}</textarea></td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td><button type="submit" class="submit">提 交</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="__ROOT__/Public/Common/Ueditor/ueditor.config.js"></script>
+<script src="__ROOT__/Public/Common/Ueditor/ueditor.all.min.js"></script>
+<script>window.UEDITOR_CONFIG['serverUrl']="{:U('UploadFile/ueditor')}";</script>
+<script>
+    $('.js-edit').on('submit',function(event){
+        var data = Core.InputObj(this);
+
+        $.post('',data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.href = "{:U('index')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+
+    $('.js-upload-file').on('mouseenter',function(){
+        var el = $(this);
+        el.upfile();
+        window.callback = function(ret){
+            var tpl = '<p>' +
+                    '<a href="{url}" target="_blank"><img src="{url}" height="120"></a>' +
+                    '<input type="hidden" name="brand_logo" value="{url}"><br><br>' +
+                    '</p>';
+
+            if (ret.state){
+                el.siblings('p').remove();
+                el.parent().prepend(Core.FormatTpl(tpl,{'url':ret.url}));
+            }else{
+                Core.Alert({'text':ret.message,'state':'err'});
+            }
+        }
+    });
+
+    $('.js-select-file').on('click',function(){
+        var el = $(this);
+        el.selfile();
+        window.callback = function(ret){
+            var tpl = '<p>' +
+                    '<a href="{url}" target="_blank"><img src="{url}" height="120"></a>' +
+                    '<input type="hidden" name="brand_logo" value="{url}"><br><br>' +
+                    '</p>';
+
+            el.siblings('p').remove();
+            el.parent().prepend(Core.FormatTpl(tpl,{'url':ret.url}));
+            Core.Frame({'close':true});
+        }
+    });
+
+    UE.getEditor('brand_desc');
+</script>

@@ -1,0 +1,122 @@
+ <link rel="stylesheet" type="text/css" href="__PCCSS__/goods_list.css" />
+ <script type="text/javascript" src="__PCJS__shan_search.js"></script>
+   <style type="text/css">
+    .index_top .nav li.li1 ul{ background:#bfbfbf;}
+  </style>
+  </head>
+  <body>
+
+
+<include file="Public/top"/>
+
+
+
+<div class="goods_deta_bg">
+<!--     <p class="gps"><a href="">首页</a> > <a href="">形象美</a> > 羊毛围巾</p> -->
+    <div style="height:15px;"></div>
+    <div class="goods_li">
+     <!--    <h2>羊毛围巾</h2> -->
+     <div style="height:20px;"></div>
+        <ul class="nav3">
+        <form action="" id="shan_form">
+              <!-- ============默认====================== -->
+            <li class="li1 <eq name='choose.default' value='Y'>hover</eq>" onclick='reback_default()'>默认</li>
+            <!-- ================人气与销量========================== -->
+            <li class="li2 js-brother <eq name='choose.main' value='click'>hover</eq>" onclick="choose_main(this,'click')">人气</li> 
+            <li class="li3 js-brother <eq name='choose.main' value='sales'>hover</eq>" onclick="choose_main(this,'sales')" >销量</li>
+            <!-- ===============价格====================== -->
+            <li onclick="choose_main(this,'sp')"  class="li4 js-brother <eq name='choose.main' value='spdown'>hover li4_1</eq><eq name='choose.main' value='spup'>hover li4_2</eq>">价格</li>
+            <input  type="hidden"<eq name='choose.main' value='spdown'>value="spdown"</eq> <eq name='choose.main' value='spup'>value="spup"</eq> />
+            <!-- ============手写价格区间======================== -->
+            <li class="li5">
+               <input type="text" id="price_left" value="{$choose.price_left}" />
+            </li>
+            <li class="li6"></li>
+            <li class="li7">
+                <input type="text" id="price_right" value="{$choose.price_right}" />
+            </li>
+            <li class="li8">
+                <button type="button" onclick="search_between();">确定</button>
+            </li>
+
+            <!-- =================选择性的价格区间===================== -->
+        <volist name="between" id="v"  >
+        <li class='li9 js-flag  <eq name="choose.price_flag" value="$key">hover</eq> ' onclick="choose_price_flag(this,'{$key}');">
+                 <eq name="key" value="four">
+                    {$v.left}以上
+                      <else/>
+                      {$v.left}-{$v.right}
+                 </eq>
+                  
+        </li>
+        </volist>
+        <li class="li12"></li>
+
+         <!--    <li class="li10 js-flag" onclick="make_price_choose(this);">200-300</li>
+            <input style="display:none;" type="radio" name="price_flag" value="two"/> 
+            <li class="li11 js-flag" onclick="make_price_choose(this);">300-400</li>
+            <input style="display:none;" type="radio" name="price_flag" value="three"/> 
+            <li class="li12 js-flag" onclick="make_price_choose(this);">400以上</li>
+            <input style="display:none;" type="radio" name="price_flag" value="four"/>  -->
+            <!-- ============================================ -->
+        </form>
+<!-- 
+        <script type="text/javascript">
+        $('.goods_li .nav3 .li1,.goods_li .nav3 .li2,.goods_li .nav3 .li3,.goods_li .nav3 .li9,.goods_li .nav3 .li10,.goods_li .nav3 .li11,.goods_li .nav3 .li12').on('click', function() {
+            $('.goods_li .nav3 li').removeClass('hover');
+            $('.goods_li .nav3 .li4').removeClass('hover li4_1 li4_2 ')
+            $(this).addClass('hover');
+        });
+        $('.goods_li .nav3 .li4').on('click', function() {
+            $('.goods_li .nav3 li').removeClass('hover');
+            if($(this).hasClass('li4_1')){
+                $(this).removeClass('hover li4_1');
+                $(this).addClass('hover li4_2');
+
+            }else if($(this).hasClass('li4_2')){
+                $(this).removeClass('hover li4_2');
+                $(this).addClass('hover li4_1');
+            }
+            else{
+                $(this).addClass('hover li4_1');
+            }
+        }); 
+        </script> -->
+
+        </ul>
+        <ul class="g_list">
+
+
+        <volist name="search_goods" id="value">
+            <li>
+                <a href="{:U('Goods/detail',array('goods_id'=>$value['id']),'')}">
+                    <div class="img"><img src="__ROOT__{$value.goods_thumb}_250x250.jpg" alt="" /></div>
+                    <p class="p1">{$value.goods_name|subtext=20} {$value.click}--{$value.sales}</p> 
+                </a>
+                    <p class="p2"><span class="span1">￥</span>{$value.shop_price}<span class="span2">￥{$value.market_price}</span></p>
+                    <p class="p3"><span class="span3">收藏</span></p>
+            </li>
+        </volist>
+
+
+            
+        </ul>
+        <script type="text/javascript">
+        $('.goods_li .g_list li p.p3 .span3').on('click', function() {
+            $(this).toggleClass("hover");
+        });
+        </script>
+
+        <div class="yeshu">
+             {$page_show}
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,90 @@
+html{font-size:24px;font-family: "冬青黑体简体中文";}
+.top{width:40px;height:40px;position:fixed;bottom:10%;right:5%;display:none;}
+.search_box{width:100%;height:92px;background:#fff;padding-left:10px;position:fixed;top:0;z-index: 9999;max-width:750px;display:none;}
+.search_box .search{width:88%;height:70px;font-size: 1.3rem;border:none;border-radius: 0;border-bottom:1px solid #808080;}
+.search_box .search_button{width:8%;position:absolute;top:20px;right:20px;background:#fff;}
+.swiper-container {
+    width: 100%;
+    min-height:176px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.swiper-slide {
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.classify_box{width:100%;padding:0 1.2%;box-sizing: border-box;overflow:hidden;}
+.classify_box .classify{width:25%;float:left;}
+.classify_box .classify_in{width:60%;margin:20% auto 0;}
+.classify_box .classify_in img{margin:0 auto;}
+.classify_box .classify .classify_text{font-size: 1rem;margin:5% auto;text-align: center;}
+.seckill_box{overflow:hidden;}
+.seckill_in{width:32.2%;min-height:150px;float:left;margin-right:1.7%;}
+.seckill_in:last-child{margin-right:0;}
+.price em{font-size: 1.2rem;}
+.inf{color:#808080;}
+.title{height:40px;line-height: 40px;font-size: 1.2rem;margin-top:2.2%;text-align: center;position:relative;}
+.title .left{position:absolute;left:50%;margin-left: -90px;top:50%;}
+.title .right{position:absolute;right:50%;margin-right:-90px;top:50%;}
+.article_box{position:relative;}
+.article_inf{width:100%;min-height:27%;background:rgba(37,37,37,0.6);color:#fff;font-size: 1.4rem;padding:5% 0;text-align:center;box-sizing: border-box;line-height:100%;position:absolute;bottom:2%;}
+.title2{height:40px;line-height: 40px;font-size: 1.2rem;margin-top:2.2%;text-align: center;position:relative;}
+.title2 .left{position:absolute;left:50%;margin-left: -80px;top:50%;}
+.title2 .right{position:absolute;right:50%;margin-right:-80px;top:50%;}
+.comm_box{overflow:hidden;}
+.comm_left,.comm_right{float:left;}
+.comm_left{width:66%;margin-right:2%;}
+.comm_right{width:32%;}
+.comm_right_top{margin-bottom:6%;}
+.comm_bottom .comm{margin:2% 2% 0 0;width:32%;float:left;}
+.comm:last-child{margin-right:0;}
+.title3{height:40px;line-height: 40px;font-size: 1.2rem;margin-top:2.2%;text-align: center;position:relative;}
+.title3 .left{position:absolute;left:50%;margin-left: -100px;top:50%;}
+.title3 .right{position:absolute;right:50%;margin-right:-100px;top:50%;}
+.acc_box{overflow:hidden;}
+.acc_box .acc{width:49%;margin:2% 2% 0 0;float:left;}
+.acc_box .acc:nth-child(even){margin-right:0;}
+.makeup_box{overflow:hidden;}
+.makeup_left,.makeup_right{float:left;width:49%;margin:2% 2% 0 0;}
+.makeup_right{margin-right:0;}
+.upkeep_box{overflow:hidden;}
+.upkeep_left,.upkeep_right{float:left;width:49%;margin-right:2%;}
+.upkeep_right{margin-right:0;}
+.upkeep_bottom .upkeep{width:49%;margin:2% 2% 0 0;float:left;}
+.upkeep_bottom .upkeep:last-child{margin-right:0;}
+.copyright{font-size:0.8rem;text-align: center;margin:2% 0;color:#6d6d6d;}
+.top{width:60px;height:60px;position:fixed;bottom:10%;right:5%;display:none;z-index: 999;}
+.other{height:98px;background:#fff;}
+.nav_box{width:100%;max-width:750px;position:fixed;bottom:0;background:#252525;height:98px;z-index: 999;}
+.nav_box .nav_in{width:25%;float:left;position:relative;}
+.nav_box .nav{width:66px;margin:16px auto;}
+.nav_box .goods_num{width:34px;height:34px;border-radius: 50%;background:#b8a070;color:#fff;text-align: center;line-height:34px;position:absolute;top:10px;left:50%;margin-left: -22px;}
+.colockbox{width:224px;height:50px;margin:10px auto;}
+.colockbox span{float:left;display:block;}
+.colockbox .num{width:50px;height:50px;background:#252525;line-height:50px;font-size:1.4rem;text-align:center;color:#ffffff;}
+.colockbox .symbol{font-size: 1.5rem;font-weight: bold;}
+.colockbox .second{margin:0;}
+#swiper2 .swiper-slide{width:28%;}
+
+
+
+
+
+
+
+
+
+
+.jiazaizhong{ position: absolute; top: 48%; left:50%; margin-left:-3em; z-index: 0px; }
+

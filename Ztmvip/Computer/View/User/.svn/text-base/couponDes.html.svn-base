@@ -1,0 +1,27 @@
+
+    <link rel="stylesheet" type="text/css" href="__PCCSS__rebate.css" />
+</head>
+<body>
+<include file="Public:top"/>
+<div class="bg_h">
+    <div class="ededed">
+
+
+        <!-- 右边 -->
+        <div class="ededed_r">
+            <div class="explain">
+                <div class="h5"><span>优惠券使用说明</span></div>
+                <p>1.本券限于有效期内使用，过期无效。</p>
+                <p>2.本券仅限单次使用，一经使用不可退回。</p>
+                <p>3.同类优惠券不可叠加使用。</p>
+                <p>4.使用优惠券购买的宝贝，进行退款退货时，仅限退还非优惠券部分金额。</p>
+            </div>
+        </div>
+
+
+
+        <!-- 左边 -->
+        <include file="User:accountLeft"/>
+
+    </div>
+</div>

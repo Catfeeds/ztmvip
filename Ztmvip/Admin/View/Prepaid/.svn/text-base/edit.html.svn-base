@@ -1,0 +1,108 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">储值卡名称</td>
+            <td><input name="prepaid_name" class="text" type="text" value="{$edit['prepaid_name']}" required="required" placeholder="请输入储值卡名称..."></td>
+        </tr>
+        <tr>
+            <td class="label">面值</td>
+            <td><input name="par" class="text" type="text" value="{$edit['par']}" required="required" placeholder="请输入储值卡面值..."></td>
+        </tr>
+        <tr>
+            <td class="label">卡号前缀</td>
+            <td><input name="prefix" class="text" type="text" value="{$edit['prefix']}" required="required" placeholder="请输入卡号前缀..."></td>
+        </tr>
+        <tr>
+            <td class="label">售价</td>
+            <td><input name="price" class="text" type="text" value="{$edit['price']}" required="required" placeholder="请输入储值卡售价..."></td>
+        </tr>
+        <tr>
+            <td class="label">分佣比例</td>
+            <td><input name="profit" class="text" type="text" value="{:($edit['profit']?:0)}" required="required" placeholder="请输入分佣比例..." style="min-width:50px;width:50px;"> %</td>
+        </tr>
+        <tr>
+            <td class="label">卡面外观</td>
+            <td>
+                <if condition="$edit['prepaid_image']">
+                    <p>
+                        <a href="{$edit['prepaid_image']}" target="_blank"><img src="{$edit['prepaid_image']}" height="120"></a>
+                        <input type="hidden" name="prepaid_image" value="{$edit['prepaid_image']}"><br><br>
+                    </p>
+                </if>
+                <button class="button js-upload-file" type="button">上传图片</button>
+                <button class="button js-select-file" type="button">相册选择</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">卡片描述</td>
+            <td><textarea style="height:500px;width:100%" id="prepaid_desc" name="prepaid_desc">{$edit['prepaid_desc']}</textarea></td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td><button type="submit" class="submit">提 交</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="__ROOT__/Public/Common/Ueditor/ueditor.config.js"></script>
+<script src="__ROOT__/Public/Common/Ueditor/ueditor.all.min.js"></script>
+<script>window.UEDITOR_CONFIG['serverUrl']="{:U('UploadFile/ueditor')}";</script>
+<script>
+    $('.js-edit').on('submit',function(event){
+        var data = Core.InputObj(this);
+
+        $.post('',data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.href = "{:U('index')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+
+    $('.js-upload-file').on('mouseenter',function(){
+        var el = $(this);
+        el.upfile();
+        window.callback = function(ret){
+            var tpl = '<p>' +
+                    '<a href="{url}" target="_blank"><img src="{url}" height="120"></a>' +
+                    '<input type="hidden" name="prepaid_image" value="{url}"><br><br>' +
+                    '</p>';
+
+            if (ret.state){
+                el.siblings('p').remove();
+                el.parent().prepend(Core.FormatTpl(tpl,{'url':ret.url}));
+            }else{
+                Core.Alert({'text':ret.message,'state':'err'});
+            }
+        }
+    });
+
+    $('.js-select-file').on('click',function(){
+        var el = $(this);
+        el.selfile();
+        window.callback = function(ret){
+            var tpl = '<p>' +
+                    '<a href="{url}" target="_blank"><img src="{url}" height="120"></a>' +
+                    '<input type="hidden" name="prepaid_image" value="{url}"><br><br>' +
+                    '</p>';
+
+            el.siblings('p').remove();
+            el.parent().prepend(Core.FormatTpl(tpl,{'url':ret.url}));
+            Core.Frame({'close':true});
+        }
+    });
+
+    UE.getEditor('prepaid_desc');
+</script>

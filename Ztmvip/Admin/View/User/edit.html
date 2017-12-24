@@ -1,0 +1,61 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">用户名</td>
+            <td><input class="text" type="text" value="{$edit['user_name']}" disabled></td>
+        </tr>
+        <tr>
+            <td class="label">密码</td>
+            <td><input name="password" class="text" type="text" value="" placeholder="密码为6~20位数字、字母及下划线组成" pattern="[\w_]{6,20}"></td>
+        </tr>
+        <tr>
+            <td class="label">确认密码</td>
+            <td><input name="repassword" class="text" type="text" value="" placeholder="密码为6~20位数字、字母及下划线组成" pattern="[\w_]{6,20}"></td>
+        </tr>
+        <tr>
+            <td class="label">用户余额</td>
+            <td><input class="text" type="text" value="{$edit['user_money']}" disabled></td>
+        </tr>
+        <tr>
+            <td class="label">冻结金额</td>
+            <td><input class="text" type="text" value="{$edit['frozen_money']}" disabled></td>
+        </tr>
+        <tr>
+            <td class="label">积分</td>
+            <td><input class="text" type="text" value="{$edit['integral']}" disabled></td>
+        </tr>
+        <tr>
+            <td class="label">等级积分</td>
+            <td><input class="text" type="text" value="{$edit['level_integral']}" disabled></td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td><button type="submit" class="submit">提 交</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+    $('.js-edit').on('submit',function(event){
+        var data = Core.InputObj(this);
+
+        $.post('',data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.href = "{:U('index')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+</script>

@@ -1,0 +1,110 @@
+<link rel="stylesheet" type="text/css" href="__PCCSS__/goods_list.css" />
+<style type="text/css">
+    .index_top .nav li.li1 ul{ background:#bfbfbf;}
+</style>
+</head>
+<body>
+<include file="Public/top"/>
+
+<div class="goods_deta_bg">
+    <div style="height:10px;"></div>
+    <div class="goods_li">
+        <h2>{$page_title}</h2>
+        <form id="js-form" action="" method="get">
+            <ul class="nav3">
+                <li class="li1 js-order" data="">默认</li>
+                <li class="li2 js-order" data="click">人气</li>
+                <li class="li3 js-order" data="sales">销量</li>
+                <li class="js-order li4" data="spup">价格</li>
+                <li class="li5"><input name="min_price" type="text" value="{$Think.get.min_price}" /></li>
+                <li class="li6"></li>
+                <li class="li7"><input name="max_price" type="text" value="{$Think.get.max_price}" /></li>
+                <li class="li8"><button type="submit">确定</button></li>
+                <li class="li9 js-price" data="-">不限</li>
+                <li class="li9 js-price" data="100-200">100-200</li>
+                <li class="li9 js-price" data="200-300">200-300</li>
+                <li class="li9 js-price" data="300-400">300-400</li>
+                <li class="li9 js-price" data="400-">400以上</li>
+                <li class="li12"></li>
+            </ul>
+            <input name="order" type="hidden" value="{$Think.get.order}" />
+            <input name="word" type="hidden" value="{$Think.get.word}" />
+        </form>
+        <if condition="$goods">
+            <ul class="g_list">
+                <volist name="goods" id="val">
+                    <li>
+                        <a href="{:U('Goods/detail','goods_id='.$val['id'])}">
+                            <div class="img"><img src="__ROOT__{$val['goods_thumb']}_250x250.jpg" alt="" /></div>
+                            <p class="p1">{$val['goods_name']|subtext=35}</p>
+                        </a>
+                        <p class="p2"><span class="span1">￥</span>{$val['shop_price']}<span class="span2">￥{$val['market_price']}</span></p>
+                        <p class="p3"><span class="span3 <notempty name='val["collect"]'>hover</notempty>" onclick="collect({$val['id']})">收藏</span></p>
+                    </li>
+                </volist>
+            </ul>
+            <else/>
+            <div style="font-size:24px;width:100%;text-align:center;line-height:400px;">{$error}</div>
+        </if>
+        <div class="yeshu">
+            {$page_show}
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    $(function(){
+        var form = $('#js-form');
+
+        $('.js-order').on('click',function(){
+            form.find(':hidden[name="order"]').val($(this).attr('data'));
+            form.submit();
+        });
+
+        $('.js-price').on('click',function(){
+            var price = $(this).attr('data').split('-');
+            form.find(':text[name="min_price"]').val(price[0]);
+            form.find(':text[name="max_price"]').val(price[1]);
+            form.submit();
+        });
+
+        $('.js-order[data="{$Think.get.order}"]').addClass('hover');
+        $('.js-price[data="{$Think.get.min_price}-{$Think.get.max_price}"]').addClass('hover');
+
+        if ('{$Think.get.order}' == 'spup')
+            $('.js-order[data="spup"]').attr('data','spdown').addClass('hover li4_2');
+        else if ('{$Think.get.order}' == 'spdown')
+            $('.js-order[data="spup"]').addClass('hover li4_1');
+    });
+
+    /**
+     * 添加商品到收藏夹
+     * @param goods_id
+     */
+    function collect(goods_id) {
+        $.post("{:U('Goods/addCollection')}",{ 'goods_id':goods_id },function(ret){
+            switch(ret.code){
+                case 'sadd':
+                    $('#shan_collect').addClass('hover');
+                    Core.Alert({ 'text':'添加收藏成功' });
+                    break;
+                case 'sdel':
+                    $('#shan_collect').removeClass('hover');
+                    Core.Alert({ 'text':'取消收藏成功' });
+                    break;
+                case 'fadd':
+                    Core.Alert({ 'text':'添加收藏失败','state':'err'});
+                    break;
+                case 'fdel':
+                    Core.Alert({ 'text':'取消收藏失败','state':'err' });
+                    break;
+                case 'login':
+                    Core.Alert({ 'text':'未登录不可以添加收藏','state':'err' });
+                    break;
+                default:
+                    break;
+            }
+        });
+    }
+</script>

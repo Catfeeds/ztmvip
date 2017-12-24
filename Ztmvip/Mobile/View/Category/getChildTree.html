@@ -1,0 +1,12 @@
+<volist name="categorys" id="val">
+    <div class="classify_content">
+<div class="classify_title"><span>{$val.cat_name}</span></div>
+<ul>
+    <volist name="val.cat_id" id="v">
+    <li><a href="{:U('Category/catDetail',array('cat_id'=>$v['id']))}"><img  class="lazy" data-original="{$v.cat_logo}" src="__IMG__lastbg.jpg" />
+        <p>{$v.cat_name}</p></a>
+    </li>
+    </volist>
+</ul>
+        </div>
+</volist>

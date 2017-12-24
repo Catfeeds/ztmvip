@@ -1,0 +1,257 @@
+<link rel="stylesheet" type="text/css" href="__PCCSS__user.css" />
+</head>
+<body>
+
+<!-- 头部横条 -->
+<include file="Public/top"/>
+
+<div class="user_bg">
+    <div class="user">
+        <include file="User:publicLeft"/>
+        <div class="user_right">
+            <form action="">
+                <include file="User:publicUserTop"/>
+                <ul class="right_top_nav">
+                    <a href="{:U('User/order',array('state'=>'new'))}"><li <if condition="($state eq 'new') or ($state eq '')">class="hover"</if>>待付款（{$order_count.new}）</li></a>
+                    <a href="{:U('User/order',array('state'=>'payed'))}"><li <if condition="$state eq 'payed'">class="hover"</if>>待发货（{$order_count.payed}）</li></a>
+                    <a href="{:U('User/order',array('state'=>'send'))}"><li <if condition="$state eq 'send'">class="hover"</if>>已发货（{$order_count.send}）</li></a>
+                    <a href="{:U('User/order',array('state'=>'receive'))}"><li <if condition="$state eq 'receive'">class="hover"</if>>待评价（{$order_count.receive}）</li></a>
+                    <a href="{:U('User/order',array('state'=>'refund'))}"><li <if condition="$state eq 'refund'">class="hover"</if>>退款/售后（{$order_count.refund}）</li></a>
+                    <li <if condition="$state eq 'recycle'">class="li6 cur"<else/>class="li6"</if>><a href="{:U('User/order',array('state'=>'recycle'))}">订单回收站</a></li>
+                </ul>
+                <ul class="main">
+                    <li class="li1">商品</li>
+                    <li class="li2">单价（元）</li>
+                    <li class="li3">数量</li>
+                    <li class="li4">实付款（元）</li>
+                    <li class="li5"><span class="js-select-state">订单状态</span>
+                        <ul>
+                            <li class="li11">订单状态</li>
+                            <li><a href="{:U('User/order',array('state'=>'new'))}">待付款</a></li>
+                            <li><a href="{:U('User/order',array('state'=>'stock'))}">配货中</a></li>
+                            <li><a href="{:U('User/order',array('state'=>'send'))}">已发货</a></li>
+                            <li><a href="{:U('User/order',array('state'=>'cancled'))}">已取消</a></li>
+                            <li><a href="{:U('User/order',array('state'=>'finished'))}">已完成</a></li>
+                            <li><a href="{:U('User/order',array('state'=>'refunding'))}">退款中</a></li>
+                        </ul>                </li>
+                    <script>
+                        $(function(){
+                            var state = '{$state}';
+                            var allState = {'new':'待付款','stock':'配货中','send':'已发货','cancled':'已取消','finished':'已完成','refunding':'退款中','else':'订单状态'};
+                            var select = allState[state] !== undefined ? allState[state] : allState.else;
+                            $('.js-select-state').html(select);
+                        });
+                    </script>
+                    <li class="li6">交易操作</li>
+                </ul>
+                <if condition="($state eq 'new') or ($state eq '')">
+                <notempty name="order">
+                <div class="all"><span class="span1"><input class="js-select-all" name="select-all" type="checkbox" /><label id="select-all">全选</label></span></span><!--<span class="span2 js-delete-all">批量删除</span>--><span class="span3">批量付款</span></div>
+                </notempty>
+                </if>
+
+                <!-- 待付款 -->
+                <div class="js-order-container">
+                    <volist name="order" id="vo">
+                    <div class="order1 js-order" data-rel="{$vo.id}" data-sn="{$vo.order_sn}">
+                        <div class="title">
+                        <span class="span1"><input name="order_id" value="{$vo.id}" type="checkbox" /><label class="order_id">{$vo.date_add|date='Y-m-d',###}</label></span>
+                        <span class="span2">订单号：{$vo.order_sn}</span>
+                        <if condition="$vo['order_state'] eq 'new'">
+                            <span class="js-delete span4"><!--删除按钮--></span>
+                        <elseif condition="($vo['order_state'] eq 'refunded') or ($vo['order_state'] eq 'finish')" />
+                            <span class="js-soft-deletion span4"><!--删除按钮--></span>
+                        <else/>
+                            <span class="span5"></span>
+                        </if>
+                        <span class="span3"><if condition="$vo.date_pay gt 0">成交时间：{$vo.date_pay|date='Y-m-d',###}</if></span></div>
+                        <volist name="vo['goods']" id="v" key="key">
+                        <div class="con1">
+                            <div class="img"><a href="{:U('Goods/detail','goods_id='.$v['goods_id'])}"><img src="{$v['goods_thumb']}_250x250.jpg" alt="" /></a></div>
+                            <ul class="text">
+                                <li class="li1"><a href="{:U('Goods/detail','goods_id='.$v['goods_id'])}">{$v['goods_name']}</a></li>
+                                <li class="li2">{$v['goods_price']}</li>
+                                <li class="li3">{$v['goods_number']}</li>
+                            </ul>
+                            <p>
+                                <php>$v['skus'] = json_decode($v['skus'],true);</php>
+                                <volist name="v.skus" id="skus_val">
+                                    <span>{$skus_val[0]}：{$skus_val[1]}</span>
+                                </volist>
+                            </p>
+                        </div>
+                        <ul class="zong">
+                            <li class="li4">{$vo['goods_fee']+$vo['shipping_fee']|sprintf='%.2f',###}<br/>(含运费：{$vo.shipping_fee})</li>
+                            <if condition="($state eq 'new') or ($state eq '')">
+                                <li class="li5"><a href="">待付款</a><a target="_blank" href="{:U('Order/detail','order_id='.$vo['id'])}">订单详情</a></li>
+                                <li class="li6">
+                                    <a class="" href="{:U('Center/choose')}?order_id={$vo.id}">付款</a>
+                                    <a class="a2 js-delete" href="javascript:;">删除</a>
+                                </li>
+                            <elseif condition="$state eq 'payed'"/>
+                                <li class="li5"><a href=""><if condition="$vo.shipping_state eq 'stock'">配货中<else/>待发货</if></a><a target="_blank" href="{:U('Order/detail','order_id='.$vo['id'])}">订单详情</a></li>
+                                <li class="li6"><a class="js-send" href="javascript:;">提醒发货</a></li>
+                            <elseif condition="$state eq 'send'"/>
+                                <li class="li5"><a href="">已发货</a><a href="{:U('Order/express',array('order_id'=>$vo['id']))}">查看物流</a><a target="_blank" href="{:U('Order/detail','order_id='.$vo['id'])}">订单详情</a></li>
+                                <li class="li6"><a class="js-receive" href="javascript:;">确认收货</a></li>
+                            <elseif condition="$state eq 'receive'"/>
+                                <li class="li5"><a href="javascript:;">待评价</a><a target="_blank" href="{:U('Order/detail','order_id='.$vo['id'])}">订单详情</a></li>
+                                <li class="li6"><a href="{:U('Order/comment',array('order_id'=>$vo['id']))}">马上评价</a><a href="{:U('Order/refund',array('order_id'=>$vo['id']))}" class="a2">申请售后</a></li>
+                            <elseif condition="$state eq 'refund'"/>
+                                <li class="li5"><a href="javascript:;">订单已完成</a><a target="_blank" href="{:U('Order/detail','order_id='.$vo['id'])}">订单详情</a></li>
+                                <li class="li6"><if condition="$vo.order_state eq 'refund'">退款中<elseif condition="$vo.order_state eq 'refunded'"/>已退款<else/>已完成</if></li>
+                            <elseif condition="$state eq 'recycle'"/>
+                                <li class="li5"><a href="javascript:;">已删除</a><a target="_blank" href="{:U('Order/detail','order_id='.$vo['id'])}">订单详情</a></li>
+                                <li class="li6"><a class="js-restore" href="javascript:;">还原</a></li>
+                            <elseif condition="$state eq 'stock'"/>
+                                <li class="li5"><a href="">配货中</a><a target="_blank" href="{:U('Order/detail','order_id='.$vo['id'])}">订单详情</a></li>
+                                <li class="li6"><a class="js-send" href="javascript:;">提醒发货</a></li>
+                            <elseif condition="$state eq 'cancled'"/>
+                                <li class="li5"><a href="javascript:;">已取消</a><a target="_blank" href="{:U('Order/detail','order_id='.$vo['id'])}">订单详情</a></li>
+                                <li class="li6">已取消</li>
+                            <elseif condition="$state eq 'finished'"/>
+                                <li class="li5"><a href="javascript:;">订单已完成</a><a target="_blank" href="{:U('Order/detail','order_id='.$vo['id'])}">订单详情</a></li>
+                                <li class="li6">已完成</li>
+                            <elseif condition="$state eq 'refunding'"/>
+                                <li class="li5"><a href="javascript:;">订单已完成</a><a target="_blank" href="{:U('Order/detail','order_id='.$vo['id'])}">订单详情</a></li>
+                                <li class="li6">退款中</li>
+                            </if>
+                        </ul>
+                        </volist>
+                    </div>
+                    </volist>
+                    <div class="yeshu">{$page_show}</div>
+                </div>
+
+
+                <script type="text/javascript">
+                    //全选checkbox
+                    $(':checkbox[name=select-all]').on('click', function() {
+                        if($(this).prop("checked")==false){
+                            $(':checkbox[name=order_id]').prop('checked',false);
+                        }else{
+                            $(':checkbox[name=order_id]').prop('checked',true);
+                        }
+                    });
+                    //全选label
+                    $('#select-all').on('click',function(){
+                        $(':checkbox[name=select-all]').click();
+                    });
+                    $('label.order_id').on('click',function(){
+                        $(this).closest('span').find(':checkbox[name=order_id]').click();
+                    });
+                    $(':checkbox[name=order_id]').on('click',function(){
+                        if($(':checkbox[name=order_id]').length == $(':checked[name=order_id]').length){
+                            $(':checkbox[name=select-all]').prop('checked',true);
+                        }else{
+                            $(':checkbox[name=select-all]').prop('checked',false);
+                        }
+                    });
+                    $('.js-order-container').on('click','.js-delete',function(){
+                        var el = $(this);
+                        $(':checkbox[name=select-all]').prop("checked",false);
+                        $(':checkbox[name=order_id]').prop('checked',false);
+                        el.closest('.js-order').find(':checkbox[name=order_id]').click();
+                        Core.Confirm({ 'title':'操作确认','text':'确认要删除选中数据？','callback':function(confirm){
+                            if (!confirm)
+                                return;
+
+                            $.post("{:U('Order/delete')}",{ 'order_id':el.closest('.js-order').attr('data-rel') },function(ret){
+                                if ( ret.state ){
+                                    Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                                        el.closest('.js-order').remove();
+                                    } });
+                                }else{
+                                    Core.Alert({ 'text':ret.message,'state':'err' });
+                                }
+                            },'json');
+                        } });
+                    }).on('click','.js-send',function(){ //提醒发货
+                        $.post("{:U('Order/sendMail')}",{ 'order_sn':$(this).closest('.js-order').attr('data-sn') },function(ret){
+                            if(ret.error == 8)
+                                Core.Alert({ 'text':'发货提醒成功' });
+                            else if(ret.error == 4)
+                                Core.Alert({ 'text':'服务器繁忙...','state':'notic' });
+                            else if(ret.error == 'pass')
+                                Core.Alert({ 'text':'您的提醒我们已经收到了，整体美商城会尽快帮您发货' });
+                        });
+                    }).on('click','.js-receive',function(){ //确认收货
+                        var el = $(this);
+                        if (el.attr('disabled'))
+                            return;
+                        el.attr('disabled','disabled');
+                        $.post("{:U('Order/state')}",{ 'order_id':el.closest('.js-order').attr('data-rel'),'state':'receive' },function(ret){
+                            if (ret.state){
+                                Core.Alert({ 'text':ret.message });
+                                el.css({'border':'1px solid #ADADAD','background-color':'#BFBEBA'}).attr('disabled','disabled').text('已 收 货');
+                            }else{
+                                Core.Alert({ 'text':ret.message,'state':'err' });
+                                el.attr('disabled','');
+                            }
+                        },'json');
+                    }).on('click','.js-finish',function(){
+                        var el = $(this);
+                        if (el.attr('disabled'))
+                            return;
+                        el.attr('disabled','disabled');
+                        $.post("{:U('Order/state')}",{ 'order_id':el.closest('.js-order').attr('data-rel'),'state':'finish' },function(ret){
+                            if (ret.state){
+                                Core.Alert({ 'text':ret.message });
+                                el.css({'border':'1px solid #ADADAD','background-color':'#BFBEBA'}).attr('disabled','disabled').text('已 完 成');
+                            }else{
+                                Core.Alert({ 'text':ret.message,'state':'err' });
+                                el.attr('disabled','');
+                            }
+                        },'json');
+                    }).on('click','.js-soft-deletion',function(){
+                        var el = $(this);
+                        Core.Confirm({ 'title':'操作确认','text':'确认要删除选中数据？','callback':function(confirm){
+                            if (!confirm)
+                                return;
+
+                            $.post("{:U('Order/softDelOrRestore')}",{ 'order_id':el.closest('.js-order').attr('data-rel'),'action':'softDel' },function(ret){
+                                if ( ret.state ){
+                                    Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                                        el.closest('.js-order').remove();
+                                    } });
+                                }else{
+                                    Core.Alert({ 'text':ret.message,'state':'err' });
+                                }
+                            },'json');
+                        } });
+                    }).on('click','.js-restore',function(){
+                        var el = $(this);
+                        $.post("{:U('Order/softDelOrRestore')}",{ 'order_id':el.closest('.js-order').attr('data-rel'),'action':'restore' },function(ret){
+                            if ( ret.state ){
+                                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                                    el.closest('.js-order').remove();
+                                } });
+                            }else{
+                                Core.Alert({ 'text':ret.message,'state':'err' });
+                            }
+                        },'json');
+                    });
+
+
+                </script>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

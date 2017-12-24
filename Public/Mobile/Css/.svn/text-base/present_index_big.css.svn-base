@@ -1,0 +1,119 @@
+html, body {
+        position: relative;
+        height: 100%;
+        font-size: 12px;
+        font-family: "微软雅黑";
+        background:#fff;
+    }
+    .swiper-container {
+        width: 100%;
+        max-width: 640px;
+        height: 100%;
+    }
+.footer{width:100%;max-width:640px;background:#000;height:10%;position:absolute;bottom:0;z-index: 999;display: table;}
+.footer img{width:70%;margin:5% auto;}
+.logo_box{width:14%;position:absolute;top:10px;left:20px;z-index: 999;}
+.logo_box .logo{animation: logo 5s linear 0s infinite;}
+@keyframes logo{
+    0%{
+        -webkit-transform: rotateY(0deg);
+           -moz-transform: rotateY(0deg);
+            -ms-transform: rotateY(0deg);
+             -o-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+    }
+    50%{
+        -webkit-transform: rotateY(360deg);
+           -moz-transform: rotateY(360deg);
+            -ms-transform: rotateY(360deg);
+             -o-transform: rotateY(360deg);
+                transform: rotateY(360deg);
+    }
+    100%{
+        -webkit-transform: rotateY(360deg);
+           -moz-transform: rotateY(360deg);
+            -ms-transform: rotateY(360deg);
+             -o-transform: rotateY(360deg);
+                transform: rotateY(360deg);
+    }
+}
+.one{background:url(../images/one.jpg) no-repeat top center;background-size: cover;}
+.two{background:url(../images/two.jpg) no-repeat top center;background-size: cover;position:relative;}
+.two .text{width:100%;position:absolute;top:50%;text-align: center;color: #402600;line-height: 20px;}
+.two .text em{font-size: 1.3rem;}
+.two .text i{line-height:30px;font-size: 1.4rem;}
+.two .text i u{font-weight:bold;font-size:1.4rem;}
+.three{background:url(../images/three.jpg) no-repeat top center;background-size: cover;position:relative;}
+.three .text_box{width:100%;font-size: 1.2rem;line-height:23px;position:absolute;top:71%;text-align: center;color:#a05c00;line-height: 20px;}
+.three .text_box .text1 i{color:#e63803;font-size: 1.3rem;font-weight: bold;}
+.three .text_box .text2{color:#6f4001;}
+.four{background:url(../images/four.jpg) no-repeat top center;background-size: cover;}
+.four .text_box{width:100%;font-size: 1.4rem;line-height:20px;position:absolute;top:68%;color:#a05c00;padding-left:10%;box-sizing: border-box;line-height: 30px;}
+.four .text_box i{color:#e63803;font-size: 1.4rem;font-weight: bold;}
+.five{background:url(../images/five.jpg) no-repeat top center;background-size: cover;}
+.five .text_box{width:90%;position:absolute;top:75%;left:5%;line-height: 20px;}
+.five .text_box .text1{color:#af8a3d;font-size: 1.4rem;text-align: center;line-height: 30px;}
+.five .text_box .text1 i{font-size: 1.7rem;font-weight: bold;}
+.five .text_box .text2{font-size: 1.2rem;text-align:justify ;}
+.five .text_box .text2 i{color:#529002;}
+.five .text_box .text2 u{color:#629204;font-weight: bold;}
+.five .text_box .text2 em{color:#70ae05;}
+.six{background:url(../images/six.jpg) no-repeat top center;background-size: cover;}
+.six .text_box{width:90%;position:absolute;top:78%;left:5%;line-height: 20px;}
+.six .text_box .text1{color:#3a6e7c;font-size: 1.3rem;text-align: center;line-height: 30px;}
+.six .text_box .text1 i{font-size: 1.6rem;font-weight: bold;}
+.six .text_box .text2{font-size: 1.1rem;text-align:justify ;}
+.six .text_box .text2 i{color:#0aa0a6;}
+.six .text_box .text2 u{color:#09979d;font-weight: bold;}
+.six .text_box .text2 em{color:#ff9000;font-weight: bold;}
+.seven{background:url(../images/seven.jpg) no-repeat top center;background-size: cover;color:#695906;}
+.seven .text_box1{width:65%;position:absolute;top:19%;left:5%;font-size: 1.3rem;line-height: 20px;}
+.seven .text_box2{width:95%;position:absolute;top:71%;left:5%;font-size: 1.2rem;line-height: 20px;}
+.eight{background:url(../images/eight.jpg) no-repeat top center;background-size: cover;}
+.eight .text_box{width:90%;font-size:1.2rem;position:absolute;top:82%;left:5%;color:#94540C;font-weight: bold;}
+.nine{background:url(../images/nine.jpg);background-size: cover;}
+.ten{background:url(../images/ten.jpg);background-size: cover;}
+.ten .text_box1{width:80%;position:absolute;top:52%;font-size:1.5rem;left:50%;margin-left:-40%;text-align:justify;color:#523A1E;font-weight: bold;}
+.ten .text_box1 i{color:#f36c09;}
+.ten .text_box3{width:80%;position:absolute;top:80%;left:10%;font-size: 1.3rem;text-align:center;}
+.sqbt{width:40%;padding:5px 8px;background:#ff9600;border-radius: 3px;color:#fff;font-size: 1.3rem;margin:0 auto;}
+.ten .text_box3 .inf i{color:#ff9600;}
+
+.bg2{width:100%;height:100%;background:rgba(0,0,0,0.6);background-size: 50%;position:fixed;top:0;left:0;z-index: 999;display:none;}
+.bg2 .text_box2{width:80%;position:absolute;top:50%;left:10%;font-size: 1.2rem;background:#fff;padding:5px;}
+.bg2 .text_box2 .title{font-size: 1.2rem;text-align: center;padding:5px 0;color:#ff9600;}
+.bg2 .text_box2 input{font-size: 1.1rem;padding-left:10px;box-sizing: border-box;}
+.bg2 .text_box2 .name{width:30%;}
+.bg2 .text_box2 .phone{width:39%;}
+.bg2 .text_box2 .place{width:81%;}
+.music_bt{position:absolute;width:8%;top:20px;right:20px;z-index: 999;}
+.zhuan{animation: zhuan 2s linear 0s infinite;}
+.bt_box{margin-top:2px;}
+.bt_box .inf{float:left;font-size: 1.0rem;}
+.bt_box .inf i{color:#ff9600;}
+.bt_box .bt{float:right;padding:2px 5px;background:#ff9600;border-radius: 3px;color:#fff;}
+.bg{width:100%;height:100%;background:rgba(0,0,0,0.6) url(../images/bg.png) no-repeat top right;background-size: 50%;position:fixed;top:0;left:0;z-index: 9999;display:none;}
+.bg_in{width:80%;height:100px;position:absolute;left:50%;margin-left:-40%;top:25%;}
+@keyframes zhuan{
+    0%{
+        -webkit-transform: rotate(0deg);
+           -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+             -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+
+    100%{
+        -webkit-transform: rotate(360deg);
+           -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+             -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
+}
+/*.ani{
+   transition-timing-function: linear;
+   -webkit-
+}*/
+.ani{   transition-timing-function: linear;
+   -webkit-}

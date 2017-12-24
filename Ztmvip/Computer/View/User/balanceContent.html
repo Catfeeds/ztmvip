@@ -1,0 +1,10 @@
+{__NOLAYOUT__}
+<if condition="$Think.post.state eq 'withdraw'">
+<volist name="account" id="vo">
+    <dd>金额：-{$vo['amount']|abs=###|round=###,2}元(<if condition="$vo.date_refuse gt 0">拒绝<elseif condition="$vo.date_pay gt 0"/>成功<else/>失败</if>)<span>{$vo['date_add']|date='Y.m.d',###}</span></dd>
+</volist>
+<else/>
+<volist name="account" id="vo">
+    <dd>金额：{$vo['amount']|abs=###|round=###,2}元(<if condition="$vo.date_pay gt 0">成功<else/>失败</if>)<span>{$vo['date_add']|date='Y.m.d',###}</span></dd>
+</volist>
+</if>

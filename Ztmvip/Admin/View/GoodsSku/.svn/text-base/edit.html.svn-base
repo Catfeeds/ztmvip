@@ -1,0 +1,171 @@
+<style type="text/css">
+    .article table.tbl > tbody > tr > td .min-text{ min-width:80px;width:80px;}
+</style>
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">类型名称</td>
+            <td><input name="sku_name" class="text" type="text" value="{$edit['sku_name']}" required="required" placeholder="请输入类型名称..."></td>
+        </tr>
+        <tr>
+            <td class="label">商品规格</td>
+            <td>
+                <table class="tbl skus" align="left" maxid="0">
+                    <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>类型</th>
+                        <th>默认值</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <if condition="$edit['skus']">
+                        <volist name="edit['skus']" id="vo">
+                            <tr>
+                                <td>
+                                    <a rel="insert" data-rel="sku">[+]</a>
+                                    <input name="_sku_name_{$vo['id']}" class="text min-text" type="text" value="{$vo['name']}">
+                                    <a rel="remove" data-rel="sku">[-]</a>
+                                </td>
+                                <td>
+                                    <label><input name="_sku_input_{$vo['id']}" type="radio" value="text"<if condition="$vo['input'] eq 'text'"> checked="checked"</if>> 自定义</label>
+                                    <label><input name="_sku_input_{$vo['id']}" type="radio" value="checkbox"<if condition="$vo['input'] eq 'checkbox'"> checked="checked"</if>> 多选</label>
+                                    <label><input name="_sku_input_{$vo['id']}" type="radio" value="radio"<if condition="$vo['input'] eq 'radio'"> checked="checked"</if>> 单选</label>
+                                </td>
+                                <td>
+                                    <volist name="vo['value']" id="v">
+                                    <span class="value">
+                                        <a rel="insert" data-rel="value">[+]</a>
+                                        <input name="_sku_value_{$vo['id']}" class="text min-text" type="text" value="{$v}">
+                                        <a rel="remove" data-rel="value">[-]</a>
+                                    </span>
+                                    </volist>
+                                </td>
+                            </tr>
+                        </volist>
+                        <else/>
+                        <tr>
+                            <td>
+                                <a rel="insert" data-rel="sku">[+]</a>
+                                <input name="_sku_name_0" class="text min-text" type="text">
+                                <a rel="remove" data-rel="sku">[-]</a>
+                            </td>
+                            <td>
+                                <label><input name="_sku_input_0" type="radio" value="text" checked="checked"> 自定义</label>
+                                <label><input name="_sku_input_0" type="radio" value="checkbox"> 多选</label>
+                                <label><input name="_sku_input_0" type="radio" value="radio"> 单选</label>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </if>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td><button type="submit" class="submit">提 交</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="__ROOT__/Public/Common/Ueditor/ueditor.config.js"></script>
+<script src="__ROOT__/Public/Common/Ueditor/ueditor.all.min.js"></script>
+<script>window.UEDITOR_CONFIG['serverUrl']="{:U('UploadFile/ueditor')}";</script>
+<script>
+    $('.js-edit').on('click','a[rel="insert"]',function(){
+        switch ($(this).attr('data-rel')){
+            case 'sku':
+                var tr = $(this).closest('tr').clone();
+                var maxid = parseInt($('table.skus').attr('maxid')) + 1;
+                tr.find(':text').attr('name','_sku_name_'+maxid).val('');
+                tr.find(':radio').attr('name','_sku_input_'+maxid).prop('checked',false).eq(0).prop('checked',true);
+                tr.find('span.value').remove();
+                $(this).closest('tr').after(tr);
+                $('table.skus').attr('maxid',maxid);
+                break;
+            case 'value':
+                var span = $(this).closest('span').clone();
+                span.find(':text').val('');
+
+                $(this).closest('span').after(span);
+                break;
+        }
+    }).on('click','a[rel="remove"]',function(){
+        switch ($(this).attr('data-rel')){
+            case 'sku':
+                $(this).closest('tr').remove();
+                break;
+            case 'value':
+                if ($(this).closest('td').find('span').length > 1)
+                    $(this).closest('span').remove();
+                break;
+        }
+    }).on('click',':radio[name^="_sku_input_"]',function(){
+        if ($(this).val() == 'text'){
+            $(this).closest('tr').find('span.value').remove();
+        }else{
+            $(this).closest('tr').find('td:last').html('<span class="value">' +
+                    '<a rel="insert" data-rel="value">[+]</a> ' +
+                    '<input name="_sku_value" class="text min-text" type="text"> ' +
+                    '<a rel="remove" data-rel="value">[-]</a>' +
+                    '</span>');
+        }
+    }).on('submit',function(event){
+        var data = Core.InputObj(this);
+
+        data['skus'] = [];
+
+        $('table.skus tbody tr').each(function(i,e){
+            if (!$(e).find('[name^="_sku_name_"]').val())
+                return;
+
+            var val = {
+                'id':parseInt($(e).find('[name^="_sku_name_"]').attr('name').replace(/_sku_name_/ig,'')),
+                'name':$(e).find('[name^="_sku_name_"]').val(),
+                'input':$(e).find(':checked[name^="_sku_input_"]').val(),
+                'value':''
+            };
+
+            if ($(e).find(':checked[name^="_sku_input_"]').val() != 'text'){
+                val['value'] = [];
+
+                $(e).find(':text[name="_sku_value_"]').each(function(j,k){
+                    if ($(k).val())
+                        val['value'].push($(k).val());
+                });
+            }
+
+            data['skus'].push(val);
+            delete(data[$(e).find(':text[name^="_sku_name_"]').attr('name')]);
+            delete(data[$(e).find(':checked[name^="_sku_input_"]').attr('name')]);
+            delete(data[$(e).find(':text[name^="_sku_value_"]').attr('name')]);
+        });
+
+        $.post('',data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.href = "{:U('index')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+
+    $('table.skus tbody tr').each(function(i,e) {
+        var maxid = parseInt($('table.skus').attr('maxid'));
+        var id = parseInt($(e).find('[name^="_sku_name_"]').attr('name').replace(/_sku_name_/ig,''));
+        if ( id > maxid )
+            $('table.skus').attr('maxid',id);
+    });
+</script>

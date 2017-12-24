@@ -1,0 +1,41 @@
+    <link rel="stylesheet" type="text/css" href="__CSS__swiper.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__new_mobile.css" media="(max-width:750px)" />
+    <link rel="stylesheet" type="text/css" href="__CSS__new_pad.css" media="(min-width:750px)">
+    <script type="text/javascript" src="__JS__swiper.jquery.min.js"></script>
+    <script type="text/javascript" src="__PJS__public.more.js"></script>
+    <script type="text/javascript" src="__JS__jquery.lazyload.min.js"></script>
+</head>
+<body>
+<!-- 头部开始 -->
+<div class="header_box">
+    <div class="header_title">{$newStarting.title}</div>
+    <a class="return" href="{:U('Index/index')}"><img src="__IMG__fh.jpg" alt="" /></a>
+</div>
+<!-- 内容开始 -->
+<article>
+    <div><img class="lazy" src="{$newStarting.image}" /></div>
+    <if condition="$Think.get.cat eq 1126">
+    <div><img class="bg" src="__IMG__nowbg_02.jpg" height="1118" width="750" alt="" /></div>
+    <div><img class="bg" src="__IMG__nowbg_03.jpg" height="1118" width="750" alt="" /></div>
+    <div><img class="bg" src="__IMG__nowbg_04.jpg" height="1118" width="750" alt="" /></div>
+    <div><img class="bg" src="__IMG__nowbg_05.jpg" height="1118" width="750" alt="" /></div>
+    </if>
+    <div class="good_box goods_box">
+
+    </div>
+</article>
+<div class="l_jiazai" id="loader" ><img src="__PIMG__/jiazai.png" alt="" /></div>
+<include file="Public/copy_right"/>
+</body>
+</html>
+<script type="text/javascript">
+    $(function() {
+        var cat_id = {$cat_id};
+        var brand_id = {$brand_id};
+        moreGoods({
+            url:'{:U("Goods/moreNewGoods")}',
+            cat_id:cat_id,
+            brand_id:brand_id
+        });
+    });
+</script>

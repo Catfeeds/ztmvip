@@ -1,0 +1,36 @@
+<div class="user_left">
+    <dl class="nav">
+        <dt class="dt1"><a href="{:U('User/order/index')}">个人中心</a></dt>
+        <dd><a href="{:U('User/order',array('state'=>'new'))}">待付款</a></dd>
+        <dd><a href="{:U('User/order',array('state'=>'payed'))}">待发货</a></dd>
+        <dd><a href="{:U('User/order',array('state'=>'receive'))}">待评价</a></dd>
+        <dd><a href="{:U('Account/deposit')}">充值</a></dd>
+        <dd><a href="{:U('Account/withdraw')}">申请提现</a></dd>
+
+        <dt>个人信息</dt>
+        <dd><a href="{:U('User/info')}">基本信息</a></dd>
+        <dd><a href="{:U('Region/address')}">收货地址</a></dd>
+
+        <dt>安全中心</dt>
+        <dd><a href="{:U('User/mobile')}">绑定手机</a></dd>
+        <dd><a href="{:U('User/bank')}">绑定银行卡</a></dd>
+        <dd><a href="{:U('User/payword')}">设置支付密码</a></dd>
+        <dd><a href="{:U('User/question')}">设置安全问题</a></dd>
+        <dd><a href="{:U('User/password')}">修改/忘记密码</a></dd>
+    </dl>
+</div>
+<script>
+    $(function(){
+        //左边导航样式
+        $('.user_left .nav').find('a').each(function(i,item){
+            var href = $(this).attr('href');
+            if(href.indexOf('.html')>0){
+                href = href.substr(0,href.indexOf('.html'));
+            }
+            var reg = new RegExp(href,'gim');
+            if(reg.test(String(window.location))){
+                $(this).parent().addClass('cur');
+            }
+        });
+    });
+</script>

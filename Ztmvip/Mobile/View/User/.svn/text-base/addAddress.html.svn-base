@@ -1,0 +1,137 @@
+<link rel="stylesheet" type="text/css" href="__CSS__/place_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="__CSS__/place_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="__PJS__/shanbumin.js"></script>
+</head>
+<body>
+
+<!-- 地址头部开始 -->
+<div class="header_box">
+    <div class="header_title">添加收货地址</div>
+    <a class="return" href="{:U('User/index')}"><img src="__IMG__fh.jpg" alt="" /></a>
+</div>
+<!-- 地址头部结束 -->
+<!-- 地址内容开始 -->
+
+<form action="{:U('User/doAddAddress')}" method="post">
+<div class="address_box">
+    <div class="columns">
+        收货人：
+        <input type="text" name="consignee" class="input" value="{$address.consignee}"  />
+    </div>
+    <div class="columns">
+        手机号：
+        <input type="text" name="mobile" class="input" value="{$address.mobile}" />
+    </div>
+    <div class="columns click">
+        省市区：
+    </div>
+<script type="text/javascript">
+    $('.click').click(function(event) {
+        $('.all').fadeIn();
+    });
+</script>
+    <div class="columns">
+        街道地址：
+        <input type="text" name="address" value="{$address.address}"  class="input"  />
+    </div>
+
+</div>
+<div class="footer">
+    <button class="place_bt" type="submit">确认添加</button>
+</div>
+
+<!-- 省市区选择块 -->
+<div class="layer_bg all" style="display:none">
+    <div class="layer_box">
+        <div class="title">选择省市区</div>
+        <div class="layer_list check1">
+            <div class="layer_name">省 份</div>
+            <div class="listbox">
+                <i>{$address.province}</i>
+                <div class="mark"></div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $('.check1').click(function(event) 
+            {
+                $('.province').fadeIn();
+            });  
+
+        </script>
+
+<!-- #################################################### -->
+        <div class="layer_list check2">
+            <div class="layer_name">城 市</div>
+            <div class="listbox">
+                <i>{$address.city}</i>
+                <div class="mark"></div>
+            </div>
+        </div>
+  
+<!-- ######################################################## -->
+        <div class="layer_list check3">
+            <div class="layer_name">区 域</div>
+            <div class="listbox">
+                <i>{$address.district}</i>
+                <div class="mark"></div>
+            </div>
+        </div>
+  <!--       <script type="text/javascript">
+            $('.check3').click(function(event) {
+                $('.area').fadeIn();
+            });
+        </script> -->
+<!-- ################################################################### -->
+        <div class="layer_btbox">
+            <div class="layer_bt">确 定</div>
+        </div>
+        <script type="text/javascript">
+             $('.layer_bt').click(function(event) {
+                 $('.layer_bg').fadeOut();
+                 $('.click').html("省市区："+$('.check1 i').text()+" "+$('.check2 i').text()+" "+$('.check3 i').text())
+             });
+        </script>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 省选择块 -->
+<div class="layer_bg province" style="display:none">
+    <div class="bg_box">
+
+    <volist name="province_list" id="value" key="key1">
+       <label for="province{$key1}" onclick="change_province(this);" >
+            <div class="box_in">{$value.region_name}</div>
+       </label>
+       <input type="radio" name="province" id="province{$key1}" value="{$value.region_name}"/>
+   </volist>
+ </div>
+</div>
+
+
+
+<!-- 市选择块 -->
+<div class="layer_bg city" style="display:none">
+  <include file="Public/city_list"/>
+</div>
+<!-- 区选择块 -->
+<div class="layer_bg area" style="display:none">
+   <include file="Public/district_list"/>
+</div>
+
+
+</form>
+</body>
+</html>

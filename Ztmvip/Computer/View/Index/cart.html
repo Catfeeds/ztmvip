@@ -1,0 +1,28 @@
+{__NOLAYOUT__}
+<span class="top_false"></span><p class="title">我的购物车</p>
+<div class="con">
+    <ul class="js-scroll">
+        <volist name="cart_list" id="value" key="key1">
+        <li>
+            <div class="img"><img src="__ROOT__{$value.goods_thumb}" alt="" /></div>
+            <p class="p1">{$value.goods_name}</p>
+            <if condition="$value[goods_attr][0][0]">
+                <p class="p2">
+                {$value[goods_attr][0][0]}:{$value[goods_attr][0][1]}
+                </p>
+            </if>
+            <if condition="$value[goods_attr][1][0]">
+            <p class="p3">
+                {$value[goods_attr][1][0]}:{$value[goods_attr][1][1]}
+            </p>
+            </if>
+            <p class="p4"><span>￥<i>{$value.goods_price}</i></span> ×<input type="text" value="{$value.goods_number}" /><button type="button">删除</button></p>
+        </li>
+        </volist>
+    </ul>
+    <script type="text/javascript">
+        var trade_ul_h=$('.index_right_nav').height()-115;
+        $('.index_right_nav .right .trade .con ul').height(trade_ul_h);
+    </script>
+</div>
+<div class ="bottom">合计：￥<if condition="$total['goods_price'] neq ''">{$total.goods_price}<else/>0</if> <a href="{:U('Cart/cart')}">去购物车结算</a></div>

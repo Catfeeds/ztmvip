@@ -1,0 +1,41 @@
+html{font-size:24px;font-family: "冬青黑体简体中文";height:100%;}
+body{height:100%;background:#F1F1F1;}
+.head_box{width:100%;max-width: 750px;position:fixed;top:0;background:#fff;z-index: 999;}
+.head{width:100%;height:88px;border-bottom: 1px solid #ccc;text-align: center;font-size: 1.4rem;line-height:88px;position:relative;}
+.head .return{width:18px;position:absolute;left:20px;top:26px;}
+.columns_box{width:100%;height:88px;border-bottom: 1px solid #ccc;}
+.columns_in{width:50%;height:88px;float:left;text-align: center;box-sizing: border-box;}
+.columns_in .columns{width:100%;font-size: 1.1rem;height:34px;line-height:34px;margin-top:26px;border-right: 1px solid #ccc;color:#7F7F7F;box-sizing: border-box;}
+.cur{border-bottom: 4px solid #E8C473;}
+.cur .columns{color:#252525;}
+article{padding-top:180px;}
+.list_box{min-height:80%;display: none;text-align: center;font-size: 1.4rem;color:#7F7F7F;line-height:400px;}
+.accord{display:block;}
+.list{overflow: hidden;border-bottom: 1px solid #7F7F7F;line-height:110px;height:110px;background:#fff;}
+.list:last-child{border:0;}
+.list .what{float:left;font-size: 1.2rem;color:#252525;margin-left: 20px;}
+.list .time{float:right;font-size: 1.0rem;color:#7F7F7F;margin-right: 20px;}
+.bt_box{width:100%;max-width:750px;position:fixed;bottom:0;padding:20px 0;text-align: center;}
+.bt{width:90%;height:88px;background:#E9C574;line-height:88px;font-size: 1.3rem;margin:0 auto;color:#fff;}
+.two{background:#fff;font-size: 1.1rem;}
+.two .bt1{width:37%;height:68px;line-height:68px;float:left;margin-left:10%;border: 1px solid #E9C574;color:#E9C574;box-sizing: border-box;}
+.two .bt2{width:37%;height:68px;line-height:68px;float:right;margin-right:10%;background:#E9C574;color:#fff;}
+.placeholder{height:108px;}
+
+.bg{width:100%;max-width:750px;height:100%;background:rgba(0,0,0,0.6);position:fixed;top:0;z-index: 999;display:none;}
+.remind{width:388px;height:116px;background:#fff;position:absolute;top:50%;margin-top:-58px;left:50%;margin-left:-194px;text-align: center;line-height: 116px;font-size: 1.3rem;}
+.bg .remind_box{width:90%;height:150px;top:50%;margin-top:-150px;font-size: 1.2rem;text-align: center;background:#fff;position:absolute;left:50%;margin-left:-45%;}
+.remind_box .text{line-height: 108px;margin-top: 40px;}
+.remindbt_box .remind_bt1{width:250px;height:80px;line-height:80px;float:left;border: 1px solid #E9C574;box-sizing: border-box;margin-left: 6%;color:#E9C574;}
+.remindbt_box .remind_bt2{width:250px;height:80px;line-height: 80px;float:right;background:#E9C574;box-sizing: border-box;margin-right: 6%;color:#fff;}
+.bg3 .remind_box{height:320px;margin-top:-160px;padding-top:40px;}
+.price_num{border:0;border-bottom: 1px solid #252525;width:158px;text-align: center;}
+.bg3 .remindbt_box{position:absolute;top:240px;width:100%;}
+.text_box{width:100%;position:absolute;top:60px;z-index: 20;}
+.text_password{width:524px;position:absolute;left:50%;margin-left:-262px;top:164px;text-align: left;line-height: 58px;}
+.text_password i{display:inline-block;width:288px;height:100%;position:absolute;background:url(../Images/password_bg.jpg) no-repeat center bottom;background-size: contain;}
+.text_password i input{width:288px;height:120px;border:0;font-size: 5rem;position:absolute;left:1px;top:-40px;background:none;letter-spacing:3px;opacity: 0;}
+.bg4 .remind_box{height:320px;margin-top:-160px;padding-top:40px;}
+.bg4 .remindbt_box{position:absolute;top:240px;width:100%;}
+.text_password i .dian{width:48px;height:100%;background:url(../Images/dian.jpg) no-repeat center 20px;background-size:50%;float:left;display:block;visibility:hidden;}
+.dian_cur{visibility:visible!important;}

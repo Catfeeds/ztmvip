@@ -1,0 +1,169 @@
+<link rel="stylesheet" type="text/css" href="__CSS__rebate_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="__CSS__rebate_pad.css" media="(min-width:750px)">
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        返利中心
+        <a class="return" href="{:U('User/index')}"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></a>
+    </div>
+</div>
+<!-- 内容 -->
+<article>
+    <div class="banner js-affiliate"><img src="__IMG__rebate_banner.jpg" height="450" width="750" alt="" /></div>
+    <div class="rebate_box">
+        <div class="rebate_inf">
+            累计实际提现佣金<br />
+            ￥{$affiliate_count['withdraw_money']*-1|sprintf='%.2f',###}
+        </div>
+        <div class="rebate_inf">
+            待审核提现佣金<br />
+            ￥{$affiliate_count['wait_money']*-1|sprintf='%.2f',###}
+        </div>
+        <div class="rebate_inf">
+            累计分享次数<br />
+            {:count($affiliate_count['share'])}次
+        </div>
+        <div class="rebate_inf">
+            累计顾客购买次数<br />
+            {$affiliate_count['sell']}次
+        </div>
+    </div>
+    <div class="list_box">
+        <div class="list">
+            <a href="{:U('users')}" style="display:block">
+            我的客户&nbsp
+            <i>{:count($affiliate_count['users'])}个</i>
+            <div class="jump" ><img src="__IMG__fhy2.jpg" height="24" width="13" alt="" /></div></a>
+        </div>
+        <div class="list">
+            <a href="{:U('log')}" style="display:block">
+            佣金明细&nbsp
+            <i>可提现佣金￥{$withdraw_money|sprintf='%.2f',###}</i>
+            <div class="jump" ><img src="__IMG__fhy2.jpg" height="24" width="13" alt="" /></div></a>
+        </div>
+    </div>
+</article>
+<div class="placeholder"></div>
+<!-- 提现输入层 -->
+<div class="bg bg3">
+    <form id="js-withdraw-form" class="remind_box" onsubmit="return false;">
+        <div class="text_box">
+            可提现金额：{$withdraw_money|sprintf='%.2f',###}元<br />
+            提现金额：<input name="money" type="number" class="price_num" maxlength="9" size="9" />元
+        </div>
+        <div class="text_password">
+            请输入支付密码：<i>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <input name="payment_password" type="password" maxlength="6" class="pass_num" />
+            </i>
+        </div>
+        <div class="remindbt_box">
+            <div class="remind_bt1">取 消</div>
+            <button class="remind_bt2" type="submit">确 定</button>
+        </div>
+    </form>
+</div>
+<!-- 转入输入层 -->
+<div class="bg bg4">
+    <form id="js-balance-form" class="remind_box" onsubmit="return false;">
+        <div class="text_box">
+            可转入金额：{$withdraw_money|sprintf='%.2f',###}元<br />
+            转入金额：<input name="money" type="number" class="price_num" maxlength="9" size="9" />元
+        </div>
+        <div class="text_password">
+            请输入支付密码：<i>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <span class="dian"></span>
+                <input name="payment_password" type="password" maxlength="6" class="pass_num" />
+            </i>
+        </div>
+        <div class="remindbt_box">
+            <div class="remind_bt1">取 消</div>
+            <button class="remind_bt2" type="submit">确 定</button>
+        </div>
+    </form>
+</div>
+<!-- 底部按钮 -->
+<div class="bt_box">
+    <div class="bt1 js_bt1">申请提现</div>
+    <div class="bt2 js_bt2">转入余额</div>
+</div>
+<img id="user-affiliate-im" src="__IMG__user_affiliate.png" style="height:100%;width:100%;display:none;position:absolute;z-index:9999;top:0;left:0;">
+<script type="text/javascript">
+    $('#js-withdraw-form,#js-balance-form').on('submit',function(){
+        var data = Core.InputObj(this);
+        data['action'] = $(this).is('#js-withdraw-form') ? 'withdraw' : 'balance';
+
+        $.post("{:U('withdraw')}",data,function(ret) {
+            if (ret.state){
+                Core.Alert({ 'text':ret.message,'callback':function(){
+                    location.reload();
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+
+    $('.pass_num').on('keyup',function(){
+    //这就是输入值的个数
+        var length=this.value.length;
+        //console.log(length);
+        $(this).siblings('.dian:lt('+(length)+')').addClass('dian_cur');
+        $(this).siblings('.dian:not(:lt('+(length)+'))').removeClass('dian_cur');
+    });
+    $('.bt').on('click',function(event) {
+        $('.bg').stop().fadeIn();
+        setTimeout(function(){
+            $('.bg').stop().fadeOut();
+        },2000)
+    });
+    $('.bg1').on('click',function(event) {
+        $('.bg1').stop().fadeOut();
+    });
+
+    $('.remind_bt1').on('click',function(event) {
+        $('#js-withdraw-form').find('input[name]').val('');
+        $('.pass_num').keyup();
+        $('.bg').stop().fadeOut();
+    });
+
+    $('.js_bt1').on('click',function(){
+        <if condition="!$user['payment_password'] || !$user['mobile'] || !$user['answer'] || !$user['bank_card']">
+        Core.Alert({ 'text':'抱歉，请先设置您的安全信息','state':'err','callback':function(){
+            location.href = "{:U('User/safetyAll','redirect='.base64_encode($_SERVER['HTTP_REFERER']))}";
+        } });
+        <else/>
+        $('.bg3').fadeIn();
+        </if>
+    });
+    $('.js_bt2').on('click',function(){
+        <if condition="!$user['payment_password'] || !$user['mobile'] || !$user['answer'] || !$user['bank_card']">
+                Core.Alert({ 'text':'抱歉，请先设置您的安全信息','state':'err','callback':function(){
+                    location.href = "{:U('User/safetyAll','redirect='.base64_encode($_SERVER['HTTP_REFERER']))}";
+                } });
+        <else/>
+        $('.bg4').fadeIn();
+        </if>
+    });
+    
+    $('.js-affiliate').on('click',function(){
+        $('#user-affiliate-im').show();
+    });
+    $('#user-affiliate-im').on('click',function(){
+        $(this).hide();
+    });
+</script>
+</body>
+</html>

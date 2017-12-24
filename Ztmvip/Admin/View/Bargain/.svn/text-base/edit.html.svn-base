@@ -1,0 +1,169 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <a class="button" href="{:U('index')}">返 回</a>
+    </span>
+</div>
+<form class="js-edit">
+    <table class="tbl" width="100%">
+        <tbody>
+        <tr>
+            <td class="label">砍价产品</td>
+            <td>
+                <input id="js-goods-search-txt" class="text" type="text" placeholder="搜索关键字...">
+                <p><select id="js-goods-search-select" name="goods_id" class="select" multiple="multiple" option="{$edit['goods_id']}" style="height:200px;margin-top:10px;min-width:300px;"></select></p>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">活动标题</td>
+            <td><input name="title" class="text" type="text" value="{$edit['title']}" required="required" placeholder="请输入活动标题..."></td>
+        </tr>
+        <tr>
+            <td class="label">商品标题</td>
+            <td><input name="goods_name" class="text" type="text" value="{$edit['goods_name']}" required="required" placeholder="请输入商品标题..."></td>
+        </tr>
+        <tr>
+            <td class="label">商品价格</td>
+            <td><input name="bargain_price" class="text" type="text" value="{$edit['bargain_price']}" required="required" placeholder="请输入开始价格..."></td>
+        </tr>
+        <tr>
+            <td class="label">中间价格</td>
+            <td><input name="middle_price" class="text" type="text" value="{$edit['middle_price']}" required="required" placeholder="请输入中间价格..."></td>
+        </tr>
+        <tr>
+            <td class="label">底价价格</td>
+            <td><input name="min_price" class="text" type="text" value="{$edit['min_price']}" required="required" placeholder="请输入底价价格..."></td>
+        </tr>
+        <tr>
+            <td class="label">开始时间</td>
+            <td><input name="bargain_start" class="text js-time" type="text" value="{$edit['bargain_start']?:time()|date='Y-m-d H:i',###}" required="required" placeholder="请选择开始时间..."></td>
+        </tr>
+        <tr>
+            <td class="label">结束时间</td>
+            <td><input name="bargain_end" class="text js-time" type="text" value="{$edit['bargain_end']?:time()+86400|date='Y-m-d H:i',###}" required="required" placeholder="请选择结束时间..."></td>
+        </tr>
+        <tr>
+            <td class="label">活动主图</td>
+            <td>
+                <if condition="$edit['bargain_image']">
+                    <p>
+                        <a href="{$edit['bargain_image']}" target="_blank"><img src="{$edit['bargain_image']}" height="120"></a>
+                        <input type="hidden" name="bargain_image" value="{$edit['bargain_image']}"><br><br>
+                    </p>
+                </if>
+                <button class="button js-upload-file" type="button" data-rel="image">上传图片</button>
+                <button class="button js-select-file" type="button" data-rel="image">相册选择</button>
+                (宽x高：571x340)
+            </td>
+        </tr>
+        <tr>
+            <td class="label">活动缩略图</td>
+            <td>
+                <if condition="$edit['bargain_thumb']">
+                    <p>
+                        <a href="{$edit['bargain_thumb']}" target="_blank"><img src="{$edit['bargain_thumb']}" height="120"></a>
+                        <input type="hidden" name="bargain_thumb" value="{$edit['bargain_thumb']}"><br><br>
+                    </p>
+                </if>
+                <button class="button js-upload-file" type="button" data-rel="thumb">上传图片</button>
+                <button class="button js-select-file" type="button" data-rel="thumb">相册选择</button>
+                (宽x高：182x121)
+            </td>
+        </tr>
+        <tr>
+            <td class="label">活动描述</td>
+            <td><textarea name="des" required="required" placeholder="请输入活动描述..." style="height:50px;width:98%;padding:5px;">{$edit['des']}</textarea></td>
+        </tr>
+        <tr>
+            <td class="label"></td>
+            <td><button type="submit" class="submit">提 交</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Public/Common/DateTimePicker/datetimepicker.css" />
+<script src="__ROOT__/Public/Common/DateTimePicker/datetimepicker.js"></script>
+<script>
+    $('.js-edit').on('submit',function(event){
+        $.post('',Core.InputObj(this),function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.href = "{:U('index')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+
+        return false;
+    });
+
+    $('#js-goods-search-txt').on('keypress',function(event){
+        if(event.keyCode == 13){
+            var data = {'words':$(this).val()};
+
+            $.post("{:U('Goods/search')}",data,function(ret){
+                var html = '';
+                var tpl = '<option value="{val}">{text}</option>';
+
+                $.each(ret,function(i,e){
+                    html += Core.FormatTpl(tpl,{'text': e.goods_name,'val':e.id});
+                });
+
+                $('#js-goods-search-select').html(html);
+            },'json');
+
+            event.preventDefault();
+        }
+    });
+
+    $('.js-time').datetimepicker({'format':'Y-m-d H:i'});
+
+    if ($('#js-goods-search-select').attr('option')){
+        var data = {'goods_id':$('#js-goods-search-select').attr('option')};
+
+        $.post("{:U('Goods/search')}",data,function(ret){
+            var html = '';
+            var tpl = '<option value="{val}" selected="selected">{text}</option>';
+
+            $.each(ret,function(i,e){
+                html += Core.FormatTpl(tpl,{'text': e.goods_name,'val':e.id});
+            });
+
+            $('#js-goods-search-select').html(html);
+        },'json');
+    }
+
+    $('.js-upload-file').on('mouseenter',function(){
+        var el = $(this);
+        el.upfile();
+        window.callback = function(ret){
+            var tpl = '<p>' +
+                    '<a href="{url}" target="_blank"><img src="{url}" height="120"></a>' +
+                    '<input type="hidden" name="bargain_{type}" value="{url}"><br><br>' +
+                    '</p>';
+
+            if (ret.state){
+                el.siblings('p').remove();
+                el.parent().prepend(Core.FormatTpl(tpl,{ 'type':el.attr('data-rel'),'url':ret.url }));
+            }else{
+                Core.Alert({'text':ret.message,'state':'err'});
+            }
+        }
+    });
+
+    $('.js-select-file').on('click',function(){
+        var el = $(this);
+        el.selfile();
+        window.callback = function(ret){
+            var tpl = '<p>' +
+                    '<a href="{url}" target="_blank"><img src="{url}" height="120"></a>' +
+                    '<input type="hidden" name="bargain_{type}" value="{url}"><br><br>' +
+                    '</p>';
+
+            el.siblings('p').remove();
+            el.parent().prepend(Core.FormatTpl(tpl,{ 'type':el.attr('data-rel'),'url':ret.url }));
+            Core.Frame({'close':true});
+        }
+    });
+</script>

@@ -1,0 +1,41 @@
+{__NOLAYOUT__}
+<span class="top_false"></span><p class="title">我的红包</p>
+<ul class="xuanzhe">
+    <li class="li1"><a href="javascript:;" class="this">未使用({$bonus_count['new']})</a></li>
+    <li class="li2"><a href="javascript:;">已使用({$bonus_count['used']})</a></li>
+    <li class="li3"><a href="javascript:;">已过期({$bonus_count['expired']})</a></li>
+</ul>
+<div class="con1">
+    <ul class="js-scroll">
+        <!-- 未使用红包 -->
+        <volist name="bonus" id="vo">
+        <li class="ajax_hongbao{$bonus_type}_display">
+            <div class="hongbao{$bonus_type}">
+                <span><i>{$vo['money']|sprintf='%d',###}</i>元</span>
+            </div>
+            <p class="date">{$vo['use_start']|date='Y-m-d',###} —— {$vo['use_end']|date='Y-m-d',###}</p>
+        </li>
+        </volist>
+
+        <!-- 已使用红包 -->
+        <!--<volist name="bonus_used" id="vo">
+        <li class="ajax_hongbao{$bonus_type}_display" style="display:none;">
+            <div class="hongbao{$bonus_type}">
+                <span><i>{$vo['money']|sprintf='%d',###}</i>元</span>
+            </div>
+            <p class="date">{$vo['use_start']|date='Y-m-d',###} —— {$vo['use_end']|date='Y-m-d',###}</p>
+        </li>
+        </volist>-->
+
+        <!-- 已过期红包 -->
+        <!--<volist name="bonus_expired" id="vo">
+        <li class="ajax_hongbao{$bonus_type}_display" style="display:none;">
+            <div class="hongbao3">
+                <span><i>{$vo['money']|sprintf='%d',###}</i>元</span>
+            </div>
+            <p class="date">{$vo['use_start']|date='Y-m-d',###} —— {$vo['use_end']|date='Y-m-d',###}</p>
+        </li>
+        </volist>-->
+    </ul>
+</div>
+<p class="text"><a href="{:U('User/bonusDes')}" >红包使用说明>></a></p>

@@ -1,0 +1,14 @@
+<notempty name="goods">
+
+<volist name="goods" id="val">
+<div class="goods">
+    <a href="{:U('Goods/detail',array('goods_id'=>$val['id']))}">
+        <div class="li"><img class="lazy" data-original="{$val.goods_thumb}_360x440.jpg" src="__IMG__lastbg.jpg" />
+        <p class="p1">￥{$val.shop_price}</p>
+        <p class="p2">{$val.goods_name}</p>
+        </div>
+    </a>
+</div>
+</volist>
+
+</notempty>

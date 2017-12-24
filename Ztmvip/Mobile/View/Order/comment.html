@@ -1,0 +1,115 @@
+    <link rel="stylesheet" type="text/css" href="__CSS__submit_same_mobile.css" media="(max-width:750px)" />
+    <link rel="stylesheet" type="text/css" href="__CSS__submit_same_pad.css" media="(min-width:750px)">
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        发表评论
+        <a class="return" href="{:U('User/order')}"><img src="__IMG__fh.jpg" height="37" width="18" alt="" /></a>
+    </div>
+</div>
+<!-- 内容 -->
+<article id="js-form">
+    <volist name="order['goods']" id="vo">
+        <div class="goods_box">
+            <div class="goods_in">
+                <div class="goods_photo"><img src="{$vo['goods_thumb']}_360x440.jpg" height="440" width="360" alt="" /></div>
+                <div class="goods_inf">
+                    <div class="title">{$vo['goods_name']}</div>
+                    <div class="price">
+                        ￥<i>{$vo['goods_price']}</i>
+                        <div class="left">x1</div>
+                    </div>
+                    <div class="inf_other"><?php
+                    if ( $vo['different'] == 'new' ){
+                        $vo['skus'] = json_decode($vo['skus'],true);
+                        foreach ( $vo['skus'] as $skus ){
+                            echo $skus[0] .'：'. $skus[1] .' ';
+                        }
+                    }else{
+                        echo $vo['skus'];
+                    }
+                    ?></div>
+                    <div class="other_box">
+                        订单号：{$order['order_sn']}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="inf_box">
+            <div class="score_box">
+                <div class="name">评分：</div>
+                <div class="score_in">
+                    <div class="score cur"></div>
+                    <div class="score"></div>
+                    <div class="score"></div>
+                    <div class="score"></div>
+                    <div class="score"></div>
+                    <input name="level_{$vo['goods_id']}" type="hidden" value="1">
+                </div>
+            </div>
+            <div class="title">评价</div>
+            <div class="text_box">
+                <span class="dian"></span>
+                <textarea name="content_{$vo['goods_id']}" class="text" maxlength="150"></textarea>
+            </div>
+            <div class="text_inf">还可以输入150个字</div>
+        </div>
+    </volist>
+</article>
+<div class="placeholder"></div>
+<!-- 底部按钮 -->
+<div class="bt_box">
+    <div class="bt">发表评论</div>
+</div>
+<script type="text/javascript">
+    $('.score').on('click',function(event) {
+        var score = $(this).parent().find('.score');
+        var selfIndex = $(this).index();
+        score.filter(':lt('+(selfIndex+1)+')').addClass('cur');
+        score.filter(':gt('+selfIndex+')').removeClass('cur');
+        $(this).siblings(':hidden[name^="level_"]').val(selfIndex+1);
+    });
+    $(function() {
+        $(".text").keyup(check);
+        $("body").mousedown(check);
+    });
+
+    function check() {
+        var str = $(".text").val();
+        var len = strlen(str);
+        var info = 150 - len;
+        info = info + "";
+        if (info.indexOf('.') > 0)
+            info = info.substring(0, info.indexOf('.'));
+        if (len <= 150) {
+            $(".text_inf").html("还可以输入"+info+"个字");
+        }
+    }
+
+    function strlen(str) {
+        var str = (str + '').replace(/(\s+)$/g, '').replace(/^\s+/g, '');
+        var len = 0;
+        for (var i = 0; i < str.length; i++) {
+            len += str.charCodeAt(i) > 0 && str.charCodeAt(i) < 255 ? 0.5 : 1;
+        }
+        return len;
+    }
+
+    $('.bt').on('click',function(event) {
+        var data = Core.InputObj($('#js-form'));
+
+        $.post('',data,function(ret){
+            if (ret.state){
+                Core.Alert({ 'text':ret.message,'callback':function(){
+                    location.href = "{:U('User/index')}";
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+</script>
+</body>
+</html>

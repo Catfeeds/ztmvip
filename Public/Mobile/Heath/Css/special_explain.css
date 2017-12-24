@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* CSS Document */
+
+.special_explain{ background:#fff;}
+.special_explain .price{ height:44px; line-height: 44px; background:rgba(0,0,0,.8); padding: 0px 10px;}
+.special_explain .price1{height:44px;}
+.special_explain .position{ position: fixed;top:46px; width:100%; z-index: 5;}
+.special_explain .price p{ font-size: 15px; color: #fff;}
+.special_explain .price button{ background:#e9c574; width:139px; height:34px; float: right; margin-top: 5px; font-size: 15px; color:#fff; font-weight: 600;}
+
+
+.special_explain h1{ height:45px; line-height: 45px; font-size: 15px; color:#252525; margin-top: 10px; border-bottom:1px solid #dddddd; background:#fff; padding:0px 10px; }
+.special_explain p.text{ background:#fff; color:#808080; padding:7px 10px 17px; font-size: 15px; line-height: 1.26em;}
+.special_explain p.text i{color:#252525; background:#fff;}
+.special_explain .consultant{padding:10px 10px 20px; overflow: hidden; background:#fff;}
+.special_explain .consultant img{ width:100px; float:left; padding-right: 10px;}
+.special_explain .consultant h2{ font-size: 14px; color:#252525; padding:6px 0px;}
+.special_explain .consultant p{color:#808080; }
+.special_explain .consultant h3{ color:#252525; padding-top: 10px; padding-bottom: 5px; font-size: 11px;}
+.special_explain h1.h1{ margin-top: 0px; border-top:1px solid #dddddd; clear:both;}
+
+.special_explain .text { background:#fff; padding:5px 10px 20px;}
+.special_explain .text p{ color:#808080; font-size: 15px; line-height: 20px;}
+.special_explain .text h3{ padding-top: 18px; padding-bottom: 2px;}
+
+.special_share{ padding: 0px 10px;}
+.special_share .container{ overflow: hidden; padding-top: 10px;}
+.special_share .container img{float: left; padding-right: 10px; width:48%; max-width: 355px;}
+.special_share .container p{ padding-top: 5px; color:#808080; font-size: 12px; line-height: 1.2em;}
+.weixin a{ color:#252525; font-size: 16px; display: inline-block;
+vertical-align: top; height:44px; line-height: 44px; text-align: center; width:100%;margin-top: 20px; border:1px solid #dddddd; border-width: 1px 0px;}
+
+.special_explain .shaer_20151218 h3{ font-size: 15px; color:#252525; padding-top: 25px; padding-bottom: 15px; line-height: 1em; border-bottom: 1px solid #dddddd; padding-left: 10px; margin-bottom: 10px;}
+.special_explain .shaer_20151218 ul{ padding-left: 11%; padding-right: 11%;}
+.special_explain .shaer_20151218 ul li{ width:50%; float: left;}
+.special_explain .shaer_20151218 ul li img{ width:86%; margin:auto;}
+.special_explain .shaer_20151218 ul li p{ text-align: center; padding-top: 11px; padding-bottom: 25px; font-size: 12px;}
+
+
+
+
+@-webkit-keyframes donghua {
+    0% { left:5px; }
+    100% { left:15px; }
+}
+@-moz-keyframes donghua {
+    0% { left:5px; }
+    100% { left:15px; }
+}
+@-ms-keyframes donghua {
+    0% { left:5px; }
+    100% { left:15px; }
+}
+@-o-keyframes donghua {
+    0% { left:5px; }
+    100% { left:15px; }
+}
+@keyframes donghua {
+    0% { left:5px; }
+    100% { left:15px; }
+}
+.weixin a img{ width:15px; height:8px; display: inline-block; vertical-align: top;zoom: 1; /* Fix for IE7 */*display: inline; /* Fix for IE7 */  position: relative;top:18px; left:11px;
+-webkit-animation: donghua 1s linear 0s infinite normal;
+   -moz-animation: donghua 1s linear 0s infinite normal;
+    -ms-animation: donghua 1s linear 0s infinite normal;
+     -o-animation: donghua 1s linear 0s infinite normal;
+        animation: donghua 1s linear 0s infinite normal;}
+.weixin h2{ font-weight: 400; width:100%; text-align: center; font-size: 16px; color:#252525; line-height: 1em; padding-top: 20px; display:block; padding-bottom: 10px; margin:auto;}
+.weixin .img{ width:68%; margin:auto;}
+
+
+
+
+
+@media (max-width:750px){  
+
+}
+
+@media (max-width:640px){  
+
+}
+@media (max-width:480px){
+    
+}
+@media (max-width:414px){ /* iPhone 6 Plus */
+
+}
+@media (max-width:375px){ /* iPhone 6 */
+    
+}
+@media (max-width:360px){ /* Sansung S3 / s4 */
+    .special_text .h2,.special_text ul li p{ font-size: 11.5px;}
+}
+@media (max-width:320px){ /* iPhone 5 */
+    
+}
+
+
+
+
+/*20151231*/
+.border_b{ border-bottom: none !important;}
+.character{ height:100px; border:1px solid #e3e3e4; border-width: 1px 0px;}
+.character ul{ height:100px;}
+.character li{  float: left; padding-left: 10px; padding-top: 10px;  padding-bottom: 10px;}
+.character li .img{height:78px; width:78px; float: left; border-radius:100px; overflow: hidden; border:2px solid #dddddd; margin-right: 10px;}
+.character li .p1{ font-size: 11px; color:#252525; line-height: 22px; height:22px;}
+.character li .p2{ font-size: 10px; line-height: 12px; height:14px; padding-bottom: 2px; padding-top: 2px;overflow:hidden;
+text-overflow:ellipsis;
+white-space :nowrap;
+} 
+.character li .p3{  font-size: 10px; line-height: 13px; height:33px;}

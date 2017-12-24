@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>女性整体美解决方案领导者</title>
+<link rel="stylesheet" type="text/css" href="Css/base.css" />
+<link rel="stylesheet" type="text/css" href="Css/privilege_same_mobile.css" media="(max-width:750px)" />
+<link rel="stylesheet" type="text/css" href="Css/privilege_same_pad.css" media="(min-width:750px)">
+<script type="text/javascript" src="Js/jquery.js"></script>
+</head>
+<body>
+<!-- 网站头部 -->
+<div class="head_box">
+    <div class="head">
+        我的优惠券
+        <div class="return"><img src="Images/fh.jpg" height="37" width="18" alt="" /></div>
+        <div class="prompt"><img src="Images/qicon.jpg" height="40" width="40" alt="" /></div>
+    </div>
+    <div class="columns_box">
+        <div class="columns_in cur">
+            <div class="columns">未使用(3)</div>
+        </div>
+        <div class="columns_in">
+            <div class="columns">已使用(3)</div>
+        </div>
+        <div class="columns_in">
+            <div class="columns">已过期(3)</div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('.columns_in').on('click',function(event) {
+            $(this).addClass('cur').siblings().removeClass('cur');
+        });
+
+    </script>
+</div>
+<!-- 内容 -->
+<article>
+<div class="bg_color">
+    <!-- 未使用 -->
+    <div class="cou_box acc">
+        <div class="cou_in">
+            <img src="Images/cou_wy.jpg" height="301" width="711" alt="" />
+            <div class="money"><i>30</i>元<u>&nbsp[满40元可用]</u></div>
+            <div class="time">2015-11-2——2015-11-11</div>
+        </div>
+        <div class="cou_in">
+            <img src="Images/cou_wy.jpg" height="301" width="711" alt="" />
+            <div class="money"><i>30</i>元<u>&nbsp[满40元可用]</u></div>
+            <div class="time">2015-11-2——2015-11-11</div>
+        </div>
+        <div class="cou_in">
+            <img src="Images/cou_wy.jpg" height="301" width="711" alt="" />
+            <div class="money"><i>30</i>元<u>&nbsp[满40元可用]</u></div>
+            <div class="time">2015-11-2——2015-11-11</div>
+        </div>
+    </div>
+    <!-- 已使用 -->
+    <div class="cou_box two">
+        <div class="cou_in">
+            <img src="Images/cou_yy.jpg" height="301" width="711" alt="" />
+            <div class="money"><i>30</i>元<u>&nbsp[满40元可用]</u></div>
+            <div class="time">2015-11-2——2015-11-11</div>
+            <div class="inf">已使用</div>
+        </div>
+        <div class="cou_in">
+            <img src="Images/cou_yy.jpg" height="301" width="711" alt="" />
+            <div class="money"><i>30</i>元<u>&nbsp[满40元可用]</u></div>
+            <div class="time">2015-11-2——2015-11-11</div>
+            <div class="inf">已使用</div>
+        </div>
+        <div class="cou_in">
+            <img src="Images/cou_yy.jpg" height="301" width="711" alt="" />
+            <div class="money"><i>30</i>元<u>&nbsp[满40元可用]</u></div>
+            <div class="time">2015-11-2——2015-11-11</div>
+            <div class="inf">已使用</div>
+        </div>
+    </div>
+    <!-- 已过期 -->
+    <div class="cou_box two">
+        <div class="cou_in">
+            <img src="Images/cou_yy.jpg" height="301" width="711" alt="" />
+            <div class="money"><i>30</i>元<u>&nbsp[满40元可用]</u></div>
+            <div class="time">2015-11-2——2015-11-11</div>
+            <div class="inf">已过期</div>
+        </div>
+        <div class="cou_in">
+            <img src="Images/cou_yy.jpg" height="301" width="711" alt="" />
+            <div class="money"><i>30</i>元<u>&nbsp[满40元可用]</u></div>
+            <div class="time">2015-11-2——2015-11-11</div>
+            <div class="inf">已过期</div>
+        </div>
+        <div class="cou_in">
+            <img src="Images/cou_yy.jpg" height="301" width="711" alt="" />
+            <div class="money"><i>30</i>元<u>&nbsp[满40元可用]</u></div>
+            <div class="time">2015-11-2——2015-11-11</div>
+            <div class="inf">已过期</div>
+        </div>
+    </div>
+    
+</div>
+</article>
+<!-- 版权 -->
+    <div class="copyright">
+        &copy整体美商城<br />
+        客服电话：400-777-1225<br />
+        客服微信：HRlianna
+    </div>
+<!-- 红包说明弹层 -->
+<div class="bg">
+    <div class="ts_box">
+        <img src="Images/hbt.jpg" height="139" width="556" alt="" />
+        <div class="text">
+            <h3>专享红包</h3>
+            <h4>·····使用说明·····</h4>
+            1.本红包可在整体美商城在线支付时使用，红包领取后3日内有效。<br />
+            2.本红包仅限单次使用，一经使用不可退回。<br />
+            3.红包与整体美商城优惠券不可叠加使用；用户购买的商品价格满200元即可进行红包分享，分享金额100元，分享的红包仅限被领取10次。<br />
+            4.使用红包购买的商品，进行退款退货时仅限退还非红包部分金额。
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('.columns_in').on('click',function(event) {
+        var index = $(this).index()
+        $('.cou_box').eq(index).addClass('acc').siblings().removeClass("acc");
+    });
+    $('.prompt').on('click',function(event) {
+        $(".bg").stop().fadeIn()
+    });
+    $('.bg').on('click',function(event) {
+            $(".bg").stop().fadeOut()
+        });
+</script>
+</body>
+</html>

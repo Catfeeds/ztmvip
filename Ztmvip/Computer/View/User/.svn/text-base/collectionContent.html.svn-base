@@ -1,0 +1,20 @@
+{__NOLAYOUT__}
+<if condition="!$favor_type">
+    <volist name="favor" id="vo">
+        <li class="ajax_li1">
+            <div class="img"><img src="{$vo['goods_thumb']}_360x440.jpg" alt="" /></div>
+            <p class="p1">{$vo['goods_name']}</p>
+            <p class="p2"><span>￥</span>{:($vo['shop_price']==intval($vo['shop_price'])?intval($vo['shop_price']):$vo['shop_price'])}</p>
+            <p class="p3">删除</p>
+        </li>
+    </volist>
+    <else />
+    <volist name="favor" id="vo">
+        <li class="ajax_li2" style="display:none;">
+            <div class="img"><img src="{$vo['article_thumb']}" alt="" /></div>
+            <p class="p1">{$vo['title']}</p>
+            <p class="p2"></p>
+            <p class="p3">删除</p>
+        </li>
+    </volist>
+</if>

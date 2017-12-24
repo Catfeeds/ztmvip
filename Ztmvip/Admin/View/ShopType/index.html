@@ -1,0 +1,79 @@
+<div class="art-nav">
+    <h2>{$page_title}</h2>
+    <span class="right">
+        <form method="get" action="{:U('')}">
+            <input name="shop_name" class="text" type="text" value="{$Think.get.type_name}" placeholder="ID/类型名称搜索...">
+            <button class="button" type="submit">搜 索</button>
+        </form>
+        <a class="button" href="{:U('edit')}">新 增</a>
+    </span>
+</div>
+<table class="tbl js-list" width="100%">
+    <thead>
+    <tr>
+        <th width="20"><input type="checkbox"></th>
+        <th width="60">ID</th>
+        <th>类型名称</th>
+        <th>父类型</th>
+        <th width="150">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <if condition="$list">
+        <volist name="list" id="vo">
+            <tr>
+                <td align="center"><input name="id" type="checkbox" value="{$vo['id']}"></td>
+                <td align="center">{$vo['id']}</td>
+                <td>{$vo['type_name']}</td>
+                <td>{$vo['parent_type']}</td>
+                <td align="center">
+                    <if condition="$vo['display'] eq 'Y'">
+                        <a class="js-hidden" href="javascript:;">隐藏</a>
+                        <else/>
+                        <a class="js-show" href="javascript:;">显示</a>
+                    </if>
+                    <a href="{:U('edit','id='.$vo['id'])}">修改</a>
+                </td>
+            </tr>
+        </volist>
+        <else/>
+        <tr>
+            <td colspan="5" align="center">暂无数据</td>
+        </tr>
+    </if>
+    </tbody>
+</table>
+<footer class="footer">
+    <button class="button js-show-submit">批量显示</button>
+    <button class="button js-hidden-submit">批量隐藏</button>
+    {$page_show}
+</footer>
+<script>
+    $('.art-nav form input[name]').on('keypress',function(event){
+        if(event.keyCode == 13){
+            this.form.submit();
+            event.preventDefault();
+        }
+    });
+
+    $('.js-list').on('click','.js-show,.js-hidden',function(event){
+        $(event.delegateTarget).find('tbody :checkbox').prop('checked',false);
+        $(this).closest('tr').find(':checkbox').click();
+        $('.'+ $(this).attr('class') +'-submit').click();
+    });
+
+    $('.js-show-submit,.js-hidden-submit').on('click',function(){
+        var data = Core.InputObj($('.js-list'));
+        data['action'] = $(this).attr('class').indexOf('show') != -1 ? 'show' : 'hidden';
+
+        $.post("{:U('prop')}",data,function(ret){
+            if ( ret.state ){
+                Core.Alert({ 'text':ret.message,'state':'suc','callback':function(){
+                    location.reload();
+                } });
+            }else{
+                Core.Alert({ 'text':ret.message,'state':'err' });
+            }
+        },'json');
+    });
+</script>

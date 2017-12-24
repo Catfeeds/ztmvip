@@ -1,0 +1,29 @@
+
+    <link rel="stylesheet" type="text/css" href="__PCCSS__/goods_list.css" />
+
+  </head>
+  <body>
+
+<include file="Public/top"/>
+<!-- logo直到导航  结束 -->
+
+
+<div class="goods_list_banner"><img src="__PCIMG__good_list_07.png" alt="" /></div>
+<h1>{$advert_title}</h1>
+<div class="good_container">
+    <ul class="list">
+
+    <volist name="goods_list" id="value">
+        <li>
+           <a href="{:U('Goods/detail',array('goods_id'=>$value['id']))}">
+            <img src="__ROOT__{$value.goods_thumb}_360x440.jpg" alt="" height="289" width="238" />
+            <p class="p1"> {$value.goods_name|subtext=20}</p>
+            <p class="p2"><span>￥{$value.market_price}</span>￥<i>{$value.shop_price}</i></p>
+            </a>
+        </li>
+    </volist>
+    </ul>
+    <ul class="index">
+        {$page_show}
+    </ul>
+</div>

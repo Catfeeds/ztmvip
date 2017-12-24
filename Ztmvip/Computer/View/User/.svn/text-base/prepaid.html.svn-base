@@ -1,0 +1,14 @@
+{__NOLAYOUT__}
+<span class="top_false"></span><p class="title">我的储值卡</p>
+
+<div class="con">
+    <ul class="js-scroll">
+        <volist name="prepaid" id="vo">
+        <li><p>{$vo['prepaid_sn']}</p></li>
+        </volist>
+    </ul>
+
+    <script type="text/javascript">
+        $('.index_right_nav .right .save .con ul').height($('.index_right_nav').height()-49);
+    </script>
+</div>
