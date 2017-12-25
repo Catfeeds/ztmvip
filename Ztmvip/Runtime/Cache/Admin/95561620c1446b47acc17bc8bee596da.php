@@ -49,8 +49,8 @@
     <dl class="list">
         <dd index="1"><span class="iconfont2">&#xe63d;</span>&nbsp;&nbsp;订单管理</dd>
         <?php if(check_admin_rights('order',false)): ?><dt><a href="<?php echo U('Order/index');?>">订单记录</a></dt>
-            <!--<dt><a href="<?php echo U('Order/index','shop=ztm');?>">商城订单</a></dt>
-            <dt><a href="<?php echo U('Order/index','shop=shop');?>">店铺订单</a></dt>--><?php endif; ?>
+            <dt><a href="<?php echo U('Order/index','shop=ztm');?>">商城订单</a></dt>
+            <dt><a href="<?php echo U('Order/index','shop=shop');?>">店铺订单</a></dt><?php endif; ?>
     </dl>
 
     <dl class="list">
@@ -85,6 +85,7 @@
         <dd index="2"><span class="iconfont2">&#xe664;</span>&nbsp;&nbsp;广告管理</dd>
         <dt><a href="<?php echo U('Advert/indexBanner');?>">首页Banner</a></dt>
         <dt><a href="<?php echo U('Advert/indexFashion');?>">首页潮流趋势</a></dt>
+        <dt><a href="<?php echo U('Advert/indexShare');?>">首页热点分享</a></dt>
         <dt><a href="<?php echo U('Advert/newStarting');?>">新品首发</a></dt>
         <dt><a href="<?php echo U('Advert/specialBuy');?>">特卖专区</a></dt>
         <dt><a href="<?php echo U('Advert/brandPavilion');?>">品牌馆</a></dt>
@@ -155,7 +156,7 @@
     <?php if($list): if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
                 <td align="center"><input name="id" type="checkbox" value="<?php echo ($vo['id']); ?>"></td>
                 <td align="center"><?php echo ($vo['id']); ?></td>
-                <td><a href="http://www.online.com<?php echo U('Goods/detail','goods_id='.$vo['id']);?>" target="_blank"><?php echo ($vo['goods_name']); ?></a></td>
+                <td><a href="http://www.ztmvip.com<?php echo U('Goods/detail','goods_id='.$vo['id']);?>" target="_blank"><?php echo ($vo['goods_name']); ?></a></td>
                 <td><?php echo ($vo['category_name']); ?></td>
                 <td><?php echo ($vo['brand_name']); ?></td>
                 <td><del><?php echo ($vo['market_price']); ?></del></td>

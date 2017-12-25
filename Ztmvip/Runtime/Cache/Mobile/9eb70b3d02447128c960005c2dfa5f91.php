@@ -104,6 +104,7 @@
 		var li=document.getElementById("ul").getElementsByTagName("li")
 		for(var i=0;i<li.length;i++){
 			li[i].onclick=function(){
+				$('input[name=search]').val($(':hidden[name=word]').val());
 				for(var j=0;j<li.length;j++){
 					li[j].className="";
 				}
@@ -154,6 +155,8 @@
 			$(':hidden[name=brand_id]').val('');
 			$(':hidden[name=word]').val(word);
 			$(':hidden[name=is_search]').val('true');
+			$(':hidden[name=price_start]').val('');
+			$(':hidden[name=price_end]').val('');
 
 			getCatGoods();
 		});
@@ -320,9 +323,6 @@ $(".shaixuan_pos .container").on('click',function(){
 });
 //取消
 $('.sx_top span').on('click',function(){
-	// $(".shaixuan_pos dl").find('dd.this').removeClass('this');
-	// $('input[name=price_start_text]').val('');
-	// $('input[name=price_end_text]').val('');
 	$('.shaixuan_pos').css({"display":"none"});
 });
 //重置

@@ -239,7 +239,7 @@
             <!-- 星星 -->
 
                 <div class="left">
-                    <?php $__FOR_START_21178__=0;$__FOR_END_21178__=$value["level"];for($i=$__FOR_START_21178__;$i < $__FOR_END_21178__;$i+=1){ ?><div class="star"><img src="/Public/Mobile/Images/star.gif" alt="" /></div><?php } ?>
+                    <?php $__FOR_START_186044657__=0;$__FOR_END_186044657__=$value["level"];for($i=$__FOR_START_186044657__;$i < $__FOR_END_186044657__;$i+=1){ ?><div class="star"><img src="/Public/Mobile/Images/star.gif" alt="" /></div><?php } ?>
                 </div>
                 <div class="right">
                     <!-- 用户名 -->

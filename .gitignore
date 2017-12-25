@@ -1,0 +1,6 @@
+#######  added by sam
+.idea
+.DS_Store
+.svn
+.cvs
+*.log

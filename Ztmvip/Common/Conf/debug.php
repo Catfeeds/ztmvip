@@ -1,8 +1,8 @@
 <?php
 return array(
 
-    'DB_PWD' => '123456', 
-    'DB_HOST' => '192.168.0.11',
+    'DB_PWD' => 'root',
+    'DB_HOST' => '127.0.0.1',
 
     //MongoDB连接配置
     'MONGO' => array(
@@ -15,7 +15,7 @@ return array(
 
     'MEMCACHED' => array(
         'prefix'=>"pc_",
-         'host'=>'192.168.0.11',
+         'host'=>'127.0.0.1',
          'port' => '11211',
          'expire'=>60,
         ),
