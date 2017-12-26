@@ -4,3 +4,7 @@
 .svn
 .cvs
 *.log
+debug.php
+Runtime
+
+
