@@ -6,11 +6,30 @@
 namespace Computer\Controller;
 class SearchController extends BaseController
 {
+
+
+    public function index($word){
+
+        try{
+            E('该高级搜索用到了中文分词sphinx,未检测到您安装中文分词工具,所以暂不支持高级检索');
+
+        }catch(\Think\Exception $e){
+              $this->assign('error',$e->getMessage());
+         }
+
+        $this->assign('page_title','与“'. $word .'”相关的商品 ');
+        $this->display();
+
+
+
+      }
+
+
     /**
      *  首页搜索
      * @param $word
      */
-    public function index($word){
+    public function index2($word){
         $word = trim($word);
         $page_size = 40;
 
