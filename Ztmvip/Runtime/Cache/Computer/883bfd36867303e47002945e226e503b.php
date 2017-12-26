@@ -1,1 +1,0 @@
-<?php if (!defined('THINK_PATH')) exit();?>您好！您的手机短信验证码为 <?php echo ($code); ?> ，如非本人操作，请忽略本条消息
