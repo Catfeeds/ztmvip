@@ -314,6 +314,7 @@ function flowOrderInfo($unique)
                 $result['code']='fail';
                 break;
           default:
+              die($error);
                $result['code']='grammar'; 
             break;
 

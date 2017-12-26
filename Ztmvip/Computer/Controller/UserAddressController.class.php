@@ -51,17 +51,18 @@ public function doAddConsignee()
     $address=I('post.');
     $result=array('code'=>'suc');
     try{
-        if (!D('UserAddress')->checkConsigneeInfo($address)) 
+        if (!D('UserAddress')->checkConsigneeInfo($address))
            E('stop');
            $add_id=D('UserAddress')->doAddConsignee($address);
           if(!$add_id)
             E('fail');
           if($address['is_default']=='Y'){
-              session('choose_address_id',$address_id);
+              session('choose_address_id',$add_id);
           }
           
     }catch(\Think\Exception $e){
           $error=$e->getMessage();
+
           switch ($error) {
               case 'stop':
                   $result['code']='stop';
